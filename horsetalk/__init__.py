@@ -4,5 +4,6 @@ from .disaster import Disaster
 from .gender import Gender
 from .obstacle import Obstacle
 from .sex import Sex
+from .surface import Surface
 
-__all__ = ["Breed", "CoatColour", "Disaster", "Gender", "Obstacle", "Sex"]
+__all__ = ["Breed", "CoatColour", "Disaster", "Gender", "Obstacle", "Sex", "Surface"]
