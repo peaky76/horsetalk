@@ -1,7 +1,7 @@
-from enum import Enum
+from .case_insensitive_enum import CaseInsensitiveEnum
 
 
-class CoatColour(Enum):
+class CoatColour(CaseInsensitiveEnum):
     """
     An enumeration representing a coat colour of a horse.
     """

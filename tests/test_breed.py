@@ -9,5 +9,9 @@ def test_breed_can_be_created_from_name():
     assert Breed.THOROUGHBRED == Breed["THOROUGHBRED"]
 
 
+def test_breed_can_be_created_from_lowercase_name():
+    assert Breed.THOROUGHBRED == Breed["thoroughbred"]
+
+
 def test_breed_can_be_created_from_abbreviation():
     assert Breed.THOROUGHBRED == Breed["TB"]

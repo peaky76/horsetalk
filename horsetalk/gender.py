@@ -1,7 +1,7 @@
-from enum import Enum
+from .case_insensitive_enum import CaseInsensitiveEnum
 
 
-class Gender(Enum):
+class Gender(CaseInsensitiveEnum):
     FOAL = 0
     YEARLING = 1
     COLT = 2

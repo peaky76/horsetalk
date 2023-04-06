@@ -1,7 +1,7 @@
-from enum import Enum
+from .case_insensitive_enum import CaseInsensitiveEnum
 
 
-class Breed(Enum):
+class Breed(CaseInsensitiveEnum):
     """
     An enumeration representing a breed of horse.
     """

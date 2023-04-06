@@ -9,5 +9,9 @@ def test_coat_colour_can_be_created_from_name():
     assert CoatColour.BAY == CoatColour["BAY"]
 
 
+def test_coat_colour_can_be_created_from_lowercase_name():
+    assert CoatColour.BAY == CoatColour["bay"]
+
+
 def test_coat_colour_can_be_created_from_abbreviation():
     assert CoatColour.BAY == CoatColour["B"]
