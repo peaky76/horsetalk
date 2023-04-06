@@ -1,13 +1,7 @@
-from enum import Enum
-from .case_insensitive_enum import CaseInsensitiveEnumMeta
+from .enum_bases import SpaceAndCaseInsensitiveEnum
 
 
-class DisasterEnumMeta(CaseInsensitiveEnumMeta):
-    def __getitem__(cls, name):
-        return super().__getitem__(name.replace(" ", "_"))
-
-
-class Disaster(Enum, metaclass=DisasterEnumMeta):
+class Disaster(SpaceAndCaseInsensitiveEnum):
     """
     An enumeration representing the reason for a horse's non-completion of a race
     """

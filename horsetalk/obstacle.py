@@ -1,13 +1,7 @@
-from enum import Enum
-from .case_insensitive_enum import CaseInsensitiveEnumMeta
+from .enum_bases import SpaceAndCaseInsensitiveEnum
 
 
-class ObstacleEnumMeta(CaseInsensitiveEnumMeta):
-    def __getitem__(cls, name):
-        return super().__getitem__(name.replace("-", " ").replace(" ", "_"))
-
-
-class Obstacle(Enum, metaclass=ObstacleEnumMeta):
+class Obstacle(SpaceAndCaseInsensitiveEnum):
     """
     An enumeration representing the type of obstacle a race takes place over
     """

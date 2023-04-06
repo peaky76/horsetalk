@@ -11,3 +11,14 @@ class CaseInsensitiveEnumMeta(EnumMeta):
 
 class CaseInsensitiveEnum(Enum, metaclass=CaseInsensitiveEnumMeta):
     pass
+
+
+class SpaceAndCaseInsensitiveEnumMeta(CaseInsensitiveEnumMeta):
+    def __getitem__(cls, name):
+        return super().__getitem__(name.replace("-", " ").replace(" ", "_"))
+
+
+class SpaceAndCaseInsensitiveEnum(
+    CaseInsensitiveEnum, metaclass=SpaceAndCaseInsensitiveEnumMeta
+):
+    pass
