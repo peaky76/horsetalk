@@ -2,6 +2,10 @@ from .case_insensitive_enum import CaseInsensitiveEnum
 
 
 class Gender(CaseInsensitiveEnum):
+    """
+    An enumeration representing the gender of a horse
+    """
+
     FOAL = 0
     YEARLING = 1
     COLT = 2
