@@ -1,4 +1,4 @@
-from .case_insensitive_enum import CaseInsensitiveEnum
+from .enum_bases import CaseInsensitiveEnum
 
 
 class CoatColour(CaseInsensitiveEnum):
