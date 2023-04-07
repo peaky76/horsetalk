@@ -1,6 +1,6 @@
 from enum import Enum
 from typing import List
-from horsetalk import Obstacle, RaceAgeStatus
+from horsetalk import Obstacle, RaceAgeStatus, RaceExperienceStatus
 
 
 class RaceTitle:
@@ -9,6 +9,7 @@ class RaceTitle:
         words = title.split()
         return {
             "age_status": RaceTitle._lookup(words, RaceAgeStatus),
+            "experience_status": RaceTitle._lookup(words, RaceExperienceStatus),
             "obstacle": RaceTitle._lookup(words, Obstacle),
         }
 
