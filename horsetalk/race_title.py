@@ -3,7 +3,7 @@ from typing import List, Type
 from .age_category import AgeCategory
 from .experience_level import ExperienceLevel
 from .obstacle import Obstacle
-from .race_weight_status import RaceWeightStatus
+from .weight_determinant import WeightDeterminant
 
 
 class RaceTitle:
@@ -24,7 +24,7 @@ class RaceTitle:
             "age_category": self._lookup(AgeCategory),
             "experience_level": self._lookup(ExperienceLevel),
             "obstacle": self._lookup(Obstacle),
-            "weight_status": self._lookup(RaceWeightStatus),
+            "weight_determinant": self._lookup(WeightDeterminant),
         }
 
     def _lookup(self, enum: Type[Enum]) -> Enum | None:
