@@ -1,5 +1,4 @@
 from enum import Enum
-from typing import List
 from .obstacle import Obstacle
 from .race_age_status import RaceAgeStatus
 from .race_experience_status import RaceExperienceStatus
