@@ -1,3 +1,4 @@
+from .aw_going_description import AWGoingDescription
 from .breed import Breed
 from .coat_colour import CoatColour
 from .disaster import Disaster
@@ -9,6 +10,7 @@ from .surface import Surface
 from .turf_going_description import TurfGoingDescription
 
 __all__ = [
+    "AWGoingDescription",
     "Breed",
     "CoatColour",
     "Disaster",
