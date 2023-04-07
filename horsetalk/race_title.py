@@ -1,6 +1,9 @@
 from enum import Enum
 from typing import List
-from horsetalk import Obstacle, RaceAgeStatus, RaceExperienceStatus
+from .obstacle import Obstacle
+from .race_age_status import RaceAgeStatus
+from .race_experience_status import RaceExperienceStatus
+from .race_weight_status import RaceWeightStatus
 
 
 class RaceTitle:
@@ -14,6 +17,7 @@ class RaceTitle:
             "age_status": self._lookup(RaceAgeStatus),
             "experience_status": self._lookup(RaceExperienceStatus),
             "obstacle": self._lookup(Obstacle),
+            "weight_status": self._lookup(RaceWeightStatus),
         }
 
     def _lookup(self, enum: Enum):
