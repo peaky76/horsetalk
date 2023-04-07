@@ -1,7 +1,7 @@
 from horsetalk import (
+    AgeCategory,
     ExperienceLevel,
     Obstacle,
-    RaceAgeStatus,
     RaceTitle,
     RaceWeightStatus,
 )
@@ -25,17 +25,17 @@ def test_race_title_parse_can_correctly_identify_obstacle_when_not_present():
     assert expected == actual
 
 
-def test_race_title_parse_can_correctly_identify_age_status_when_present():
-    expected = RaceAgeStatus.JUVENILE
+def test_race_title_parse_can_correctly_identify_age_category_when_present():
+    expected = AgeCategory.JUVENILE
     actual = RaceTitle.parse(
         "BETSAFE BEST ODDS GUARANTEED JUVENILE MAIDEN HURDLE (Qualifier) (4)"
-    )["age_status"]
+    )["age_category"]
     assert expected == actual
 
 
-def test_race_title_parse_can_correctly_identify_age_status_when_not_present():
+def test_race_title_parse_can_correctly_identify_age_category_when_not_present():
     expected = None
-    actual = RaceTitle.parse("HAPPY NEW YEAR HANDICAP (4)")["age_status"]
+    actual = RaceTitle.parse("HAPPY NEW YEAR HANDICAP (4)")["age_category"]
     assert expected == actual
 
 
