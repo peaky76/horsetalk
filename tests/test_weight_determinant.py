@@ -11,3 +11,7 @@ def test_race_weight_status_can_be_created_from_name():
 
 def test_race_weight_status_can_be_created_from_lowercase_name():
     assert WeightDeterminant.HANDICAP == WeightDeterminant["handicap"]
+
+
+def test_race_weight_status_can_be_created_from_apostrophised_name():
+    assert WeightDeterminant.HANDICAP == WeightDeterminant["H'CAP"]
