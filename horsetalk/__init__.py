@@ -3,10 +3,10 @@ from .breed import Breed
 from .coat_colour import CoatColour
 from .dirt_going_description import DirtGoingDescription
 from .disaster import Disaster
+from .experience_level import ExperienceLevel
 from .gender import Gender
 from .obstacle import Obstacle
 from .race_age_status import RaceAgeStatus
-from .race_experience_status import RaceExperienceStatus
 from .race_title import RaceTitle
 from .race_weight_status import RaceWeightStatus
 from .racing_code import RacingCode
@@ -20,6 +20,7 @@ __all__ = [
     "CoatColour",
     "DirtGoingDescription",
     "Disaster",
+    "ExperienceLevel",
     "Gender",
     "Obstacle",
     "RaceAgeStatus",

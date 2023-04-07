@@ -1,7 +1,7 @@
 from .parsing_enum import ParsingEnum
 
 
-class RaceExperienceStatus(ParsingEnum):
+class ExperienceLevel(ParsingEnum):
     MAIDEN = 1
     NOVICE = 2
     BEGINNER = 3

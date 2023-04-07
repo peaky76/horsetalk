@@ -1,8 +1,8 @@
 from enum import Enum
 from typing import List, Type
+from .experience_level import ExperienceLevel
 from .obstacle import Obstacle
 from .race_age_status import RaceAgeStatus
-from .race_experience_status import RaceExperienceStatus
 from .race_weight_status import RaceWeightStatus
 
 
@@ -22,7 +22,7 @@ class RaceTitle:
         self._words = title.split()
         return {
             "age_status": self._lookup(RaceAgeStatus),
-            "experience_status": self._lookup(RaceExperienceStatus),
+            "experience_level": self._lookup(ExperienceLevel),
             "obstacle": self._lookup(Obstacle),
             "weight_status": self._lookup(RaceWeightStatus),
         }

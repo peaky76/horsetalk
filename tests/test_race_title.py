@@ -1,7 +1,7 @@
 from horsetalk import (
+    ExperienceLevel,
     Obstacle,
     RaceAgeStatus,
-    RaceExperienceStatus,
     RaceTitle,
     RaceWeightStatus,
 )
@@ -39,17 +39,17 @@ def test_race_title_parse_can_correctly_identify_age_status_when_not_present():
     assert expected == actual
 
 
-def test_race_title_parse_can_correctly_identify_experience_status_when_present():
-    expected = RaceExperienceStatus.NOVICE
+def test_race_title_parse_can_correctly_identify_experience_level_when_present():
+    expected = ExperienceLevel.NOVICE
     actual = RaceTitle.parse("LADBROKES FOOTBALL ACCA BOOTY FILLIES NOVICE STAKES (5)")[
-        "experience_status"
+        "experience_level"
     ]
     assert expected == actual
 
 
-def test_race_title_parse_can_correctly_identify_experience_status_when_not_present():
+def test_race_title_parse_can_correctly_identify_experience_level_when_not_present():
     expected = None
-    actual = RaceTitle.parse("HAPPY NEW YEAR HANDICAP (4)")["experience_status"]
+    actual = RaceTitle.parse("HAPPY NEW YEAR HANDICAP (4)")["experience_level"]
     assert expected == actual
 
 
