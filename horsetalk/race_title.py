@@ -1,5 +1,4 @@
-from horsetalk.obstacle import Obstacle
-from horsetalk.race_age_status import RaceAgeStatus
+from horsetalk import Obstacle, RaceAgeStatus
 
 
 class RaceTitle:
