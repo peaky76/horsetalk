@@ -21,13 +21,15 @@ class RaceTitle:
         self = cls()
         self._words = title.split()
         return {
-            "age_category": self._lookup(AgeCategory),
-            "experience_level": self._lookup(ExperienceLevel),
-            "obstacle": self._lookup(Obstacle),
-            "weight_determinant": self._lookup(WeightDeterminant),
+            "age_category": x[-1] if (x := self._lookup(AgeCategory)) else None,
+            "experience_level": x[-1] if (x := self._lookup(ExperienceLevel)) else None,
+            "obstacle": x[-1] if (x := self._lookup(Obstacle)) else None,
+            "weight_determinant": x[-1]
+            if (x := self._lookup(WeightDeterminant))
+            else None,
         }
 
-    def _lookup(self, enum: Type[Enum]) -> Enum | None:
+    def _lookup(self, enum: Type[Enum]) -> List[Enum]:
         """Private method to lookup an enum value from a list of words
 
         :param enum: Enum to search through
@@ -35,11 +37,8 @@ class RaceTitle:
         :return: The found Enum value or None
         :rtype: Enum | None
         """
-        return next(
-            (
-                found_value
-                for word in self._words
-                if (found_value := getattr(enum, word, None)) is not None
-            ),
-            None,
-        )
+        return [
+            found_value
+            for word in self._words
+            if (found_value := getattr(enum, word, None)) is not None
+        ]
