@@ -4,21 +4,23 @@ from horsetalk import Obstacle, RaceAgeStatus, RaceExperienceStatus
 
 
 class RaceTitle:
-    @staticmethod
-    def parse(title: str):
-        words = title.split()
+    _words = []
+
+    @classmethod
+    def parse(cls, title: str):
+        self = cls()
+        self._words = title.split()
         return {
-            "age_status": RaceTitle._lookup(words, RaceAgeStatus),
-            "experience_status": RaceTitle._lookup(words, RaceExperienceStatus),
-            "obstacle": RaceTitle._lookup(words, Obstacle),
+            "age_status": self._lookup(RaceAgeStatus),
+            "experience_status": self._lookup(RaceExperienceStatus),
+            "obstacle": self._lookup(Obstacle),
         }
 
-    @staticmethod
-    def _lookup(words: List[str], enum: Enum):
+    def _lookup(self, enum: Enum):
         return next(
             (
                 found_value
-                for word in words
+                for word in self._words
                 if (found_value := getattr(enum, word, None)) is not None
             ),
             None,
