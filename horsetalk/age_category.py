@@ -1,7 +1,7 @@
 from .parsing_enum import ParsingEnum
 
 
-class RaceAgeStatus(ParsingEnum):
+class AgeCategory(ParsingEnum):
     JUVENILE = 1
     VETERAN = 2
 
