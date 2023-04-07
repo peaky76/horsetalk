@@ -1,6 +1,7 @@
 from .aw_going_description import AWGoingDescription
 from .breed import Breed
 from .coat_colour import CoatColour
+from .dirt_going_description import DirtGoingDescription
 from .disaster import Disaster
 from .gender import Gender
 from .obstacle import Obstacle
@@ -13,6 +14,7 @@ __all__ = [
     "AWGoingDescription",
     "Breed",
     "CoatColour",
+    "DirtGoingDescription",
     "Disaster",
     "Gender",
     "Obstacle",
