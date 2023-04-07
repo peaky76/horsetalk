@@ -22,7 +22,7 @@ sphinx-rtd-theme = "^1.2.0"
 ruff = "^0.0.261"
 
 [tool.ruff]
-ignore = ["E741"]
+ignore = ["E501", "E741"]
 
 [build-system]
 requires = ["poetry-core"]
