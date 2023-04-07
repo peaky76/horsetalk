@@ -1,7 +1,7 @@
-from .enum_bases import CaseInsensitiveEnum
+from .enum_bases import ParsingEnum
 
 
-class CoatColour(CaseInsensitiveEnum):
+class CoatColour(ParsingEnum):
     """
     An enumeration representing a coat colour of a horse.
     """

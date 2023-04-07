@@ -1,7 +1,7 @@
-from .enum_bases import CaseInsensitiveEnum
+from .enum_bases import ParsingEnum
 
 
-class Sex(CaseInsensitiveEnum):
+class Sex(ParsingEnum):
     """
     An enumeration representing the sex of a horse
     """

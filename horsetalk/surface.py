@@ -1,7 +1,7 @@
-from .enum_bases import SpaceAndCaseInsensitiveEnum
+from .enum_bases import ParsingEnum
 
 
-class Surface(SpaceAndCaseInsensitiveEnum):
+class Surface(ParsingEnum):
     """
     An enumeration representing the surface upon which races are held
     """

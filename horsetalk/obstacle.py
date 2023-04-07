@@ -1,7 +1,7 @@
-from .enum_bases import SpaceAndCaseInsensitiveEnum
+from .enum_bases import ParsingEnum
 
 
-class Obstacle(SpaceAndCaseInsensitiveEnum):
+class Obstacle(ParsingEnum):
     """
     An enumeration representing the type of obstacle a race takes place over
     """
