@@ -3,7 +3,17 @@ from .coat_colour import CoatColour
 from .disaster import Disaster
 from .gender import Gender
 from .obstacle import Obstacle
+from .racing_code import RacingCode
 from .sex import Sex
 from .surface import Surface
 
-__all__ = ["Breed", "CoatColour", "Disaster", "Gender", "Obstacle", "Sex", "Surface"]
+__all__ = [
+    "Breed",
+    "CoatColour",
+    "Disaster",
+    "Gender",
+    "Obstacle",
+    "RacingCode",
+    "Sex",
+    "Surface",
+]
