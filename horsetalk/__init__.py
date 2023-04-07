@@ -7,6 +7,7 @@ from .gender import Gender
 from .obstacle import Obstacle
 from .race_age_status import RaceAgeStatus
 from .race_experience_status import RaceExperienceStatus
+from .race_title import RaceTitle
 from .race_weight_status import RaceWeightStatus
 from .racing_code import RacingCode
 from .sex import Sex
@@ -23,6 +24,7 @@ __all__ = [
     "Obstacle",
     "RaceAgeStatus",
     "RaceExperienceStatus",
+    "RaceTitle",
     "RaceWeightStatus",
     "RacingCode",
     "Sex",
