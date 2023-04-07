@@ -1,7 +1,7 @@
-from .enum_bases import SpaceAndCaseInsensitiveEnum
+from .enum_bases import ParsingEnum
 
 
-class Disaster(SpaceAndCaseInsensitiveEnum):
+class Disaster(ParsingEnum):
     """
     An enumeration representing the reason for a horse's non-completion of a race
     """
