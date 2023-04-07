@@ -11,6 +11,13 @@ class RaceTitle:
 
     @classmethod
     def parse(cls, title: str) -> dict:
+        """Parse a race title into component parts
+
+        :param title: A race title
+        :type title: str
+        :return: A dictionary of component parts
+        :rtype: dict
+        """
         self = cls()
         self._words = title.split()
         return {
@@ -21,6 +28,13 @@ class RaceTitle:
         }
 
     def _lookup(self, enum: Type[Enum]) -> Enum | None:
+        """Private method to lookup an enum value from a list of words
+
+        :param enum: Enum to search through
+        :type enum: Type[Enum]
+        :return: The found Enum value or None
+        :rtype: Enum | None
+        """
         return next(
             (
                 found_value
