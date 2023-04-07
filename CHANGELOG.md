@@ -1,5 +1,23 @@
 # Changelog
 
+## 0.3.0 (2023-04-07)
+
+#### New Features
+
+- `RacingCode` enum
+- `Surface` enum
+- `AWGoingDescription` enum
+- `DirtGoingDescription` enum
+- `TurfGoingDescription` enum
+
+#### Refactorings
+
+- create `ParsingEnum` base
+
+#### Others
+
+- ignore line too long warning E501
+
 ## 0.2.0 (2023-04-06)
 
 #### New Features
