@@ -1,4 +1,4 @@
-from .enum_bases import ParsingEnum
+from .parsing_enum import ParsingEnum
 
 
 class Obstacle(ParsingEnum):
