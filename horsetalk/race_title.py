@@ -1,4 +1,5 @@
 from enum import Enum
+from typing import List, Type
 from .obstacle import Obstacle
 from .race_age_status import RaceAgeStatus
 from .race_experience_status import RaceExperienceStatus
@@ -6,10 +7,10 @@ from .race_weight_status import RaceWeightStatus
 
 
 class RaceTitle:
-    _words = []
+    _words: List[str] = []
 
     @classmethod
-    def parse(cls, title: str):
+    def parse(cls, title: str) -> dict:
         self = cls()
         self._words = title.split()
         return {
@@ -19,7 +20,7 @@ class RaceTitle:
             "weight_status": self._lookup(RaceWeightStatus),
         }
 
-    def _lookup(self, enum: Enum):
+    def _lookup(self, enum: Type[Enum]) -> Enum | None:
         return next(
             (
                 found_value
