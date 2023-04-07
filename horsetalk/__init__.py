@@ -6,6 +6,7 @@ from .obstacle import Obstacle
 from .racing_code import RacingCode
 from .sex import Sex
 from .surface import Surface
+from .turf_going_description import TurfGoingDescription
 
 __all__ = [
     "Breed",
@@ -16,4 +17,5 @@ __all__ = [
     "RacingCode",
     "Sex",
     "Surface",
+    "TurfGoingDescription",
 ]
