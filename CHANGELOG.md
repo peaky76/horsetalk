@@ -1,5 +1,27 @@
 # Changelog
 
+## 0.5.0 (2023-04-08)
+
+#### New Features
+
+- `FormFigures` class with `parse` method
+- `FormBreak` enum
+- `FinishingPosition` enum
+- `Headgear` enum
+- `JockeyExperience` enum
+- add ROAN to `CoatColour`
+- add AUCTION, CLAIMER, SELLER to `RaceDesignation`
+
+#### Refactorings
+
+- `WeightDeterminant` -> `RaceDesignation`
+- `ExperienceLevel` -> `HorseExperienceLevel`
+- `FormFigures.parse` now uses list comprehension
+
+#### Others
+
+- rename tests correctly
+
 ## 0.4.0 (2023-04-08)
 
 #### New Features
