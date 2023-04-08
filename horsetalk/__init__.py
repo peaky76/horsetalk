@@ -32,6 +32,7 @@ __all__ = [
     "Gender",
     "Headgear",
     "HorseExperienceLevel",
+    "JockeyExperienceLevel",
     "Obstacle",
     "RaceDesignation",
     "RaceExperienceStatus",
