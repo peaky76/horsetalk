@@ -12,3 +12,6 @@ class FinishingPosition(Enum):
     SEVENTH = 7
     EIGHTH = 8
     NINTH = 9
+
+    def __str__(self):
+        return str(self.value)
