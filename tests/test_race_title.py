@@ -82,3 +82,11 @@ def test_race_title_parse_can_correctly_identify_gender_when_none_present():
     expected = None
     actual = RaceTitle.parse("HAPPY NEW YEAR HANDICAP (4)")["gender"]
     assert expected == actual
+
+
+def test_race_title_parse_can_correctly_identify_name():
+    expected = "LADBROKES FOOTBALL ACCA BOOTY"
+    actual = RaceTitle.parse("LADBROKES FOOTBALL ACCA BOOTY FILLIES NOVICE STAKES (5)")[
+        "name"
+    ]
+    assert expected == actual

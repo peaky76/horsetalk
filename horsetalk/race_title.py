@@ -28,12 +28,22 @@ class RaceTitle:
         obstacle = x[-1] if (x := self._lookup(Obstacle)) else None
         weight_determinant = x[-1] if (x := self._lookup(WeightDeterminant)) else None
 
+        enums = [AgeCategory, ExperienceLevel, Gender, Obstacle, WeightDeterminant]
+        end_index = -1
+        for i, word in enumerate(self._words):
+            if any(getattr(enum, word, None) is not None for enum in enums):
+                end_index = i
+                break
+
+        name = " ".join(self._words[:end_index])
+
         return {
             "age_category": age_category,
             "experience_level": experience_level,
             "gender": gender,
             "obstacle": obstacle,
             "weight_determinant": weight_determinant,
+            "name": name,
         }
 
     def _lookup(self, enum: Type[Enum]) -> List[Enum]:
