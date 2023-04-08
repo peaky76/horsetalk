@@ -21,14 +21,19 @@ class RaceTitle:
         """
         self = cls()
         self._words = title.split()
+
+        age_category = x[-1] if (x := self._lookup(AgeCategory)) else None
+        experience_level = x[-1] if (x := self._lookup(ExperienceLevel)) else None
+        gender = x if (x := self._lookup(Gender)) else None
+        obstacle = x[-1] if (x := self._lookup(Obstacle)) else None
+        weight_determinant = x[-1] if (x := self._lookup(WeightDeterminant)) else None
+
         return {
-            "age_category": x[-1] if (x := self._lookup(AgeCategory)) else None,
-            "experience_level": x[-1] if (x := self._lookup(ExperienceLevel)) else None,
-            "gender": x if (x := self._lookup(Gender)) else None,
-            "obstacle": x[-1] if (x := self._lookup(Obstacle)) else None,
-            "weight_determinant": x[-1]
-            if (x := self._lookup(WeightDeterminant))
-            else None,
+            "age_category": age_category,
+            "experience_level": experience_level,
+            "gender": gender,
+            "obstacle": obstacle,
+            "weight_determinant": weight_determinant,
         }
 
     def _lookup(self, enum: Type[Enum]) -> List[Enum]:
