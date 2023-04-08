@@ -1,5 +1,5 @@
 from horsetalk import HorseHeight
-from measurement.measures import Distance
+from measurement.measures import Distance  # type: ignore
 
 
 def test_horse_height_can_be_initialized_with_hands_string():

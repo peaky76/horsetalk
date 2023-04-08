@@ -26,7 +26,7 @@ class RaceDistance(Distance):
             else:
                 distance += Distance(**{unit: int(val)})
 
-        super().__init__(self, m=distance.m)
+        super().__init__(self, m=distance.m)  # type: ignore
 
     @property
     def furlong(self) -> Decimal:
