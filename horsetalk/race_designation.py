@@ -1,7 +1,7 @@
 from .parsing_enum import ParsingEnum
 
 
-class WeightDeterminant(ParsingEnum):
+class RaceDesignation(ParsingEnum):
     HANDICAP = 1
     CONDITIONS = 2
 

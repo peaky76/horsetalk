@@ -3,8 +3,8 @@ from horsetalk import (
     Gender,
     HorseExperienceLevel,
     Obstacle,
+    RaceDesignation,
     RaceTitle,
-    WeightDeterminant,
 )
 
 
@@ -54,15 +54,15 @@ def test_race_title_parse_can_correctly_identify_horse_experience_level_when_not
     assert expected == actual
 
 
-def test_race_title_parse_can_correctly_identify_weight_determinant_when_present():
-    expected = WeightDeterminant.HANDICAP
-    actual = RaceTitle.parse("HAPPY NEW YEAR HANDICAP (4)")["weight_determinant"]
+def test_race_title_parse_can_correctly_identify_race_designation_when_present():
+    expected = RaceDesignation.HANDICAP
+    actual = RaceTitle.parse("HAPPY NEW YEAR HANDICAP (4)")["race_designation"]
     assert expected == actual
 
 
-def test_race_title_parse_can_correctly_identify_weight_determinant_when_not_present():
+def test_race_title_parse_can_correctly_identify_race_designation_when_not_present():
     expected = None
-    actual = RaceTitle.parse("DERBY STAKES (Group 1)")["weight_determinant"]
+    actual = RaceTitle.parse("DERBY STAKES (Group 1)")["race_designation"]
     assert expected == actual
 
 

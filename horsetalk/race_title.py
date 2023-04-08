@@ -4,7 +4,7 @@ from .age_category import AgeCategory
 from .horse_experience_level import HorseExperienceLevel
 from .gender import Gender
 from .obstacle import Obstacle
-from .weight_determinant import WeightDeterminant
+from .race_designation import RaceDesignation
 
 
 class RaceTitle:
@@ -22,7 +22,7 @@ class RaceTitle:
         self = cls()
         self._words = title.split()
 
-        enums = [AgeCategory, HorseExperienceLevel, Gender, Obstacle, WeightDeterminant]
+        enums = [AgeCategory, HorseExperienceLevel, Gender, Obstacle, RaceDesignation]
         end_index = -1
         for i, word in enumerate(self._words):
             if any(getattr(enum, word, None) is not None for enum in enums):
@@ -35,7 +35,7 @@ class RaceTitle:
             "horse_experience_level": self._lookup(HorseExperienceLevel),
             "gender": self._lookup(Gender, allow_multiple=True),
             "obstacle": self._lookup(Obstacle),
-            "weight_determinant": self._lookup(WeightDeterminant),
+            "race_designation": self._lookup(RaceDesignation),
             "name": name,
         }
 

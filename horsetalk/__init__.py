@@ -12,12 +12,12 @@ from .form_figures import FormFigures
 from .gender import Gender
 from .headgear import Headgear
 from .obstacle import Obstacle
+from .race_designation import RaceDesignation
 from .race_title import RaceTitle
 from .racing_code import RacingCode
 from .sex import Sex
 from .surface import Surface
 from .turf_going_description import TurfGoingDescription
-from .weight_determinant import WeightDeterminant
 
 __all__ = [
     "AgeCategory",
@@ -33,11 +33,11 @@ __all__ = [
     "Headgear",
     "HorseExperienceLevel",
     "Obstacle",
+    "RaceDesignation",
     "RaceExperienceStatus",
     "RaceTitle",
     "RacingCode",
     "Sex",
     "Surface",
     "TurfGoingDescription",
-    "WeightDeterminant",
 ]
