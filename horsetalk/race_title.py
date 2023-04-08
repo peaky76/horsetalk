@@ -22,27 +22,20 @@ class RaceTitle:
         self = cls()
         self._words = title.split()
 
-        age_category = self._lookup(AgeCategory)
-        experience_level = self._lookup(ExperienceLevel)
-        gender = self._lookup(Gender, allow_multiple=True)
-        obstacle = self._lookup(Obstacle)
-        weight_determinant = self._lookup(WeightDeterminant)
-
         enums = [AgeCategory, ExperienceLevel, Gender, Obstacle, WeightDeterminant]
         end_index = -1
         for i, word in enumerate(self._words):
             if any(getattr(enum, word, None) is not None for enum in enums):
                 end_index = i
                 break
-
         name = " ".join(self._words[:end_index])
 
         return {
-            "age_category": age_category,
-            "experience_level": experience_level,
-            "gender": gender,
-            "obstacle": obstacle,
-            "weight_determinant": weight_determinant,
+            "age_category": self._lookup(AgeCategory),
+            "experience_level": self._lookup(ExperienceLevel),
+            "gender": self._lookup(Gender, allow_multiple=True),
+            "obstacle": self._lookup(Obstacle),
+            "weight_determinant": self._lookup(WeightDeterminant),
             "name": name,
         }
 
