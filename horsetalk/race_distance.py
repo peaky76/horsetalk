@@ -19,12 +19,14 @@ class RaceDistance(Distance):
 
         distance = Distance(m=0)
         for vu in vals_and_units:
-            val, unit = re.compile(r"(\d+)(\D+)").match(vu).groups()
-            unit = unit_dict[unit] if unit in unit_dict and int(val) < 221 else unit
-            if unit == "furlong":
-                distance += Distance(chain=int(val) * 10)
-            else:
-                distance += Distance(**{unit: int(val)})
+            matches = re.compile(r"(\d+)(\D+)").match(vu)
+            if matches:
+                val, unit = matches.groups()
+                unit = unit_dict[unit] if unit in unit_dict and int(val) < 221 else unit
+                if unit == "furlong":
+                    distance += Distance(chain=int(val) * 10)
+                else:
+                    distance += Distance(**{unit: int(val)})
 
         super().__init__(self, m=distance.m)  # type: ignore
 

@@ -18,11 +18,13 @@ class HorseHeight(Distance):
 
         height = Distance(inch=0)
         for vu in vals_and_units:
-            val, unit = re.compile(r"(\d+)(\D+)").match(vu).groups()
-            if unit == "hands" or unit == "hh":
-                height += Distance(inch=int(val) * 4)
-            else:
-                height += Distance(**{unit: int(val)})
+            matches = re.compile(r"(\d+)(\D+)").match(vu)
+            if matches:
+                val, unit = matches.groups()
+                if unit == "hands" or unit == "hh":
+                    height += Distance(inch=int(val) * 4)
+                else:
+                    height += Distance(**{unit: int(val)})
 
         super().__init__(self, inch=height.inch)
 
