@@ -13,6 +13,7 @@ class CoatColour(ParsingEnum):
     GREY = 5
     PALOMINO = 6
     WHITE = 7
+    ROAN = 8
 
     # Abbreviations
     B = BAY
@@ -26,3 +27,5 @@ class CoatColour(ParsingEnum):
     GRAY = GREY
     P = PALOMINO
     W = WHITE
+    R = ROAN
+    RO = ROAN
