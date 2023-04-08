@@ -11,6 +11,7 @@ from .form_break import FormBreak
 from .form_figures import FormFigures
 from .gender import Gender
 from .headgear import Headgear
+from .horse_height import HorseHeight
 from .horselength import Horselength
 from .obstacle import Obstacle
 from .race_designation import RaceDesignation
@@ -33,6 +34,7 @@ __all__ = [
     "FormFigures",
     "Gender",
     "Headgear",
+    "HorseHeight",
     "Horselength",
     "HorseExperienceLevel",
     "JockeyExperienceLevel",
