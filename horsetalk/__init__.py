@@ -14,6 +14,7 @@ from .headgear import Headgear
 from .horselength import Horselength
 from .obstacle import Obstacle
 from .race_designation import RaceDesignation
+from .race_distance import RaceDistance
 from .race_title import RaceTitle
 from .racing_code import RacingCode
 from .sex import Sex
@@ -37,6 +38,7 @@ __all__ = [
     "JockeyExperienceLevel",
     "Obstacle",
     "RaceDesignation",
+    "RaceDistance",
     "RaceExperienceStatus",
     "RaceTitle",
     "RacingCode",
