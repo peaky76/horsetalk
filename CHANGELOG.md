@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.6.0 (2023-04-08)
+
+#### New Features
+
+- `HorseAge` class
+- `HorseHeight` class
+- `Horselength` class
+- `RaceDistance` class
+
+#### Others
+
+- add pytest-mock to dev deps
+- add pendulum
+
 ## 0.5.0 (2023-04-08)
 
 #### New Features
