@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.6.1 (2023-04-08)
+
+#### Fixes
+
+- `ParsingEnum` trims whitespace
+
 ## 0.6.0 (2023-04-08)
 
 #### New Features
