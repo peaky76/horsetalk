@@ -22,3 +22,13 @@ class Gender(ParsingEnum):
     M = MARE
     G = GELDING
     R = RIG
+
+    # Plural
+    FOALS = FOAL
+    YEARLINGS = YEARLING
+    COLTS = COLT
+    FILLIES = FILLY
+    STALLIONS = STALLION
+    MARES = MARE
+    GELDINGS = GELDING
+    RIGS = RIG

@@ -1,6 +1,7 @@
 from horsetalk import (
     AgeCategory,
     ExperienceLevel,
+    Gender,
     Obstacle,
     RaceTitle,
     WeightDeterminant,
@@ -62,4 +63,22 @@ def test_race_title_parse_can_correctly_identify_weight_determinant_when_present
 def test_race_title_parse_can_correctly_identify_weight_determinant_when_not_present():
     expected = None
     actual = RaceTitle.parse("DERBY STAKES (Group 1)")["weight_determinant"]
+    assert expected == actual
+
+
+def test_race_title_parse_can_correctly_identify_gender_when_one_present():
+    expected = [Gender.FILLY]
+    actual = RaceTitle.parse("32Red.com FILLIES HANDICAP (5)")["gender"]
+    assert expected == actual
+
+
+def test_race_title_parse_can_correctly_identify_gender_when_multiple_present():
+    expected = [Gender.FILLY, Gender.MARE]
+    actual = RaceTitle.parse("32Red.com FILLIES AND MARES HANDICAP (5)")["gender"]
+    assert expected == actual
+
+
+def test_race_title_parse_can_correctly_identify_gender_when_none_present():
+    expected = None
+    actual = RaceTitle.parse("HAPPY NEW YEAR HANDICAP (4)")["gender"]
     assert expected == actual
