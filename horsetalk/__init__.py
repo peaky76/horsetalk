@@ -5,6 +5,7 @@ from .coat_colour import CoatColour
 from .dirt_going_description import DirtGoingDescription
 from .disaster import Disaster
 from .horse_experience_level import HorseExperienceLevel
+from .jockey_experience_level import JockeyExperienceLevel
 from .finishing_position import FinishingPosition
 from .form_break import FormBreak
 from .form_figures import FormFigures
