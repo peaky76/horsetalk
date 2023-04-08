@@ -21,5 +21,11 @@ def test_aw_going_description_can_be_created_from_non_hyphenated_name():
     assert AWGoingDescription.STANDARD_TO_SLOW == AWGoingDescription["STANDARD TO SLOW"]
 
 
+def test_aw_going_description_can_be_created_when_whitespace_needs_trimming():
+    assert (
+        AWGoingDescription.STANDARD_TO_SLOW == AWGoingDescription[" standard to slow "]
+    )
+
+
 def test_aw_going_description_can_be_created_from_abbreviation():
     assert AWGoingDescription.STANDARD == AWGoingDescription["std"]
