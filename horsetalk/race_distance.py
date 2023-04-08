@@ -1,4 +1,5 @@
 from decimal import Decimal
+import re
 from measurement.measures import Distance  # type: ignore
 
 
@@ -12,15 +13,19 @@ class RaceDistance(Distance):
         """
         Initialize a RaceDistance object from a string.
         """
-        if "m" in distance:
-            parts = distance.split("m")
-            miles = int(parts[0])
-            furlongs = int(parts[1].split("f")[0] if len(parts) > 1 and parts[1] else 0)
-        else:
-            parts = distance.split("f")
-            miles = 0
-            furlongs = int(parts[0]) if "f" in distance else 0
-        super().__init__(self, chain=((miles * 8) + furlongs) * 10)
+        pattern = re.compile(r"(\d+\D+)")
+        unit_dict = {"m": "mile", "f": "furlong", "y": "yard"}
+        vals_and_units = pattern.findall(distance.replace(" ", ""))
+
+        distance = Distance(m=0)
+        for vu in vals_and_units:
+            val, unit = re.compile(r"(\d+)(\D+)").match(vu).groups()
+            if unit_dict[unit] == "furlong":
+                distance += Distance(chain=int(val) * 10)
+            else:
+                distance += Distance(**{unit_dict[unit]: int(val)})
+
+        super().__init__(self, m=distance.m)
 
     @property
     def furlong(self) -> Decimal:
