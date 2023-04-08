@@ -2,6 +2,7 @@ from enum import Enum
 from typing import List, Type
 from .age_category import AgeCategory
 from .experience_level import ExperienceLevel
+from .gender import Gender
 from .obstacle import Obstacle
 from .weight_determinant import WeightDeterminant
 
@@ -23,6 +24,7 @@ class RaceTitle:
         return {
             "age_category": x[-1] if (x := self._lookup(AgeCategory)) else None,
             "experience_level": x[-1] if (x := self._lookup(ExperienceLevel)) else None,
+            "gender": x if (x := self._lookup(Gender)) else None,
             "obstacle": x[-1] if (x := self._lookup(Obstacle)) else None,
             "weight_determinant": x[-1]
             if (x := self._lookup(WeightDeterminant))
