@@ -7,6 +7,7 @@ from .disaster import Disaster
 from .experience_level import ExperienceLevel
 from .finishing_position import FinishingPosition
 from .form_break import FormBreak
+from .form_figures import FormFigures
 from .gender import Gender
 from .obstacle import Obstacle
 from .race_title import RaceTitle
@@ -26,6 +27,7 @@ __all__ = [
     "ExperienceLevel",
     "FinishingPosition",
     "FormBreak",
+    "FormFigures",
     "Gender",
     "Obstacle",
     "RaceExperienceStatus",
