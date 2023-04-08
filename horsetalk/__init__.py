@@ -9,6 +9,7 @@ from .finishing_position import FinishingPosition
 from .form_break import FormBreak
 from .form_figures import FormFigures
 from .gender import Gender
+from .headgear import Headgear
 from .obstacle import Obstacle
 from .race_title import RaceTitle
 from .racing_code import RacingCode
@@ -29,6 +30,7 @@ __all__ = [
     "FormBreak",
     "FormFigures",
     "Gender",
+    "Headgear",
     "Obstacle",
     "RaceExperienceStatus",
     "RaceTitle",
