@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.4.0 (2023-04-08)
+
+#### New Features
+
+- `AgeCategory` enum
+- `ExperienceLevel` enum
+- `WeightDeterminant` enum
+- `RaceTitle` class with `parse` function, handling `AgeCategory`, `ExperienceLevel`, `Gender`, `Obstacle`, `WeightDeterminant` and name
+- `ParsingEnum` made apostrophe neutral
+
 ## 0.3.0 (2023-04-07)
 
 #### New Features
