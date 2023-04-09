@@ -3,7 +3,8 @@ from .parsing_enum import ParsingEnum
 
 class Gender(ParsingEnum):
     """
-    An enumeration representing the gender of a horse
+    An enumeration representing the gender of a horse.
+
     """
 
     FOAL = 0

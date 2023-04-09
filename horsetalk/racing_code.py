@@ -2,6 +2,11 @@ from .parsing_enum import ParsingEnum
 
 
 class RacingCode(ParsingEnum):
+    """
+    An enumeration that represents a code of racing.
+
+    """
+
     FLAT = 1
     NATIONAL_HUNT = 2
     POINT_TO_POINT = 3

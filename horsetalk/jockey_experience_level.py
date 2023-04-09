@@ -2,6 +2,11 @@ from .parsing_enum import ParsingEnum
 
 
 class JockeyExperienceLevel(ParsingEnum):
+    """
+    An enumeration that represents a jockey's experience level.
+
+    """
+
     AMATEUR = 1
     CONDITIONAL = 2
     APPRENTICE = 3

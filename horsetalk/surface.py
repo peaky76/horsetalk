@@ -3,7 +3,8 @@ from .parsing_enum import ParsingEnum
 
 class Surface(ParsingEnum):
     """
-    An enumeration representing the surface upon which races are held
+    An enumeration representing the surface upon which races are held.
+
     """
 
     TURF = 1

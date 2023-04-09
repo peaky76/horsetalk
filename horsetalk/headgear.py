@@ -4,6 +4,7 @@ from .parsing_enum import ParsingEnum
 class Headgear(ParsingEnum):
     """
     An enumeration representing the headgear worn by a horse in a race.
+
     """
 
     HOOD = 1

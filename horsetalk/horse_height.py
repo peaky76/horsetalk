@@ -7,6 +7,7 @@ class HorseHeight(Distance):
     """
     A class for measuring a horse's height, created by wrapping the measurement library Distance class to allow
     for the use of hands as a unit.
+
     """
 
     def __init__(self, distance: str) -> None:
