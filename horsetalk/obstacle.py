@@ -3,7 +3,8 @@ from .parsing_enum import ParsingEnum
 
 class Obstacle(ParsingEnum):
     """
-    An enumeration representing the type of obstacle a race takes place over
+    An enumeration representing the type of obstacle a race takes place over.
+
     """
 
     HURDLE = 1

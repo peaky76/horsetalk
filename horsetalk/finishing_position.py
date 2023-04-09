@@ -2,6 +2,11 @@ from enum import Enum
 
 
 class FinishingPosition(Enum):
+    """
+    An enumeration that represents the finishing position of a horse in a race.
+
+    """
+
     UNPLACED = 0
     FIRST = 1
     SECOND = 2

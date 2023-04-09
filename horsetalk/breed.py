@@ -4,6 +4,7 @@ from .parsing_enum import ParsingEnum
 class Breed(ParsingEnum):
     """
     An enumeration representing a breed of horse.
+
     """
 
     THOROUGHBRED = 1

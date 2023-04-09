@@ -2,6 +2,11 @@ from .parsing_enum import ParsingEnum
 
 
 class RaceDesignation(ParsingEnum):
+    """
+    An enumeration representing the designation or type of race.
+
+    """
+
     HANDICAP = 1
     CONDITIONS = 2
     AUCTION = 3
