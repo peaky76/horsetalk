@@ -43,11 +43,19 @@ class Gender(ParsingEnum):
         return Sex.FEMALE if self in [Gender.FILLY, Gender.MARE] else Sex.MALE
 
     @staticmethod
-    def determine(sex: Sex, official_age: int):
+    def determine(sex: Sex, official_age: int, **kwargs):
         if official_age == 0:
             return Gender.FOAL
         if official_age == 1:
             return Gender.YEARLING
+        if kwargs.get("is_gelded"):
+            if sex is sex.FEMALE:
+                raise ValueError("Female horse cannot be gelded")
+            return Gender.GELDING
+        if kwargs.get("is_rig"):
+            if sex is sex.FEMALE:
+                raise ValueError("Female horse cannot be rig")
+            return Gender.RIG
         if official_age <= 3:
             return Gender.COLT if sex is sex.MALE else Gender.FILLY
         else:

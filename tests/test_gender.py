@@ -37,3 +37,16 @@ def test_gender_determine_returns_correct_value_when_sex_does_not_matter():
 
 def test_gender_determine_returns_correct_value_when_sex_matters():
     assert Gender.COLT == Gender.determine(Sex.MALE, 2)
+
+
+def test_gender_determine_returns_correct_value_when_gelded():
+    assert Gender.GELDING == Gender.determine(Sex.MALE, 2, is_gelded=True)
+
+
+def test_gender_determine_returns_correct_value_when_rig():
+    assert Gender.RIG == Gender.determine(Sex.MALE, 2, is_rig=True)
+
+
+def test_gender_determine_raises_error_for_gelded_female():
+    with pytest.raises(ValueError):
+        Gender.determine(Sex.FEMALE, 2, is_gelded=True)
