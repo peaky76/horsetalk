@@ -53,13 +53,13 @@ class Gender(ParsingEnum):
         return Sex.FEMALE if self in [Gender.FILLY, Gender.MARE] else Sex.MALE
 
     @staticmethod
-    def determine(sex: Sex, official_age: int, **kwargs):
+    def determine(official_age: int, sex: Sex | None = None, **kwargs):
         """
         Determine the gender of a horse based on its sex, official age, and optional arguments.
 
         Args:
-            sex: The sex of the horse.
             official_age: The official age of the horse in years.
+            sex: The sex of the horse.
             **kwargs: Additional keyword arguments that may be used to determine the gender. Accepts is_rig and is_gelded.
 
         Raises:
@@ -74,13 +74,15 @@ class Gender(ParsingEnum):
         if official_age == 1:
             return Gender.YEARLING
         if kwargs.get("is_gelded"):
-            if sex is sex.FEMALE:
+            if sex and sex is sex.FEMALE:
                 raise ValueError("Female horse cannot be gelded")
             return Gender.GELDING
         if kwargs.get("is_rig"):
-            if sex is sex.FEMALE:
+            if sex and sex is sex.FEMALE:
                 raise ValueError("Female horse cannot be rig")
             return Gender.RIG
+        if sex is None:
+            raise ValueError("Not enough information to determine gender")
         if official_age <= 3:
             return Gender.COLT if sex is sex.MALE else Gender.FILLY
         else:

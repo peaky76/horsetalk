@@ -32,21 +32,30 @@ def test_gender_sex_raises_error_if_not_enough_info():
 
 
 def test_gender_determine_returns_correct_value_when_sex_does_not_matter():
-    assert Gender.FOAL == Gender.determine(Sex.FEMALE, 0)
+    assert Gender.FOAL == Gender.determine(0)
 
 
 def test_gender_determine_returns_correct_value_when_sex_matters():
-    assert Gender.COLT == Gender.determine(Sex.MALE, 2)
+    assert Gender.COLT == Gender.determine(2, Sex.MALE)
+
+
+def test_gender_determine_raises_value_error_when_sex_matters_and_not_given():
+    with pytest.raises(ValueError):
+        Gender.determine(3)
 
 
 def test_gender_determine_returns_correct_value_when_gelded():
-    assert Gender.GELDING == Gender.determine(Sex.MALE, 2, is_gelded=True)
+    assert Gender.GELDING == Gender.determine(2, Sex.MALE, is_gelded=True)
 
 
 def test_gender_determine_returns_correct_value_when_rig():
-    assert Gender.RIG == Gender.determine(Sex.MALE, 2, is_rig=True)
+    assert Gender.RIG == Gender.determine(2, Sex.MALE, is_rig=True)
+
+
+def test_gender_determine_returns_correct_value_when_sex_implied():
+    assert Gender.RIG == Gender.determine(5, is_rig=True)
 
 
 def test_gender_determine_raises_error_for_gelded_female():
     with pytest.raises(ValueError):
-        Gender.determine(Sex.FEMALE, 2, is_gelded=True)
+        Gender.determine(2, Sex.FEMALE, is_gelded=True)
