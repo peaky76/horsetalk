@@ -37,6 +37,16 @@ class Gender(ParsingEnum):
 
     @property
     def sex(self):
+        """
+        Get the sex of the horse based on its gender.
+
+        Raises:
+            ValueError: If the gender of the horse is not specific enough to determine its sex.
+
+        Returns:
+            Sex: The sex of the horse, either `Sex.FEMALE` or `Sex.MALE`.
+
+        """
         if self in [Gender.FOAL, Gender.YEARLING]:
             raise ValueError("Not enough information to provide sex of horse")
 
@@ -44,6 +54,21 @@ class Gender(ParsingEnum):
 
     @staticmethod
     def determine(sex: Sex, official_age: int, **kwargs):
+        """
+        Determine the gender of a horse based on its sex, official age, and optional arguments.
+
+        Args:
+            sex: The sex of the horse.
+            official_age: The official age of the horse in years.
+            **kwargs: Additional keyword arguments that may be used to determine the gender. Accepts is_rig and is_gelded.
+
+        Raises:
+            ValueError: If a female horse is specified as a gelding or rig.
+
+        Returns:
+            Gender: The gender of the horse based on the input arguments.
+
+        """
         if official_age == 0:
             return Gender.FOAL
         if official_age == 1:
