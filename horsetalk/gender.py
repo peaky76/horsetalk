@@ -1,4 +1,5 @@
 from .parsing_enum import ParsingEnum
+from .sex import Sex
 
 
 class Gender(ParsingEnum):
@@ -33,3 +34,10 @@ class Gender(ParsingEnum):
     MARES = MARE
     GELDINGS = GELDING
     RIGS = RIG
+
+    @property
+    def sex(self):
+        if self in [Gender.FOAL, Gender.YEARLING]:
+            raise ValueError("Not enough information to provide sex of horse")
+
+        return Sex.FEMALE if self in [Gender.FILLY, Gender.MARE] else Sex.MALE
