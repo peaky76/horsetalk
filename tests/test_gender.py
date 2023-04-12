@@ -29,3 +29,11 @@ def test_gender_sex_returns_female_for_female_genders():
 def test_gender_sex_raises_error_if_not_enough_info():
     with pytest.raises(ValueError):
         Gender["YEARLING"].sex
+
+
+def test_gender_determine_returns_correct_value_when_sex_does_not_matter():
+    assert Gender.FOAL == Gender.determine(Sex.FEMALE, 0)
+
+
+def test_gender_determine_returns_correct_value_when_sex_matters():
+    assert Gender.COLT == Gender.determine(Sex.MALE, 2)
