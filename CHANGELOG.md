@@ -1,7 +1,5 @@
 # Changelog
 
-# Changelog
-
 ## 0.7.0 (2023-04-13)
 
 #### New Features
