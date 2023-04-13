@@ -15,6 +15,7 @@ from .horse_age import HorseAge
 from .horse_height import HorseHeight
 from .horselength import Horselength
 from .jump_category import JumpCategory
+from .obstacle_style import ObstacleStyle
 from .race_designation import RaceDesignation
 from .race_distance import RaceDistance
 from .race_title import RaceTitle
@@ -41,6 +42,7 @@ __all__ = [
     "HorseExperienceLevel",
     "JockeyExperienceLevel",
     "JumpCategory",
+    "ObstacleStyle",
     "RaceDesignation",
     "RaceDistance",
     "RaceExperienceStatus",
