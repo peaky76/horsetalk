@@ -2,7 +2,7 @@ from horsetalk import (
     AgeCategory,
     Gender,
     HorseExperienceLevel,
-    Obstacle,
+    JumpCategory,
     RaceDesignation,
     RaceTitle,
 )
@@ -14,15 +14,15 @@ def test_race_title_parse_returns_dict():
     assert expected == actual
 
 
-def test_race_title_parse_can_correctly_identify_obstacle_when_present():
-    expected = Obstacle.HURDLE
-    actual = RaceTitle.parse("HAPPY NEW YEAR NOVICES HURDLE (4)")["obstacle"]
+def test_race_title_parse_can_correctly_identify_jump_category_when_present():
+    expected = JumpCategory.HURDLE
+    actual = RaceTitle.parse("HAPPY NEW YEAR NOVICES HURDLE (4)")["jump_category"]
     assert expected == actual
 
 
-def test_race_title_parse_can_correctly_identify_obstacle_when_not_present():
+def test_race_title_parse_can_correctly_identify_jump_category_when_not_present():
     expected = None
-    actual = RaceTitle.parse("HAPPY NEW YEAR HANDICAP (4)")["obstacle"]
+    actual = RaceTitle.parse("HAPPY NEW YEAR HANDICAP (4)")["jump_category"]
     assert expected == actual
 
 

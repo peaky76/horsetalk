@@ -1,9 +1,9 @@
 from .parsing_enum import ParsingEnum
 
 
-class Obstacle(ParsingEnum):
+class JumpCategory(ParsingEnum):
     """
-    An enumeration representing the type of obstacle a race takes place over.
+    An enumeration representing the category of obstacles over which a race is run.
 
     """
 
