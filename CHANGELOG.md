@@ -1,5 +1,23 @@
 # Changelog
 
+## 0.8.0 (2023-04-13)
+
+#### New Features
+
+- `ObstacleStyle` enum
+
+#### Fixes
+
+- remove deleted `RaceExperienceStatus` class from `__init__`
+
+#### Refactorings
+
+- rename `Obstacle` to `JumpCategory`
+
+#### Docs
+
+- remove duplicate text in CHANGELOG
+
 ## 0.7.0 (2023-04-13)
 
 #### New Features
