@@ -40,3 +40,15 @@ class Disaster(ParsingEnum):
     D = DISQUALIFIED
     DQ = DISQUALIFIED
     DSQ = DISQUALIFIED
+
+    @property
+    def is_jumping_error(self):
+        return self in [self.FELL, self.UNSEATED_RIDER]
+
+    @property
+    def is_behavioural_error(self):
+        return self in [self.REFUSED, self.RAN_OUT]
+
+    @property
+    def is_third_party_error(self):
+        return self in [self.BROUGHT_DOWN, self.CARRIED_OUT]
