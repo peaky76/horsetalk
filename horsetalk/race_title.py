@@ -8,16 +8,30 @@ from .race_designation import RaceDesignation
 
 
 class RaceTitle:
+    """
+    A class for parsing a race title into its component parts.
+
+    Attributes:
+        _words (List[str]): A list of words in the race title.
+
+    Methods:
+        parse(title: str) -> dict: Parses a race title into component parts and returns a dictionary.
+        _lookup(enum: Type[Enum], allow_multiple: bool = False) -> List[Enum] | Enum | None:
+            Private method to lookup an Enum value from a list of words.
+
+    """
+
     _words: List[str] = []
 
     @classmethod
     def parse(cls, title: str) -> dict:
-        """Parse a race title into component parts
+        """Parses a race title into component parts.
 
-        :param title: A race title
-        :type title: str
-        :return: A dictionary of component parts
-        :rtype: dict
+        Args:
+            title: A race title.
+
+        Returns:
+            dict: A dictionary of component parts.
         """
         self = cls()
         self._words = title.split()
@@ -42,12 +56,15 @@ class RaceTitle:
     def _lookup(
         self, enum: Type[Enum], allow_multiple: bool = False
     ) -> List[Enum] | Enum | None:
-        """Private method to lookup an enum value from a list of words
+        """Private method to lookup an enum value from a list of words.
 
-        :param enum: Enum to search through
-        :type enum: Type[Enum]
-        :return: The found Enum value or None
-        :rtype: Enum | None
+        Args:
+            enum (Type[Enum]): The Enum to search through.
+            allow_multiple (bool, optional): Whether or not to allow multiple Enum values to be returned. Defaults to False.
+
+        Returns:
+            Union[List[Enum], Enum, None]: The found Enum value or None.
+
         """
         found_values = [
             found_value
