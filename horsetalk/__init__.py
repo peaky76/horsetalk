@@ -45,7 +45,6 @@ __all__ = [
     "ObstacleStyle",
     "RaceDesignation",
     "RaceDistance",
-    "RaceExperienceStatus",
     "RaceTitle",
     "RacingCode",
     "Sex",
