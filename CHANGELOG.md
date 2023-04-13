@@ -1,5 +1,19 @@
 # Changelog
 
+# Changelog
+
+## 0.7.0 (2023-04-13)
+
+#### New Features
+
+- `Gender.sex` property
+- `Gender.determine` method from `Sex` and age args
+- `Disaster.is_jumping/behavioural/third_party_error` properties
+
+#### Docs
+
+- fill out missing docstrings, format others
+
 ## 0.6.1 (2023-04-08)
 
 #### Fixes
