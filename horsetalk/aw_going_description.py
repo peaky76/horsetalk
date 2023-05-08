@@ -1,7 +1,7 @@
-from .parsing_enum import ParsingEnum
+from .going_description import GoingDescription
 
 
-class AWGoingDescription(ParsingEnum):
+class AWGoingDescription(GoingDescription):
     """
     An enumeration that represents a scale of UK and Ireland all-weather going descriptions.
 
