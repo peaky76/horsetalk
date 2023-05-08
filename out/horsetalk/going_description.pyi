@@ -1,0 +1,3 @@
+from .parsing_enum import ParsingEnum as ParsingEnum
+
+class GoingDescription(ParsingEnum): ...
