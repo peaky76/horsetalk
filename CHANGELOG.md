@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.8.2 (2023-05-08)
+
+#### Fixes
+
+- add AW subtypes to `Surface`
+
+#### Others
+
+- add typing stubs
+
 ## 0.8.1 (2023-05-08)
 
 #### Refactorings
