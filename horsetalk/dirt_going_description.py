@@ -1,7 +1,7 @@
-from .parsing_enum import ParsingEnum
+from .going_description import GoingDescription
 
 
-class DirtGoingDescription(ParsingEnum):
+class DirtGoingDescription(GoingDescription):
     """
     An enumeration that represents a scale of US dirt going descriptions.
     """

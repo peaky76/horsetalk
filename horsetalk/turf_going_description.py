@@ -1,7 +1,7 @@
-from horsetalk.parsing_enum import ParsingEnum
+from .going_description import GoingDescription
 
 
-class TurfGoingDescription(ParsingEnum):
+class TurfGoingDescription(GoingDescription):
     """
     An enumeration that represents a scale of UK or Ireland turf going descriptions.
 
