@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.8.1 (2023-05-08)
+
+#### Refactorings
+
+- `GoingDescription` parent enum
+
 ## 0.8.0 (2023-04-13)
 
 #### New Features
