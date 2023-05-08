@@ -10,6 +10,9 @@ class Surface(ParsingEnum):
     TURF = 1
     DIRT = 2
     ALL_WEATHER = 3
+    POLYTRACK = 4
+    TAPETA = 5
+    FIBRESAND = 6
 
     # Abbreviations
     T = TURF
