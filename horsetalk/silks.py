@@ -139,10 +139,13 @@ class Silks:
         return self._parts()[next_index] if next_index < len(self._parts()) else None
 
     def _bodyparts(self):
+        main_part = self._main_part(lambda part: self._parts().index(part) == 0)
         return (
-            self._main_part(lambda part: self._parts().index(part) == 0)
-            if "cap" in self._parts()[1] or "sleeves" in self._parts()[1]
-            else " ".join(self._parts()[:2])
+            main_part
+            if (next_part := self._next_part(main_part)) is None
+            or "cap" in next_part
+            or "sleeves" in next_part
+            else " ".join([main_part, next_part])
         )
 
     def _capparts(self):
