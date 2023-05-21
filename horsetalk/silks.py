@@ -90,7 +90,19 @@ class Silks:
         self = cls()
         self.description = description
 
-        return {"body": None, "sleeves": self.sleeves, "cap": self.cap}
+        return {"body": self.body, "sleeves": self.sleeves, "cap": self.cap}
+
+    @property
+    def body(self):
+        body_parts = " ".join(
+            [
+                part
+                for part in self._parts()
+                if "cap" not in part and "sleeves" not in part
+            ]
+        )
+
+        return self._convert_to_element(body_parts)
 
     @property
     def cap(self):
