@@ -74,7 +74,7 @@ def test_silks_cap_returns_correct_element():
     assert expected == silks.cap
 
 
-def test_silks_cap_returns_correct_part_when_joined_with_sleeves():
+def test_silks_cap_returns_correct_element_when_joined_with_sleeves():
     expected = Silks.Element(Silks.Colour.ORANGE)
 
     silks = Silks()
@@ -83,7 +83,7 @@ def test_silks_cap_returns_correct_part_when_joined_with_sleeves():
     assert expected == silks.cap
 
 
-def test_silks_sleeves_returns_correct_part():
+def test_silks_sleeves_returns_correct_element():
     expected = Silks.Element(Silks.Colour.WHITE)
 
     silks = Silks()
@@ -92,7 +92,7 @@ def test_silks_sleeves_returns_correct_part():
     assert expected == silks.sleeves
 
 
-def test_silks_cap_returns_correct_part_when_joined_with_cap():
+def test_silks_cap_returns_correct_element_when_joined_with_cap():
     expected = Silks.Element(Silks.Colour.WHITE)
 
     silks = Silks()
