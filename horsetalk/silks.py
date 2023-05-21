@@ -132,16 +132,21 @@ class Silks:
         return self.description.lower().split(", ")
 
     def _parts_for_element(self, element: str = ""):
-        main_part = next(part for part in self._parts() if element in part)
-        next_index = self._parts().index(main_part) + 1
-        next_part = (
-            self._parts()[next_index] if next_index < len(self._parts()) else None
-        )
-        return (
-            main_part
-            if next_part is None or "cap" in next_part or "sleeves" in next_part
-            else " ".join([main_part, next_part])
-        )
+        main_part = None
+        next_part = None
+        for i, part in enumerate(self._parts()):
+            if element in part:
+                main_part = part
+                if i < len(self._parts()) - 1:
+                    next_part = self._parts()[i + 1]
+                    next_part = (
+                        None
+                        if "cap" in next_part or "sleeves" in next_part
+                        else next_part
+                    )
+                break
+
+        return " ".join([main_part, next_part]) if next_part else main_part
 
     def _apply_defaults(self, element: "Silks.Element"):
         element.primary = element.primary or self.body.primary
