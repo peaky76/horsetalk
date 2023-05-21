@@ -115,10 +115,7 @@ class Silks:
         Returns:
             A Silks.Element object.
         """
-        for part in self._parts():
-            if "cap" in part:
-                element = self._convert_to_element(part)
-
+        element = self._convert_to_element(self._capparts())
         return self._apply_defaults(element)
 
     @property
@@ -146,6 +143,14 @@ class Silks:
             self._main_part(lambda part: self._parts().index(part) == 0)
             if "cap" in self._parts()[1] or "sleeves" in self._parts()[1]
             else " ".join(self._parts()[:2])
+        )
+
+    def _capparts(self):
+        main_part = self._main_part(lambda part: "cap" in part)
+        return (
+            main_part
+            if (next_part := self._next_part(main_part)) is None
+            else " ".join([main_part, next_part])
         )
 
     def _sleeveparts(self):
