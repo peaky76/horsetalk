@@ -27,6 +27,18 @@ def test_silks_pattern_can_be_created_from_spaced_name():
     assert Silks.Pattern.INVERTED_TRIANGLE == Silks.Pattern["Inverted triangle"]
 
 
+def test_silks_element_can_be_initialised_with_single_colour():
+    assert Silks.Element(Silks.Colour.ORANGE)
+
+
+def test_silks_element_initialised_with_single_colour_sets_right_pattern():
+    assert Silks.Pattern.PLAIN == Silks.Element(Silks.Colour.ORANGE).pattern
+
+
+def test_silks_element_initialised_with_single_colour_sets_secondary_colour_to_same():
+    assert Silks.Colour.ORANGE == Silks.Element(Silks.Colour.ORANGE).secondary
+
+
 def test_silks_parse_returns_dict():
     expected = dict
     actual = type(Silks.parse("orange and blue hoops, white sleeves, orange cap"))
