@@ -16,6 +16,7 @@ class Silks:
         LIGHT_BLUE = auto()
         LIGHT_GREEN = auto()
         MAROON = auto()
+        MAUVE = auto()
         ORANGE = auto()
         PINK = auto()
         PURPLE = auto()
@@ -28,31 +29,36 @@ class Silks:
         """An enumeration of shapes that can appear on jockey silks."""
 
         ARMLET = auto()
-        BRACES = auto()
-        CHECK = auto()
-        CHEVRON = auto()
-        CHEVRONS = auto()
-        CROSS_OF_LORRAINE = auto()
-        CROSS_SASHES = auto()
+        BRACES = auto()  #
+        CHECK = auto()  #
+        CHEVRON = auto()  #
+        CHEVRONS = auto()  #
+        CROSS_BELTS = auto()  #
+        CROSS_OF_LORRAINE = auto()  #
+        CROSS_SASHES = CROSS_BELTS
         CUFFS = auto()
-        DIAMOND = auto()
-        DIABOLO = auto()
-        DISC = auto()
-        EPAULETS = auto()
+        DIAMOND = auto()  #
+        DIAMONDS = auto()  #
+        DIABOLO = auto()  #
+        DISC = auto()  #
+        EPAULETS = auto()  #
         HALVED = auto()
-        HOOP = auto()
-        HOOPS = auto()
-        INVERTED_TRIANGLE = auto()
+        HOLLOW_BOX = auto()  #
+        HOOP = auto()  #
+        HOOPS = auto()  #
+        INVERTED_TRIANGLE = auto()  #
+        LARGE_SPOTS = auto()  #
         PANEL = auto()
-        QUARTERED = auto()
+        QUARTERED = auto()  #
         SASH = auto()
-        SEAMS = auto()
-        SPOTS = auto()
-        STAR = auto()
-        STARS = auto()
-        STRIPE = auto()
-        STRIPED = auto()
-        TRIPLE_DIAMOND = auto()
+        SEAMS = auto()  #
+        SPOTS = auto()  #
+        STAR = auto()  #
+        STARS = auto()  #
+        STRIPE = auto()  #
+        STRIPES = auto()  #
+        STRIPED = STRIPES
+        TRIPLE_DIAMOND = auto()  #
 
     @classmethod
     def parse(cls, description: str) -> dict:
