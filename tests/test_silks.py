@@ -39,6 +39,17 @@ def test_silks_element_initialised_with_single_colour_sets_secondary_colour_to_s
     assert Silks.Colour.ORANGE == Silks.Element(Silks.Colour.ORANGE).secondary
 
 
+def test_silks_element_equal_to_itself():
+    element = Silks.Element(Silks.Colour.ORANGE)
+    assert element == element
+
+
+def test_silks_element_equal_to_other_element_with_same_primary_colour():
+    element1 = Silks.Element(Silks.Colour.ORANGE)
+    element2 = Silks.Element(Silks.Colour.ORANGE)
+    assert element1 == element2
+
+
 def test_silks_parse_returns_dict():
     expected = dict
     actual = type(Silks.parse("orange and blue hoops, white sleeves, orange cap"))
@@ -54,29 +65,37 @@ def test_silks_parts_returns_correct_split():
     assert expected == actual
 
 
-def test_silks_cap_returns_correct_part():
+def test_silks_cap_returns_correct_element():
+    expected = Silks.Element(Silks.Colour.ORANGE)
+
     silks = Silks()
     silks.description = "Orange and blue hoops, white sleeves, orange cap"
 
-    assert "orange cap" == silks.cap
+    assert expected == silks.cap
 
 
 def test_silks_cap_returns_correct_part_when_joined_with_sleeves():
+    expected = Silks.Element(Silks.Colour.ORANGE)
+
     silks = Silks()
     silks.description = "Orange and blue hoops, orange sleeves and cap"
 
-    assert "orange cap" == silks.cap
+    assert expected == silks.cap
 
 
 def test_silks_sleeves_returns_correct_part():
+    expected = Silks.Element(Silks.Colour.WHITE)
+
     silks = Silks()
     silks.description = "Orange and blue hoops, white sleeves, orange cap"
 
-    assert "white sleeves" == silks.sleeves
+    assert expected == silks.sleeves
 
 
 def test_silks_cap_returns_correct_part_when_joined_with_cap():
+    expected = Silks.Element(Silks.Colour.WHITE)
+
     silks = Silks()
     silks.description = "Orange and blue hoops, white sleeves and cap"
 
-    assert "white sleeves" == silks.sleeves
+    assert expected == silks.sleeves
