@@ -43,3 +43,12 @@ def test_silks_parse_returns_dict():
     expected = dict
     actual = type(Silks.parse("orange and blue hoops, white sleeves, orange cap"))
     assert expected == actual
+
+
+def test_silks_parts_returns_correct_split():
+    expected = ["orange and blue hoops", "white sleeves", "orange cap"]
+
+    silks = Silks()
+    silks.description = "Orange and blue hoops, white sleeves, orange cap"
+    actual = silks._parts()
+    assert expected == actual

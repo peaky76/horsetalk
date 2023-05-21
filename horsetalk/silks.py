@@ -83,3 +83,6 @@ class Silks:
         self.description = description
 
         return {"body": None, "sleeves": None, "cap": None}
+
+    def _parts(self):
+        return self.description.lower().split(", ")
