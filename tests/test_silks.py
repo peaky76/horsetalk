@@ -73,7 +73,7 @@ def test_silks_parts_returns_correct_split():
     assert expected == actual
 
 
-def test_silks_body_parts_returns_correct_value_when_only_one_part_is_body():
+def test_silks_bodyparts_returns_correct_value_when_only_one_part_is_body():
     expected = "orange and blue hoops"
 
     silks = Silks()
@@ -82,12 +82,30 @@ def test_silks_body_parts_returns_correct_value_when_only_one_part_is_body():
     assert expected == actual
 
 
-def test_silks_body_parts_returns_correct_value_when_two_parts_are_body():
+def test_silks_bodyparts_returns_correct_value_when_two_parts_are_body():
     expected = "dark blue red stripe"
 
     silks = Silks()
     silks.description = "Dark blue, red stripe, halved sleeves, red cap"
     actual = silks._bodyparts()
+    assert expected == actual
+
+
+def test_silks_sleeveparts_returns_correct_value_when_only_one_part_is_sleeves():
+    expected = "white sleeves"
+
+    silks = Silks()
+    silks.description = "Orange and blue hoops, white sleeves, orange cap"
+    actual = silks._sleeveparts()
+    assert expected == actual
+
+
+def test_silks_sleeveparts_returns_correct_value_when_two_parts_are_body():
+    expected = "white sleeves blue seams"
+
+    silks = Silks()
+    silks.description = "Orange and blue hoops, white sleeves, blue seams, orange cap"
+    actual = silks._sleeveparts()
     assert expected == actual
 
 
