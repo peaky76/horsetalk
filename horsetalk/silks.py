@@ -49,6 +49,7 @@ class Silks:
         INVERTED_TRIANGLE = auto()  #
         LARGE_SPOTS = auto()  #
         PANEL = auto()
+        PLAIN = auto()  #
         QUARTERED = auto()  #
         SASH = auto()
         SEAMS = auto()  #
