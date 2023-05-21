@@ -106,15 +106,7 @@ class Silks:
         Returns:
             A Silks.Element object.
         """
-        main_part = self._main_part(lambda part: self._parts().index(part) == 0)
-        parts = (
-            main_part
-            if (next_part := self._next_part(main_part)) is None
-            or "cap" in next_part
-            or "sleeves" in next_part
-            else " ".join([main_part, next_part])
-        )
-        return self._convert_to_element(parts)
+        return self._convert_to_element(self._parts_for_element(""))
 
     @property
     def cap(self) -> "Silks.Element":
@@ -123,14 +115,7 @@ class Silks:
         Returns:
             A Silks.Element object.
         """
-        main_part = self._main_part(lambda part: "cap" in part)
-        parts = (
-            main_part
-            if (next_part := self._next_part(main_part)) is None
-            else " ".join([main_part, next_part])
-        )
-
-        element = self._convert_to_element(parts)
+        element = self._convert_to_element(self._parts_for_element("cap"))
         return self._apply_defaults(element)
 
     @property
@@ -140,25 +125,23 @@ class Silks:
         Returns:
             A Silks.Element object.
         """
-        main_part = self._main_part(lambda part: "sleeves" in part)
-        parts = (
-            main_part
-            if (next_part := self._next_part(main_part)) is None or "cap" in next_part
-            else " ".join([main_part, next_part])
-        )
-
-        element = self._convert_to_element(parts)
+        element = self._convert_to_element(self._parts_for_element("sleeves"))
         return self._apply_defaults(element)
 
     def _parts(self):
         return self.description.lower().split(", ")
 
-    def _main_part(self, condition: Callable):
-        return next(part for part in self._parts() if condition(part))
-
-    def _next_part(self, main_part: str):
+    def _parts_for_element(self, element: str = ""):
+        main_part = next(part for part in self._parts() if element in part)
         next_index = self._parts().index(main_part) + 1
-        return self._parts()[next_index] if next_index < len(self._parts()) else None
+        next_part = (
+            self._parts()[next_index] if next_index < len(self._parts()) else None
+        )
+        return (
+            main_part
+            if next_part is None or "cap" in next_part or "sleeves" in next_part
+            else " ".join([main_part, next_part])
+        )
 
     def _apply_defaults(self, element: "Silks.Element"):
         element.primary = element.primary or self.body.primary
