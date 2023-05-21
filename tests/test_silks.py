@@ -50,6 +50,14 @@ def test_silks_element_equal_to_other_element_with_same_primary_colour():
     assert element1 == element2
 
 
+def test_silks_element_repr():
+    expected = (
+        "Element(primary=Colour.ORANGE, secondary=Colour.ORANGE, pattern=Pattern.PLAIN)"
+    )
+    actual = repr(Silks.Element(Silks.Colour.ORANGE))
+    assert expected == actual
+
+
 def test_silks_parse_returns_dict():
     expected = dict
     actual = type(Silks.parse("orange and blue hoops, white sleeves, orange cap"))
