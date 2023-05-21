@@ -25,8 +25,8 @@ class Silks:
         WHITE = auto()
         YELLOW = auto()
 
-    class Shape(ParsingEnum):
-        """An enumeration of shapes that can appear on jockey silks."""
+    class Pattern(ParsingEnum):
+        """An enumeration of patterns that can appear on jockey silks."""
 
         ARMLET = auto()
         BRACES = auto()  #
@@ -70,4 +70,4 @@ class Silks:
         self = cls()
         self.description = description
 
-        return {"shirt": None, "sleeves": None, "cap": None}
+        return {"body": None, "sleeves": None, "cap": None}
