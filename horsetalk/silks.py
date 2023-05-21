@@ -61,6 +61,17 @@ class Silks:
         STRIPED = STRIPES
         TRIPLE_DIAMOND = auto()  #
 
+    class Element:
+        def __init__(
+            self,
+            primary: "Silks.Colour",
+            pattern: "Silks.Shape" = None,
+            secondary: "Silks.Colour" = None,
+        ):
+            self.primary = primary
+            self.pattern = pattern if pattern else Silks.Pattern.PLAIN
+            self.secondary = secondary if secondary else self.primary
+
     @classmethod
     def parse(cls, description: str) -> dict:
         """Parses a description of silks into component parts.
