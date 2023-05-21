@@ -52,3 +52,31 @@ def test_silks_parts_returns_correct_split():
     silks.description = "Orange and blue hoops, white sleeves, orange cap"
     actual = silks._parts()
     assert expected == actual
+
+
+def test_silks_cap_returns_correct_part():
+    silks = Silks()
+    silks.description = "Orange and blue hoops, white sleeves, orange cap"
+
+    assert "orange cap" == silks.cap
+
+
+def test_silks_cap_returns_correct_part_when_joined_with_sleeves():
+    silks = Silks()
+    silks.description = "Orange and blue hoops, white sleeves, orange cap"
+
+    assert "orange cap" == silks.cap
+
+
+def test_silks_sleeves_returns_correct_part():
+    silks = Silks()
+    silks.description = "Orange and blue hoops, white sleeves, orange cap"
+
+    assert "white sleeves" == silks.sleeves
+
+
+def test_silks_cap_returns_correct_part_when_joined_with_cap():
+    silks = Silks()
+    silks.description = "Orange and blue hoops, white sleeves, orange cap"
+
+    assert "orange cap" == silks.cap

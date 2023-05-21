@@ -84,5 +84,21 @@ class Silks:
 
         return {"body": None, "sleeves": None, "cap": None}
 
+    @property
+    def cap(self):
+        for part in self._parts():
+            if "cap" in part:
+                return (
+                    part.replace(" and sleeves", "").replace("sleeves and ", "").strip()
+                )
+        return None
+
+    @property
+    def sleeves(self):
+        for part in self._parts():
+            if "sleeves" in part:
+                return part.replace(" and cap", "").replace("cap and", "").strip()
+        return None
+
     def _parts(self):
         return self.description.lower().split(", ")
