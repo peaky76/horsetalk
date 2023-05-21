@@ -94,7 +94,7 @@ class Silks:
         self = cls()
         self.description = description
 
-        return {"body": self.body, "sleeves": self.sleeves, "cap": self.cap}
+        return self
 
     @property
     def body(self):

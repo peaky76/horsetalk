@@ -58,8 +58,8 @@ def test_silks_element_repr():
     assert expected == actual
 
 
-def test_silks_parse_returns_dict():
-    expected = dict
+def test_silks_parse_returns_instance_of_silks():
+    expected = Silks
     actual = type(Silks.parse("orange and blue hoops, white sleeves, orange cap"))
     assert expected == actual
 
