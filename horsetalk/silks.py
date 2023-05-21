@@ -85,11 +85,14 @@ class Silks:
             )
 
     @classmethod
-    def parse(cls, description: str) -> dict:
+    def parse(cls, description: str) -> "Silks":
         """Parses a description of silks into component parts.
 
         Args:
             description: A description of silks.
+
+        Returns:
+            A Silks object.
         """
         self = cls()
         self.description = description
@@ -97,7 +100,12 @@ class Silks:
         return self
 
     @property
-    def body(self):
+    def body(self) -> "Silks.Element":
+        """Returns the body of the silks.
+
+        Returns:
+            A Silks.Element object.
+        """
         body_parts = " ".join(
             [
                 part
@@ -109,7 +117,12 @@ class Silks:
         return self._convert_to_element(body_parts)
 
     @property
-    def cap(self):
+    def cap(self) -> "Silks.Element":
+        """Returns the cap of the silks.
+
+        Returns:
+            A Silks.Element object.
+        """
         for part in self._parts():
             if "cap" in part:
                 element = self._convert_to_element(part)
@@ -117,7 +130,12 @@ class Silks:
         return self._apply_defaults(element)
 
     @property
-    def sleeves(self):
+    def sleeves(self) -> "Silks.Element":
+        """Returns the sleeves of the silks.
+
+        Returns:
+            A Silks.Element object.
+        """
         for part in self._parts():
             if "sleeves" in part:
                 element = self._convert_to_element(part)
@@ -127,7 +145,7 @@ class Silks:
     def _parts(self):
         return self.description.lower().split(", ")
 
-    def _apply_defaults(self, element):
+    def _apply_defaults(self, element: "Silks.Element"):
         element.primary = element.primary or self.body.primary
         element.secondary = element.secondary or self.body.secondary
         element.pattern = element.pattern or self.body.pattern
