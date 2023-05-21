@@ -1,5 +1,5 @@
 from enum import auto
-from typing import Any
+from typing import Any, Callable
 from horsetalk.parsing_enum import ParsingEnum
 
 
@@ -134,15 +134,18 @@ class Silks:
     def _parts(self):
         return self.description.lower().split(", ")
 
+    def _main_part(self, condition: Callable):
+        return next(part for part in self._parts() if condition(part))
+
     def _bodyparts(self):
         return (
-            self._parts()[0]
+            self._main_part(lambda part: self._parts().index(part) == 0)
             if "cap" in self._parts()[1] or "sleeves" in self._parts()[1]
             else " ".join(self._parts()[:2])
         )
 
     def _sleeveparts(self):
-        main_part = next(part for part in self._parts() if "sleeves" in part)
+        main_part = self._main_part(lambda part: "sleeves" in part)
         next_index = self._parts().index(main_part) + 1
         next_part = (
             self._parts()[next_index] if next_index < len(self._parts()) else None
