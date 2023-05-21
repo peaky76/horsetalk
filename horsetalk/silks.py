@@ -128,10 +128,7 @@ class Silks:
         Returns:
             A Silks.Element object.
         """
-        for part in self._parts():
-            if "sleeves" in part:
-                element = self._convert_to_element(part)
-
+        element = self._convert_to_element(self._sleeveparts())
         return self._apply_defaults(element)
 
     def _parts(self):
@@ -142,6 +139,18 @@ class Silks:
             self._parts()[0]
             if "cap" in self._parts()[1] or "sleeves" in self._parts()[1]
             else " ".join(self._parts()[:2])
+        )
+
+    def _sleeveparts(self):
+        main_part = next(part for part in self._parts() if "sleeves" in part)
+        next_index = self._parts().index(main_part) + 1
+        next_part = (
+            self._parts()[next_index] if next_index < len(self._parts()) else None
+        )
+        return (
+            main_part
+            if next_part is None or "cap" in next_part
+            else " ".join([main_part, next_part])
         )
 
     def _apply_defaults(self, element: "Silks.Element"):
