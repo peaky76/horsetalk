@@ -181,3 +181,14 @@ def test_silks_sleeves_returns_correct_element_when_pattern_specified():
     silks.description = "Orange and blue hoops, orange and white hooped sleeves and cap"
 
     assert expected == silks.sleeves
+
+
+def test_silks_sleeves_returns_correct_element_when_colour_not_specified():
+    expected = Silks.Element(
+        Silks.Colour.DARK_BLUE, Silks.Colour.RED, Silks.Pattern.HALVED
+    )
+
+    silks = Silks()
+    silks.description = "Dark blue, red stripe, halved sleeves, red cap"
+
+    assert expected == silks.sleeves

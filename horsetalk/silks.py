@@ -112,20 +112,26 @@ class Silks:
     def cap(self):
         for part in self._parts():
             if "cap" in part:
-                return self._convert_to_element(part)
+                element = self._convert_to_element(part)
 
-        return None
+        return self._apply_defaults(element)
 
     @property
     def sleeves(self):
         for part in self._parts():
             if "sleeves" in part:
-                return self._convert_to_element(part)
+                element = self._convert_to_element(part)
 
-        return None
+        return self._apply_defaults(element)
 
     def _parts(self):
         return self.description.lower().split(", ")
+
+    def _apply_defaults(self, element):
+        element.primary = element.primary or self.body.primary
+        element.secondary = element.secondary or self.body.secondary
+        element.pattern = element.pattern or self.body.pattern
+        return element
 
     def _convert_to_element(self, part: str):
         details = []
@@ -140,6 +146,15 @@ class Silks:
 
             if detail is not None:
                 details.append(detail)
+
+        details = details + [None] * (3 - len(details))
+        details.sort(
+            key=lambda x: (
+                isinstance(x, Silks.Pattern),
+                x is None,
+                isinstance(x, Silks.Colour),
+            )
+        )
 
         return Silks.Element(*details)
 
