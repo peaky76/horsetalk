@@ -1,4 +1,5 @@
 from enum import auto
+from typing import Any
 from horsetalk.parsing_enum import ParsingEnum
 
 
@@ -72,6 +73,9 @@ class Silks:
             self.primary = primary
             self.secondary = secondary if secondary else self.primary
             self.pattern = pattern if pattern else Silks.Pattern.PLAIN
+
+        def __repr__(self):
+            return f"Element(primary={self.primary}, secondary={self.secondary}, pattern={self.pattern})"
 
         def __eq__(self, other):
             return (
