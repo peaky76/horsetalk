@@ -106,15 +106,7 @@ class Silks:
         Returns:
             A Silks.Element object.
         """
-        body_parts = " ".join(
-            [
-                part
-                for part in self._parts()
-                if "cap" not in part and "sleeves" not in part
-            ]
-        )
-
-        return self._convert_to_element(body_parts)
+        return self._convert_to_element(self._bodyparts())
 
     @property
     def cap(self) -> "Silks.Element":
@@ -144,6 +136,13 @@ class Silks:
 
     def _parts(self):
         return self.description.lower().split(", ")
+
+    def _bodyparts(self):
+        return (
+            self._parts()[0]
+            if "cap" in self._parts()[1] or "sleeves" in self._parts()[1]
+            else " ".join(self._parts()[:2])
+        )
 
     def _apply_defaults(self, element: "Silks.Element"):
         element.primary = element.primary or self.body.primary
