@@ -137,6 +137,10 @@ class Silks:
     def _main_part(self, condition: Callable):
         return next(part for part in self._parts() if condition(part))
 
+    def _next_part(self, main_part: str):
+        next_index = self._parts().index(main_part) + 1
+        return self._parts()[next_index] if next_index < len(self._parts()) else None
+
     def _bodyparts(self):
         return (
             self._main_part(lambda part: self._parts().index(part) == 0)
@@ -146,13 +150,9 @@ class Silks:
 
     def _sleeveparts(self):
         main_part = self._main_part(lambda part: "sleeves" in part)
-        next_index = self._parts().index(main_part) + 1
-        next_part = (
-            self._parts()[next_index] if next_index < len(self._parts()) else None
-        )
         return (
             main_part
-            if next_part is None or "cap" in next_part
+            if (next_part := self._next_part(main_part)) is None or "cap" in next_part
             else " ".join([main_part, next_part])
         )
 
