@@ -155,7 +155,7 @@ def test_silks_sleeves_returns_correct_element():
     assert expected == silks.sleeves
 
 
-def test_silks_cap_returns_correct_element_when_joined_with_cap():
+def test_silks_sleeves_returns_correct_element_when_joined_with_cap():
     expected = Silks.Element(Silks.Colour.WHITE)
 
     silks = Silks()
