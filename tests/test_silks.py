@@ -7,11 +7,11 @@ def test_silks_shape_can_be_created_from_name():
     assert Silks.Shape.STAR == Silks.Shape["STAR"]
 
 
-def test_headgear_can_be_created_from_lowercase_name():
+def test_silks_shape_can_be_created_from_lowercase_name():
     assert Silks.Shape.STAR == Silks.Shape["star"]
 
 
-def test_headgear_can_be_created_from_spaced_name():
+def test_silks_shape_can_be_created_from_spaced_name():
     assert Silks.Shape.INVERTED_TRIANGLE == Silks.Shape["Inverted triangle"]
 
 
