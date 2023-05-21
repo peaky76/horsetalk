@@ -97,6 +97,26 @@ def test_silks_words_returns_correct_split_when_location_specified():
     assert expected == actual
 
 
+def test_silks_body_returns_correct_element():
+    expected = Silks.Element(Silks.Colour.ORANGE)
+
+    silks = Silks()
+    silks.description = "Orange, white sleeves, orange cap"
+
+    assert expected == silks.body
+
+
+def test_silks_body_returns_correct_element_when_pattern_specified():
+    expected = Silks.Element(
+        Silks.Colour.DARK_BLUE, Silks.Colour.RED, Silks.Pattern.STRIPE
+    )
+
+    silks = Silks()
+    silks.description = "Dark blue, red stripe, pink sleeves and cap"
+
+    assert expected == silks.body
+
+
 def test_silks_cap_returns_correct_element():
     expected = Silks.Element(Silks.Colour.ORANGE)
 
@@ -123,9 +143,7 @@ def test_silks_cap_returns_correct_element_when_pattern_specified():
     silks = Silks()
     silks.description = "Orange and blue hoops, orange and white hooped sleeves and cap"
 
-    assert expected.primary == silks.cap.primary
-    assert expected.secondary == silks.cap.secondary
-    assert expected.pattern == silks.cap.pattern
+    assert expected == silks.cap
 
 
 def test_silks_sleeves_returns_correct_element():
