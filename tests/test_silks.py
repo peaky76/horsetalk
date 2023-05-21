@@ -63,7 +63,7 @@ def test_silks_cap_returns_correct_part():
 
 def test_silks_cap_returns_correct_part_when_joined_with_sleeves():
     silks = Silks()
-    silks.description = "Orange and blue hoops, white sleeves, orange cap"
+    silks.description = "Orange and blue hoops, orange sleeves and cap"
 
     assert "orange cap" == silks.cap
 
@@ -77,6 +77,6 @@ def test_silks_sleeves_returns_correct_part():
 
 def test_silks_cap_returns_correct_part_when_joined_with_cap():
     silks = Silks()
-    silks.description = "Orange and blue hoops, white sleeves, orange cap"
+    silks.description = "Orange and blue hoops, white sleeves and cap"
 
-    assert "orange cap" == silks.cap
+    assert "white sleeves" == silks.sleeves
