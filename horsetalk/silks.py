@@ -72,6 +72,13 @@ class Silks:
             self.pattern = pattern if pattern else Silks.Pattern.PLAIN
             self.secondary = secondary if secondary else self.primary
 
+        def __eq__(self, other):
+            return (
+                self.primary == other.primary
+                and self.pattern == other.pattern
+                and self.secondary == other.secondary
+            )
+
     @classmethod
     def parse(cls, description: str) -> dict:
         """Parses a description of silks into component parts.
@@ -82,22 +89,34 @@ class Silks:
         self = cls()
         self.description = description
 
-        return {"body": None, "sleeves": None, "cap": None}
+        return {"body": None, "sleeves": self.sleeves, "cap": self.cap}
 
     @property
     def cap(self):
         for part in self._parts():
             if "cap" in part:
-                return (
-                    part.replace(" and sleeves", "").replace("sleeves and ", "").strip()
+                detail = (
+                    part.replace("cap", "")
+                    .replace("sleeves", "")
+                    .replace("and", "")
+                    .strip()
                 )
+                return Silks.Element(Silks.Colour[detail])
+
         return None
 
     @property
     def sleeves(self):
         for part in self._parts():
             if "sleeves" in part:
-                return part.replace(" and cap", "").replace("cap and", "").strip()
+                detail = (
+                    part.replace("cap", "")
+                    .replace("sleeves", "")
+                    .replace("and", "")
+                    .strip()
+                )
+                return Silks.Element(Silks.Colour[detail])
+
         return None
 
     def _parts(self):
