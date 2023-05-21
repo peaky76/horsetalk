@@ -91,6 +91,26 @@ def test_silks_bodyparts_returns_correct_value_when_two_parts_are_body():
     assert expected == actual
 
 
+def test_silks_capparts_returns_correct_value_when_only_one_part_is_cap():
+    expected = "orange cap"
+
+    silks = Silks()
+    silks.description = "Orange and blue hoops, white sleeves, orange cap"
+    actual = silks._capparts()
+    assert expected == actual
+
+
+def test_silks_capparts_returns_correct_value_when_two_parts_are_body():
+    expected = "orange cap white star"
+
+    silks = Silks()
+    silks.description = (
+        "Orange and blue hoops, white sleeves, blue seams, orange cap, white star"
+    )
+    actual = silks._capparts()
+    assert expected == actual
+
+
 def test_silks_sleeveparts_returns_correct_value_when_only_one_part_is_sleeves():
     expected = "white sleeves"
 
