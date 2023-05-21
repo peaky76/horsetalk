@@ -3,6 +3,18 @@ from horsetalk import (
 )
 
 
+def test_silks_colour_can_be_created_from_name():
+    assert Silks.Colour.BEIGE == Silks.Colour["BEIGE"]
+
+
+def test_silks_colour_can_be_created_from_lowercase_name():
+    assert Silks.Colour.BEIGE == Silks.Colour["beige"]
+
+
+def test_silks_colour_can_be_created_from_spaced_name():
+    assert Silks.Colour.DARK_BLUE == Silks.Colour["dark blue"]
+
+
 def test_silks_shape_can_be_created_from_name():
     assert Silks.Shape.STAR == Silks.Shape["STAR"]
 

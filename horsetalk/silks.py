@@ -3,6 +3,27 @@ from horsetalk.parsing_enum import ParsingEnum
 
 
 class Silks:
+    class Colour(ParsingEnum):
+        """An enumeration of colours that can appear on jockey silks."""
+
+        BEIGE = auto()
+        BLACK = auto()
+        BROWN = auto()
+        DARK_BLUE = auto()
+        EMERALD_GREEN = auto()
+        GREEN = auto()
+        GREY = auto()
+        LIGHT_BLUE = auto()
+        LIGHT_GREEN = auto()
+        MAROON = auto()
+        ORANGE = auto()
+        PINK = auto()
+        PURPLE = auto()
+        RED = auto()
+        ROYAL_BLUE = auto()
+        WHITE = auto()
+        YELLOW = auto()
+
     class Shape(ParsingEnum):
         """An enumeration of shapes that can appear on jockey silks."""
 
