@@ -152,14 +152,13 @@ class Silks:
                 )
                 break
 
-        return (
-            (" ".join([main_part, next_part]) if next_part else main_part)
-            .replace("cap", "")
-            .replace("sleeves", "")
-            .replace(" and ", " ")
-            .replace(" on ", " ")
-            .strip()
-        )
+        WORDS_TO_REMOVE = ["cap", "sleeves", " and", " on", "(", ")"]
+
+        parts = " ".join([main_part, next_part]) if next_part else main_part
+        for word in WORDS_TO_REMOVE:
+            parts = parts.replace(word, "")
+
+        return parts.strip()
 
     def _apply_defaults(self, element: "Silks.Element") -> "Silks.Element":
         element.primary = element.primary or self.body.primary
