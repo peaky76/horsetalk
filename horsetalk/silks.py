@@ -128,7 +128,7 @@ class Silks:
         element = self._convert_to_element(self._parts_for_element("sleeves"))
         return self._apply_defaults(element)
 
-    def _parts_for_element(self, element: str = ""):
+    def _parts_for_element(self, element: str = "") -> str:
         parts = self.description.lower().split(", ")
         named_part = lambda part: "cap" in part or "sleeves" in part
 
@@ -153,13 +153,13 @@ class Silks:
             .strip()
         )
 
-    def _apply_defaults(self, element: "Silks.Element"):
+    def _apply_defaults(self, element: "Silks.Element") -> "Silks.Element":
         element.primary = element.primary or self.body.primary
         element.secondary = element.secondary or self.body.secondary
         element.pattern = element.pattern or self.body.pattern
         return element
 
-    def _convert_to_element(self, part: str):
+    def _convert_to_element(self, part: str) -> "Silks.Element":
         details = []
         words = Silks._conjoin_words(part.split(" "))
         for word in words:
