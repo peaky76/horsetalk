@@ -136,6 +136,24 @@ class Silks:
         element = self._convert_to_element(self._parts_for_element("sleeves"))
         return self._apply_defaults(element)
 
+    @property
+    def _clauses(self) -> list[str]:
+        base_clauses = self.description.lower().split(", ")
+        colours = sorted(Silks.Colour.phrases(), key=len, reverse=True)
+
+        output_clauses = []
+        for clause in base_clauses:
+            if " and sleeves" in clause or " and cap" in clause:
+                first_clause, second_clause = clause.split(" and ")
+                output_clauses.append(first_clause)
+                if not any(c in second_clause for c in colours):
+                    use_colour = next(c for c in colours if c in first_clause)
+                    output_clauses.append(f"{use_colour} {second_clause}")
+            else:
+                output_clauses.append(clause)
+
+        return output_clauses
+
     def _parts_for_element(self, element: str = "") -> str:
         parts = self.description.lower().split(", ")
         named_part = lambda part: "cap" in part or "sleeves" in part
