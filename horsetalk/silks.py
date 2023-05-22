@@ -9,25 +9,27 @@ class Silks:
         BLACK = 2
         BROWN = 3
         DARK_BLUE = 4
-        EMERALD_GREEN = 5
-        GREEN = 6
-        GREY = 7
-        LIGHT_BLUE = 8
-        LIGHT_GREEN = 9
-        MAROON = 10
-        MAUVE = 11
-        ORANGE = 12
-        PINK = 13
-        PURPLE = 14
-        RED = 15
-        ROYAL_BLUE = 16
-        WHITE = 17
-        YELLOW = 18
+        DARK_GREEN = 5
+        EMERALD_GREEN = 6
+        GREEN = 7
+        GREY = 8
+        LIGHT_BLUE = 9
+        LIGHT_GREEN = 10
+        MAROON = 11
+        MAUVE = 12
+        ORANGE = 13
+        PINK = 14
+        PURPLE = 15
+        RED = 16
+        ROYAL_BLUE = 17
+        WHITE = 18
+        YELLOW = 19
 
     class Pattern(ParsingEnum):
         """An enumeration of patterns that can appear on jockey silks."""
 
-        ARMLET = 1
+        ARMLETS = 1  #
+        ARMLET = ARMLETS
         BRACES = 2  #
         CHECK = 3  #
         CHEVRON = 4  #
