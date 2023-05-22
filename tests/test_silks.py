@@ -16,6 +16,10 @@ def test_silks_colour_can_be_created_from_spaced_name():
     assert Silks.Colour.DARK_BLUE == Silks.Colour["dark blue"]
 
 
+def test_silks_colour_phrases():
+    assert "dark blue" in Silks.Colour.phrases()
+
+
 def test_silks_pattern_can_be_created_from_name():
     assert Silks.Pattern.STAR == Silks.Pattern["STAR"]
 
@@ -26,6 +30,10 @@ def test_silks_pattern_can_be_created_from_lowercase_name():
 
 def test_silks_pattern_can_be_created_from_spaced_name():
     assert Silks.Pattern.INVERTED_TRIANGLE == Silks.Pattern["Inverted triangle"]
+
+
+def test_silks_pattern_phrases():
+    assert "inverted triangle" in Silks.Pattern.phrases()
 
 
 def test_silks_element_can_be_initialised_with_single_colour():
