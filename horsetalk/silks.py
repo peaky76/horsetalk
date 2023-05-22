@@ -136,6 +136,10 @@ class Silks:
         element = self._convert_to_element(self._parts_for_element("sleeves"))
         return self._apply_defaults(element)
 
+    @property
+    def _parts(self) -> list[str]:
+        return self.description.lower().split(", ")
+
     def _parts_for_element(self, element: str = "") -> str:
         parts = self.description.lower().split(", ")
         named_part = lambda part: "cap" in part or "sleeves" in part
@@ -147,7 +151,11 @@ class Silks:
                 main_part = part
                 next_part = (
                     parts[i + 1]
-                    if i + 1 != len(parts) and not named_part(parts[i + 1])
+                    if i + 1 != len(parts)
+                    and (
+                        not named_part(parts[i + 1])
+                        or (element == "" and " and sleeves" in parts[i + 1])
+                    )
                     else None
                 )
                 break
