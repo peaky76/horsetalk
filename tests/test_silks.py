@@ -64,44 +64,21 @@ def test_silks_parse_returns_instance_of_silks():
     assert expected == actual
 
 
-def test_silks_parts_returns_correct_split():
-    expected = ["orange and blue hoops", "white sleeves", "orange cap"]
-
-    silks = Silks()
-    silks.description = "Orange and blue hoops, white sleeves, orange cap"
-    actual = silks._parts()
-    assert expected == actual
-
-
-def test_silks_words_returns_correct_split_when_separate_words():
+def test_silks_conjoin_words_returns_correct_value_when_simple():
     expected = ["orange", "white", "hooped"]
-
-    silks = Silks()
-    actual = silks._words("orange and white hooped cap")
+    actual = Silks._conjoin_words(["orange", "white", "hooped"])
     assert expected == actual
 
 
-def test_silks_words_returns_correct_split_when_double_barrelled_colour():
+def test_silks_conjoin_words_returns_correct_value_when_double_barrelled_colour():
     expected = ["dark blue", "white", "hooped"]
-
-    silks = Silks()
-    actual = silks._words("dark blue and white hooped cap")
+    actual = Silks._conjoin_words(["dark", "blue", "white", "hooped"])
     assert expected == actual
 
 
-def test_silks_words_returns_correct_split_when_triple_barrelled_pattern():
+def test_silks_conjoin_words_returns_correct_value_when_triple_barrelled_pattern():
     expected = ["green", "cross of lorraine"]
-
-    silks = Silks()
-    actual = silks._words("green cross of lorraine")
-    assert expected == actual
-
-
-def test_silks_words_returns_correct_split_when_location_specified():
-    expected = ["green", "white", "hoops"]
-
-    silks = Silks()
-    actual = silks._words("green and white hoops on sleeves")
+    actual = Silks._conjoin_words(["green", "cross", "of", "lorraine"])
     assert expected == actual
 
 
