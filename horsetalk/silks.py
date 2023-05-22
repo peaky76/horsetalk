@@ -1,5 +1,3 @@
-from enum import auto
-from typing import Any, Callable
 from horsetalk.parsing_enum import ParsingEnum
 
 
