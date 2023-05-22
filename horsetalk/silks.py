@@ -136,10 +136,6 @@ class Silks:
         element = self._convert_to_element(self._parts_for_element("sleeves"))
         return self._apply_defaults(element)
 
-    @property
-    def _parts(self) -> list[str]:
-        return self.description.lower().split(", ")
-
     def _parts_for_element(self, element: str = "") -> str:
         parts = self.description.lower().split(", ")
         named_part = lambda part: "cap" in part or "sleeves" in part
