@@ -1,6 +1,7 @@
 from horsetalk import (
     Silks,
 )
+from tests.fixtures.silks import SILKS_INPUT, SILKS_OUTPUT
 
 
 def test_silks_colour_can_be_created_from_name():
@@ -169,3 +170,15 @@ def test_silks_sleeves_returns_correct_element_when_colour_not_specified():
     silks.description = "Dark blue, red stripe, halved sleeves, red cap"
 
     assert expected == silks.sleeves
+
+
+# def test_silks_en_masse():
+#     for silks_in, silks_out in zip(SILKS_INPUT, SILKS_OUTPUT):
+#         silks = Silks.parse(silks_in)
+#         body = Silks.Element(*silks_out[0])
+#         sleeves = Silks.Element(*silks_out[1])
+#         cap = Silks.Element(*silks_out[2])
+
+#         assert body == silks.body
+#         assert sleeves == silks.sleeves
+#         assert cap == silks.cap
