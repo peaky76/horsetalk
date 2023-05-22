@@ -128,25 +128,30 @@ class Silks:
         element = self._convert_to_element(self._parts_for_element("sleeves"))
         return self._apply_defaults(element)
 
-    def _parts(self):
-        return self.description.lower().split(", ")
-
     def _parts_for_element(self, element: str = ""):
+        parts = self.description.lower().split(", ")
+        named_part = lambda part: "cap" in part or "sleeves" in part
+
         main_part = None
         next_part = None
-        for i, part in enumerate(self._parts()):
+        for i, part in enumerate(parts):
             if element in part:
                 main_part = part
-                if i < len(self._parts()) - 1:
-                    next_part = self._parts()[i + 1]
-                    next_part = (
-                        None
-                        if "cap" in next_part or "sleeves" in next_part
-                        else next_part
-                    )
+                next_part = (
+                    parts[i + 1]
+                    if i + 1 != len(parts) and not named_part(parts[i + 1])
+                    else None
+                )
                 break
 
-        return " ".join([main_part, next_part]) if next_part else main_part
+        return (
+            (" ".join([main_part, next_part]) if next_part else main_part)
+            .replace("cap", "")
+            .replace("sleeves", "")
+            .replace(" and ", " ")
+            .replace(" on ", " ")
+            .strip()
+        )
 
     def _apply_defaults(self, element: "Silks.Element"):
         element.primary = element.primary or self.body.primary
@@ -156,7 +161,8 @@ class Silks:
 
     def _convert_to_element(self, part: str):
         details = []
-        for word in self._words(part):
+        words = Silks._conjoin_words(part.split(" "))
+        for word in words:
             try:
                 detail = Silks.Colour[word]
             except KeyError:
@@ -179,7 +185,7 @@ class Silks:
 
         return Silks.Element(*details)
 
-    def _words(self, part: str):
+    def _conjoin_words(words: list[str]) -> list[str]:
         FIRST_WORDS = [
             "dark",
             "light",
@@ -191,16 +197,6 @@ class Silks:
             "large",
             "triple",
         ]
-
-        words = (
-            part.lower()
-            .replace("cap", "")
-            .replace("sleeves", "")
-            .replace(" and ", " ")
-            .replace(" on ", " ")
-            .strip()
-            .split(" ")
-        )
 
         while any(word in words for word in FIRST_WORDS):
             index = words.index(next(word for word in words if word in FIRST_WORDS))
