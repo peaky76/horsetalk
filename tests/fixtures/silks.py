@@ -259,7 +259,7 @@ SILKS_OUTPUT = [
     [
         (c.PURPLE, c.BEIGE, p.STAR),
         (c.PURPLE, c.BEIGE, p.HOOPED),
-        (c.PURPLE, c.BEIGE, p.STAR),
+        (c.PURPLE, c.BEIGE, p.STARS),
     ],
     [
         (c.PURPLE, c.PURPLE, p.PLAIN),
