@@ -283,6 +283,7 @@ class Silks:
                     not in [
                         Silks.Pattern.ARMLETS,
                         Silks.Pattern.CHEVRONS,
+                        Silks.Pattern.SPOTS,
                         Silks.Pattern.STAR,
                         Silks.Pattern.STARS,
                         Silks.Pattern.STRIPES,
