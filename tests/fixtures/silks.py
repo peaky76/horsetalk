@@ -164,12 +164,12 @@ SILKS_OUTPUT = [
     [
         (c.EMERALD_GREEN, c.GREY, p.BRACES),
         (c.GREY, c.GREY, p.PLAIN),
-        (c.EMERALD_GREEN, c.EMERALD_GREEN, p.HOOPED),
+        (c.EMERALD_GREEN, c.GREY, p.HOOPS),
     ],
     [
         (c.EMERALD_GREEN, c.RED, p.HOOPS),
-        (c.EMERALD_GREEN, c.EMERALD_GREEN, p.PLAIN),
-        (c.EMERALD_GREEN, c.EMERALD_GREEN, p.QUARTERED),
+        (c.EMERALD_GREEN, c.RED, p.HOOPS),
+        (c.EMERALD_GREEN, c.RED, p.QUARTERED),
     ],
     [
         (c.EMERALD_GREEN, c.RED, p.INVERTED_TRIANGLE),
