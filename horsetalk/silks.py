@@ -165,6 +165,7 @@ class Silks:
             for clause in self.description.lower()
             .replace("(", "")
             .replace(")", "")
+            .replace(" on ", " ")
             .split(", ")
         ]
 
