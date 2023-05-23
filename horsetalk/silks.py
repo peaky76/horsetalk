@@ -205,6 +205,16 @@ class Silks:
                 # element and element
                 else:
                     new_clause = clause[: index - 1] + clause[index + 1 :]
+                    while (
+                        sum(word in Silks.Pattern.phrases() for word in new_clause) > 1
+                    ):
+                        removable = next(
+                            word
+                            for word in new_clause
+                            if word in Silks.Pattern.phrases()
+                        )
+                        new_clause.remove(removable)
+
                     clause = clause[:index]
 
             clauses[i] = clause
