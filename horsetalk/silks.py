@@ -28,7 +28,10 @@ class Silks:
 
         @staticmethod
         def phrases():
-            return [colour.name.replace("_", " ").lower() for colour in Silks.Colour]
+            return [
+                colour.replace("_", " ").lower()
+                for colour in Silks.Colour.__members__.keys()
+            ]
 
     class Pattern(ParsingEnum):
         """An enumeration of patterns that can appear on jockey silks."""
@@ -70,7 +73,10 @@ class Silks:
 
         @staticmethod
         def phrases():
-            return [pattern.name.replace("_", " ").lower() for pattern in Silks.Pattern]
+            return [
+                pattern.replace("_", " ").lower()
+                for pattern in Silks.Pattern.__members__.keys()
+            ]
 
     class Element:
         def __init__(
