@@ -180,8 +180,13 @@ def test_silks_sleeves_returns_correct_element_when_colour_not_specified():
     assert expected == silks.sleeves
 
 
-def test_silks_clauses_returns_correct_value_when_simple():
-    expected = ["beige and black hoops", "white sleeves", "beige cap", "black star"]
+def test_silks_clauses_returns_correct_value_when_and_conjoins_colours():
+    expected = [
+        ["beige", "black", "hoops"],
+        ["white", "sleeves"],
+        ["beige", "cap"],
+        ["black", "star"],
+    ]
 
     silks = Silks()
     silks.description = "Beige and black hoops, white sleeves, beige cap, black star"
@@ -189,19 +194,33 @@ def test_silks_clauses_returns_correct_value_when_simple():
     assert expected == silks._clauses
 
 
-def test_silks_clauses_returns_correct_value_when_shape_and_element_need_splitting():
+def test_silks_clauses_returns_correct_value_when_and_conjoins_shape_and_element():
     expected = [
-        "beige",
-        "dark blue cross of lorraine",
-        "dark blue sleeves",
-        "dark blue cap",
-        "beige star",
+        ["beige"],
+        ["dark blue", "cross of lorraine"],
+        ["dark blue", "sleeves"],
+        ["dark blue", "cap"],
+        ["beige", "star"],
     ]
 
     silks = Silks()
     silks.description = (
         "Beige, dark blue cross of lorraine and sleeves, dark blue cap, beige star"
     )
+
+    assert expected == silks._clauses
+
+
+def test_silks_clauses_returns_correct_value_when_and_conjoins_element_and_element():
+    expected = [
+        ["beige"],
+        ["dark blue", "cross of lorraine"],
+        ["dark blue", "sleeves"],
+        ["dark blue", "cap"],
+    ]
+
+    silks = Silks()
+    silks.description = "Beige, dark blue cross of lorraine, dark blue sleeves and cap"
 
     assert expected == silks._clauses
 

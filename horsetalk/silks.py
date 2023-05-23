@@ -138,21 +138,35 @@ class Silks:
 
     @property
     def _clauses(self) -> list[str]:
-        base_clauses = self.description.lower().split(", ")
-        colours = sorted(Silks.Colour.phrases(), key=len, reverse=True)
+        clauses = [
+            Silks._conjoin_words(clause.split(" "))
+            for clause in self.description.lower().split(", ")
+        ]
 
-        output_clauses = []
-        for clause in base_clauses:
-            if " and sleeves" in clause or " and cap" in clause:
-                first_clause, second_clause = clause.split(" and ")
-                output_clauses.append(first_clause)
-                if not any(c in second_clause for c in colours):
-                    use_colour = next(c for c in colours if c in first_clause)
-                    output_clauses.append(f"{use_colour} {second_clause}")
-            else:
-                output_clauses.append(clause)
+        to_add = {}
+        for i, clause in enumerate(clauses):
+            new_clause = None
+            while "and" in clause:
+                index = clause.index("and")
+                before_is_colour = clause[index - 1] in Silks.Colour.phrases()
+                after_is_colour = clause[index + 1] in Silks.Colour.phrases()
+                # colour and colour
+                if before_is_colour and after_is_colour:
+                    del clause[index]
+                # pattern and element
+                # element and element
+                else:
+                    new_clause = clause[: index - 1] + clause[index + 1 :]
+                    clause = clause[:index]
 
-        return output_clauses
+            clauses[i] = clause
+            if new_clause:
+                to_add[i + 1] = new_clause
+
+        for key in to_add:
+            clauses.insert(key, to_add[key])
+
+        return clauses
 
     def _parts_for_element(self, element: str = "") -> str:
         parts = self.description.lower().split(", ")
