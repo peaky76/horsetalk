@@ -262,13 +262,15 @@ class Silks:
             )
             else self.body.primary
         )
-
-        element.secondary = element.secondary or element.primary or default_secondary
-        element.pattern = element.pattern or (
+        default_pattern = (
             Silks.Pattern.PLAIN
             if element.primary or self.body.pattern in Silks.Pattern.body_only()
             else self.body.pattern
         )
+
+
+        element.secondary = element.secondary or element.primary or default_secondary
+        element.pattern = element.pattern or default_pattern
         element.primary = (
             element.primary
             if (
