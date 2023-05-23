@@ -174,9 +174,15 @@ class Silks:
         """
         element = self._convert_to_element(
             self._parts_for_element(
-                lambda parts: next(p for p in parts if "sleeves" in p or "armlets" in p)
+                lambda parts: next(
+                    p
+                    for p in parts
+                    if "sleeves" in p or "armlets" in p or "armlet" in p
+                )
             )
-            if "sleeves" in self.description or "armlets" in self.description
+            if "sleeves" in self.description
+            or "armlets" in self.description
+            or "armlet" in self.description
             else []
         )
         return self._apply_defaults(element)
