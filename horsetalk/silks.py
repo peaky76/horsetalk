@@ -275,6 +275,7 @@ class Silks:
                     element.pattern
                     not in [
                         Silks.Pattern.ARMLETS,
+                        Silks.Pattern.CHEVRONS,
                         Silks.Pattern.STAR,
                         Silks.Pattern.STARS,
                         Silks.Pattern.STRIPES,
