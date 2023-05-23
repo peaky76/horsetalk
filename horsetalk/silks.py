@@ -203,20 +203,19 @@ class Silks:
         return element
 
     def _convert_to_element(self, words: list[str]) -> "Silks.Element":
-        details = []
-        for word in words:
-            try:
-                detail = Silks.Colour[word]
-            except KeyError:
-                try:
-                    detail = Silks.Pattern[word]
-                except KeyError:
-                    detail = None
+        details = [
+            (
+                Silks.Colour[word]
+                if word in Silks.Colour.phrases()
+                else Silks.Pattern[word]
+                if word in Silks.Pattern.phrases()
+                else None
+            )
+            for word in words
+            if word != "cap" and word != "sleeves"
+        ]
 
-            if detail is not None:
-                details.append(detail)
-
-        details = details + [None] * (3 - len(details))
+        details.extend([None] * (3 - len(details)))
         details.sort(
             key=lambda x: (
                 isinstance(x, Silks.Pattern),
