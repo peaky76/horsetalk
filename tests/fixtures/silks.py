@@ -302,7 +302,11 @@ SILKS_OUTPUT = [
         (c.RED, c.ROYAL_BLUE, p.CHEVRONS),
         (c.RED, c.ROYAL_BLUE, p.STAR),
     ],
-    [(c.RED, c.ROYAL_BLUE, p.STARS), (c.RED, c.RED, p.PLAIN), (c.RED, c.RED, p.STAR)],
+    [
+        (c.RED, c.ROYAL_BLUE, p.STARS),
+        (c.RED, c.ROYAL_BLUE, p.STARS),
+        (c.RED, c.RED, p.PLAIN),
+    ],
     [
         (c.RED, c.YELLOW, p.CHEVRON),
         (c.YELLOW, c.RED, p.ARMLETS),
