@@ -86,8 +86,8 @@ class Silks:
             pattern: "Silks.Shape" = None,
         ):
             self.primary = primary
-            self.secondary = secondary if secondary else self.primary
-            self.pattern = pattern if pattern else Silks.Pattern.PLAIN
+            self.secondary = secondary
+            self.pattern = pattern
 
         def __repr__(self):
             return f"Element(primary={self.primary}, secondary={self.secondary}, pattern={self.pattern})"
@@ -121,7 +121,12 @@ class Silks:
         Returns:
             A Silks.Element object.
         """
-        return self._convert_to_element(self._parts_for_element(lambda parts: parts[0]))
+        element = self._convert_to_element(
+            self._parts_for_element(lambda parts: parts[0])
+        )
+        element.secondary = element.secondary or element.primary
+        element.pattern = element.pattern or Silks.Pattern.PLAIN
+        return element
 
     @property
     def cap(self) -> "Silks.Element":
@@ -204,20 +209,19 @@ class Silks:
         return main_clause + next_clause
 
     def _apply_defaults(self, element: "Silks.Element") -> "Silks.Element":
-        default_primary = Silks.Colour[self._clauses[0][0]]
-        default_secondary = (
-            Silks.Colour[self._clauses[0][2]]
-            if len(self._clauses[0]) > 2 and self._clauses[0][1] == "and"
-            else default_primary
+        element.secondary = (
+            element.secondary
+            or element.primary
+            or (
+                self.body.secondary
+                if "and" in self._clauses[0] or element.pattern
+                else self.body.primary
+            )
         )
-
-        element.primary = element.primary or default_primary
-        element.secondary = element.secondary or (
-            self.body.secondary
-            if element.pattern != Silks.Pattern.PLAIN
-            else default_secondary
+        element.pattern = element.pattern or (
+            Silks.Pattern.PLAIN if element.primary else self.body.pattern
         )
-        element.pattern = element.pattern or self.body.pattern
+        element.primary = element.primary or self.body.primary
         return element
 
     def _convert_to_element(self, words: list[str]) -> "Silks.Element":
