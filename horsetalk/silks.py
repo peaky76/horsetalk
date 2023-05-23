@@ -132,6 +132,8 @@ class Silks:
         """
         element = self._convert_to_element(
             self._parts_for_element(lambda parts: next(p for p in parts if "cap" in p))
+            if "cap" in self.description
+            else []
         )
         return self._apply_defaults(element)
 
@@ -146,6 +148,8 @@ class Silks:
             self._parts_for_element(
                 lambda parts: next(p for p in parts if "sleeves" in p)
             )
+            if "sleeves" in self.description
+            else []
         )
         return self._apply_defaults(element)
 
