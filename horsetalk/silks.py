@@ -79,26 +79,26 @@ class Silks:
                 for pattern in Silks.Pattern.__members__.keys()
             ]
 
-        @staticmethod
-        def body_only():
+        @classmethod
+        def body_only(cls):
             return [
-                Silks.Pattern.BRACES,
-                Silks.Pattern.CHEVRON,
-                Silks.Pattern.CROSS_BELTS,
-                Silks.Pattern.CROSS_OF_LORRAINE,
-                Silks.Pattern.CROSS_SASHES,
-                Silks.Pattern.DIAMOND,
-                Silks.Pattern.DIAMONDS,
-                Silks.Pattern.DIABOLO,
-                Silks.Pattern.DISC,
-                Silks.Pattern.EPAULETS,
-                Silks.Pattern.HOLLOW_BOX,
-                Silks.Pattern.HOOP,
-                Silks.Pattern.INVERTED_TRIANGLE,
-                Silks.Pattern.LARGE_SPOTS,
-                Silks.Pattern.PANEL,
-                Silks.Pattern.SASH,
-                Silks.Pattern.TRIPLE_DIAMOND,
+                cls.BRACES,
+                cls.CHEVRON,
+                cls.CROSS_BELTS,
+                cls.CROSS_OF_LORRAINE,
+                cls.CROSS_SASHES,
+                cls.DIAMOND,
+                cls.DIAMONDS,
+                cls.DIABOLO,
+                cls.DISC,
+                cls.EPAULETS,
+                cls.HOLLOW_BOX,
+                cls.HOOP,
+                cls.INVERTED_TRIANGLE,
+                cls.LARGE_SPOTS,
+                cls.PANEL,
+                cls.SASH,
+                cls.TRIPLE_DIAMOND,
             ]
 
     class Element:
