@@ -1,3 +1,4 @@
+from typing import Callable
 from horsetalk.parsing_enum import ParsingEnum
 
 
@@ -114,7 +115,7 @@ class Silks:
         Returns:
             A Silks.Element object.
         """
-        return self._convert_to_element(self._parts_for_element(""))
+        return self._convert_to_element(self._parts_for_element(lambda parts: parts[0]))
 
     @property
     def cap(self) -> "Silks.Element":
@@ -123,7 +124,9 @@ class Silks:
         Returns:
             A Silks.Element object.
         """
-        element = self._convert_to_element(self._parts_for_element("cap"))
+        element = self._convert_to_element(
+            self._parts_for_element(lambda parts: next(p for p in parts if "cap" in p))
+        )
         return self._apply_defaults(element)
 
     @property
@@ -133,7 +136,11 @@ class Silks:
         Returns:
             A Silks.Element object.
         """
-        element = self._convert_to_element(self._parts_for_element("sleeves"))
+        element = self._convert_to_element(
+            self._parts_for_element(
+                lambda parts: next(p for p in parts if "sleeves" in p)
+            )
+        )
         return self._apply_defaults(element)
 
     @property
@@ -168,33 +175,20 @@ class Silks:
 
         return clauses
 
-    def _parts_for_element(self, element: str = "") -> str:
-        parts = self.description.lower().split(", ")
-        named_part = lambda part: "cap" in part or "sleeves" in part
+    def _parts_for_element(self, element_selector: Callable) -> str:
+        main_clause = element_selector(self._clauses)
+        index = self._clauses.index(main_clause)
+        next_clause = (
+            self._clauses[index + 1]
+            if index + 1 != len(self._clauses)
+            and not (
+                "cap" in self._clauses[index + 1]
+                or "sleeves" in self._clauses[index + 1]
+            )
+            else []
+        )
 
-        main_part = None
-        next_part = None
-        for i, part in enumerate(parts):
-            if element in part:
-                main_part = part
-                next_part = (
-                    parts[i + 1]
-                    if i + 1 != len(parts)
-                    and (
-                        not named_part(parts[i + 1])
-                        or (element == "" and " and sleeves" in parts[i + 1])
-                    )
-                    else None
-                )
-                break
-
-        WORDS_TO_REMOVE = ["cap", "sleeves", " and", " on", "(", ")"]
-
-        parts = " ".join([main_part, next_part]) if next_part else main_part
-        for word in WORDS_TO_REMOVE:
-            parts = parts.replace(word, "")
-
-        return parts.strip()
+        return main_clause + next_clause
 
     def _apply_defaults(self, element: "Silks.Element") -> "Silks.Element":
         element.primary = element.primary or self.body.primary
@@ -202,9 +196,8 @@ class Silks:
         element.pattern = element.pattern or self.body.pattern
         return element
 
-    def _convert_to_element(self, part: str) -> "Silks.Element":
+    def _convert_to_element(self, words: list[str]) -> "Silks.Element":
         details = []
-        words = Silks._conjoin_words(part.split(" "))
         for word in words:
             try:
                 detail = Silks.Colour[word]
