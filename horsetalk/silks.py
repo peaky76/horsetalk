@@ -219,14 +219,19 @@ class Silks:
                     "and" in self._clauses[0]
                     or element.pattern
                     or self.body.pattern
-                    not in [Silks.Pattern.PLAIN, Silks.Pattern.EPAULETS]
+                    not in [
+                        Silks.Pattern.PLAIN,
+                        Silks.Pattern.CROSS_BELTS,
+                        Silks.Pattern.EPAULETS,
+                    ]
                 )
                 else self.body.primary
             )
         )
         element.pattern = element.pattern or (
             Silks.Pattern.PLAIN
-            if element.primary or self.body.pattern == Silks.Pattern.EPAULETS
+            if element.primary
+            or self.body.pattern in [Silks.Pattern.CROSS_BELTS, Silks.Pattern.EPAULETS]
             else self.body.pattern
         )
         element.primary = (
