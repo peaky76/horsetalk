@@ -213,17 +213,17 @@ SILKS_OUTPUT = [
     ],
     [
         (c.ORANGE, c.BROWN, p.SEAMS),
-        (c.ORANGE, c.ORANGE, p.PLAIN),
+        (c.ORANGE, c.BROWN, p.SEAMS),
         (c.EMERALD_GREEN, c.YELLOW, p.QUARTERED),
     ],
     [
         (c.ORANGE, c.BROWN, p.SEAMS),
-        (c.ORANGE, c.ORANGE, p.PLAIN),
+        (c.ORANGE, c.BROWN, p.SEAMS),
         (c.GREEN, c.GREEN, p.PLAIN),
     ],
     [
         (c.ORANGE, c.BROWN, p.SEAMS),
-        (c.ORANGE, c.ORANGE, p.PLAIN),
+        (c.ORANGE, c.BROWN, p.SEAMS),
         (c.ORANGE, c.ORANGE, p.PLAIN),
     ],
     [
