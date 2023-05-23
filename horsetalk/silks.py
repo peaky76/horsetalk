@@ -284,10 +284,14 @@ class Silks:
 
         while any(word in words for word in FIRST_WORDS):
             index = words.index(next(word for word in words if word in FIRST_WORDS))
-            words = (
-                words[:index]
-                + [" ".join([words[index], words[index + 1]])]
-                + words[index + 2 :]
-            )
+            if words[index] == "large":
+                spots_index = words.index("spots")
+                words = words[:index] + words[index + 1 : spots_index] + ["large spots"]
+            else:
+                words = (
+                    words[:index]
+                    + [" ".join([words[index], words[index + 1]])]
+                    + words[index + 2 :]
+                )
 
         return words
