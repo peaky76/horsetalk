@@ -244,28 +244,17 @@ class Silks:
                 if (
                     "and" in self._clauses[0]
                     or element.pattern
-                    or self.body.pattern
-                    not in [
-                        Silks.Pattern.PLAIN,
-                        Silks.Pattern.CROSS_BELTS,
-                        Silks.Pattern.DISC,
-                        Silks.Pattern.EPAULETS,
-                        Silks.Pattern.INVERTED_TRIANGLE,
-                    ]
+                    or (
+                        self.body.pattern != Silks.Pattern.PLAIN
+                        and self.body.pattern not in Silks.Pattern.body_only()
+                    )
                 )
                 else self.body.primary
             )
         )
         element.pattern = element.pattern or (
             Silks.Pattern.PLAIN
-            if element.primary
-            or self.body.pattern
-            in [
-                Silks.Pattern.CROSS_BELTS,
-                Silks.Pattern.DISC,
-                Silks.Pattern.EPAULETS,
-                Silks.Pattern.INVERTED_TRIANGLE,
-            ]
+            if element.primary or self.body.pattern in Silks.Pattern.body_only()
             else self.body.pattern
         )
         element.primary = (
