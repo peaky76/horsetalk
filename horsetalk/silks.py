@@ -204,8 +204,19 @@ class Silks:
         return main_clause + next_clause
 
     def _apply_defaults(self, element: "Silks.Element") -> "Silks.Element":
-        element.primary = element.primary or self.body.primary
-        element.secondary = element.secondary or self.body.secondary
+        default_primary = Silks.Colour[self._clauses[0][0]]
+        default_secondary = (
+            Silks.Colour[self._clauses[0][2]]
+            if len(self._clauses[0]) > 2 and self._clauses[0][1] == "and"
+            else default_primary
+        )
+
+        element.primary = element.primary or default_primary
+        element.secondary = element.secondary or (
+            self.body.secondary
+            if element.pattern != Silks.Pattern.PLAIN
+            else default_secondary
+        )
         element.pattern = element.pattern or self.body.pattern
         return element
 
