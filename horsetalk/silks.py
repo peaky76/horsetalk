@@ -40,6 +40,7 @@ class Silks:
         ARMLET = ARMLETS
         BRACES = 2  #
         CHECK = 3  #
+        CHECKED = CHECK
         CHEVRON = 4  #
         CHEVRONS = 5  #
         CROSS_BELTS = 6  #
