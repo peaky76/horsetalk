@@ -268,25 +268,23 @@ class Silks:
             else self.body.pattern
         )
 
-
         element.secondary = element.secondary or element.primary or default_secondary
         element.pattern = element.pattern or default_pattern
+
+        uses_solid_pattern = element.pattern not in [
+            Silks.Pattern.ARMLETS,
+            Silks.Pattern.CHEVRONS,
+            Silks.Pattern.SPOTS,
+            Silks.Pattern.STAR,
+            Silks.Pattern.STARS,
+            Silks.Pattern.STRIPES,
+        ]
+
         element.primary = (
             element.primary
             if (
                 element.primary
-                and (
-                    element.pattern
-                    not in [
-                        Silks.Pattern.ARMLETS,
-                        Silks.Pattern.CHEVRONS,
-                        Silks.Pattern.SPOTS,
-                        Silks.Pattern.STAR,
-                        Silks.Pattern.STARS,
-                        Silks.Pattern.STRIPES,
-                    ]
-                    or element.secondary != element.primary
-                )
+                and (uses_solid_pattern or element.secondary != element.primary)
             )
             else self.body.primary
         )
