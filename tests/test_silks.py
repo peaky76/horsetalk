@@ -44,14 +44,6 @@ def test_silks_element_can_be_initialised_with_single_colour():
     assert Silks.Element(Silks.Colour.ORANGE)
 
 
-def test_silks_element_initialised_with_single_colour_sets_right_pattern():
-    assert Silks.Pattern.PLAIN == Silks.Element(Silks.Colour.ORANGE).pattern
-
-
-def test_silks_element_initialised_with_single_colour_sets_secondary_colour_to_same():
-    assert Silks.Colour.ORANGE == Silks.Element(Silks.Colour.ORANGE).secondary
-
-
 def test_silks_element_equal_to_itself():
     element = Silks.Element(Silks.Colour.ORANGE)
     assert element == element
@@ -67,7 +59,9 @@ def test_silks_element_repr():
     expected = (
         "Element(primary=Colour.ORANGE, secondary=Colour.ORANGE, pattern=Pattern.PLAIN)"
     )
-    actual = repr(Silks.Element(Silks.Colour.ORANGE))
+    actual = repr(
+        Silks.Element(Silks.Colour.ORANGE, Silks.Colour.ORANGE, Silks.Pattern.PLAIN)
+    )
     assert expected == actual
 
 
@@ -96,7 +90,9 @@ def test_silks_conjoin_words_returns_correct_value_when_triple_barrelled_pattern
 
 
 def test_silks_body_returns_correct_element():
-    expected = Silks.Element(Silks.Colour.ORANGE)
+    expected = Silks.Element(
+        Silks.Colour.ORANGE, Silks.Colour.ORANGE, Silks.Pattern.PLAIN
+    )
 
     silks = Silks()
     silks.description = "Orange, white sleeves, orange cap"
@@ -116,7 +112,9 @@ def test_silks_body_returns_correct_element_when_pattern_specified():
 
 
 def test_silks_cap_returns_correct_element():
-    expected = Silks.Element(Silks.Colour.ORANGE)
+    expected = Silks.Element(
+        Silks.Colour.ORANGE, Silks.Colour.ORANGE, Silks.Pattern.PLAIN
+    )
 
     silks = Silks()
     silks.description = "Orange and dark blue hoops, white sleeves, orange cap"
@@ -125,7 +123,9 @@ def test_silks_cap_returns_correct_element():
 
 
 def test_silks_cap_returns_correct_element_when_joined_with_sleeves():
-    expected = Silks.Element(Silks.Colour.ORANGE)
+    expected = Silks.Element(
+        Silks.Colour.ORANGE, Silks.Colour.ORANGE, Silks.Pattern.PLAIN
+    )
 
     silks = Silks()
     silks.description = "Orange and dark blue hoops, orange sleeves and cap"
@@ -147,7 +147,9 @@ def test_silks_cap_returns_correct_element_when_pattern_specified():
 
 
 def test_silks_sleeves_returns_correct_element():
-    expected = Silks.Element(Silks.Colour.WHITE)
+    expected = Silks.Element(
+        Silks.Colour.WHITE, Silks.Colour.WHITE, Silks.Pattern.PLAIN
+    )
 
     silks = Silks()
     silks.description = "Orange and dark blue hoops, white sleeves, orange cap"
@@ -156,7 +158,9 @@ def test_silks_sleeves_returns_correct_element():
 
 
 def test_silks_sleeves_returns_correct_element_when_joined_with_cap():
-    expected = Silks.Element(Silks.Colour.WHITE)
+    expected = Silks.Element(
+        Silks.Colour.WHITE, Silks.Colour.WHITE, Silks.Pattern.PLAIN
+    )
 
     silks = Silks()
     silks.description = "Orange and dark blue hoops, white sleeves and cap"
