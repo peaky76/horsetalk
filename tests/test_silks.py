@@ -40,6 +40,10 @@ def test_silks_pattern_phrases_contains_aliases():
     assert "hooped" in Silks.Pattern.phrases()
 
 
+def test_silks_pattern_body_only():
+    assert Silks.Pattern.TRIPLE_DIAMOND in Silks.Pattern.body_only()
+
+
 def test_silks_element_can_be_initialised_with_single_colour():
     assert Silks.Element(Silks.Colour.ORANGE)
 
