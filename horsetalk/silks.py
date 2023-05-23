@@ -213,10 +213,6 @@ class Silks:
         element.secondary = (
             element.secondary
             or element.primary
-            # if (
-            #     element.primary
-            #     and element.pattern not in [Silks.Pattern.STRIPES, Silks.Pattern.HALVED]
-            # )
             or (
                 self.body.secondary
                 if (
@@ -238,7 +234,7 @@ class Silks:
             if (
                 element.primary
                 and (
-                    element.pattern != Silks.Pattern.STRIPES
+                    element.pattern not in [Silks.Pattern.STARS, Silks.Pattern.STRIPES]
                     or element.secondary != element.primary
                 )
             )
