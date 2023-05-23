@@ -118,7 +118,7 @@ SILKS_OUTPUT = [
     ],
     [
         (c.DARK_BLUE, c.PINK, p.CROSS_SASHES),
-        (c.DARK_BLUE, c.PINK, p.STAR),
+        (c.DARK_BLUE, c.PINK, p.STARS),
         (c.DARK_BLUE, c.DARK_BLUE, p.PLAIN),
     ],
     [
