@@ -114,7 +114,7 @@ SILKS_OUTPUT = [
     [
         (c.DARK_BLUE, c.WHITE, p.LARGE_SPOTS),
         (c.DARK_BLUE, c.WHITE, p.CHEVRONS),
-        (c.DARK_BLUE, c.WHITE, p.STRIPE),
+        (c.DARK_BLUE, c.WHITE, p.STRIPES),
     ],
     [
         (c.DARK_BLUE, c.PINK, p.CROSS_SASHES),
@@ -263,12 +263,12 @@ SILKS_OUTPUT = [
     ],
     [
         (c.PURPLE, c.PURPLE, p.PLAIN),
-        (c.PURPLE, c.BEIGE, p.STRIPE),
+        (c.PURPLE, c.BEIGE, p.STRIPES),
         (c.PURPLE, c.PURPLE, p.PLAIN),
     ],
     [
         (c.PURPLE, c.PURPLE, p.PLAIN),
-        (c.PURPLE, c.LIGHT_GREEN, p.STRIPE),
+        (c.PURPLE, c.LIGHT_GREEN, p.STRIPES),
         (c.PURPLE, c.PURPLE, p.PLAIN),
     ],
     [
@@ -284,7 +284,7 @@ SILKS_OUTPUT = [
     [
         (c.PURPLE, c.PURPLE, p.PLAIN),
         (c.YELLOW, c.YELLOW, p.PLAIN),
-        (c.RED, c.YELLOW, p.STRIPE),
+        (c.RED, c.YELLOW, p.STRIPES),
     ],
     [
         (c.PURPLE, c.YELLOW, p.STARS),
@@ -292,7 +292,7 @@ SILKS_OUTPUT = [
         (c.YELLOW, c.PURPLE, p.STARS),
     ],
     [
-        (c.RED, c.WHITE, p.STRIPE),
+        (c.RED, c.WHITE, p.STRIPES),
         (c.RED, c.RED, p.PLAIN),
         (c.RED, c.WHITE, p.QUARTERED),
     ],
@@ -330,13 +330,13 @@ SILKS_OUTPUT = [
     ],
     [
         (c.WHITE, c.ROYAL_BLUE, p.QUARTERED),
-        (c.WHITE, c.RED, p.STRIPE),
+        (c.WHITE, c.RED, p.STRIPES),
         (c.RED, c.RED, p.PLAIN),
     ],
     [
         (c.WHITE, c.MAROON, p.PANEL),
         (c.MAROON, c.MAROON, p.PLAIN),
-        (c.ROYAL_BLUE, c.YELLOW, p.STRIPE),
+        (c.ROYAL_BLUE, c.YELLOW, p.STRIPES),
     ],
     [
         (c.WHITE, c.PURPLE, p.PANEL),
@@ -344,8 +344,8 @@ SILKS_OUTPUT = [
         (c.WHITE, c.PURPLE, p.CHECK),
     ],
     [
-        (c.WHITE, c.RED, p.STRIPE),
-        (c.WHITE, c.RED, p.STRIPE),
+        (c.WHITE, c.RED, p.STRIPES),
+        (c.WHITE, c.RED, p.STRIPES),
         (c.WHITE, c.RED, p.QUARTERED),
     ],
     [
