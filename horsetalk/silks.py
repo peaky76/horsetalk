@@ -210,12 +210,13 @@ class Silks:
 
     def _apply_defaults(self, element: "Silks.Element") -> "Silks.Element":
         element.secondary = (
-            element.secondary or element.primary
-            if (
-                element.primary
-                and element.pattern not in [Silks.Pattern.STRIPES, Silks.Pattern.HALVED]
-            )
-            else (
+            element.secondary
+            or element.primary
+            # if (
+            #     element.primary
+            #     and element.pattern not in [Silks.Pattern.STRIPES, Silks.Pattern.HALVED]
+            # )
+            or (
                 self.body.secondary
                 if (
                     "and" in self._clauses[0]
@@ -231,7 +232,17 @@ class Silks:
             if element.primary or self.body.pattern == Silks.Pattern.EPAULETS
             else self.body.pattern
         )
-        element.primary = element.primary or self.body.primary
+        element.primary = (
+            element.primary
+            if (
+                element.primary
+                and (
+                    element.pattern != Silks.Pattern.STRIPES
+                    or element.secondary != element.primary
+                )
+            )
+            else self.body.primary
+        )
         return element
 
     def _convert_to_element(self, words: list[str]) -> "Silks.Element":
