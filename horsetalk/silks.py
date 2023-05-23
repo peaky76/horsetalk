@@ -214,7 +214,10 @@ class Silks:
             or element.primary
             or (
                 self.body.secondary
-                if "and" in self._clauses[0] or element.pattern
+                if "and" in self._clauses[0]
+                or element.pattern
+                or self.body.pattern
+                not in [Silks.Pattern.PLAIN, Silks.Pattern.EPAULETS]
                 else self.body.primary
             )
         )
