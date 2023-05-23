@@ -154,7 +154,7 @@ class Silks:
             self._parts_for_element(
                 lambda parts: next(p for p in parts if "sleeves" in p or "armlets" in p)
             )
-            if "sleeves" in self.description
+            if "sleeves" in self.description or "armlets" in self.description
             else []
         )
         return self._apply_defaults(element)
@@ -246,7 +246,12 @@ class Silks:
             if (
                 element.primary
                 and (
-                    element.pattern not in [Silks.Pattern.STARS, Silks.Pattern.STRIPES]
+                    element.pattern
+                    not in [
+                        Silks.Pattern.ARMLETS,
+                        Silks.Pattern.STARS,
+                        Silks.Pattern.STRIPES,
+                    ]
                     or element.secondary != element.primary
                 )
             )
