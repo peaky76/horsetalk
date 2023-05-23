@@ -115,7 +115,7 @@ def test_silks_cap_returns_correct_element():
     expected = Silks.Element(Silks.Colour.ORANGE)
 
     silks = Silks()
-    silks.description = "Orange and blue hoops, white sleeves, orange cap"
+    silks.description = "Orange and dark blue hoops, white sleeves, orange cap"
 
     assert expected == silks.cap
 
@@ -124,7 +124,7 @@ def test_silks_cap_returns_correct_element_when_joined_with_sleeves():
     expected = Silks.Element(Silks.Colour.ORANGE)
 
     silks = Silks()
-    silks.description = "Orange and blue hoops, orange sleeves and cap"
+    silks.description = "Orange and dark blue hoops, orange sleeves and cap"
 
     assert expected == silks.cap
 
@@ -135,7 +135,9 @@ def test_silks_cap_returns_correct_element_when_pattern_specified():
     )
 
     silks = Silks()
-    silks.description = "Orange and blue hoops, orange and white hooped sleeves and cap"
+    silks.description = (
+        "Orange and dark blue hoops, orange and white hooped sleeves and cap"
+    )
 
     assert expected == silks.cap
 
@@ -144,7 +146,7 @@ def test_silks_sleeves_returns_correct_element():
     expected = Silks.Element(Silks.Colour.WHITE)
 
     silks = Silks()
-    silks.description = "Orange and blue hoops, white sleeves, orange cap"
+    silks.description = "Orange and dark blue hoops, white sleeves, orange cap"
 
     assert expected == silks.sleeves
 
@@ -153,7 +155,7 @@ def test_silks_sleeves_returns_correct_element_when_joined_with_cap():
     expected = Silks.Element(Silks.Colour.WHITE)
 
     silks = Silks()
-    silks.description = "Orange and blue hoops, white sleeves and cap"
+    silks.description = "Orange and dark blue hoops, white sleeves and cap"
 
     assert expected == silks.sleeves
 
@@ -164,7 +166,9 @@ def test_silks_sleeves_returns_correct_element_when_pattern_specified():
     )
 
     silks = Silks()
-    silks.description = "Orange and blue hoops, orange and white hooped sleeves and cap"
+    silks.description = (
+        "Orange and dark blue hoops, orange and white hooped sleeves and cap"
+    )
 
     assert expected == silks.sleeves
 
@@ -221,6 +225,21 @@ def test_silks_clauses_returns_correct_value_when_and_conjoins_element_and_eleme
 
     silks = Silks()
     silks.description = "Beige, dark blue cross of lorraine, dark blue sleeves and cap"
+
+    assert expected == silks._clauses
+
+
+def test_silks_clauses_returns_correct_element_when_and_conjoins_element_and_element_and_pattern_specified():
+    expected = [
+        ["orange", "dark blue", "hoops"],
+        ["orange", "white", "hooped", "sleeves"],
+        ["orange", "white", "hooped", "cap"],
+    ]
+
+    silks = Silks()
+    silks.description = (
+        "Orange and dark blue hoops, orange and white hooped sleeves and cap"
+    )
 
     assert expected == silks._clauses
 
