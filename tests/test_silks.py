@@ -248,13 +248,13 @@ def test_silks_clauses_returns_correct_element_when_and_conjoins_element_and_ele
     assert expected == silks._clauses
 
 
-# def test_silks_en_masse():
-#     for silks_in, silks_out in zip(SILKS_INPUT, SILKS_OUTPUT):
-#         silks = Silks.parse(silks_in)
-#         body = Silks.Element(*silks_out[0])
-#         sleeves = Silks.Element(*silks_out[1])
-#         cap = Silks.Element(*silks_out[2])
+def test_silks_en_masse():
+    for silks_in, silks_out in zip(SILKS_INPUT, SILKS_OUTPUT):
+        silks = Silks.parse(silks_in)
+        body = Silks.Element(*silks_out[0])
+        sleeves = Silks.Element(*silks_out[1])
+        cap = Silks.Element(*silks_out[2])
 
-#         assert body == silks.body
-#         assert sleeves == silks.sleeves
-#         assert cap == silks.cap
+        assert body == silks.body
+        assert sleeves == silks.sleeves
+        assert cap == silks.cap
