@@ -219,7 +219,9 @@ class Silks:
             )
         )
         element.pattern = element.pattern or (
-            Silks.Pattern.PLAIN if element.primary else self.body.pattern
+            Silks.Pattern.PLAIN
+            if element.primary or self.body.pattern == Silks.Pattern.EPAULETS
+            else self.body.pattern
         )
         element.primary = element.primary or self.body.primary
         return element
