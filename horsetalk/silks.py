@@ -210,14 +210,19 @@ class Silks:
 
     def _apply_defaults(self, element: "Silks.Element") -> "Silks.Element":
         element.secondary = (
-            element.secondary
-            or element.primary
-            or (
+            element.secondary or element.primary
+            if (
+                element.primary
+                and element.pattern not in [Silks.Pattern.STRIPES, Silks.Pattern.HALVED]
+            )
+            else (
                 self.body.secondary
-                if "and" in self._clauses[0]
-                or element.pattern
-                or self.body.pattern
-                not in [Silks.Pattern.PLAIN, Silks.Pattern.EPAULETS]
+                if (
+                    "and" in self._clauses[0]
+                    or element.pattern
+                    or self.body.pattern
+                    not in [Silks.Pattern.PLAIN, Silks.Pattern.EPAULETS]
+                )
                 else self.body.primary
             )
         )
