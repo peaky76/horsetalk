@@ -253,19 +253,17 @@ class Silks:
         return main_clause + next_clause
 
     def _apply_defaults(self, element: "Silks.Element") -> "Silks.Element":
-        element.secondary = (
-            element.secondary
-            or element.primary
-            or (
-                self.body.secondary
-                if (
-                    element.pattern
-                    or self.body.pattern
-                    not in Silks.Pattern.body_only() + [Silks.Pattern.PLAIN]
-                )
-                else self.body.primary
+        default_secondary = (
+            self.body.secondary
+            if (
+                element.pattern
+                or self.body.pattern
+                not in Silks.Pattern.body_only() + [Silks.Pattern.PLAIN]
             )
+            else self.body.primary
         )
+
+        element.secondary = element.secondary or element.primary or default_secondary
         element.pattern = element.pattern or (
             Silks.Pattern.PLAIN
             if element.primary or self.body.pattern in Silks.Pattern.body_only()
