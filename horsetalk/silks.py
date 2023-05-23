@@ -229,6 +229,7 @@ class Silks:
                         Silks.Pattern.CROSS_BELTS,
                         Silks.Pattern.DISC,
                         Silks.Pattern.EPAULETS,
+                        Silks.Pattern.INVERTED_TRIANGLE,
                     ]
                 )
                 else self.body.primary
@@ -238,7 +239,12 @@ class Silks:
             Silks.Pattern.PLAIN
             if element.primary
             or self.body.pattern
-            in [Silks.Pattern.CROSS_BELTS, Silks.Pattern.DISC, Silks.Pattern.EPAULETS]
+            in [
+                Silks.Pattern.CROSS_BELTS,
+                Silks.Pattern.DISC,
+                Silks.Pattern.EPAULETS,
+                Silks.Pattern.INVERTED_TRIANGLE,
+            ]
             else self.body.pattern
         )
         element.primary = (
