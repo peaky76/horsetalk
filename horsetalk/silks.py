@@ -83,6 +83,7 @@ class Silks:
         def body_only():
             return [
                 Silks.Pattern.BRACES,
+                Silks.Pattern.CHEVRON,
                 Silks.Pattern.CROSS_BELTS,
                 Silks.Pattern.CROSS_OF_LORRAINE,
                 Silks.Pattern.CROSS_SASHES,
