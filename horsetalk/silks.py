@@ -152,7 +152,7 @@ class Silks:
         """
         element = self._convert_to_element(
             self._parts_for_element(
-                lambda parts: next(p for p in parts if "sleeves" in p)
+                lambda parts: next(p for p in parts if "sleeves" in p or "armlets" in p)
             )
             if "sleeves" in self.description
             else []
@@ -204,6 +204,10 @@ class Silks:
             and not (
                 "cap" in self._clauses[index + 1]
                 or "sleeves" in self._clauses[index + 1]
+                or (
+                    "armlets" in self._clauses[index + 1]
+                    and "sleeves" not in main_clause
+                )
             )
             else []
         )
