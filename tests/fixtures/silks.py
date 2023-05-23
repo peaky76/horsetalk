@@ -348,14 +348,14 @@ SILKS_OUTPUT = [
         (c.WHITE, c.PURPLE, p.CHECK),
     ],
     [
-        (c.WHITE, c.RED, p.STRIPES),
+        (c.WHITE, c.RED, p.STRIPE),
         (c.WHITE, c.RED, p.STRIPES),
         (c.WHITE, c.RED, p.QUARTERED),
     ],
     [
         (c.WHITE, c.ROYAL_BLUE, p.EPAULETS),
         (c.ROYAL_BLUE, c.LIGHT_BLUE, p.STARS),
-        (c.ROYAL_BLUE, c.LIGHT_BLUE, p.STARS),
+        (c.ROYAL_BLUE, c.LIGHT_BLUE, p.STAR),
     ],
     [
         (c.WHITE, c.ROYAL_BLUE, p.STARS),
