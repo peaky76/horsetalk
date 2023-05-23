@@ -198,8 +198,8 @@ SILKS_OUTPUT = [
     ],
     [
         (c.LIGHT_BLUE, c.YELLOW, p.CHEVRON),
-        (c.WHITE, c.WHITE, p.PLAIN),
-        (c.BLACK, c.YELLOW, p.STAR),
+        (c.WHITE, c.BLACK, p.STARS),
+        (c.YELLOW, c.YELLOW, p.PLAIN),
     ],
     [
         (c.LIGHT_GREEN, c.RED, p.DIAMOND),
