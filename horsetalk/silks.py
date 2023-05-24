@@ -264,8 +264,15 @@ class Silks:
         )
         default_pattern = (
             Silks.Pattern.PLAIN
-            if element.primary or self.body.pattern in Silks.Pattern.body_only()
+            if element.primary
+            or self.body.pattern in Silks.Pattern.body_only()
+            or ", sleeves and cap" in self.description
             else self.body.pattern
+        )
+        default_primary = (
+            self.body.secondary
+            if ", sleeves and cap" in self.description
+            else self.body.primary
         )
 
         element.secondary = element.secondary or element.primary or default_secondary
@@ -286,7 +293,7 @@ class Silks:
                 element.primary
                 and (uses_solid_pattern or element.secondary != element.primary)
             )
-            else self.body.primary
+            else default_primary
         )
         return element
 

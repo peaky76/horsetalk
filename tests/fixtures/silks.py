@@ -54,7 +54,7 @@ SILKS_INPUT = [
     "Red, royal blue stars, red cap",
     "Red, yellow chevron, yellow sleeves, red armlets",
     "Royal blue, brown diamond, brown cap",
-    # "Royal blue, grey seams, sleeves and cap",
+    "Royal blue, grey seams, sleeves and cap",
     "Royal blue, royal blue cap, yellow star",
     "Royal blue, white stars, white sleeves, white star on cap",
     "White and royal blue (quartered), white and red striped sleeves, red cap",
@@ -317,11 +317,11 @@ SILKS_OUTPUT = [
         (c.ROYAL_BLUE, c.ROYAL_BLUE, p.PLAIN),
         (c.BROWN, c.BROWN, p.PLAIN),
     ],
-    # [
-    #     (c.ROYAL_BLUE, c.GREY, p.SEAMS),
-    #     (c.GREY, c.GREY, p.PLAIN),
-    #     (c.GREY, c.GREY, p.PLAIN),
-    # ],
+    [
+        (c.ROYAL_BLUE, c.GREY, p.SEAMS),
+        (c.GREY, c.GREY, p.PLAIN),
+        (c.GREY, c.GREY, p.PLAIN),
+    ],
     [
         (c.ROYAL_BLUE, c.ROYAL_BLUE, p.PLAIN),
         (c.ROYAL_BLUE, c.ROYAL_BLUE, p.PLAIN),
