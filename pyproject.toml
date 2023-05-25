@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "horsetalk"
-version = "0.8.2"
+version = "0.9.0"
 description = "A library of enums and parsers for common horseracing terminology"
 authors = ["peaky76 <robertjamespeacock@gmail.com>"]
 license = "GPL-3.0-only"
