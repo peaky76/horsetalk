@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.9.0 (2023-05-25)
+
+#### New Features
+
+- `Silks` class
+
+#### Others
+
+- ruff ignore F821 Undefined name (picks up ParsingEnum members)
+- fixture with example silks
+
 ## 0.8.2 (2023-05-08)
 
 #### Fixes
