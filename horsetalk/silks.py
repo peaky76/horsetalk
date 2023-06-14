@@ -3,6 +3,8 @@ from horsetalk.parsing_enum import ParsingEnum
 
 
 class Silks:
+    description: str
+
     class Colour(ParsingEnum):
         """An enumeration of colours that can appear on jockey silks."""
 
