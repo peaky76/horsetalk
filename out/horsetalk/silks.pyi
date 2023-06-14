@@ -1,7 +1,10 @@
 from _typeshed import Incomplete
 from horsetalk.parsing_enum import ParsingEnum as ParsingEnum
+from typing import Optional
 
 class Silks:
+    description: str
+
     class Colour(ParsingEnum):
         BEIGE: int
         BLACK: int
@@ -24,6 +27,7 @@ class Silks:
         YELLOW: int
         @staticmethod
         def phrases(): ...
+
     class Pattern(ParsingEnum):
         ARMLETS: int
         ARMLET = ARMLETS
@@ -64,13 +68,19 @@ class Silks:
         def phrases(): ...
         @classmethod
         def body_only(cls): ...
+
     class Element:
         primary: Incomplete
         secondary: Incomplete
         pattern: Incomplete
-        def __init__(self, primary: Silks.Colour, secondary: Silks.Colour = ..., pattern: Silks.Shape = ...) -> None: ...
+        def __init__(
+            self,
+            primary: Silks.Colour,
+            secondary: Optional["Silks.Colour"] = ...,
+            pattern: Optional["Silks.Pattern"] = ...,
+        ) -> None: ...
         def __eq__(self, other): ...
-    description: Incomplete
+
     @classmethod
     def parse(cls, description: str) -> Silks: ...
     @property
