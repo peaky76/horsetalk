@@ -273,7 +273,7 @@ class Silks:
         )
         default_primary = (
             self.body.secondary
-            if ", sleeves and cap" in self.description
+            if ", sleeves and cap" in self.description and self.body.secondary
             else self.body.primary
         )
 
