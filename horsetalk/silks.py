@@ -321,7 +321,7 @@ class Silks:
             )
         )
 
-        return Silks.Element(*details)
+        return Silks.Element(*details)  # type: ignore
 
     @staticmethod
     def _conjoin_words(words: list[str]) -> list[str]:
