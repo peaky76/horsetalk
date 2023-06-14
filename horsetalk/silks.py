@@ -1,4 +1,4 @@
-from typing import Callable
+from typing import Callable, Optional
 from horsetalk.parsing_enum import ParsingEnum
 
 
@@ -105,8 +105,8 @@ class Silks:
         def __init__(
             self,
             primary: "Silks.Colour",
-            secondary: "Silks.Colour" = None,
-            pattern: "Silks.Shape" = None,
+            secondary: Optional["Silks.Colour"] = None,
+            pattern: Optional["Silks.Pattern"] = None,
         ):
             self.primary = primary
             self.secondary = secondary
