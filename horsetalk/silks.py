@@ -190,7 +190,7 @@ class Silks:
         return self._apply_defaults(element)
 
     @property
-    def _clauses(self) -> list[str]:
+    def _clauses(self) -> list[list[str]]:
         clauses = [
             Silks._conjoin_words(clause.split(" "))
             for clause in self.description.lower()
@@ -235,7 +235,7 @@ class Silks:
 
         return clauses
 
-    def _parts_for_element(self, element_selector: Callable) -> str:
+    def _parts_for_element(self, element_selector: Callable) -> list[str]:
         main_clause = element_selector(self._clauses)
         index = self._clauses.index(main_clause)
         next_clause = (
