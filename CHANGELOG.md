@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.9.1 (2023-06-15)
+
+#### Fixes
+
+- typing in `Silks`
+
 ## 0.9.0 (2023-05-25)
 
 #### New Features
