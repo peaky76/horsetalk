@@ -323,6 +323,7 @@ class Silks:
 
         return Silks.Element(*details)
 
+    @staticmethod
     def _conjoin_words(words: list[str]) -> list[str]:
         FIRST_WORDS = [
             "dark",
