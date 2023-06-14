@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.9.2 (2023-06-15)
+
+#### Fixes
+
+- type stubs for `Silks`
+
 ## 0.9.1 (2023-06-15)
 
 #### Fixes
