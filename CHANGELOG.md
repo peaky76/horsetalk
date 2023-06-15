@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.10.0 (2023-06-15)
+
+#### New Features
+
+- `Going` class
+- `RaceConditions` class
+
 ## 0.9.2 (2023-06-15)
 
 #### Fixes
