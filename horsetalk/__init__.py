@@ -4,16 +4,17 @@ from .breed import Breed
 from .coat_colour import CoatColour
 from .dirt_going_description import DirtGoingDescription
 from .disaster import Disaster
-from .horse_experience_level import HorseExperienceLevel
-from .jockey_experience_level import JockeyExperienceLevel
 from .finishing_position import FinishingPosition
 from .form_break import FormBreak
 from .form_figures import FormFigures
 from .gender import Gender
+from .going import Going
 from .headgear import Headgear
 from .horse_age import HorseAge
 from .horse_height import HorseHeight
 from .horselength import Horselength
+from .horse_experience_level import HorseExperienceLevel
+from .jockey_experience_level import JockeyExperienceLevel
 from .jump_category import JumpCategory
 from .obstacle_style import ObstacleStyle
 from .race_designation import RaceDesignation
@@ -36,6 +37,7 @@ __all__ = [
     "FormBreak",
     "FormFigures",
     "Gender",
+    "Going",
     "Headgear",
     "HorseAge",
     "HorseHeight",
