@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.10.1 (2023-07-24)
+
+#### Others
+
+- fix method call in RaceConditions test
+
 ## 0.10.0 (2023-06-15)
 
 #### New Features
