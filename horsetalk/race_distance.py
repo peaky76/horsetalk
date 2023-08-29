@@ -15,7 +15,7 @@ class RaceDistance(Distance):
         """
         pattern = re.compile(r"(\d+\D+)")
         unit_dict = {"m": "mile", "f": "furlong", "y": "yard"}
-        vals_and_units = pattern.findall(distance.replace(" ", ""))
+        vals_and_units = pattern.findall(distance.replace(" ", "").replace(",", ""))
 
         distance = Distance(m=0)
         for vu in vals_and_units:

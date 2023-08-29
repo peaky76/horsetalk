@@ -22,8 +22,12 @@ def test_race_distance_can_be_initalized_with_mile_furlong_and_yard_spaced_strin
     assert Distance(chain=135) == RaceDistance("1m 5f 110y")
 
 
-def test_race_distance_can_be_initialize_with_metres_string():
+def test_race_distance_can_be_initialized_with_metres_string():
     assert Distance(m=1609) == RaceDistance("1609m")
+
+
+def test_race_distance_can_be_initialize_with_metres_string_with_comma():
+    assert Distance(m=1609) == RaceDistance("1,609m")
 
 
 def test_race_distance_furlong_returns_correct_value():
