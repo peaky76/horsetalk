@@ -1,10 +1,16 @@
 # Changelog
 
+## 0.10.2 (2023-08-29)
+
+#### Fixes
+
+- `RaceDistance` handles comma separated int
+
 ## 0.10.1 (2023-07-24)
 
 #### Others
 
-- fix method call in RaceConditions test
+- fix method call in `RaceConditions` test
 
 ## 0.10.0 (2023-06-15)
 
