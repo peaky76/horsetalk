@@ -4,6 +4,7 @@ from .breed import Breed
 from .coat_colour import CoatColour
 from .dirt_going_description import DirtGoingDescription
 from .disaster import Disaster
+from .draw import Draw
 from .finishing_position import FinishingPosition
 from .form_break import FormBreak
 from .form_figures import FormFigures
@@ -34,6 +35,7 @@ __all__ = [
     "CoatColour",
     "DirtGoingDescription",
     "Disaster",
+    "Draw",
     "FinishingPosition",
     "FormBreak",
     "FormFigures",
