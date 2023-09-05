@@ -25,6 +25,7 @@ from .race_title import RaceTitle
 from .racing_code import RacingCode
 from .sex import Sex
 from .silks import Silks
+from .stalls_position import StallsPosition
 from .surface import Surface
 from .turf_going_description import TurfGoingDescription
 
@@ -56,6 +57,7 @@ __all__ = [
     "RacingCode",
     "Sex",
     "Silks",
+    "StallsPosition",
     "Surface",
     "TurfGoingDescription",
 ]
