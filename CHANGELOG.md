@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.11.0 (2023-09-05)
+
+#### New Features
+
+- `Draw` class
+- `StallsPosition` enum
+
 ## 0.10.2 (2023-08-29)
 
 #### Fixes
