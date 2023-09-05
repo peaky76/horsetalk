@@ -10,3 +10,21 @@ class Draw:
             raise ValueError("Draw must be an integer value")
 
         self.value = int(value)
+
+    def __gt__(self, other: "Draw") -> bool:
+        """
+        Returns True if the draw is higher than the other draw.
+
+        Args:
+            other: The other draw to compare against.
+        """
+        return self.value > other.value
+
+    def __lt__(self, other: "Draw") -> bool:
+        """
+        Returns True if the draw is lower than the other draw.
+
+        Args:
+            other: The other draw to compare against.
+        """
+        return self.value < other.value
