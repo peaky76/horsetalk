@@ -25,6 +25,7 @@ from .race_distance import RaceDistance
 from .race_title import RaceTitle
 from .racecourse_contour import RacecourseContour
 from .racecourse_shape import RacecourseShape
+from .racecourse_style import RacecourseStyle
 from .racing_code import RacingCode
 from .sex import Sex
 from .silks import Silks
@@ -60,6 +61,7 @@ __all__ = [
     "RaceTitle",
     "RacecourseContour",
     "RacecourseShape",
+    "RacecourseStyle",
     "RacingCode",
     "Sex",
     "Silks",
