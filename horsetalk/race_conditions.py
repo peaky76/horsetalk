@@ -18,7 +18,7 @@ class RaceConditions:
         distance: RaceDistance,
         going: Going,
         surface: Surface,
-        stalls_position: StallsPosition = None,
+        stalls_position: StallsPosition | None = None,
     ):
         """
         Initialize a RaceConditions instance.
