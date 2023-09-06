@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.11.1 (2023-09-06)
+
+#### Refactorings
+
+- `StallsPosition` as optional `RaceConditions` attr
+
 ## 0.11.0 (2023-09-05)
 
 #### New Features
