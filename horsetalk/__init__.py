@@ -23,6 +23,7 @@ from .race_conditions import RaceConditions
 from .race_designation import RaceDesignation
 from .race_distance import RaceDistance
 from .race_title import RaceTitle
+from .racecourse import Racecourse
 from .racecourse_contour import RacecourseContour
 from .racecourse_shape import RacecourseShape
 from .racecourse_style import RacecourseStyle
@@ -59,6 +60,7 @@ __all__ = [
     "RaceDesignation",
     "RaceDistance",
     "RaceTitle",
+    "Racecourse",
     "RacecourseContour",
     "RacecourseShape",
     "RacecourseStyle",
