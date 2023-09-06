@@ -2,7 +2,7 @@ from pendulum import DateTime
 from .going import Going
 from .race_distance import RaceDistance
 from .stalls_position import StallsPosition
-from .surface import Surface
+from .racecourse import Racecourse
 
 
 class RaceConditions:
@@ -15,9 +15,9 @@ class RaceConditions:
         self,
         *,
         datetime: DateTime,
+        racecourse: Racecourse,
         distance: RaceDistance,
         going: Going,
-        surface: Surface,
         stalls_position: StallsPosition | None = None,
     ):
         """
@@ -31,7 +31,7 @@ class RaceConditions:
 
         """
         self.datetime = datetime
+        self.racecourse = racecourse
         self.distance = distance
         self.going = going
         self.stalls_position = stalls_position
-        self.surface = surface
