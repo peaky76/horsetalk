@@ -1,5 +1,23 @@
 # Changelog
 
+## 0.12.0 (2023-09-06)
+
+#### New Features
+
+- `Racecourse` class
+- `Handedness` enum
+- `RacecourseStyle` enum
+- `RacecourseContour` enum
+- `RacecourseShape` enum
+
+#### Fixes
+
+- typing in `RaceConditions.__init__`
+
+#### Refactorings
+
+- swap `Racecourse` for `Surface` in `RaceConditions`
+
 ## 0.11.1 (2023-09-06)
 
 #### Refactorings
