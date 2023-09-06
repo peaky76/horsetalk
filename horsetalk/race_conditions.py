@@ -1,6 +1,7 @@
 from pendulum import DateTime
 from .going import Going
 from .race_distance import RaceDistance
+from .stalls_position import StallsPosition
 from .surface import Surface
 
 
@@ -16,7 +17,8 @@ class RaceConditions:
         datetime: DateTime,
         distance: RaceDistance,
         going: Going,
-        surface: Surface
+        surface: Surface,
+        stalls_position: StallsPosition = None,
     ):
         """
         Initialize a RaceConditions instance.
@@ -31,4 +33,5 @@ class RaceConditions:
         self.datetime = datetime
         self.distance = distance
         self.going = going
+        self.stalls_position = stalls_position
         self.surface = surface
