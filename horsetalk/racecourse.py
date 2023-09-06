@@ -5,8 +5,9 @@ from .racecourse_style import RacecourseStyle
 
 
 class Racecourse:
-    def __init__(self):
-        self.handedness = Handedness.UNKNOWN
-        self.contour = RacecourseContour.UNKNOWN
-        self.shape = RacecourseShape.UNKNOWN
-        self.style = RacecourseStyle.UNKNOWN
+    def __init__(self, name: str, **kwargs):
+        self.name = name
+        self.handedness = Handedness[kwargs.get("handedness", "unknown")]
+        self.contour = RacecourseContour[kwargs.get("contour", "unknown")]
+        self.shape = RacecourseShape[kwargs.get("shape", "unknown")]
+        self.style = RacecourseStyle[kwargs.get("style", "unknown")]
