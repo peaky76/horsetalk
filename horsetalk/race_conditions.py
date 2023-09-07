@@ -25,9 +25,10 @@ class RaceConditions:
 
         Args:
             datetime: The datetime of the race
+            racecourse: The racecourse on which the race is run
             distance: The race distance
             going: The going of the race
-            surface: The surface on which the race is run
+            stalls_position: The position of the stalls on the track
 
         """
         self.datetime = datetime
