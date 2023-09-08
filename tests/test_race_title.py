@@ -62,7 +62,7 @@ def test_race_title_parse_can_correctly_identify_race_designation_when_present()
 
 def test_race_title_parse_can_correctly_identify_race_designation_when_not_present():
     expected = None
-    actual = RaceTitle.parse("DERBY STAKES (Group 1)")["race_designation"]
+    actual = RaceTitle.parse("EVER READY DERBY (Group 1)")["race_designation"]
     assert expected == actual
 
 
