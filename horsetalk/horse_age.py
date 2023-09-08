@@ -59,11 +59,9 @@ class HorseAge:
             else self._base_date.year - official_age
             if official_age
             else foaling_date.year
-            if foaling_date
-            else None
         )
 
-        self._official_dob = pendulum.datetime(year, 1, 1) if year else None
+        self._official_dob = pendulum.datetime(year, 1, 1)
 
     @property
     def official(self) -> Period:
@@ -76,8 +74,6 @@ class HorseAge:
         Returns:
             A Period object representing the horse's official age in years, months, and days.
         """
-        if not self._official_dob:
-            raise ValueError("Cannot calculate official age as official dob is unknown")
         return self._calc_age(self._official_dob)
 
     @property
