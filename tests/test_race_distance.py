@@ -1,3 +1,4 @@
+import re
 from measurement.measures import Distance  # type: ignore
 from horsetalk import RaceDistance
 
@@ -28,6 +29,30 @@ def test_race_distance_can_be_initialized_with_metres_string():
 
 def test_race_distance_can_be_initialize_with_metres_string_with_comma():
     assert Distance(m=1609) == RaceDistance("1,609m")
+
+
+def test_race_distance_regex_with_mile_furlong_and_yard_string():
+    assert re.fullmatch(RaceDistance.REGEX, "1m5f110y")
+
+
+def test_race_distance_regex_with_mile_furlong_and_yard_spaced_string():
+    assert re.fullmatch(RaceDistance.REGEX, "1m 5f 110y")
+
+
+def test_race_distance_regex_with_mile_and_furlong_string():
+    assert re.fullmatch(RaceDistance.REGEX, "1m5f")
+
+
+def test_race_distance_regex_with_mile_string():
+    assert re.fullmatch(RaceDistance.REGEX, "1m")
+
+
+def test_race_distance_regex_with_furlong_string():
+    assert re.fullmatch(RaceDistance.REGEX, "5f")
+
+
+def test_race_distance_regex_with_metres_string():
+    assert re.fullmatch(RaceDistance.REGEX, "1609m")
 
 
 def test_race_distance_furlong_returns_correct_value():
