@@ -1,5 +1,24 @@
 # Changelog
 
+## 0.12.1 (2023-09-08)
+
+#### New Features
+
+- `RaceDistance.regex`
+
+#### Refactorings
+
+- remove unneeded conditional in `HorseAge`
+- remove unreachable code `HorseAge`
+
+#### Docs
+
+- fix docstrings in `RaceConditions`
+
+#### Others
+
+- complete test coverage for `Gender`
+
 ## 0.12.0 (2023-09-06)
 
 #### New Features
