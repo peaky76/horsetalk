@@ -12,12 +12,14 @@ class RaceDesignation(ParsingEnum):
     AUCTION = 3
     CLAIMER = 4
     SELLER = 5
+    STAKES = 6
 
     # Abbreviations
     HCAP = HANDICAP
     AU = AUCTION
     CL = CLAIMER
     S = SELLER
+    STKS = STAKES
 
     # Alternatives
     CLAIMING = CLAIMER
