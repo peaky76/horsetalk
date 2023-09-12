@@ -24,9 +24,18 @@ class Racecourse:
             style: The style of the racecourse
 
         """
+        handedness = kwargs.get("handedness", "unknown")
+        contour = kwargs.get("contour", "unknown")
+        shape = kwargs.get("shape", "unknown")
+        style = kwargs.get("style", "unknown")
+
         self.name = name
         self.surface = Surface[surface] if isinstance(surface, str) else surface
-        self.handedness = Handedness[kwargs.get("handedness", "unknown")]
-        self.contour = RacecourseContour[kwargs.get("contour", "unknown")]
-        self.shape = RacecourseShape[kwargs.get("shape", "unknown")]
-        self.style = RacecourseStyle[kwargs.get("style", "unknown")]
+        self.handedness = (
+            Handedness[handedness] if isinstance(handedness, str) else handedness
+        )
+        self.contour = (
+            RacecourseContour[contour] if isinstance(contour, str) else contour
+        )
+        self.shape = RacecourseShape[shape] if isinstance(shape, str) else shape
+        self.style = RacecourseStyle[style] if isinstance(style, str) else style
