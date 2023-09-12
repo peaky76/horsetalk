@@ -1,5 +1,6 @@
 import re
-from measurement.measures import Distance  # type: ignore
+from measurement.measures import Distance
+import pytest  # type: ignore
 from horsetalk import RaceDistance
 
 
@@ -29,6 +30,11 @@ def test_race_distance_can_be_initialized_with_metres_string():
 
 def test_race_distance_can_be_initialize_with_metres_string_with_comma():
     assert Distance(m=1609) == RaceDistance("1,609m")
+
+
+def test_race_distance_init_errors_if_invalid_string():
+    with pytest.raises(AttributeError):
+        RaceDistance("1m 5f Ny")
 
 
 def test_race_distance_regex_with_mile_furlong_and_yard_string():

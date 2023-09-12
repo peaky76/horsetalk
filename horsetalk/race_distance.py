@@ -25,6 +25,7 @@ class RaceDistance(Distance):
             if matches:
                 val, unit = matches.groups()
                 unit = unit_dict[unit] if unit in unit_dict and int(val) < 221 else unit
+
                 if unit == "furlong":
                     distance += Distance(chain=int(val) * 10)
                 else:
