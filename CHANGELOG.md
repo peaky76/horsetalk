@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.12.2 (2023-09-12)
+
+#### Fixes
+
+- avoid typing error in `HorseAge`
+- add `Stakes` to `RaceDesignation`
+
+#### Others
+
+- test for error on `RaceDistance.init`
+
 ## 0.12.1 (2023-09-08)
 
 #### New Features
