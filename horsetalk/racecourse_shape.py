@@ -13,6 +13,7 @@ class RacecourseShape(ParsingEnum):
     TRIANGLE = 3
     OVAL = 4
     PEAR = 5
+    CIRCLE = 6
 
     # Alternatives
     ROUND = OVAL
