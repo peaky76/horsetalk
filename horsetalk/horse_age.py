@@ -61,6 +61,8 @@ class HorseAge:
             else None
         )
 
+        assert year
+
         self._official_dob = pendulum.datetime(year, 1, 1)
 
     @property
