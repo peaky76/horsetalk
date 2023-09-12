@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.12.3 (2023-09-12)
+
+#### Fixes
+
+- add circle to `RacecourseShape` enum
+- add assert in `HorseAge` to prevent typing fail
+
+#### Refactorings
+
+- `Racecourse` params can be str or enum
+
 ## 0.12.2 (2023-09-12)
 
 #### Fixes
