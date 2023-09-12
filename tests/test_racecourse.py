@@ -9,8 +9,12 @@ from horsetalk import (
 )
 
 
-def test_racecourse_can_be_initialized_without_characteristics():
+def test_racecourse_can_be_initialized_without_characteristics_with_enum_surface():
     assert Racecourse("Portman Park", Surface.TURF)
+
+
+def test_racecourse_can_be_initialized_without_characteristics_with_text_surface():
+    assert Racecourse("Portman Park", "turf")
 
 
 def test_racecourse_default_handedness():

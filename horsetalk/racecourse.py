@@ -11,7 +11,7 @@ class Racecourse:
 
     """
 
-    def __init__(self, name: str, surface: Surface, **kwargs):
+    def __init__(self, name: str, surface: Surface | str, **kwargs):
         """
         Initialize a Racecourse instance.
 
@@ -25,7 +25,7 @@ class Racecourse:
 
         """
         self.name = name
-        self.surface = surface
+        self.surface = Surface[surface] if isinstance(surface, str) else surface
         self.handedness = Handedness[kwargs.get("handedness", "unknown")]
         self.contour = RacecourseContour[kwargs.get("contour", "unknown")]
         self.shape = RacecourseShape[kwargs.get("shape", "unknown")]
