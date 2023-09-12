@@ -54,7 +54,11 @@ class HorseAge:
         self._context_date = context_date
 
         year = birth_year or (
-            self._base_date.year - official_age if official_age else foaling_date.year
+            self._base_date.year - official_age
+            if official_age
+            else foaling_date.year
+            if foaling_date
+            else None
         )
 
         self._official_dob = pendulum.datetime(year, 1, 1)
