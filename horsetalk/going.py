@@ -81,6 +81,9 @@ class Going:
 
         Returns:
             A value selected from the appropriate going scale.
+
+        Raises:
+            ValueError: If the key is not found in any of the going scales.
         """
         for scale in Going.Scales:
             try:
