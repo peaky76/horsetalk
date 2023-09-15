@@ -1,3 +1,4 @@
+import pytest
 from horsetalk import AWGoingDescription, Going, TurfGoingDescription
 
 
@@ -19,6 +20,16 @@ def test_going_init_sets_reading_on_default():
 
 def test_going_init_sets_reading_when_given():
     assert 7.0 == Going("Good", 7.0).reading
+
+
+def test_going_init_throws_error_when_description_is_invalid():
+    with pytest.raises(ValueError):
+        Going("Moist to tricky")
+
+
+def test_going_init_throws_error_when_description_is_part_valid():
+    with pytest.raises(ValueError):
+        Going("Good, Moist to tricky in places")
 
 
 def test_going_init_sets_primary_property_with_enum_for_turf_going():

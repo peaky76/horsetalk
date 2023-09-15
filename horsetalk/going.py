@@ -22,8 +22,10 @@ class Going:
         self.description = description
         self.reading = reading
 
+        assert (self.primary and self.secondary) or self.primary
+
     @property
-    def primary(self) -> GoingDescription | None:
+    def primary(self) -> GoingDescription:
         """
         The primary property of the going.
 
@@ -53,9 +55,7 @@ class Going:
             The value of the going.
         """
         return (
-            None
-            if self.primary is None
-            else self.primary.value
+            self.primary.value
             if self.secondary is None
             else (self.primary.value + self.secondary.value) / 2
         )
@@ -87,4 +87,5 @@ class Going:
                 return scale[key]
             except KeyError:
                 pass
-        return None
+
+        raise ValueError(f"Unknown going description: {key}")
