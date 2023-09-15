@@ -38,5 +38,5 @@ class RaceGrade:
             return False
 
         return self.value.isdigit() and (
-            not other.value.isdigit() or self.value < other.value
+            not other.value or not other.value.isdigit() or self.value < other.value
         )
