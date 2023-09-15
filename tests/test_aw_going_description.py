@@ -2,7 +2,7 @@ from horsetalk import AWGoingDescription
 
 
 def test_aw_going_description_can_be_created_from_enum():
-    assert AWGoingDescription.STANDARD == AWGoingDescription(3)
+    assert AWGoingDescription.STANDARD == AWGoingDescription(8)
 
 
 def test_aw_going_description_can_be_created_from_name():

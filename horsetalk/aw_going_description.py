@@ -7,11 +7,11 @@ class AWGoingDescription(GoingDescription):
 
     """
 
-    SLOW = 1
-    STANDARD_TO_SLOW = 2
-    STANDARD = 3
-    STANDARD_TO_FAST = 4
-    FAST = 5
+    SLOW = 6
+    STANDARD_TO_SLOW = 7
+    STANDARD = 8
+    STANDARD_TO_FAST = 9
+    FAST = 10
 
     # Abbreviations
     SLW = SLOW
