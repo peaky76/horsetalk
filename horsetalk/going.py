@@ -42,7 +42,7 @@ class Going:
             A value selected from the appropriate going scale.
         """
         key = self._description_parts[1]
-        return Going._lookup(key)
+        return Going._lookup(key) if key else None
 
     @property
     def value(self) -> float | None:
@@ -69,7 +69,7 @@ class Going:
             The parts of the description.
         """
         texts = self.description.upper().replace(" IN PLACES", "").split(", ")
-        return texts if len(texts) == 2 else texts + [""]
+        return texts if len(texts) == 2 else texts + [None]
 
     @classmethod
     def _lookup(cls, key: str) -> GoingDescription | None:
