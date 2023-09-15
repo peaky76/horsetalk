@@ -101,6 +101,10 @@ def test_race_grade_lt_when_self_group_other_listed():
     assert not RaceGrade("1") < RaceGrade("Listed")
 
 
+def test_race_grade_lt_when_self_group_other_none():
+    assert not RaceGrade("1") < RaceGrade("Listed")
+
+
 def test_race_grade_lt_when_both_none():
     assert not RaceGrade(None) < RaceGrade(None)
 
@@ -127,6 +131,10 @@ def test_race_grade_gt_when_self_listed_other_group():
 
 def test_race_grade_gt_when_self_group_other_listed():
     assert RaceGrade("1") > RaceGrade("Listed")
+
+
+def test_race_grade_gt_when_self_group_other_none():
+    assert RaceGrade("1") > RaceGrade(None)
 
 
 def test_race_grade_gt_when_both_none():
