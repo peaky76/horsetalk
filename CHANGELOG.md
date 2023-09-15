@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.13.0 (2023-09-15)
+
+#### New Features
+
+- `RaceLevel` class
+- `RaceGrade` class
+- `RaceClass` class
+
+#### Fixes
+
+- typing in `Going`
+
 ## 0.12.4 (2023-09-15)
 
 #### Fixes
