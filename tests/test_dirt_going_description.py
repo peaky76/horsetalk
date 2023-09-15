@@ -2,7 +2,7 @@ from horsetalk import DirtGoingDescription
 
 
 def test_dirt_going_description_can_be_created_from_enum():
-    assert DirtGoingDescription.MUDDY == DirtGoingDescription(3)
+    assert DirtGoingDescription.MUDDY == DirtGoingDescription(6)
 
 
 def test_dirt_going_description_can_be_created_from_name():
