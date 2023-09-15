@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.12.4 (2023-09-15)
+
+#### Fixes
+
+- `Going` cannot be initialised with an invalid string
+
+#### Refactorings
+
+- `Dirt` & `AWGoingDescription` scales align with `Turf`
+
 ## 0.12.3 (2023-09-12)
 
 #### Fixes
