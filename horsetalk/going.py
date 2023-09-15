@@ -47,7 +47,7 @@ class Going:
         return Going._lookup(key) if key else None
 
     @property
-    def value(self) -> float | None:
+    def value(self) -> float:
         """
         A numerical value for the going.
 
@@ -69,10 +69,10 @@ class Going:
             The parts of the description.
         """
         texts = self.description.upper().replace(" IN PLACES", "").split(", ")
-        return texts if len(texts) == 2 else texts + [None]
+        return texts if len(texts) == 2 else texts + [""]
 
     @classmethod
-    def _lookup(cls, key: str) -> GoingDescription | None:
+    def _lookup(cls, key: str) -> GoingDescription:
         """
         Lookup a value in the appropriate going scale.
 
