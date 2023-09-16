@@ -67,7 +67,7 @@ class Horselength(Decimal):
         """
         Return a representation of the Horselength instance.
         """
-        return f"Horselength('{self}')"
+        return f"<Horselength: {self}>"
 
     def __str__(self) -> str:
         """
