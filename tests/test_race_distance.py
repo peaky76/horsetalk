@@ -37,6 +37,10 @@ def test_race_distance_init_errors_if_invalid_string():
         RaceDistance("1m 5f Ny")
 
 
+def test_race_distance_repr():
+    assert repr(RaceDistance("1m5f110y")) == "<RaceDistance: 1m 5f 110y>"
+
+
 def test_race_distance_str():
     assert "1m 5f 110y" == str(RaceDistance("1m5f110y"))
 
