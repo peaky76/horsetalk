@@ -15,6 +15,10 @@ def test_race_class_init_not_possible_with_invalid_int():
         RaceClass(0)
 
 
+def test_race_class_repr():
+    assert repr(RaceClass(1)) == "<RaceClass: 1>"
+
+
 def test_race_class_str():
     assert str(RaceClass(1)) == "Class 1"
 

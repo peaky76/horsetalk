@@ -8,6 +8,9 @@ class RaceClass:
 
         self.value = int(value)
 
+    def __repr__(self) -> str:
+        return f"<RaceClass: {self.value}>"
+
     def __str__(self) -> str:
         return f"Class {self.value}"
 
