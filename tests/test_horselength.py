@@ -75,6 +75,18 @@ def test_horselength_raises_error_if_initialized_with_invalid_string():
         Horselength("shitloads")
 
 
+def test_horselength_str_when_fraction():
+    assert "1/2" == str(Horselength("1/2"))
+
+
+def test_horselength_str_when_fraction_and_whole():
+    assert "3 1/2" == str(Horselength("3 1/2"))
+
+
+def test_horselength_str_when_description():
+    assert "head" == str(Horselength("head"))
+
+
 def test_horselength_can_be_summed():
     assert 1 == Horselength("1/2") + Horselength("nk") + Horselength("hd")
 
@@ -85,18 +97,6 @@ def test_horselength_can_be_compared():
 
 def test_horselength_repr_uses_correct_class_name():
     assert "Horselength" in repr(Horselength("1/2"))
-
-
-def test_horselength_to_string_when_whole_number():
-    assert "1" == str(Horselength("1"))
-
-
-def test_horselength_to_string_when_fraction():
-    assert "1/2" == str(Horselength("1/2"))
-
-
-def test_horselength_to_string_when_description():
-    assert "head" == str(Horselength("head"))
 
 
 def test_horselength_to_string_when_result_of_cumulation():
