@@ -37,6 +37,10 @@ def test_race_grade_init_not_possible_with_invalid_str():
         RaceGrade("Quality")
 
 
+def test_race_grade_repr_():
+    assert repr(RaceGrade("1")) == "<RaceGrade: 1>"
+
+
 def test_race_grade_string_when_flat_listed():
     assert str(RaceGrade("Listed")) == "Listed"
 
