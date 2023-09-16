@@ -1,5 +1,29 @@
 # Changelog
 
+## 0.13.1 (2023-09-16)
+
+#### Fixes
+
+- `RaceGrade(None)` fails **bool**
+- `ValueError` if `Going.primary` and `Going.secondary` match
+
+#### Refactorings
+
+- Going.**repr** and **str**
+- HorseAge.**repr** and **str**
+- HorseHeight.**repr** and **str**
+- Racecourse.**repr** and **str**
+- RaceConditions.**repr** and **str**
+- RaceDistance.**repr** and **str**
+- RaceClass.**repr**
+- RaceGrade.**repr**
+- RaceLevel.**repr**
+- alter Horselength.**repr**
+
+#### Others
+
+- reorganise tests for Horselength.**str**
+
 ## 0.13.0 (2023-09-15)
 
 #### New Features
