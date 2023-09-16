@@ -46,7 +46,13 @@ class RaceDistance(Distance):
         mile = self.furlong // 8
         furlong = (self.furlong % 8) // 1
         yard = int((self.furlong % 1) * 220)
-        return f"{mile}m {furlong}f {yard}y"
+        return " ".join(
+            [
+                f"{mile}m" if mile else "",
+                f"{furlong}f" if furlong else "",
+                f"{yard}y" if yard else "",
+            ]
+        ).strip()
 
     @property
     def furlong(self) -> Decimal:
