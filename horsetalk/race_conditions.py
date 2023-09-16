@@ -36,3 +36,11 @@ class RaceConditions:
         self.distance = distance
         self.going = going
         self.stalls_position = stalls_position
+
+    def __str__(self):
+        return (
+            f"{self.datetime.format('D MMM YYYY, HH:mm')}, "
+            f"{self.racecourse.name}, "
+            f"{self.distance.furlong}f ({self.going})"
+            f"{', Stalls: ' + str(self.stalls_position.name.title()) if self.stalls_position else ''}"
+        )
