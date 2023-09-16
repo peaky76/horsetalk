@@ -24,6 +24,15 @@ class Going:
 
         assert (self.primary and self.secondary) or self.primary
 
+    def __repr__(self):
+        """
+        The repr of the going.
+
+        Returns:
+            The repr of the going.
+        """
+        return f"<Going({self.primary!r}, {self.secondary!r})>"
+
     def __str__(self):
         """
         The string representation of the going.
