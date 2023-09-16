@@ -45,6 +45,10 @@ def test_race_distance_str():
     assert "1m 5f 110y" == str(RaceDistance("1m5f110y"))
 
 
+def test_race_distance_str_when_zero_value_present():
+    assert "1m 5f" == str(RaceDistance("1m5f0y"))
+
+
 def test_race_distance_regex_with_mile_furlong_and_yard_string():
     assert re.fullmatch(RaceDistance.REGEX, "1m5f110y")
 
