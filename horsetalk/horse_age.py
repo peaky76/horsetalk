@@ -20,7 +20,7 @@ class HorseAge:
         *,
         foaling_date: DateTime | None = None,
         birth_year: int | None = None,
-        context_date: DateTime | None = None
+        context_date: DateTime | None = None,
     ):
         """
         Initializes a new instance of the HorseAge class with the specified parameters.
@@ -64,6 +64,16 @@ class HorseAge:
         assert year
 
         self._official_dob = pendulum.datetime(year, 1, 1)
+
+    def __repr__(self) -> str:
+        """
+        Returns:
+            A representation of the HorseAge object.
+        """
+        dob_repr = (
+            self._actual_dob.format("D/M/YYYY") if self._actual_dob else "unknown dob"
+        )
+        return f"<HorseAge: {self.official.years} ({dob_repr})>"
 
     def __str__(self) -> str:
         """
