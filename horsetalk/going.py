@@ -24,6 +24,21 @@ class Going:
 
         assert (self.primary and self.secondary) or self.primary
 
+    def __str__(self):
+        """
+        The string representation of the going.
+
+        Returns:
+            The string representation of the going.
+        """
+        primary_str = self.primary.name.title()
+        secondary_str = (
+            self.secondary.name.title().replace("_", " ").replace(" To", " to")
+            if self.secondary
+            else ""
+        )
+        return f"{primary_str}{', ' + secondary_str + ' in places' if secondary_str else ''}"
+
     @property
     def primary(self) -> GoingDescription:
         """
