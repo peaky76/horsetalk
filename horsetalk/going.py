@@ -96,9 +96,7 @@ class Going:
 
         if len(texts) == 2:
             if texts[0] == texts[1]:
-                raise ValueError(
-                    f"Primary and secondary going description cannot be the same"
-                )
+                raise ValueError("Primary and secondary going description cannot match")
             return texts
 
         return texts + [""]
