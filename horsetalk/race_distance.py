@@ -33,6 +33,15 @@ class RaceDistance(Distance):
 
         super().__init__(self, m=distance.m)  # type: ignore
 
+    def __str__(self) -> str:
+        """
+        Returns the distance as a string.
+        """
+        mile = self.furlong // 8
+        furlong = (self.furlong % 8) // 1
+        yard = int((self.furlong % 1) * 220)
+        return f"{mile}m {furlong}f {yard}y"
+
     @property
     def furlong(self) -> Decimal:
         """
