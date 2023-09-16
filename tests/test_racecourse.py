@@ -44,6 +44,10 @@ def test_racecourse_can_be_initialized_with_params():
     )
 
 
+def test_racecourse_str():
+    assert str(Racecourse("Aintree", Surface.TURF)) == "Aintree (Turf)"
+
+
 def test_racecourse_handedness():
     assert (
         Racecourse("Aintree", Surface.TURF, handedness="left").handedness
