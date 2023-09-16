@@ -32,6 +32,11 @@ def test_going_init_throws_error_when_description_is_part_valid():
         Going("Good, Moist to tricky in places")
 
 
+def test_going_init_throws_error_when_primary_matches_secondary():
+    with pytest.raises(ValueError):
+        Going("Good, Good in places")
+
+
 def test_going_init_sets_primary_property_with_enum_for_turf_going():
     assert TurfGoingDescription.GOOD == Going("Good").primary
 

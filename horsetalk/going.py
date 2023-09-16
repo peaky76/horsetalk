@@ -93,7 +93,15 @@ class Going:
             The parts of the description.
         """
         texts = self.description.upper().replace(" IN PLACES", "").split(", ")
-        return texts if len(texts) == 2 else texts + [""]
+
+        if len(texts) == 2:
+            if texts[0] == texts[1]:
+                raise ValueError(
+                    f"Primary and secondary going description cannot be the same"
+                )
+            return texts
+
+        return texts + [""]
 
     @classmethod
     def _lookup(cls, key: str) -> GoingDescription:
