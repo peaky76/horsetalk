@@ -12,3 +12,7 @@ def test_horse_height_can_be_initialized_with_inches_string():
 
 def test_horse_height_hands_returns_correct_value():
     assert 16 == HorseHeight("64in").hand
+
+
+def test_horse_height_str_returns_correct_value():
+    assert "16hh" == str(HorseHeight("64in"))

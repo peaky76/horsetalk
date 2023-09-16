@@ -29,6 +29,13 @@ class HorseHeight(Distance):
 
         super().__init__(self, inch=height.inch)
 
+    def __str__(self) -> str:
+        """
+        Returns:
+            A string representation of the HorseHeight object.
+        """
+        return f"{self.hand}hh"
+
     @property
     def hand(self) -> Decimal:
         """
