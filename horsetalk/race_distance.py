@@ -33,6 +33,12 @@ class RaceDistance(Distance):
 
         super().__init__(self, m=distance.m)  # type: ignore
 
+    def __repr__(self) -> str:
+        """
+        Returns the distance as a string.
+        """
+        return f"<RaceDistance: {str(self)}>"
+
     def __str__(self) -> str:
         """
         Returns the distance as a string.
