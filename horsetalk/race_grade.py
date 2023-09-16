@@ -24,6 +24,9 @@ class RaceGrade:
         title = "Grade" if self.racing_code == RacingCode.NATIONAL_HUNT else "Group"
         return "Listed" if not self.value.isdigit() else f"{title} {self.value}"
 
+    def __bool__(self):
+        return bool(self.value)
+
     def __eq__(self, other):
         return self.value == other.value
 

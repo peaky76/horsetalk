@@ -16,7 +16,7 @@ def test_race_grade_init_possible_with_valid_word_only():
 
 
 def test_race_grade_init_possible_with_none():
-    assert RaceGrade(None)
+    assert isinstance(RaceGrade(None), RaceGrade)
 
 
 def test_race_grade_init_possible_with_valid_first_value_and_code():
@@ -55,6 +55,14 @@ def test_race_grade_str_when_flat_none():
 
 def test_race_grade_str_when_nh_group():
     assert str(RaceGrade("1", RacingCode.NATIONAL_HUNT)) == "Grade 1"
+
+
+def test_race_grade_bool_when_none():
+    assert not RaceGrade(None)
+
+
+def test_race_grade_bool_when_listed():
+    assert RaceGrade("Listed")
 
 
 def test_race_grade_eq_when_both_same_group():
