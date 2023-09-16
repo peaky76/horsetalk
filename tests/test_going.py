@@ -62,6 +62,13 @@ def test_going_init_does_not_set_secondary_property_when_only_primary_given():
     assert None is Going("Good").secondary
 
 
+def test_going_str():
+    assert (
+        Going("GOOD, GOOD TO SOFT IN PLACES").__str__()
+        == "Good, Good to Soft in places"
+    )
+
+
 def test_going_value_returns_primary_value_when_only_primary_given():
     assert 8 == Going("Good").value
 
