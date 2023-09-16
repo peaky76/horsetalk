@@ -44,6 +44,13 @@ def test_racecourse_can_be_initialized_with_params():
     )
 
 
+def test_racecourse_repr():
+    assert (
+        repr(Racecourse("Aintree", Surface.TURF))
+        == "<Racecourse: Aintree, Surface.TURF>"
+    )
+
+
 def test_racecourse_str():
     assert str(Racecourse("Aintree", Surface.TURF)) == "Aintree (Turf)"
 

@@ -40,5 +40,8 @@ class Racecourse:
         self.shape = RacecourseShape[shape] if isinstance(shape, str) else shape
         self.style = RacecourseStyle[style] if isinstance(style, str) else style
 
+    def __repr__(self):
+        return f"<Racecourse: {self.name}, {self.surface}>"
+
     def __str__(self):
         return f"{self.name} ({self.surface.name.title()})"
