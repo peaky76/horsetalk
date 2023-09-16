@@ -65,6 +65,13 @@ class HorseAge:
 
         self._official_dob = pendulum.datetime(year, 1, 1)
 
+    def __str__(self) -> str:
+        """
+        Returns:
+            A string representation of the HorseAge object.
+        """
+        return str(self.official.years)
+
     @property
     def official(self) -> Period:
         """

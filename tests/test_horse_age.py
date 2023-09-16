@@ -65,6 +65,10 @@ def test_horse_age_init_with_year_sets_actual_dob():
     assert None is HorseAge(birth_year=2019)._actual_dob
 
 
+def test_horse_age_str():
+    assert "2" == str(HorseAge(2))
+
+
 def test_horse_age_returns_correct_official_age_in_years():
     assert 2 == HorseAge(2).official.years
 
