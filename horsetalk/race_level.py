@@ -10,6 +10,9 @@ class RaceLevel:
         self.grade = value if isinstance(value, RaceGrade) else RaceGrade(None)
         self.class_ = value if isinstance(value, RaceClass) else RaceClass(1)
 
+    def __repr__(self):
+        return f"<RaceLevel: {repr(self.grade) if self.grade else repr(self.class_)}>"
+
     def __str__(self):
         return f"({self.class_.value}) {self.grade if self.grade.value else ''}".strip()
 

@@ -15,6 +15,14 @@ def test_race_level_raises_value_error_when_initalised_with_race_class_one():
         RaceLevel(RaceClass(1))
 
 
+def test_race_level_repr_when_grade():
+    assert repr(RaceLevel(RaceGrade("1"))) == "<RaceLevel: <RaceGrade: 1>>"
+
+
+def test_race_level_repr_when_class():
+    assert repr(RaceLevel(RaceClass(2))) == "<RaceLevel: <RaceClass: 2>>"
+
+
 def test_race_level_str_when_grade():
     assert str(RaceLevel(RaceGrade("1"))) == "(1) Group 1"
 
