@@ -62,6 +62,13 @@ def test_going_init_does_not_set_secondary_property_when_only_primary_given():
     assert None is Going("Good").secondary
 
 
+def test_going_repr():
+    assert (
+        Going("Good, Good to Soft in places").__repr__()
+        == "<Going(<TurfGoingDescription.GOOD: 8>, <TurfGoingDescription.GOOD_TO_SOFT: 7>)>"
+    )
+
+
 def test_going_str():
     assert (
         Going("GOOD, GOOD TO SOFT IN PLACES").__str__()
