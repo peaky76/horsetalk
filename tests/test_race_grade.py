@@ -41,19 +41,19 @@ def test_race_grade_repr_():
     assert repr(RaceGrade("1")) == "<RaceGrade: 1>"
 
 
-def test_race_grade_string_when_flat_listed():
+def test_race_grade_str_when_flat_listed():
     assert str(RaceGrade("Listed")) == "Listed"
 
 
-def test_race_grade_string_when_flat_group():
+def test_race_grade_str_when_flat_group():
     assert str(RaceGrade("1")) == "Group 1"
 
 
-def test_race_grade_string_when_flat_none():
+def test_race_grade_str_when_flat_none():
     assert str(RaceGrade(None)) == ""
 
 
-def test_race_grade_string_when_nh_group():
+def test_race_grade_str_when_nh_group():
     assert str(RaceGrade("1", RacingCode.NATIONAL_HUNT)) == "Grade 1"
 
 
