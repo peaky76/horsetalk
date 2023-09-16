@@ -28,6 +28,20 @@ def test_race_conditions_can_be_initialized_with_date_racecourse_distance_going_
     )
 
 
+def test_race_conditions_repr():
+    assert (
+        repr(
+            RaceConditions(
+                datetime=pendulum.parse("2023-06-01 14:00"),
+                racecourse=Racecourse("Portman Park", Surface.TURF),
+                distance=RaceDistance("5f"),
+                going=Going("Good"),
+            )
+        )
+        == "<RaceConditions: datetime=2023-06-01T14:00:00+00:00, racecourse=<Racecourse: Portman Park, Surface.TURF>, distance=5f, going=Good, stalls_position=None>"
+    )
+
+
 def test_race_conditions_str():
     assert (
         str(

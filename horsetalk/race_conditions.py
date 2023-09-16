@@ -37,6 +37,15 @@ class RaceConditions:
         self.going = going
         self.stalls_position = stalls_position
 
+    def __repr__(self):
+        return (
+            f"<RaceConditions: datetime={self.datetime}, "
+            f"racecourse={self.racecourse!r}, "
+            f"distance={self.distance}, "
+            f"going={self.going}, "
+            f"stalls_position={self.stalls_position}>"
+        )
+
     def __str__(self):
         return (
             f"{self.datetime.format('D MMM YYYY, HH:mm')}, "
