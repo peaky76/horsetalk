@@ -53,3 +53,23 @@ def test_finishing_position_cannot_be_multiplied():
 def test_finishing_position_cannot_be_divided():
     with pytest.raises(TypeError):
         FinishingPosition(1) / FinishingPosition(2)
+
+
+def test_finishing_position_equal_to():
+    assert FinishingPosition(1) == FinishingPosition(1)
+
+
+def test_finishing_position_less_than():
+    assert FinishingPosition(2) < FinishingPosition(1)
+
+
+def test_finishing_position_less_than_or_equal():
+    assert FinishingPosition(2) <= FinishingPosition(1)
+
+
+def test_finishing_position_greater_than():
+    assert FinishingPosition(1) > FinishingPosition(2)
+
+
+def test_finishing_position_greater_than_or_equal():
+    assert FinishingPosition(1) >= FinishingPosition(2)
