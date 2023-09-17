@@ -36,3 +36,18 @@ class FinishingPosition(Ordinal):
 
     def __truediv__(self, __value: int) -> int:
         raise TypeError("FinishingPosition cannot be divided.")
+
+    def __eq__(self, __value: int) -> bool:
+        return int(self) == int(__value)
+
+    def __lt__(self, __value: int) -> bool:
+        return int(self) > int(__value)
+
+    def __le__(self, __value: int) -> bool:
+        return int(self) >= int(__value)
+
+    def __gt__(self, __value: int) -> bool:
+        return int(self) < int(__value)
+
+    def __ge__(self, __value: int) -> bool:
+        return int(self) <= int(__value)
