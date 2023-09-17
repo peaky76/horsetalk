@@ -3,7 +3,7 @@ from enum import Enum, EnumMeta
 
 class ParsingEnumMeta(EnumMeta):
     def __getitem__(cls, name):
-        for member in cls.__members__:
+        if isinstance(name, str):
             test_val = (
                 name.strip()
                 .replace("-", " ")
@@ -11,8 +11,11 @@ class ParsingEnumMeta(EnumMeta):
                 .replace("'", "")
                 .upper()
             )
-            if member == test_val:
-                return cls.__members__[member]
+
+            for member in cls.__members__:
+                if member == test_val:
+                    return cls.__members__[member]
+
         raise KeyError(name)
 
 
