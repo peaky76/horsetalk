@@ -1,4 +1,4 @@
-from .parsing_enum import ParsingEnum
+from peak_utility.enumeration.parsing_enum import ParsingEnum
 
 
 class ObstacleStyle(ParsingEnum):
