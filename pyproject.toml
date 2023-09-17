@@ -9,6 +9,7 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.11"
 measurement = "^3.2.2"
+peak-utility = {git = "ssh://git@github.com/peaky76/peak-utility.git", rev = "master"}
 pendulum = "^2.1.2"
 
 [tool.poetry.group.dev.dependencies]
