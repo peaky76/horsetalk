@@ -1,5 +1,25 @@
 # Changelog
 
+## 0.15.0 (2023-09-17)
+
+#### New Features
+
+- add `RaceDesignation` and `RaceLevel` to `RaceConditions`
+- add maiden to `RaceDesignation`
+
+#### Fixes
+
+- typing guards for `__eq__` methods
+- `__eq__` typing for Liskov subst violation
+
+#### Refactorings
+
+- delete native `ParsingEnum`
+
+#### Others
+
+- import `ParsingEnum` from peak_utility
+
 ## 0.14.0 (2023-09-17)
 
 #### New Features
