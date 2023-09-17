@@ -1,4 +1,4 @@
-from .parsing_enum import ParsingEnum as ParsingEnum
+from peak_utility.enumeration.parsing_enum import ParsingEnum as ParsingEnum
 from .sex import Sex as Sex
 
 class Gender(ParsingEnum):
