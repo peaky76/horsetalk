@@ -15,7 +15,13 @@ class RaceClass:
         return f"Class {self.value}"
 
     def __eq__(self, other: object) -> bool:
-        return self.value == other.value
+        if isinstance(other, RaceClass):
+            return self.value == other.value
+
+        if isinstance(other, int):
+            return self.value == other
+
+        return False
 
     def __gt__(self, other: Self) -> bool:
         return self.value < other.value

@@ -25,29 +25,31 @@ class FinishingPosition(Ordinal):
             return "Unplaced"
         return super().__repr__()
 
-    def __add__(self, __value: int) -> int:
+    def __add__(self, other: int) -> int:
         raise TypeError("FinishingPosition cannot be added to.")
 
-    def __sub__(self, __value: int) -> int:
+    def __sub__(self, other: int) -> int:
         raise TypeError("FinishingPosition cannot be subtracted from.")
 
-    def __mul__(self, __value: int) -> int:
+    def __mul__(self, other: int) -> int:
         raise TypeError("FinishingPosition cannot be multiplied.")
 
-    def __truediv__(self, __value: int) -> int:
+    def __truediv__(self, other: int) -> int:
         raise TypeError("FinishingPosition cannot be divided.")
 
-    def __eq__(self, __value: object) -> bool:
-        return int(self) == int(__value)
+    def __eq__(self, other: object) -> bool:
+        if isinstance(other, FinishingPosition):
+            return int(self) == int(other)
+        return False
 
-    def __lt__(self, __value: int) -> bool:
-        return int(self) > int(__value)
+    def __lt__(self, other: int) -> bool:
+        return int(self) > int(other)
 
-    def __le__(self, __value: int) -> bool:
-        return int(self) >= int(__value)
+    def __le__(self, other: int) -> bool:
+        return int(self) >= int(other)
 
-    def __gt__(self, __value: int) -> bool:
-        return int(self) < int(__value)
+    def __gt__(self, other: int) -> bool:
+        return int(self) < int(other)
 
-    def __ge__(self, __value: int) -> bool:
-        return int(self) <= int(__value)
+    def __ge__(self, other: int) -> bool:
+        return int(self) <= int(other)

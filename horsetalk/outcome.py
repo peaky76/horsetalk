@@ -17,10 +17,14 @@ class Outcome:
         self._value = value
 
     def __eq__(self, other: object) -> bool:
+        if not isinstance(other, Outcome):
+            return False
+
         if isinstance(self._value, Disaster):
             return isinstance(other._value, Disaster)
 
-        return not isinstance(other._value, Disaster) and self._value == other
+        if isinstance(self._value, FinishingPosition):
+            return not isinstance(other._value, Disaster) and self._value == other
 
     def __lt__(self, other: Self) -> bool:
         if isinstance(self._value, Disaster):
