@@ -37,7 +37,7 @@ class FinishingPosition(Ordinal):
     def __truediv__(self, __value: int) -> int:
         raise TypeError("FinishingPosition cannot be divided.")
 
-    def __eq__(self, __value: int) -> bool:
+    def __eq__(self, __value: object) -> bool:
         return int(self) == int(__value)
 
     def __lt__(self, __value: int) -> bool:

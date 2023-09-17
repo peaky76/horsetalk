@@ -14,7 +14,7 @@ class RaceClass:
     def __str__(self) -> str:
         return f"Class {self.value}"
 
-    def __eq__(self, other: Self) -> bool:
+    def __eq__(self, other: object) -> bool:
         return self.value == other.value
 
     def __gt__(self, other: Self) -> bool:
