@@ -7,17 +7,17 @@ def test_form_figures_parse_returns_list():
     assert expected == actual
 
 
-def test_form_figures_parse_returns_correct_enums_in_list():
+def test_form_figures_parse_returns_correct_values_in_list():
     expected = [
-        FinishingPosition.FOURTH,
+        FinishingPosition(4),
         FormBreak.SEASON,
-        FinishingPosition.UNPLACED,
+        FinishingPosition(0),
         FormBreak.YEAR,
         Disaster.FELL,
-        FinishingPosition.UNPLACED,
-        FinishingPosition.SECOND,
+        FinishingPosition(0),
+        FinishingPosition(2),
         Disaster.UNSEATED_RIDER,
-        FinishingPosition.FIRST,
+        FinishingPosition(1),
     ]
     actual = FormFigures.parse("4/0-F02U1")
     assert expected == actual

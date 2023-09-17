@@ -1,22 +1,38 @@
-from enum import Enum
+from peak_utility.number import Ordinal
 
 
-class FinishingPosition(Enum):
+class FinishingPosition(Ordinal):
     """
-    An enumeration that represents the finishing position of a horse in a race.
+    A class that represents the finishing position of a horse in a race.
 
     """
 
-    UNPLACED = 0
-    FIRST = 1
-    SECOND = 2
-    THIRD = 3
-    FOURTH = 4
-    FIFTH = 5
-    SIXTH = 6
-    SEVENTH = 7
-    EIGHTH = 8
-    NINTH = 9
+    def __new__(cls, value):
+        if int(value) < 0:
+            raise ValueError("Finishing position cannot be negative.")
+        return super().__new__(cls, value)
+
+    def __bool__(self):
+        return int(self) >= 0
+
+    def __repr__(self):
+        if int(self) == 0:
+            return "<FinishingPosition: Unplaced>"
+        return f"<FinishingPosition: {super().__repr__()}>"
 
     def __str__(self):
-        return str(self.value)
+        if int(self) == 0:
+            return "Unplaced"
+        return super().__repr__()
+
+    def __add__(self, __value: int) -> int:
+        raise TypeError("FinishingPosition cannot be added to.")
+
+    def __sub__(self, __value: int) -> int:
+        raise TypeError("FinishingPosition cannot be subtracted from.")
+
+    def __mul__(self, __value: int) -> int:
+        raise TypeError("FinishingPosition cannot be multiplied.")
+
+    def __truediv__(self, __value: int) -> int:
+        raise TypeError("FinishingPosition cannot be divided.")
