@@ -9,15 +9,17 @@ class RaceDesignation(ParsingEnum):
 
     HANDICAP = 1
     CONDITIONS = 2
-    AUCTION = 3
-    CLAIMER = 4
-    SELLER = 5
-    STAKES = 6
+    MAIDEN = 3
+    AUCTION = 4
+    CLAIMER = 5
+    SELLER = 6
+    STAKES = 7
 
     # Abbreviations
     HCAP = HANDICAP
     AU = AUCTION
     CL = CLAIMER
+    M = MAIDEN
     S = SELLER
     STKS = STAKES
 
