@@ -1,6 +1,0 @@
-from enum import Enum, EnumMeta
-
-class ParsingEnumMeta(EnumMeta):
-    def __getitem__(cls, name): ...
-
-class ParsingEnum(Enum, metaclass=ParsingEnumMeta): ...
