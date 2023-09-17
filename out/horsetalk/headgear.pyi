@@ -1,4 +1,4 @@
-from peak_utility.enumeration.parsing_enum import ParsingEnum as ParsingEnum
+from peak_utility.enumeration.parsing_enum import ParsingEnum  # type: ignore as ParsingEnum
 
 class Headgear(ParsingEnum):
     HOOD: int

@@ -1,4 +1,4 @@
-from peak_utility.enumeration.parsing_enum import ParsingEnum
+from peak_utility.enumeration.parsing_enum import ParsingEnum  # type: ignore
 
 
 class GoingDescription(ParsingEnum):
