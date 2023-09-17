@@ -1,5 +1,23 @@
 # Changelog
 
+## 0.14.0 (2023-09-17)
+
+#### New Features
+
+- `Outcome` class
+
+#### Fixes
+
+- `KeyError` on `ParsingEnum` for non string keys
+
+#### Refactorings
+
+- convert `FinishingPosition` enum to class
+
+#### Others
+
+- add `peak-utility`
+
 ## 0.13.1 (2023-09-16)
 
 #### Fixes
