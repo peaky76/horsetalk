@@ -1,4 +1,4 @@
-from peak_utility.number import Ordinal
+from peak_utility.number import Ordinal  # type: ignore
 
 
 class FinishingPosition(Ordinal):
