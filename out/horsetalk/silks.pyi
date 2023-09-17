@@ -1,6 +1,6 @@
 from _typeshed import Incomplete
 from typing import Optional
-from peak_utility.enumeration.parsing_enum import ParsingEnum
+from peak_utility.enumeration.parsing_enum import ParsingEnum  # type: ignore
 
 class Silks:
     description: str
