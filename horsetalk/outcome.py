@@ -4,7 +4,7 @@ from .finishing_position import FinishingPosition
 
 
 class Outcome:
-    def __init__(self, value: int | str | Disaster | FinishingPosition):
+    def __init__(self, value: Disaster | FinishingPosition):
         if not isinstance(value, (Disaster, FinishingPosition)):
             if str(value).isdigit():
                 value = FinishingPosition(value)
@@ -30,7 +30,7 @@ class Outcome:
         if isinstance(self._value, Disaster):
             return not isinstance(other._value, Disaster)
 
-        return not isinstance(other._value, Disaster) and self._value < other
+        return not isinstance(other._value, Disaster) and self._value < other._value
 
     def __le__(self, other: Self) -> bool:
         return self == other or self < other
@@ -39,7 +39,7 @@ class Outcome:
         if isinstance(self._value, Disaster):
             return False
 
-        return isinstance(other._value, Disaster) or self._value > other
+        return isinstance(other._value, Disaster) or self._value > other._value
 
     def __ge__(self, other: Self) -> bool:
         return self == other or self > other
