@@ -1,4 +1,6 @@
 from .disaster import Disaster
+from .finishing_position import FinishingPosition
+from .outcome import Outcome
 from peak_utility.number import Ordinal
 
 
@@ -10,59 +12,50 @@ class RacePerformance:
 
     def __init__(
         self,
-        outcome: str | int | Disaster,
+        outcome: str | int | Disaster | FinishingPosition | Outcome,
         *,
-        official_position: str | int | None = None,
+        official_position: str | int | FinishingPosition | None = None,
         comments: str | None = None,
     ):
         """
-        Initialize a RaceConditions instance.
+        Initialize a RacePerformance instance.
 
         Args:
-            datetime: The datetime of the race
-            racecourse: The racecourse on which the race is run
-            distance: The race distance
-            going: The going of the race
-            stalls_position: The position of the stalls on the track
+            outcome: A disaster or finishing position
+            official_position: The official finishing position
+            comments: Race comments on this performance
+
+        Raises:
+            ValueError: If both a disaster and a finishing position are given
 
         """
         self.comments = comments
-        self.finishing_position = str(outcome) if str(outcome).isdigit() else None
+        self.outcome = Outcome(outcome) if not isinstance(outcome, Outcome) else outcome
         self.official_position = (
-            str(official_position) if official_position else self.finishing_position
+            Outcome(official_position)
+            if official_position
+            else self.outcome
+            if isinstance(self.outcome._value, FinishingPosition)
+            else None
         )
-        try:
-            self.disaster = (
-                None
-                if self.finishing_position
-                else Disaster[outcome]
-                if isinstance(outcome, str)
-                else outcome
-            )
-        except KeyError:
-            raise ValueError(f"{outcome} is not a valid disaster")
 
-        if self.disaster and self.official_position:
+        if isinstance(self.outcome._value, Disaster) and self.official_position:
             raise ValueError(
-                f"Cannot have both a disaster {self.disaster} and a position {self.official_position}"
+                f"Cannot have both a disaster {self.outcome} and a position {self.official_position}"
             )
 
     def __repr__(self):
         official_position_repr = (
-            f", placed {self.official_position}"
-            if self.official_position != self.finishing_position
+            f", placed {int(self.official_position._value)}"
+            if self.official_position and self.official_position != self.outcome
             else ""
         )
-        return f"<RacePerformance: {self.disaster if self.disaster else self.finishing_position}{official_position_repr}>"
+        return f"<RacePerformance: {int(self.outcome._value) if isinstance(self.outcome._value, FinishingPosition) else str(self.outcome._value)}{official_position_repr}>"
 
     def __str__(self):
         official_position_str = (
-            f", placed {repr(Ordinal(self.official_position))}"
-            if self.official_position != self.finishing_position
+            f", placed {self.official_position}"
+            if self.official_position and self.official_position != self.outcome
             else ""
         )
-        return (
-            f"{self.disaster.name.title()}"
-            if self.disaster
-            else f"{repr(Ordinal(self.finishing_position))}{official_position_str}"
-        )
+        return f"{self.outcome}{official_position_str}"

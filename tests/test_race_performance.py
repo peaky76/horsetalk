@@ -1,40 +1,55 @@
 import pytest  # type: ignore
-from horsetalk import Disaster, RacePerformance
+from horsetalk import Disaster, FinishingPosition, Outcome, RacePerformance
 
 
-def test_race_performance_init_with_int():
+def test_race_performance_init_with_int_sets_outcome():
     performance = RacePerformance(1)
-    assert performance.finishing_position == "1"
-    assert performance.official_position == "1"
-    assert performance.disaster is None
+    assert performance.outcome == FinishingPosition(1)
 
 
-def test_race_performance_init_with_digit_str():
+def test_race_performance_init_with_int_sets_official_position():
+    performance = RacePerformance(1)
+    assert performance.official_position == FinishingPosition(1)
+
+
+def test_race_performance_init_with_digit_str_sets_outcome():
     performance = RacePerformance("1")
-    assert performance.finishing_position == "1"
-    assert performance.official_position == "1"
-    assert performance.disaster is None
+    assert performance.outcome == FinishingPosition(1)
 
 
-def test_race_performance_init_with_disaster():
+def test_race_performance_init_with_digit_str_sets_official_position():
+    performance = RacePerformance("1")
+    assert performance.official_position == FinishingPosition(1)
+
+
+def test_race_performance_init_with_disaster_sets_outcome():
     performance = RacePerformance("F")
-    assert performance.finishing_position is None
+    assert performance.outcome == Disaster.FELL
+
+
+def test_race_performance_init_with_disaster_sets_official_position():
+    performance = RacePerformance("F")
     assert performance.official_position is None
-    assert performance.disaster.name == "FELL"
 
 
-def test_race_performance_init_with_disaster_enum():
+def test_race_performance_init_with_disaster_enum_sets_outcome():
     performance = RacePerformance(Disaster.FELL)
-    assert performance.finishing_position is None
+    assert performance.outcome == Disaster.FELL
+
+
+def test_race_performance_init_with_disaster_enum_sets_official_position():
+    performance = RacePerformance(Disaster.FELL)
     assert performance.official_position is None
-    assert performance.disaster.name == "FELL"
 
 
-def test_race_performance_init_with_official_position():
+def test_race_performance_init_with_official_position_sets_outcome():
     performance = RacePerformance("2", official_position=1)
-    assert performance.finishing_position == "2"
-    assert performance.official_position == "1"
-    assert performance.disaster is None
+    assert performance.outcome == FinishingPosition(2)
+
+
+def test_race_performance_init_with_official_position_sets_official_position():
+    performance = RacePerformance("2", official_position=1)
+    assert performance.official_position == FinishingPosition(1)
 
 
 def test_race_performance_raises_error_if_str_not_valid():
