@@ -16,6 +16,16 @@ class Outcome:
 
         self._value = value
 
+    def __repr__(self) -> str:
+        return f"<Outcome: {self._value.name.title() if isinstance(self._value, Disaster) else int(self._value)}>"
+
+    def __str__(self) -> str:
+        return (
+            self._value.name.title()
+            if isinstance(self._value, Disaster)
+            else str(self._value)
+        )
+
     def __eq__(self, other: object) -> bool:
         if not isinstance(other, Outcome):
             return False

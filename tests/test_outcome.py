@@ -31,6 +31,22 @@ def test_outcome_value_is_disaster_if_init_with_disaster_str():
     assert isinstance(Outcome("FELL")._value, Disaster)
 
 
+def test_outcome_repr_with_finishing_position():
+    assert repr(Outcome(1)) == "<Outcome: 1>"
+
+
+def test_outcome_repr_with_disaster():
+    assert repr(Outcome("FELL")) == "<Outcome: Fell>"
+
+
+def test_outcome_str_with_finishing_position():
+    assert str(Outcome(1)) == "1st"
+
+
+def test_outcome_str_with_disaster():
+    assert str(Outcome("FELL")) == "Fell"
+
+
 def test_outcome_equal_between_disasters():
     assert Outcome(Disaster.FELL) == Outcome(Disaster.RAN_OUT)
 
