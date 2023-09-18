@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.16.0 (2023-09-18)
+
+#### New Features
+
+- `RacePerformance` class
+- `Outcome.__repr__` and `__str__`
+
+#### Fixes
+
+- `Outcome.__eq__` handles different types of value
+
 ## 0.15.0 (2023-09-17)
 
 #### New Features
