@@ -27,14 +27,10 @@ class Outcome:
         )
 
     def __eq__(self, other: object) -> bool:
-        if not isinstance(other, Outcome):
-            return False
-
         if isinstance(self._value, Disaster):
-            return isinstance(other._value, Disaster)
+            return isinstance(getattr(other, "_value", other), Disaster)
 
-        if isinstance(self._value, FinishingPosition):
-            return not isinstance(other._value, Disaster) and self._value == other
+        return self._value == getattr(other, "_value", other)
 
     def __lt__(self, other: Self) -> bool:
         if isinstance(self._value, Disaster):
