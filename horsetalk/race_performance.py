@@ -1,7 +1,6 @@
 from .disaster import Disaster
 from .finishing_position import FinishingPosition
 from .outcome import Outcome
-from peak_utility.number import Ordinal
 
 
 class RacePerformance:

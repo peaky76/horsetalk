@@ -1,5 +1,5 @@
 import pytest  # type: ignore
-from horsetalk import Disaster, FinishingPosition, Outcome, RacePerformance
+from horsetalk import Disaster, FinishingPosition, RacePerformance
 
 
 def test_race_performance_init_with_int_sets_outcome():
