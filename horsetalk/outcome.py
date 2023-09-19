@@ -51,5 +51,9 @@ class Outcome:
         return self == other or self > other
 
     @property
+    def is_completion(self) -> bool:
+        return isinstance(self._value, FinishingPosition)
+
+    @property
     def is_win(self) -> bool:
         return self._value == FinishingPosition(1)
