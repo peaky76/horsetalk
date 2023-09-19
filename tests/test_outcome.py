@@ -47,12 +47,20 @@ def test_outcome_str_with_disaster():
     assert str(Outcome("FELL")) == "Fell"
 
 
-def test_outcome_equal_between_disasters():
+def test_outcome_eq_between_disasters():
     assert Outcome(Disaster.FELL) == Outcome(Disaster.RAN_OUT)
 
 
-def test_outcome_equal_between_disaster_and_finishing_position():
+def test_outcome_eq_between_disaster_and_finishing_position():
     assert not Outcome(Disaster.FELL) == Outcome(FinishingPosition(0))
+
+
+def test_outcome_eq_between_disaster_and_int():
+    assert not Outcome(Disaster.FELL) == 4
+
+
+def test_outcome_eq_between_finishing_position_and_int():
+    assert Outcome(4) == 4
 
 
 def test_outcome_lt_between_disasters():
