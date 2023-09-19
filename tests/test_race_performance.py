@@ -90,3 +90,23 @@ def test_race_performance_str_with_position():
 def test_race_performance_str_with_different_official_position():
     performance = RacePerformance("2", official_position="1")
     assert str(performance) == "2nd, placed 1st"
+
+
+def test_race_performance_is_completion_with_disaster():
+    assert RacePerformance("F").is_completion is False
+
+
+def test_race_performance_is_completion_with_position():
+    assert RacePerformance("2").is_completion is True
+
+
+def test_race_performance_is_win_with_disaster():
+    assert RacePerformance("F").is_win is False
+
+
+def test_race_performance_is_win_with_position():
+    assert RacePerformance("2").is_win is False
+
+
+def test_race_performance_is_win_with_win():
+    assert RacePerformance("1").is_win is True

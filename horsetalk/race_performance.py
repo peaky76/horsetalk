@@ -58,3 +58,11 @@ class RacePerformance:
             else ""
         )
         return f"{self.outcome}{official_position_str}"
+
+    @property
+    def is_completion(self) -> bool:
+        return self.outcome.is_completion
+
+    @property
+    def is_win(self) -> bool:
+        return self.outcome.is_win
