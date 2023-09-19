@@ -110,3 +110,23 @@ def test_race_performance_is_win_with_position():
 
 def test_race_performance_is_win_with_win():
     assert RacePerformance("1").is_win is True
+
+
+def test_race_performance_is_official_win_with_disaster():
+    assert RacePerformance("F").is_official_win is False
+
+
+def test_race_performance_is_official_win_with_position():
+    assert RacePerformance("2").is_official_win is False
+
+
+def test_race_performance_is_official_win_with_fptp_and_official_win():
+    assert RacePerformance("1").is_official_win is True
+
+
+def test_race_performance_is_official_win_when_result_downgraded():
+    assert RacePerformance("1", official_position="2").is_official_win is False
+
+
+def test_race_performance_is_official_win_when_result_upgraded():
+    assert RacePerformance("2", official_position="1").is_official_win is True

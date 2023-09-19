@@ -64,5 +64,9 @@ class RacePerformance:
         return self.outcome.is_completion
 
     @property
+    def is_official_win(self) -> bool:
+        return self.is_completion and self.official_position.is_win
+
+    @property
     def is_win(self) -> bool:
         return self.outcome.is_win
