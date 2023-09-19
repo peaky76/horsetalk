@@ -1,5 +1,24 @@
 # Changelog
 
+## 0.17.0 (2023-09-19)
+
+#### New Features
+
+- `Outcome.is_completion`
+- `Outcome.is_win`
+- `RacePerformance.is_official_win`
+- `RacePerformance.is_completion`
+- `RacePerformance.is_win`
+
+#### Fixes
+
+- `FinishingPosition.**eq**` with int
+- `Outcome.**eq**` with int
+
+#### Refactorings
+
+- replace type checking in `RacePerformance`
+
 ## 0.16.0 (2023-09-18)
 
 #### New Features
