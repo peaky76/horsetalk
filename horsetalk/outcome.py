@@ -49,3 +49,7 @@ class Outcome:
 
     def __ge__(self, other: Self) -> bool:
         return self == other or self > other
+
+    @property
+    def is_win(self) -> bool:
+        return self._value == FinishingPosition(1)
