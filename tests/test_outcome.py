@@ -95,6 +95,14 @@ def test_outcome_gte_between_disaster_and_finishing_position():
     assert Outcome(FinishingPosition(1)) >= Outcome(Disaster.RAN_OUT)
 
 
+def test_outcome_is_completion():
+    assert Outcome(FinishingPosition(1)).is_completion
+
+
+def test_outcome_is_not_completion():
+    assert not Outcome(Disaster.FELL).is_completion
+
+
 def test_outcome_is_win():
     assert Outcome(FinishingPosition(1)).is_win
 
