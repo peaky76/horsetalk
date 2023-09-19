@@ -34,11 +34,11 @@ class RacePerformance:
             Outcome(official_position)
             if official_position
             else self.outcome
-            if isinstance(self.outcome._value, FinishingPosition)
+            if self.outcome.is_completion
             else None
         )
 
-        if isinstance(self.outcome._value, Disaster) and self.official_position:
+        if not self.is_completion and self.official_position:
             raise ValueError(
                 f"Cannot have both a disaster {self.outcome} and a position {self.official_position}"
             )
@@ -49,7 +49,7 @@ class RacePerformance:
             if self.official_position and self.official_position != self.outcome
             else ""
         )
-        return f"<RacePerformance: {int(self.outcome._value) if isinstance(self.outcome._value, FinishingPosition) else str(self.outcome._value)}{official_position_repr}>"
+        return f"<RacePerformance: {(int if self.is_completion else str)(self.outcome._value)}{official_position_repr}>"
 
     def __str__(self):
         official_position_str = (
