@@ -55,8 +55,16 @@ def test_finishing_position_cannot_be_divided():
         FinishingPosition(1) / FinishingPosition(2)
 
 
-def test_finishing_position_equal_to():
+def test_finishing_position_eq_with_another_instance():
     assert FinishingPosition(1) == FinishingPosition(1)
+
+
+def test_finishing_position_eq_with_int():
+    assert FinishingPosition(1) == 1
+
+
+def test_finishing_position_eq_with_int_reverse():
+    assert 1 == FinishingPosition(1)
 
 
 def test_finishing_position_less_than():

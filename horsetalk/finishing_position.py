@@ -38,9 +38,7 @@ class FinishingPosition(Ordinal):
         raise TypeError("FinishingPosition cannot be divided.")
 
     def __eq__(self, other: object) -> bool:
-        if isinstance(other, FinishingPosition):
-            return int(self) == int(other)
-        return False
+        return isinstance(other, (int, FinishingPosition)) and int(self) == int(other)
 
     def __lt__(self, other: int) -> bool:
         return int(self) > int(other)
