@@ -1,5 +1,6 @@
 from .disaster import Disaster
 from .finishing_position import FinishingPosition
+from .horselength import Horselength
 from .outcome import Outcome
 
 
@@ -14,6 +15,7 @@ class RacePerformance:
         outcome: str | int | Disaster | FinishingPosition | Outcome,
         *,
         official_position: str | int | FinishingPosition | None = None,
+        beaten_distance: str | int | None = None,
         comments: str | None = None,
     ):
         """
@@ -22,6 +24,7 @@ class RacePerformance:
         Args:
             outcome: A disaster or finishing position
             official_position: The official finishing position
+            beaten_distance: The beaten distance
             comments: Race comments on this performance
 
         Raises:
@@ -37,11 +40,17 @@ class RacePerformance:
             if self.outcome.is_completion
             else None
         )
+        self.beaten_distance = Horselength(beaten_distance) if beaten_distance else None
 
-        if not self.is_completion and self.official_position:
-            raise ValueError(
-                f"Cannot have both a disaster {self.outcome} and a position {self.official_position}"
-            )
+        if not self.is_completion:
+            if self.official_position:
+                raise ValueError(
+                    f"Cannot have both a disaster {self.outcome} and a position {self.official_position}"
+                )
+            if self.beaten_distance:
+                raise ValueError(
+                    f"Cannot have both a disaster {self.outcome} and a beaten distance {self.beaten_distance}"
+                )
 
     def __repr__(self):
         official_position_repr = (

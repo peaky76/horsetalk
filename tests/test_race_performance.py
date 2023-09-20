@@ -1,5 +1,5 @@
 import pytest  # type: ignore
-from horsetalk import Disaster, FinishingPosition, RacePerformance
+from horsetalk import Disaster, FinishingPosition, Horselength, RacePerformance
 
 
 def test_race_performance_init_with_int_sets_outcome():
@@ -60,6 +60,11 @@ def test_race_performance_raises_error_if_str_not_valid():
 def test_race_performace_raises_error_if_position_and_disaster_given():
     with pytest.raises(ValueError):
         RacePerformance("F", official_position="6")
+
+
+def test_race_performace_raises_error_if_beaten_distance_and_disaster_given():
+    with pytest.raises(ValueError):
+        RacePerformance("F", beaten_distance=3)
 
 
 def test_race_performance_repr_with_disaster():
