@@ -5,13 +5,17 @@ class RaceGrade:
     def __init__(
         self, grade: str | int | None, racing_code: RacingCode = RacingCode.FLAT
     ):
-        if grade and str(grade).isdigit() and not 1 <= int(grade) < 4:
-            raise ValueError(f"Grade must be between 1 and 3, not {grade}")
+        if not grade:
+            self.value = None
+        else:
+            if str(grade).isdigit() and not 1 <= int(grade) < 4:
+                raise ValueError(f"Grade must be between 1 and 3, not {grade}")
 
-        if grade and not str(grade).isdigit() and grade != "Listed":
-            raise ValueError(f"Grade must be a number or 'Listed', not {grade}")
+            if not str(grade).isdigit() and grade != "Listed":
+                raise ValueError(f"Grade must be a number or 'Listed', not {grade}")
 
-        self.value = str(grade) if grade else None
+            self.value = str(grade)
+
         self.racing_code = racing_code
 
     def __repr__(self):
