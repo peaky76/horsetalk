@@ -10,9 +10,41 @@ def test_race_level_can_be_initialised_with_race_class_below_one():
     assert RaceLevel(RaceClass(2))
 
 
+def test_race_level_can_be_initialised_with_race_grade_string():
+    assert RaceLevel("Group 1")
+
+
+def test_race_level_can_be_initialised_with_g_string():
+    assert RaceLevel("G1")
+
+
+def test_race_level_can_be_initialised_with_race_class_string():
+    assert RaceLevel("Class 2")
+
+
+def test_race_level_can_be_initialised_with_int():
+    assert RaceLevel(2)
+
+
 def test_race_level_raises_value_error_when_initalised_with_race_class_one():
     with pytest.raises(ValueError):
         RaceLevel(RaceClass(1))
+
+
+def test_race_level_init_with_race_grade_string_identifies_grade():
+    assert RaceLevel("Group 1").grade == RaceGrade("1")
+
+
+def test_race_level_init_with_g_string_identifies_grade():
+    assert RaceLevel("G1").grade == RaceGrade("1")
+
+
+def test_race_level_init_with_race_class_string_identifies_class():
+    assert RaceLevel("Class 2").class_ == RaceClass(2)
+
+
+def test_race_level_init_with_int_assumes_class():
+    assert RaceLevel(2).class_ == RaceClass(2)
 
 
 def test_race_level_repr_when_grade():

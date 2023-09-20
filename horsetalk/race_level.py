@@ -7,8 +7,18 @@ class RaceLevel:
         if isinstance(value, RaceClass) and value.value == 1:
             raise ValueError("Class 1 race needs a specified grade")
 
-        self.grade = value if isinstance(value, RaceGrade) else RaceGrade(None)
-        self.class_ = value if isinstance(value, RaceClass) else RaceClass(1)
+        self.grade = (
+            value
+            if isinstance(value, RaceGrade)
+            else RaceGrade(value if "G" in str(value) else None)
+        )
+        self.class_ = (
+            value
+            if isinstance(value, RaceClass)
+            else RaceClass(1)
+            if self.grade
+            else RaceClass(value)
+        )
 
     def __repr__(self):
         return f"<RaceLevel: {repr(self.grade) if self.grade else repr(self.class_)}>"
