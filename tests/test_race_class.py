@@ -10,6 +10,10 @@ def test_race_class_init_possible_with_valid_str():
     assert RaceClass("1")
 
 
+def test_race_class_init_possible_with_valid_str_with_class():
+    assert RaceClass("Class 1")
+
+
 def test_race_class_init_not_possible_with_invalid_int():
     with pytest.raises(ValueError):
         RaceClass(0)
