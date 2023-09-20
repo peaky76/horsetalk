@@ -127,6 +127,14 @@ def test_race_grade_eq_when_self_none_other_group():
     assert not RaceGrade(None) == RaceGrade("1")
 
 
+def test_race_grade_eq_with_int():
+    assert RaceGrade(1) == 1
+
+
+def test_race_grade_eq_with_int_when_listed():
+    assert not RaceGrade("Listed") == 1
+
+
 def test_race_grade_lt_when_both_same_group():
     assert not RaceGrade("1") < RaceGrade("1")
 
