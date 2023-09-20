@@ -42,7 +42,13 @@ class RaceGrade:
         return bool(self.value)
 
     def __eq__(self, other):
-        return self.value == other.value
+        if isinstance(other, RaceGrade):
+            return self.value == other.value
+
+        if isinstance(other, int):
+            return self.value != "Listed" and int(self.value) == other
+
+        return False
 
     def __lt__(self, other):
         if not self.value:
