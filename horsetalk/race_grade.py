@@ -1,22 +1,37 @@
+import re
 from .racing_code import RacingCode
 
 
 class RaceGrade:
-    def __init__(
-        self, grade: str | int | None, racing_code: RacingCode = RacingCode.FLAT
-    ):
+    def __init__(self, grade: str | int | None, racing_code: RacingCode = None):
         if not grade:
             self.value = None
+            code_from_grade = None
         else:
-            if str(grade).isdigit() and not 1 <= int(grade) < 4:
-                raise ValueError(f"Grade must be between 1 and 3, not {grade}")
+            stripped_grade = re.sub(r"G(?:roup|rade|)\s*", "", str(grade).title())
 
-            if not str(grade).isdigit() and grade != "Listed":
+            if not stripped_grade.isdigit() and stripped_grade != "Listed":
                 raise ValueError(f"Grade must be a number or 'Listed', not {grade}")
 
-            self.value = str(grade)
+            if stripped_grade.isdigit() and not 1 <= int(stripped_grade) < 4:
+                raise ValueError(f"Grade must be between 1 and 3, not {grade}")
 
-        self.racing_code = racing_code
+            self.value = stripped_grade
+
+            code_from_grade = (
+                RacingCode.NATIONAL_HUNT
+                if "grade" in str(grade).lower()
+                else RacingCode.FLAT
+                if "group" in str(grade).lower()
+                else None
+            )
+
+        if code_from_grade and racing_code and code_from_grade != racing_code:
+            raise ValueError(
+                f"{grade} conflicts with value for racing code: {racing_code.value}"
+            )
+
+        self.racing_code = code_from_grade or racing_code or RacingCode.FLAT
 
     def __repr__(self):
         return f"<RaceGrade: {self.value}>"
