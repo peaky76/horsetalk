@@ -25,7 +25,7 @@ class RaceGrade:
                 f"{grade} conflicts with value for racing code: {racing_code.value}"
             )
 
-        self.value = grade_value
+        self.value = int(grade_value) if grade_value.isdigit() else grade_value
         self.racing_code = code_from_grade or racing_code or RacingCode.FLAT
 
     def __repr__(self):
@@ -36,7 +36,7 @@ class RaceGrade:
             return ""
 
         title = "Grade" if self.racing_code == RacingCode.NATIONAL_HUNT else "Group"
-        return "Listed" if not self.value.isdigit() else f"{title} {self.value}"
+        return "Listed" if not str(self.value).isdigit() else f"{title} {self.value}"
 
     def __bool__(self):
         return bool(self.value)
@@ -46,7 +46,7 @@ class RaceGrade:
             return self.value == other.value
 
         if isinstance(other, int):
-            return self.value != "Listed" and int(self.value) == other
+            return self.value != "Listed" and self.value == other
 
         return False
 
@@ -54,15 +54,17 @@ class RaceGrade:
         if not self.value:
             return other.value
 
-        if not self.value.isdigit():
-            return other.value.isdigit()
+        if not str(self.value).isdigit():
+            return str(other.value).isdigit()
 
-        return other.value.isdigit() and self.value > other.value
+        return str(other.value).isdigit() and self.value > other.value
 
     def __gt__(self, other):
         if not self.value:
             return False
 
-        return self.value.isdigit() and (
-            not other.value or not other.value.isdigit() or self.value < other.value
+        return str(self.value).isdigit() and (
+            not other.value
+            or not str(other.value).isdigit()
+            or self.value < other.value
         )
