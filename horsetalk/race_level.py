@@ -3,7 +3,7 @@ from .race_grade import RaceGrade
 
 
 class RaceLevel:
-    def __init__(self, value: RaceGrade | RaceClass):
+    def __init__(self, value: str | RaceGrade | RaceClass):
         if isinstance(value, RaceClass) and value.value == 1:
             raise ValueError("Class 1 race needs a specified grade")
 

@@ -15,6 +15,18 @@ def test_race_grade_init_possible_with_valid_word_only():
     assert RaceGrade("Listed")
 
 
+def test_race_grade_init_possible_with_valid_grade_str_only():
+    assert RaceGrade("Grade 1")
+
+
+def test_race_grade_init_possible_with_valid_group_str_only():
+    assert RaceGrade("Group 1")
+
+
+def test_race_grade_init_possible_with_valid_g_str_only():
+    assert RaceGrade("G1")
+
+
 def test_race_grade_init_possible_with_none():
     assert isinstance(RaceGrade(None), RaceGrade)
 
@@ -27,6 +39,14 @@ def test_race_grade_init_with_flat_default():
     assert RaceGrade("1").racing_code == RacingCode.FLAT
 
 
+def test_race_grade_init_with_grade_identified_as_nh():
+    assert RaceGrade("Grade 1").racing_code == RacingCode.NATIONAL_HUNT
+
+
+def test_race_grade_init_with_group_identified_as_flat():
+    assert RaceGrade("Group 1").racing_code == RacingCode.FLAT
+
+
 def test_race_grade_init_not_possible_with_invalid_int():
     with pytest.raises(ValueError):
         RaceGrade(4)
@@ -35,6 +55,16 @@ def test_race_grade_init_not_possible_with_invalid_int():
 def test_race_grade_init_not_possible_with_invalid_str():
     with pytest.raises(ValueError):
         RaceGrade("Quality")
+
+
+def test_race_grade_init_not_possible_with_grade_conflicting_with_code():
+    with pytest.raises(ValueError):
+        RaceGrade("Grade 1", RacingCode.FLAT)
+
+
+def test_race_grade_init_not_possible_with_group_conflicting_with_code():
+    with pytest.raises(ValueError):
+        RaceGrade("Group 1", RacingCode.NATIONAL_HUNT)
 
 
 def test_race_grade_repr_():
