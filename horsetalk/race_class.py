@@ -3,6 +3,8 @@ from typing import Self
 
 class RaceClass:
     def __init__(self, value: str | int):
+        value = str(value).lower().replace("class", "").strip()
+
         if not 1 <= int(value) <= 7:
             raise ValueError(f"Class must be between 1 and 7, not {value}")
 
