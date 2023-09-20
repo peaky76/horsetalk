@@ -15,7 +15,7 @@ class RacePerformance:
         outcome: str | int | Disaster | FinishingPosition | Outcome,
         *,
         official_position: str | int | FinishingPosition | None = None,
-        beaten_distance: str | int | None = None,
+        beaten_distance: str | int | Horselength | None = None,
         comments: str | None = None,
     ):
         """

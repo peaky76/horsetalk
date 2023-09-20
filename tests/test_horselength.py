@@ -34,20 +34,24 @@ def test_horselength_can_be_initialized_with_float_as_string():
     assert Horselength("1.0")
 
 
-def test_horselength_string_integer_and_float_equivalence():
-    assert Horselength(1.0) == Horselength("1")
-
-
-def test_horselength_string_float_and_float_equivalent():
-    assert Horselength(1.2) == Horselength("1.2")
-
-
 def test_horselength_can_be_initialized_with_fraction_as_string():
     assert Horselength("1/2")
 
 
 def test_horselength_can_be_initialized_with_whole_and_fraction_as_string():
     assert Horselength("3 1/2")
+
+
+def test_horselength_can_be_initialized_with_horselength_instance():
+    assert Horselength(Horselength("1/2"))
+
+
+def test_horselength_string_integer_and_float_equivalence():
+    assert Horselength(1.0) == Horselength("1")
+
+
+def test_horselength_string_float_and_float_equivalent():
+    assert Horselength(1.2) == Horselength("1.2")
 
 
 def test_horselength_fraction_and_float_equivalence():
