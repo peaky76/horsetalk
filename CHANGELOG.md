@@ -1,5 +1,26 @@
 # Changelog
 
+## 0.18.0 (2023-09-20)
+
+#### New Features
+
+- `RacePerformance.beaten_distance` attribute
+
+#### Fixes
+
+- `RaceGrade.__eq__` with `int`
+
+#### Refactorings
+
+- `RaceLevel.__init__` handles more varied input
+- `RaceClass.__init__` handles more varied strings
+- `RaceGrade.__init__` handles more varied strings
+
+#### Tests
+
+- `Horselength` can be init with `Horselength`
+- `RaceClass.__eq__` with int
+
 ## 0.17.0 (2023-09-19)
 
 #### New Features
