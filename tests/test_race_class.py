@@ -31,6 +31,10 @@ def test_race_class_eq():
     assert RaceClass(1) == RaceClass(1)
 
 
+def test_race_class_eq_with_int():
+    assert RaceClass(2) == 2
+
+
 def test_race_class_gt():
     assert RaceClass(1) > RaceClass(2)
 
