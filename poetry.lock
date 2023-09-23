@@ -268,6 +268,20 @@ files = [
 toml = ["tomli"]
 
 [[package]]
+name = "deprecation"
+version = "2.1.0"
+description = "A library to handle automated deprecations"
+optional = false
+python-versions = "*"
+files = [
+    {file = "deprecation-2.1.0-py2.py3-none-any.whl", hash = "sha256:a10811591210e1fb0e768a8c25517cabeabcba6f0bf96564f8ff45189f90b14a"},
+    {file = "deprecation-2.1.0.tar.gz", hash = "sha256:72b3bde64e5d778694b0cf68178aed03d15e15477116add3fb773e581f9518ff"},
+]
+
+[package.dependencies]
+packaging = "*"
+
+[[package]]
 name = "docopt"
 version = "0.6.2"
 description = "Pythonic argument parser, that will make you smile"
@@ -564,16 +578,17 @@ files = [
 
 [[package]]
 name = "peak-utility"
-version = "0.2.0"
+version = "0.3.0"
 description = "A library of utilities, created by peaky76"
 optional = false
 python-versions = ">=3.8,<4.0"
 files = [
-    {file = "peak_utility-0.2.0-py3-none-any.whl", hash = "sha256:94de29664cca5586f83856636fd027c56d544d025019a5d0e75829f4811c38e4"},
-    {file = "peak_utility-0.2.0.tar.gz", hash = "sha256:7a1aa91e9667860032b3d208a01566c67fd39c11394434d71c205a9f75591ca6"},
+    {file = "peak_utility-0.3.0-py3-none-any.whl", hash = "sha256:cc1b67764df9af61a550e70d68d69605b35b6fb965b954be718c6e34e5ffa857"},
+    {file = "peak_utility-0.3.0.tar.gz", hash = "sha256:7dcee3f9e8b317b222626b730461380174478dd210d819e069d504501019118e"},
 ]
 
 [package.dependencies]
+deprecation = ">=2.1.0,<3.0.0"
 infix = ">=1.2,<2.0"
 
 [[package]]
@@ -1030,4 +1045,4 @@ zstd = ["zstandard (>=0.18.0)"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "2f53921d15508a9263c36ef972b0283b0b0e6c8987a100c8e05a2ccf28e1abad"
+content-hash = "e444197f4614655db31a21b2e0ac4ade2a5b89654275a00ac7550053d0561e50"
