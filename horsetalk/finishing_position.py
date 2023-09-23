@@ -10,6 +10,10 @@ class FinishingPosition(Ordinal):
     def __new__(cls, value):
         if int(value) < 0:
             raise ValueError("Finishing position cannot be negative.")
+
+        if int(value) == 0:
+            return int.__new__(cls, 0)
+
         return super().__new__(cls, value)
 
     def __bool__(self):
