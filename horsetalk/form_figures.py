@@ -32,7 +32,7 @@ class FormFigures:
 
         """
         return [
-            FinishingPosition(int(figure))
+            FinishingPosition(figure)
             if figure.isdigit()
             else FormBreak(figure)
             if figure in [member.value for member in FormBreak]
