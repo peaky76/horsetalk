@@ -1,7 +1,8 @@
 from typing import Self
+from peak_utility.number import RepresentationalInt
 
-class Draw(int):
 
+class Draw(RepresentationalInt):
     def __new__(cls, value: int | str) -> None:
         """
         Create a Draw instance.
