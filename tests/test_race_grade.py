@@ -1,6 +1,5 @@
 import pytest  # type: ignore
-from horsetalk.race_grade import RaceGrade
-from horsetalk.racing_code import RacingCode
+from horsetalk import RaceClass, RaceGrade, RacingCode
 
 
 def test_race_grade_init_possible_with_valid_str_only():
@@ -133,6 +132,10 @@ def test_race_grade_eq_with_int():
 
 def test_race_grade_eq_with_int_when_listed():
     assert not RaceGrade("Listed") == 1
+
+
+def test_race_grade_eq_with_other_object():
+    assert not RaceGrade(1) == RaceClass(1)
 
 
 def test_race_grade_lt_when_both_same_group():

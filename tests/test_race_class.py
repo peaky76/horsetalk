@@ -1,5 +1,5 @@
-import pytest
-from horsetalk import RaceClass
+import pytest # type: ignore
+from horsetalk import RaceClass, RaceGrade
 
 
 def test_race_class_init_possible_with_valid_int():
@@ -33,6 +33,10 @@ def test_race_class_eq():
 
 def test_race_class_eq_with_int():
     assert RaceClass(2) == 2
+
+
+def test_race_class_eq_with_other_object():
+    assert not RaceClass(2) == RaceGrade(2)
 
 
 def test_race_class_gt():
