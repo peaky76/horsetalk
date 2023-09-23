@@ -83,6 +83,10 @@ def test_horselength_repr():
     assert "<Horselength: 1>" == repr(Horselength(1))
 
 
+def test_horselength_str_when_whole():
+    assert "1" == str(Horselength("1"))
+
+
 def test_horselength_str_when_fraction():
     assert "1/2" == str(Horselength("1/2"))
 
