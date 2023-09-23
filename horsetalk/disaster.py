@@ -17,6 +17,7 @@ class Disaster(ParsingEnum):
     LEFT_AT_START = 9
     HIT_RAIL = 10
     DISQUALIFIED = 11
+    REFUSED_TO_RACE = 12
 
     # Abbreviations
     F = FELL
@@ -40,6 +41,7 @@ class Disaster(ParsingEnum):
     D = DISQUALIFIED
     DQ = DISQUALIFIED
     DSQ = DISQUALIFIED
+    RR = REFUSED_TO_RACE
 
     @property
     def is_jumping_error(self):
@@ -47,7 +49,7 @@ class Disaster(ParsingEnum):
 
     @property
     def is_behavioural_error(self):
-        return self in [self.REFUSED, self.RAN_OUT]
+        return self in [self.REFUSED, self.RAN_OUT, self.REFUSED_TO_RACE]
 
     @property
     def is_third_party_error(self):
