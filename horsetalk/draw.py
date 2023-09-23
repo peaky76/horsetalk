@@ -1,30 +1,27 @@
-class Draw:
-    def __init__(self, value: int | str) -> None:
+from typing import Self
+
+class Draw(int):
+
+    def __new__(cls, value: int | str) -> None:
         """
-        Initialize a Draw instance.
+        Create a Draw instance.
 
         Args:
             value: The stall number in which the horse is drawn.
         """
         if not str(int(value)) == str(value):
-            raise ValueError("Draw must be an integer value")
+            raise ValueError("Draw must represent an integer value")
 
-        self.value = int(value)
+        return super().__new__(cls, value)
 
-    def __gt__(self, other: "Draw") -> bool:
-        """
-        Returns True if the draw is higher than the other draw.
+    def __add__(self, other: Self) -> bool:
+        raise TypeError("Instances of draw cannot be added")
 
-        Args:
-            other: The other draw to compare against.
-        """
-        return self.value > other.value
+    def __sub__(self, other: Self) -> bool:
+        raise TypeError("Instances of draw cannot be subtracted")
 
-    def __lt__(self, other: "Draw") -> bool:
-        """
-        Returns True if the draw is lower than the other draw.
+    def __mul__(self, other: Self) -> bool:
+        raise TypeError("Instances of draw cannot be multiplied")
 
-        Args:
-            other: The other draw to compare against.
-        """
-        return self.value < other.value
+    def __truediv__(self, other: Self) -> bool:
+        raise TypeError("Instances of draw cannot be divided")
