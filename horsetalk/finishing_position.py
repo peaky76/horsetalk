@@ -28,18 +28,3 @@ class FinishingPosition(Ordinal):
         if int(self) == 0:
             return "Unplaced"
         return super().__repr__()
-
-    def __eq__(self, other: object) -> bool:
-        return isinstance(other, (int, FinishingPosition)) and int(self) == int(other)
-
-    def __lt__(self, other: int) -> bool:
-        return int(self) > int(other)
-
-    def __le__(self, other: int) -> bool:
-        return int(self) >= int(other)
-
-    def __gt__(self, other: int) -> bool:
-        return int(self) < int(other)
-
-    def __ge__(self, other: int) -> bool:
-        return int(self) <= int(other)
