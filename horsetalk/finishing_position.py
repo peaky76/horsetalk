@@ -29,18 +29,6 @@ class FinishingPosition(Ordinal):
             return "Unplaced"
         return super().__repr__()
 
-    def __add__(self, other: int) -> int:
-        raise TypeError("FinishingPosition cannot be added to.")
-
-    def __sub__(self, other: int) -> int:
-        raise TypeError("FinishingPosition cannot be subtracted from.")
-
-    def __mul__(self, other: int) -> int:
-        raise TypeError("FinishingPosition cannot be multiplied.")
-
-    def __truediv__(self, other: int) -> int:
-        raise TypeError("FinishingPosition cannot be divided.")
-
     def __eq__(self, other: object) -> bool:
         return isinstance(other, (int, FinishingPosition)) and int(self) == int(other)
 
