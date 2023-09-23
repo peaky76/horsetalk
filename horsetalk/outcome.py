@@ -4,7 +4,7 @@ from .finishing_position import FinishingPosition
 
 
 class Outcome:
-    def __init__(self, value: Disaster | FinishingPosition):
+    def __init__(self, value: int | str | Disaster | FinishingPosition):
         if not isinstance(value, (Disaster, FinishingPosition)):
             if str(value).isdigit():
                 value = FinishingPosition(value)
