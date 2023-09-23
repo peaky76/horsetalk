@@ -71,6 +71,10 @@ def test_outcome_lt_between_disaster_and_finishing_position():
     assert Outcome(Disaster.RAN_OUT) < Outcome(FinishingPosition(1))
 
 
+def test_outcome_lt_between_finishing_positions():
+    assert Outcome(FinishingPosition(2)) < Outcome(FinishingPosition(1))
+
+
 def test_outcome_lte_between_disasters():
     assert Outcome(Disaster.FELL) <= Outcome(Disaster.RAN_OUT)
 
