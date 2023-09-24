@@ -2,7 +2,22 @@ from peak_utility.number import RepresentationalInt
 
 
 class RaceClass(RepresentationalInt):
+    """
+    A class to represent a race's class.
+
+    """
+
     def __new__(cls, value: str | int):
+        """
+        Create a RaceClass instance.
+
+        Args:
+            value: The value to initialize with
+
+        Raises:
+            ValueError: If the value is not valid
+
+        """
         class_value = str(value).lower().replace("class", "").strip()
 
         if not 1 <= int(class_value) <= 7:
