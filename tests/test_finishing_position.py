@@ -28,6 +28,30 @@ def test_finishing_position_cannot_be_unplaced_and_tied():
         FinishingPosition(0, tied=True)
 
 
+def test_finishing_position_parse_correctly_handles_int():
+    assert FinishingPosition.parse(3) == FinishingPosition(3)
+
+
+def test_finishing_position_parse_correctly_handles_str():
+    assert FinishingPosition.parse("3") == FinishingPosition(3)
+
+
+def test_finishing_position_parse_correctly_handles_str_with_equals_prefix():
+    assert FinishingPosition.parse("=3") == FinishingPosition(3, tied=True)
+
+
+def test_finishing_position_parse_correctly_handles_str_with_equals_suffix():
+    assert FinishingPosition.parse("3=") == FinishingPosition(3, tied=True)
+
+
+def test_finishing_position_parse_correctly_handles_unplaced_str():
+    assert FinishingPosition.parse("Unplaced") == FinishingPosition(0)
+
+
+def test_finishing_position_parse_correctly_handles_unplaced_str_abbr():
+    assert FinishingPosition.parse("UNPL") == FinishingPosition(0)
+
+
 def test_finishing_position_tied_is_false_by_default():
     assert FinishingPosition(1).tied is False
 

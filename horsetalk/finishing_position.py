@@ -1,3 +1,4 @@
+import re
 from peak_utility.number import Ordinal  # type: ignore
 
 
@@ -29,3 +30,11 @@ class FinishingPosition(Ordinal):
         if int(self) == 0:
             return "Unplaced"
         return f"{'=' if self.tied else ''}{super().__repr__()}"
+
+    @classmethod
+    def parse(cls, value: int | str):
+        tied = "=" in str(value)
+        value = (
+            re.sub(r"un*pla*c*e*d*", "", str(value).lower()).replace("=", "").strip()
+        )
+        return cls(value or 0, tied=tied)
