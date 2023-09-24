@@ -1,33 +1,29 @@
-from typing import Self
-from .race_grade import RaceGrade
+from peak_utility.number import RepresentationalInt
 
 
-class RaceClass:
-    def __init__(self, value: str | int):
-        value = str(value).lower().replace("class", "").strip()
+class RaceClass(RepresentationalInt):
+    def __new__(cls, value: str | int):
+        class_value = str(value).lower().replace("class", "").strip()
 
-        if not 1 <= int(value) <= 7:
+        if not 1 <= int(class_value) <= 7:
             raise ValueError(f"Class must be between 1 and 7, not {value}")
 
-        self.value = int(value)
+        return super().__new__(cls, int(class_value))
 
     def __repr__(self) -> str:
-        return f"<RaceClass: {self.value}>"
+        return f"<RaceClass: {str(int(self))}>"
 
     def __str__(self) -> str:
-        return f"Class {self.value}"
+        return f"Class {str(int(self))}"
 
-    def __eq__(self, other: object) -> bool:
-        if isinstance(other, RaceClass):
-            return self.value == other.value
-
-        if isinstance(other, int) and not isinstance(other, RaceGrade):
-            return self.value == other
+    def __eq__(self, other):
+        if isinstance(other, RaceClass) or (isinstance(other, int) and other < 4):
+            return super().__eq__(other)
 
         return False
 
-    def __gt__(self, other: Self) -> bool:
-        return self.value < other.value
+    def __lt__(self, other):
+        return super().__gt__(other)
 
-    def __lt__(self, other: Self) -> bool:
-        return self.value > other.value
+    def __gt__(self, other):
+        return super().__lt__(other)
