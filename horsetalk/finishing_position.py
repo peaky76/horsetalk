@@ -22,9 +22,7 @@ class FinishingPosition(Ordinal):
         return int(self) >= 0
 
     def __repr__(self):
-        if int(self) == 0:
-            return "<FinishingPosition: Unplaced>"
-        return f"<FinishingPosition: {'=' if self.tied else ''}{super().__repr__()}>"
+        return f"<FinishingPosition: {str(self)}>"
 
     def __str__(self):
         if int(self) == 0:
