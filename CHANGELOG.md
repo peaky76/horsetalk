@@ -1,5 +1,36 @@
 # Changelog
 
+## 0.19.0 (2023-09-24)
+
+#### New Features
+
+- `FinishingPosition.parse`
+- `FinishingPosition` tied position attribute
+- `Disaster` enum `REFUSED_TO_RACE`
+
+#### Fixes
+
+- `RaceGrade.__repr__`
+
+#### Refactorings
+
+- `Draw` as RepresentationalInt subclass
+- `RaceClass` as RepresentationalInt subclass
+- `RaceGrade.PHRASES` dict
+- `RaceGrade` as RepresentationalInt subclass
+- unneeded `int` cast in `FormFigures`
+
+#### Docs
+
+- docs for `RaceClass`, `RaceGrade` and `RaceLevel`
+
+#### Others
+
+- clarify typing on `Outcome.__init__`
+- add missing test for `RaceClass/RaceGrade.__eq__` v objects
+- add missing test for `Outcome.__lt__` between `FinishingPositions`
+- add missing test for `Horselength.__str__` for whole num
+
 ## 0.18.0 (2023-09-20)
 
 #### New Features
