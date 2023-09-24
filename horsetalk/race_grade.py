@@ -5,6 +5,10 @@ from .racing_code import RacingCode
 
 class RaceGrade(RepresentationalInt):
     REGEX = r"G(?:roup|rade|)\s*"
+    PHRASES = {
+        RacingCode.FLAT: "group",
+        RacingCode.NATIONAL_HUNT: "grade",
+    }
 
     def __new__(cls, grade: str | int | None, racing_code: RacingCode = None):
         grade_value = re.sub(RaceGrade.REGEX, "", str(grade or "").title())
@@ -18,16 +22,13 @@ class RaceGrade(RepresentationalInt):
         else:
             raise ValueError(f"{grade} is not a valid RaceGrade")
 
-        code_from_grade = {
-            "grade": RacingCode.NATIONAL_HUNT,
-            "group": RacingCode.FLAT,
-            "default": None,
-        }[
+        code_from_grade = {v: k for k, v in RaceGrade.PHRASES.items()}.get(
             next(
                 (x for x in ["grade", "group"] if x in str(grade).lower()),
                 "default",
-            )
-        ]
+            ),
+            None,
+        )
 
         if code_from_grade and racing_code and code_from_grade != racing_code:
             raise ValueError(
@@ -46,10 +47,8 @@ class RaceGrade(RepresentationalInt):
             return ""
         if super().__eq__(4):
             return "Listed"
-        if self.racing_code == RacingCode.NATIONAL_HUNT:
-            return "Grade " + str(int(self))
 
-        return "Group " + str(int(self))
+        return f"{RaceGrade.PHRASES.get(self.racing_code, 'group').title()} {str(int(self))}"
 
     def __bool__(self):
         return self != 5
