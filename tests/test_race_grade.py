@@ -74,6 +74,11 @@ def test_race_grade_init_not_possible_with_group_conflicting_with_code():
         RaceGrade("Group 1", RacingCode.NATIONAL_HUNT)
 
 
+def test_race_grade_init_not_possible_with_point_to_point():
+    with pytest.raises(ValueError):
+        RaceGrade("Group 1", RacingCode.POINT_TO_POINT)
+
+
 def test_race_grade_repr_when_graded():
     assert repr(RaceGrade("1")) == "<RaceGrade: 1>"
 
