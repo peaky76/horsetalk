@@ -9,6 +9,7 @@ def test_draw_can_be_initialized_with_integer():
 def test_draw_can_be_initialized_with_numeric_string():
     assert Draw("1") == 1
 
+
 def test_draw_cannot_be_initialized_with_non_numeric_string():
     with pytest.raises(ValueError):
         Draw("a")
