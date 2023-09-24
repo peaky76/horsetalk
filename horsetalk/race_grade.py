@@ -40,7 +40,7 @@ class RaceGrade(RepresentationalInt):
         return instance
 
     def __repr__(self):
-        return f"<RaceGrade: {str(int(self)) or 'None'}>"
+        return f"<RaceGrade: {str(int(self)) if int(self) < 4 else str(self) or 'Ungraded'}>"
 
     def __str__(self):
         if super().__eq__(5):
