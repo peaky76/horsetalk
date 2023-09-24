@@ -4,7 +4,7 @@ from .race_grade import RaceGrade
 
 class RaceLevel:
     def __init__(self, value: str | RaceGrade | RaceClass):
-        if isinstance(value, RaceClass) and value.value == 1:
+        if isinstance(value, RaceClass) and value == 1:
             raise ValueError("Class 1 race needs a specified grade")
 
         self.grade = (
@@ -24,7 +24,7 @@ class RaceLevel:
         return f"<RaceLevel: {repr(self.grade) if self.grade else repr(self.class_)}>"
 
     def __str__(self):
-        return f"({self.class_.value}) {self.grade}".strip()
+        return f"({int(self.class_)}) {self.grade}".strip()
 
     def __eq__(self, other):
         return self.grade == other.grade and self.class_ == other.class_
