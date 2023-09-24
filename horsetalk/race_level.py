@@ -3,9 +3,22 @@ from .race_grade import RaceGrade
 
 
 class RaceLevel:
-    """ """
+    """
+    A class representing the level of the race.
+
+    """
 
     def __init__(self, value: str | RaceGrade | RaceClass):
+        """
+        Initialize a RaceLevel instance.
+
+        Args:
+            value: The value to initialize with
+
+        Raises:
+            ValueError: if Class 1 is given, but no grade is specified
+
+        """
         if isinstance(value, RaceClass) and value == 1:
             raise ValueError("Class 1 race needs a specified grade")
 

@@ -4,6 +4,11 @@ from .racing_code import RacingCode
 
 
 class RaceGrade(RepresentationalInt):
+    """
+    A class representing the grade of a race.
+
+    """
+
     REGEX = r"G(?:roup|rade|)\s*"
     PHRASES = {
         RacingCode.FLAT: "group",
@@ -11,6 +16,17 @@ class RaceGrade(RepresentationalInt):
     }
 
     def __new__(cls, grade: str | int | None, racing_code: RacingCode = None):
+        """
+        Create a RaceGrade instance.
+
+        Args:
+            grade: The grade to initialize with
+            racing_code: The racing code to initialize with
+
+        Raises:
+            ValueError: If the grade is not valid
+
+        """
         grade_value = re.sub(RaceGrade.REGEX, "", str(grade or "").title())
 
         if grade_value.isdigit() and 1 <= int(grade_value) < 4:
