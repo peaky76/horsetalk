@@ -23,6 +23,11 @@ def test_finishing_position_cannot_be_created_from_negative_int():
         FinishingPosition(-1)
 
 
+def test_finishing_position_cannot_be_unplaced_and_tied():
+    with pytest.raises(ValueError):
+        FinishingPosition(0, tied=True)
+
+
 def test_finishing_position_tied_is_false_by_default():
     assert FinishingPosition(1).tied is False
 

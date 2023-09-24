@@ -9,6 +9,8 @@ class FinishingPosition(Ordinal):
 
     def __new__(cls, value, *, tied=False):
         if int(value) == 0:
+            if tied:
+                raise ValueError("Cannot tie for unplaced")
             return int.__new__(cls, 0)
 
         instance = super().__new__(cls, value)
