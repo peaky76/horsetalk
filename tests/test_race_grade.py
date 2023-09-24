@@ -74,8 +74,16 @@ def test_race_grade_init_not_possible_with_group_conflicting_with_code():
         RaceGrade("Group 1", RacingCode.NATIONAL_HUNT)
 
 
-def test_race_grade_repr_():
+def test_race_grade_repr_when_graded():
     assert repr(RaceGrade("1")) == "<RaceGrade: 1>"
+
+
+def test_race_grade_repr_when_listed():
+    assert repr(RaceGrade("Listed")) == "<RaceGrade: Listed>"
+
+
+def test_race_grade_repr_when_ungraded():
+    assert repr(RaceGrade(None)) == "<RaceGrade: Ungraded>"
 
 
 def test_race_grade_str_when_flat_listed():
