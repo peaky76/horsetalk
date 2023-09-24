@@ -24,7 +24,7 @@ class RaceLevel:
         return f"<RaceLevel: {repr(self.grade) if self.grade else repr(self.class_)}>"
 
     def __str__(self):
-        return f"({self.class_.value}) {self.grade if self.grade.value else ''}".strip()
+        return f"({self.class_.value}) {self.grade}".strip()
 
     def __eq__(self, other):
         return self.grade == other.grade and self.class_ == other.class_

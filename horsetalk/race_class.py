@@ -1,4 +1,5 @@
 from typing import Self
+from .race_grade import RaceGrade
 
 
 class RaceClass:
@@ -20,7 +21,7 @@ class RaceClass:
         if isinstance(other, RaceClass):
             return self.value == other.value
 
-        if isinstance(other, int):
+        if isinstance(other, int) and not isinstance(other, RaceGrade):
             return self.value == other
 
         return False

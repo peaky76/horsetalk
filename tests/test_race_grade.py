@@ -30,6 +30,14 @@ def test_race_grade_init_possible_with_none():
     assert isinstance(RaceGrade(None), RaceGrade)
 
 
+def test_race_grade_init_possible_with_false():
+    assert isinstance(RaceGrade(False), RaceGrade)
+
+
+def test_race_grade_init_possible_with_zero():
+    assert isinstance(RaceGrade(0), RaceGrade)
+
+
 def test_race_grade_init_possible_with_valid_first_value_and_code():
     assert RaceGrade("1", RacingCode.NATIONAL_HUNT)
 

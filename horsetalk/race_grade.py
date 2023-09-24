@@ -1,70 +1,67 @@
 import re
+from peak_utility.number import RepresentationalInt
 from .racing_code import RacingCode
 
 
-class RaceGrade:
+class RaceGrade(RepresentationalInt):
     REGEX = r"G(?:roup|rade|)\s*"
 
-    def __init__(self, grade: str | int | None, racing_code: RacingCode = None):
+    def __new__(cls, grade: str | int | None, racing_code: RacingCode = None):
         grade_value = re.sub(RaceGrade.REGEX, "", str(grade or "").title())
 
-        if grade_value.isdigit():
-            if not 1 <= int(grade_value) < 4:
-                raise ValueError(f"Grade must be between 1 and 3, not {grade}")
-        elif grade_value and grade_value != "Listed":
-            raise ValueError(f"Grade must be a number or 'Listed', not {grade}")
+        if grade_value.isdigit() and 1 <= int(grade_value) < 4:
+            grade_value = int(grade_value)
+        elif grade_value == "Listed":
+            grade_value = 4
+        elif int(bool(grade_value)) == 0:
+            grade_value = 5
+        else:
+            raise ValueError(f"{grade} is not a valid RaceGrade")
 
         code_from_grade = {
             "grade": RacingCode.NATIONAL_HUNT,
             "group": RacingCode.FLAT,
             "default": None,
-        }[next((x for x in ["grade", "group"] if x in str(grade).lower()), "default")]
+        }[
+            next(
+                (x for x in ["grade", "group"] if x in str(grade).lower()),
+                "default",
+            )
+        ]
 
         if code_from_grade and racing_code and code_from_grade != racing_code:
             raise ValueError(
                 f"{grade} conflicts with value for racing code: {racing_code.value}"
             )
 
-        self.value = int(grade_value) if grade_value.isdigit() else grade_value
-        self.racing_code = code_from_grade or racing_code or RacingCode.FLAT
+        instance = super().__new__(cls, grade_value)
+        instance.racing_code = code_from_grade or racing_code or RacingCode.FLAT
+        return instance
 
     def __repr__(self):
-        return f"<RaceGrade: {self.value}>"
+        return f"<RaceGrade: {str(int(self)) or 'None'}>"
 
     def __str__(self):
-        if not self.value:
+        if super().__eq__(5):
             return ""
+        if super().__eq__(4):
+            return "Listed"
+        if self.racing_code == RacingCode.NATIONAL_HUNT:
+            return "Grade " + str(int(self))
 
-        title = "Grade" if self.racing_code == RacingCode.NATIONAL_HUNT else "Group"
-        return "Listed" if not str(self.value).isdigit() else f"{title} {self.value}"
+        return "Group " + str(int(self))
 
     def __bool__(self):
-        return bool(self.value)
+        return self != 5
 
     def __eq__(self, other):
-        if isinstance(other, RaceGrade):
-            return self.value == other.value
-
-        if isinstance(other, int):
-            return self.value != "Listed" and self.value == other
+        if isinstance(other, RaceGrade) or (isinstance(other, int) and other < 4):
+            return super().__eq__(other)
 
         return False
 
     def __lt__(self, other):
-        if not self.value:
-            return other.value
-
-        if not str(self.value).isdigit():
-            return str(other.value).isdigit()
-
-        return str(other.value).isdigit() and self.value > other.value
+        return super().__gt__(other)
 
     def __gt__(self, other):
-        if not self.value:
-            return False
-
-        return str(self.value).isdigit() and (
-            not other.value
-            or not str(other.value).isdigit()
-            or self.value < other.value
-        )
+        return super().__lt__(other)
