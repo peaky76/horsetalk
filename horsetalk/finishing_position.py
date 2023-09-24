@@ -7,14 +7,16 @@ class FinishingPosition(Ordinal):
 
     """
 
-    def __new__(cls, value):
+    def __new__(cls, value, *, tied=False):
         if int(value) < 0:
             raise ValueError("Finishing position cannot be negative.")
 
         if int(value) == 0:
             return int.__new__(cls, 0)
 
-        return super().__new__(cls, value)
+        instance = super().__new__(cls, value)
+        instance.tied = tied
+        return instance
 
     def __bool__(self):
         return int(self) >= 0
@@ -22,9 +24,9 @@ class FinishingPosition(Ordinal):
     def __repr__(self):
         if int(self) == 0:
             return "<FinishingPosition: Unplaced>"
-        return f"<FinishingPosition: {super().__repr__()}>"
+        return f"<FinishingPosition: {'=' if self.tied else ''}{super().__repr__()}>"
 
     def __str__(self):
         if int(self) == 0:
             return "Unplaced"
-        return super().__repr__()
+        return f"{'=' if self.tied else ''}{super().__repr__()}"
