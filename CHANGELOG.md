@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.19.2 (2023-10-02)
+
+#### Build
+
+- unlock peak-utility until next major version
+
 ## 0.19.1 (2023-10-02)
 
 #### Build
