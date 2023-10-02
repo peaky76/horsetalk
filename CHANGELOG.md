@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.19.1 (2023-10-02)
+
+#### Build
+
+- release upper bound on `peak-utility` minor version
+
+#### Tests
+
+- `RaceGrade` not possible with `RacingCode.POINT_TO_POINT`
+
 ## 0.19.0 (2023-09-24)
 
 #### New Features
