@@ -20,7 +20,7 @@ class RaceWeight(Weight):
 
     def __repr__(self) -> str:
         """
-        Returns the weight as a string.
+        Returns the weight as a repr.
         """
         return f"<RaceWeight: {str(self)}>"
 
