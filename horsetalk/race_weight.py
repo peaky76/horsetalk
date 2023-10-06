@@ -16,7 +16,7 @@ class RaceWeight(Weight):
         """
 
         st, lbs = re.match(RaceWeight.REGEX, weight).groups()
-        super().__init__(self, lb=(int(st) * 14 + int(lbs)))  # type: ignore
+        super().__init__(self, lb=(int(st or 0) * 14 + int(lbs or 0)))  # type: ignore
 
     def __repr__(self) -> str:
         """

@@ -23,6 +23,14 @@ def test_race_weight_with_hyphenated_input():
     assert RaceWeight("9-2").kg == approx(58.06, abs=0.01)
 
 
+def test_race_weight_with_st_and_lb_input():
+    assert RaceWeight("9st2lb").kg == approx(58.06, abs=0.01)
+
+
+def test_race_weight_with_lb_input():
+    assert RaceWeight("128lb").kg == approx(58.06, abs=0.01)
+
+
 def test_race_weight_repr():
     assert repr(RaceWeight("9-2")) == "<RaceWeight: 9st 2lb>"
 
