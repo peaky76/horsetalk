@@ -25,16 +25,15 @@ class RaceDistance(Distance):
             ).groups()
 
             if int(miles_or_metres or 0) > 10:
-                super().__init__(self, m=int(miles_or_metres or 0))  # type: ignore
+                kwargs["m"] = int(miles_or_metres or 0)
             else:
-                total = (
+                kwargs["yd"] = (
                     int(miles_or_metres or 0) * 1760
                     + int(furlongs or 0) * 220
                     + int(yards or 0)
                 )
-                super().__init__(self, yd=total)  # type: ignore
-        else:
-            super().__init__(self, **kwargs)
+
+        super().__init__(self, **kwargs)
 
     def __repr__(self) -> str:
         """
