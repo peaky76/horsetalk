@@ -55,6 +55,10 @@ def test_race_distance_can_be_initialised_with_metres_string_with_comma():
     assert RaceDistance("1,609m").km == 1.609
 
 
+def test_race_distance_can_be_initialised_with_standard_input():
+    assert RaceDistance(km=1.609).km == 1.609
+
+
 def test_race_distance_init_errors_if_invalid_string():
     with raises(AttributeError):
         RaceDistance("1m 5f Ny")
