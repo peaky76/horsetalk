@@ -14,29 +14,25 @@ class RaceDistance(Distance):
     def __init__(self, distance: str = None, **kwargs) -> None:
         """
         Initialize a RaceDistance object from a string.
+
         """
         if distance:
-            pattern = re.compile(r"(\d+\D+)")
-            unit_dict = {"m": "mile", "f": "furlong", "y": "yard"}
-            vals_and_units = pattern.findall(distance.replace(" ", "").replace(",", ""))
+            if not re.fullmatch(r"(?:\d+[m|f|y]\s*)*", distance.replace(",", "")):
+                raise AttributeError(f"Invalid distance string: {distance}")
 
-            distance = Distance(m=0)
-            for vu in vals_and_units:
-                matches = re.compile(r"(\d+)(\D+)").match(vu)
-                if matches:
-                    val, unit = matches.groups()
-                    unit = (
-                        unit_dict[unit]
-                        if unit in unit_dict and int(val) < 221
-                        else unit
-                    )
+            miles_or_metres, furlongs, yards = re.match(
+                RaceDistance.REGEX, distance.replace(",", "")
+            ).groups()
 
-                    if unit == "furlong":
-                        distance += Distance(chain=int(val) * 10)
-                    else:
-                        distance += Distance(**{unit: int(val)})
-
-            super().__init__(self, m=distance.m)  # type: ignore
+            if int(miles_or_metres or 0) > 10:
+                super().__init__(self, m=int(miles_or_metres or 0))  # type: ignore
+            else:
+                total = (
+                    int(miles_or_metres or 0) * 1760
+                    + int(furlongs or 0) * 220
+                    + int(yards or 0)
+                )
+                super().__init__(self, yd=total)  # type: ignore
         else:
             super().__init__(self, **kwargs)
 
