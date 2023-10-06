@@ -1,5 +1,29 @@
 # Changelog
 
+## 0.20.0 (2023-10-06)
+
+#### New Features
+
+- `RaceWeight` class
+
+#### Fixes
+
+- `RaceDistance` can be initialised like `measurements.measures.Distance`
+
+#### Refactorings
+
+- `RaceDistance.REGEX` revised
+- `RaceDistance.__init__` using `REGEX`
+
+#### Docs
+
+- correct `**repr**` docs for `RaceDistance`, `RaceWeight`
+
+#### Tests
+
+- switch expected and actual in `RaceDistance`
+- reorder and rename `RaceDistance` and `RaceWeight` tests
+
 ## 0.19.3 (2023-10-06)
 
 #### Refactorings
