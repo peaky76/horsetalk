@@ -1,6 +1,5 @@
 import re
-from measurement.measures import Distance
-import pytest  # type: ignore
+from pytest import approx, raises
 from horsetalk import RaceDistance
 
 
@@ -29,35 +28,35 @@ def test_race_distance_regex_with_metres_string():
 
 
 def test_race_distance_can_be_initialised_with_furlong_string():
-    assert Distance(chain=50) == RaceDistance("5f")
+    assert RaceDistance("5f").yd == approx(1100)
 
 
 def test_race_distance_can_be_initialised_with_mile_string():
-    assert Distance(chain=80) == RaceDistance("1m")
+    assert RaceDistance("1m").yd == approx(1760)
 
 
 def test_race_distance_can_be_initialised_with_mile_and_furlong_string():
-    assert Distance(chain=130) == RaceDistance("1m5f")
+    assert RaceDistance("1m5f").yd == approx(2860)
 
 
 def test_race_distance_can_be_initialised_with_mile_furlong_and_yard_string():
-    assert Distance(chain=135) == RaceDistance("1m5f110y")
+    assert RaceDistance("1m5f110y").yd == approx(2970)
 
 
 def test_race_distance_can_be_initialised_with_mile_furlong_and_yard_spaced_string():
-    assert Distance(chain=135) == RaceDistance("1m 5f 110y")
+    assert RaceDistance("1m 5f 110y").yd == approx(2970)
 
 
 def test_race_distance_can_be_initialised_with_metres_string():
-    assert Distance(m=1609) == RaceDistance("1609m")
+    assert RaceDistance("1609m").km == 1.609
 
 
 def test_race_distance_can_be_initialised_with_metres_string_with_comma():
-    assert Distance(m=1609) == RaceDistance("1,609m")
+    assert RaceDistance("1,609m").km == 1.609
 
 
 def test_race_distance_init_errors_if_invalid_string():
-    with pytest.raises(AttributeError):
+    with raises(AttributeError):
         RaceDistance("1m 5f Ny")
 
 
