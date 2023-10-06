@@ -19,19 +19,19 @@ def test_race_weight_regex_gets_hyphenated_numbers():
     assert re.match(RaceWeight.REGEX, "9-2").groups() == ("9", "2")
 
 
-def test_race_weight_with_hyphenated_input():
+def test_race_weight_can_be_initialised_with_hyphenated_input():
     assert RaceWeight("9-2").kg == approx(58.06, abs=0.01)
 
 
-def test_race_weight_with_st_and_lb_input():
+def test_race_weight_can_be_initialised_with_st_and_lb_input():
     assert RaceWeight("9st2lb").kg == approx(58.06, abs=0.01)
 
 
-def test_race_weight_with_lb_input():
+def test_race_weight_can_be_initialised_with_lb_input():
     assert RaceWeight("128lb").kg == approx(58.06, abs=0.01)
 
 
-def test_race_weight_with_standard_input():
+def test_race_weight_can_be_initialised_with_standard_input():
     assert RaceWeight(kg=58).kg == 58
 
 
