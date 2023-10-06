@@ -9,7 +9,7 @@ class RaceDistance(Distance):
     from strings and to provide a way to initialize with furlongs.
     """
 
-    REGEX = r"((?:\d+(?:m|f|y)\s*)+)"
+    REGEX = r"(?:(\d+)(?:m)\s*)?(?:(\d+)(?:f)\s*)?(?:(\d+)(?:y)\s*)?"
 
     def __init__(self, distance: str = None, **kwargs) -> None:
         """
