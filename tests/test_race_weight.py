@@ -31,6 +31,10 @@ def test_race_weight_with_lb_input():
     assert RaceWeight("128lb").kg == approx(58.06, abs=0.01)
 
 
+def test_race_weight_with_standard_input():
+    assert RaceWeight(kg=58).kg == 58
+
+
 def test_race_weight_repr():
     assert repr(RaceWeight("9-2")) == "<RaceWeight: 9st 2lb>"
 
