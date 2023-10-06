@@ -74,7 +74,11 @@ class RacePerformance:
 
     @property
     def is_official_win(self) -> bool:
-        return self.is_completion and self.official_position.is_win
+        return (
+            self.is_completion
+            and self.official_position is not None
+            and self.official_position.is_win
+        )
 
     @property
     def is_win(self) -> bool:
