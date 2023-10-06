@@ -8,7 +8,7 @@ class RaceWeight(Weight):
     from strings.
     """
 
-    # REGEX = r"((?:\d+(?:m|f|y)\s*)+)"
+    REGEX = r"(?:(\d+)(?:st|\-))?(?:(\d+)(?:lb)*)?"
 
     def __init__(self, weight: str):
         """
