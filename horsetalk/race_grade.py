@@ -1,5 +1,5 @@
 import re
-from peak_utility.number import RepresentationalInt
+from peak_utility.number import RepresentationalInt  # type: ignore
 from .racing_code import RacingCode
 
 
