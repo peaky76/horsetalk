@@ -14,6 +14,8 @@ class Outcome:
                 except KeyError:
                     raise ValueError(f"Invalid outcome: {value}")
 
+        assert not isinstance(value, str)
+
         self._value = value
 
     def __repr__(self) -> str:
