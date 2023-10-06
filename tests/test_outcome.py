@@ -18,9 +18,14 @@ def test_outcome_can_be_created_with_finishing_position_as_str():
     assert Outcome("1")
 
 
-def test_outcome_cannot_be_created_with_invalid_arg():
+def test_outcome_cannot_be_created_with_float():
     with pytest.raises(ValueError):
         Outcome(1.0)
+
+
+def test_outcome_cannot_be_created_with_invalid_str():
+    with pytest.raises(ValueError):
+        Outcome("bananas")
 
 
 def test_outcome_value_is_finishing_position_if_init_with_int():
