@@ -1,5 +1,23 @@
 # Changelog
 
+## 0.19.3 (2023-10-06)
+
+#### Refactorings
+
+- typing in `RaceGrade.__init__`
+- avoid reassigning `grade_value` in `Outcome` for type safety
+- assert not `str` before `Outcome._value` assignment for type safety
+- type safety on `RacePerformance.is_official_win`
+
+#### Build
+
+- regen type stubs
+- add type ignores
+
+#### Tests
+
+- test for `Outcome.__init__` with invalid str
+
 ## 0.19.2 (2023-10-02)
 
 #### Build
