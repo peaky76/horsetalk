@@ -15,7 +15,7 @@ class RaceGrade(RepresentationalInt):
         RacingCode.NATIONAL_HUNT: "grade",
     }
 
-    def __new__(cls, grade: str | int | None, racing_code: RacingCode = None):
+    def __new__(cls, grade: str | int | None, racing_code: RacingCode | None = None):
         """
         Create a RaceGrade instance.
 
