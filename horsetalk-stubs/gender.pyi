@@ -1,5 +1,5 @@
-from peak_utility.enumeration.parsing_enum import ParsingEnum  # type: ignore as ParsingEnum
 from .sex import Sex as Sex
+from peak_utility.enumeration.parsing_enum import ParsingEnum
 
 class Gender(ParsingEnum):
     FOAL: int
