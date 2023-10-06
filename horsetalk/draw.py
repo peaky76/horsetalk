@@ -1,4 +1,4 @@
-from peak_utility.number import RepresentationalInt
+from peak_utility.number import RepresentationalInt  # type: ignore
 
 
 class Draw(RepresentationalInt):
