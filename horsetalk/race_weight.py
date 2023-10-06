@@ -15,7 +15,7 @@ class RaceWeight(Weight):
         Initialize a RaceWeight object from a string.
         """
 
-        st, lbs = weight.split("-")
+        st, lbs = re.match(RaceWeight.REGEX, weight).groups()
         super().__init__(self, lb=(int(st) * 14 + int(lbs)))  # type: ignore
 
     def __repr__(self) -> str:
