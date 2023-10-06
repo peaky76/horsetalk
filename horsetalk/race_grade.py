@@ -27,13 +27,13 @@ class RaceGrade(RepresentationalInt):
             ValueError: If the grade is not valid
 
         """
-        grade_value = re.sub(RaceGrade.REGEX, "", str(grade or "").title())
+        grade_text = re.sub(RaceGrade.REGEX, "", str(grade or "").title())
 
-        if grade_value.isdigit() and 1 <= int(grade_value) < 4:
-            grade_value = int(grade_value)
-        elif grade_value == "Listed":
+        if grade_text.isdigit() and 1 <= int(grade_text) < 4:
+            grade_value = int(grade_text)
+        elif grade_text == "Listed":
             grade_value = 4
-        elif int(bool(grade_value)) == 0:
+        elif int(bool(grade_text)) == 0:
             grade_value = 5
         else:
             raise ValueError(f"{grade} is not a valid RaceGrade")
