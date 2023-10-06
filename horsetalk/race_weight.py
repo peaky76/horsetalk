@@ -10,13 +10,16 @@ class RaceWeight(Weight):
 
     REGEX = r"(?:(\d+)(?:st|\-))?(?:(\d+)(?:lb)*)?"
 
-    def __init__(self, weight: str):
+    def __init__(self, weight: str = None, **kwargs):
         """
         Initialize a RaceWeight object from a string.
         """
 
-        st, lbs = re.match(RaceWeight.REGEX, weight).groups()
-        super().__init__(self, lb=(int(st or 0) * 14 + int(lbs or 0)))  # type: ignore
+        if weight:
+            st, lbs = re.match(RaceWeight.REGEX, weight).groups()
+            super().__init__(self, lb=(int(st or 0) * 14 + int(lbs or 0)))  # type: ignore
+        else:
+            super().__init__(self, **kwargs)
 
     def __repr__(self) -> str:
         """
