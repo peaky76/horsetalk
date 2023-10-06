@@ -1,4 +1,4 @@
-from peak_utility.enumeration.parsing_enum import ParsingEnum  # type: ignore as ParsingEnum
+from peak_utility.enumeration.parsing_enum import ParsingEnum
 
 class Disaster(ParsingEnum):
     FELL: int
@@ -12,6 +12,7 @@ class Disaster(ParsingEnum):
     LEFT_AT_START: int
     HIT_RAIL: int
     DISQUALIFIED: int
+    REFUSED_TO_RACE: int
     F = FELL
     R = REFUSED
     REF = REFUSED
@@ -33,6 +34,7 @@ class Disaster(ParsingEnum):
     D = DISQUALIFIED
     DQ = DISQUALIFIED
     DSQ = DISQUALIFIED
+    RR = REFUSED_TO_RACE
     @property
     def is_jumping_error(self): ...
     @property

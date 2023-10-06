@@ -1,10 +1,10 @@
 from .going_description import GoingDescription as GoingDescription
 
 class DirtGoingDescription(GoingDescription):
-    SEALED: int
-    SLOW: int
-    SLOPPY: int
     MUDDY: int
+    SLOW: int
+    SLOPPY: float
     GOOD: int
-    WET_FAST: int
+    WET_FAST: float
+    SEALED: int
     FAST: int

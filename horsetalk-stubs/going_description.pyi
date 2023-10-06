@@ -1,0 +1,3 @@
+from peak_utility.enumeration.parsing_enum import ParsingEnum
+
+class GoingDescription(ParsingEnum): ...
