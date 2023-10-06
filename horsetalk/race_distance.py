@@ -35,7 +35,7 @@ class RaceDistance(Distance):
 
     def __repr__(self) -> str:
         """
-        Returns the distance as a string.
+        Returns the distance as a repr.
         """
         return f"<RaceDistance: {str(self)}>"
 
