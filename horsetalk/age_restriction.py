@@ -21,3 +21,26 @@ class AgeRestriction:
         self.maximum = (
             int(groups[1]) if groups[1] else None if groups[2] else self.minimum
         )
+
+    def __repr__(self):
+        """
+        Returns the age restriction as a repr.
+
+        Returns:
+            The age restriction as a repr.
+        """
+        return f"<AgeRestriction: {str(self)}>"
+
+    def __str__(self):
+        """
+        Returns the age restriction as a string.
+
+        Returns:
+            The age restriction as a string.
+        """
+        if self.minimum == self.maximum:
+            return f"{self.minimum}yo"
+        elif self.maximum:
+            return f"{self.minimum}-{self.maximum}yo"
+        else:
+            return f"{self.minimum}yo+"
