@@ -1,4 +1,5 @@
 from .age_category import AgeCategory
+from .age_restriction import AgeRestriction
 from .aw_going_description import AWGoingDescription
 from .breed import Breed
 from .coat_colour import CoatColour
@@ -42,6 +43,7 @@ from .turf_going_description import TurfGoingDescription
 
 __all__ = [
     "AgeCategory",
+    "AgeRestriction",
     "AWGoingDescription",
     "Breed",
     "CoatColour",
