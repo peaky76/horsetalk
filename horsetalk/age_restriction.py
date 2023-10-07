@@ -1,4 +1,11 @@
+import re
+
+
 class AgeRestriction:
+    REGEX = (
+        r"(\d{1,2})[-]?(\d{1,2})?\s?y(?:ear)?(?:\s|-)?o(?:ld(?:s)?)?(?:\sonly)?(\+)?"
+    )
+
     def __init__(self, string: str):
         """
         Initialize an AgeRestriction instance.
@@ -9,12 +16,8 @@ class AgeRestriction:
         Returns:
             An AgeRestriction instance.
         """
-        string = string.replace("yo", "")
-        self.minimum = int(string[0])
+        groups = re.search(self.REGEX, string).groups()
+        self.minimum = int(groups[0])
         self.maximum = (
-            None
-            if "+" in string
-            else int(string.split("-")[1])
-            if "-" in string
-            else int(string)
+            int(groups[1]) if groups[1] else None if groups[2] else self.minimum
         )

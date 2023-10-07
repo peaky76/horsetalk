@@ -23,3 +23,11 @@ def test_age_restriction_minimum_when_age_limited_restriction():
 
 def test_age_restrictions_maximum_when_age_limited_restriction():
     assert AgeRestriction("2-4yo").maximum == 4
+
+
+def test_age_restrictions_minimum_when_longhand():
+    assert AgeRestriction("2 year olds only").minimum == 2
+
+
+def test_age_restrictions_maximum_when_longhand():
+    assert AgeRestriction("2 year olds only").maximum == 2
