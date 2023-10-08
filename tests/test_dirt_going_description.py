@@ -1,4 +1,4 @@
-from horsetalk import DirtGoingDescription
+from horsetalk import DirtGoingDescription, Surface
 
 
 def test_dirt_going_description_can_be_created_from_enum():
@@ -19,3 +19,7 @@ def test_dirt_going_description_can_be_created_from_hyphenated_name():
 
 def test_dirt_going_description_can_be_created_from_non_hyphenated_name():
     assert DirtGoingDescription.WET_FAST == DirtGoingDescription["WET FAST"]
+
+
+def test_dirt_going_description_surface():
+    assert DirtGoingDescription.MUDDY.surface == Surface.DIRT

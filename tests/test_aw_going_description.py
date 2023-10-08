@@ -1,4 +1,4 @@
-from horsetalk import AWGoingDescription
+from horsetalk import AWGoingDescription, Surface
 
 
 def test_aw_going_description_can_be_created_from_enum():
@@ -29,3 +29,7 @@ def test_aw_going_description_can_be_created_when_whitespace_needs_trimming():
 
 def test_aw_going_description_can_be_created_from_abbreviation():
     assert AWGoingDescription.STANDARD == AWGoingDescription["std"]
+
+
+def test_aw_going_description_surface():
+    assert AWGoingDescription.STANDARD.surface == Surface.ALL_WEATHER
