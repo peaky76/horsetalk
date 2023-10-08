@@ -1,5 +1,4 @@
 from .going_description import GoingDescription
-from .surface import Surface
 
 
 class AWGoingDescription(GoingDescription):
