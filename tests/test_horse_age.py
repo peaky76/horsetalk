@@ -90,6 +90,10 @@ def test_horse_age_returns_correct_actual_age_in_years_if_actual_dob_known():
     assert 4 == HorseAge(foaling_date=pendulum.datetime(2019, 3, 3)).actual.years
 
 
+def test_horse_age_returns_correct_year_of_birth():
+    assert 2019 == HorseAge(foaling_date=pendulum.datetime(2019, 3, 3)).year_of_birth
+
+
 def test_horse_age_raises_error_for_actual_age_in_years_if_actual_dob_not_known():
     with pytest.raises(ValueError):
         HorseAge(2).actual.years
