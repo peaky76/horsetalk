@@ -19,7 +19,7 @@ class Going:
             description: The description of the going.
             reading: The reading of the going stick.
         """
-        self.description = description
+        self.description = description.replace(" (", ", ").replace(")", "")
         self.reading = reading
 
         assert (self.primary and self.secondary) or self.primary

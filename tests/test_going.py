@@ -49,6 +49,10 @@ def test_going_init_sets_primary_property_with_enum_when_secondary_given():
     assert TurfGoingDescription.GOOD == Going("Good, Good to Soft in places").primary
 
 
+def test_going_init_sets_primary_property_with_enum_when_secondary_given_in_parentheses():
+    assert TurfGoingDescription.GOOD == Going("Good (Good to Soft in places)").primary
+
+
 def test_going_init_sets_secondary_property_with_enum_for_turf_going():
     assert (
         TurfGoingDescription.GOOD_TO_SOFT
@@ -56,10 +60,24 @@ def test_going_init_sets_secondary_property_with_enum_for_turf_going():
     )
 
 
+def test_going_init_sets_secondary_property_with_enum_for_turf_going_in_parentheses():
+    assert (
+        TurfGoingDescription.GOOD_TO_SOFT
+        == Going("Good (Good to Soft in places)").secondary
+    )
+
+
 def test_going_init_sets_secondary_property_with_enum_for_all_weather_going():
     assert (
         AWGoingDescription.STANDARD_TO_SLOW
         == Going("Standard, Standard to slow in places").secondary
+    )
+
+
+def test_going_init_sets_secondary_property_with_enum_for_all_weather_going_in_parentheses():
+    assert (
+        AWGoingDescription.STANDARD_TO_SLOW
+        == Going("Standard (Standard to slow in places)").secondary
     )
 
 
