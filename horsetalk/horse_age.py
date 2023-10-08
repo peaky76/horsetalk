@@ -111,6 +111,16 @@ class HorseAge:
         return self._calc_age(self._actual_dob)
 
     @property
+    def year_of_birth(self) -> int:
+        """
+        Get the year of birth of the horse.
+
+        Returns:
+            An integer representing the year of birth of the horse.
+        """
+        return self._official_dob.year
+
+    @property
     def _base_date(self) -> DateTime:
         """
         Get the base date for calculating the age of the horse.
