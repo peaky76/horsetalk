@@ -1,4 +1,5 @@
 from enum import Enum
+from itertools import pairwise
 from typing import List, Type
 from .age_category import AgeCategory
 from .horse_experience_level import HorseExperienceLevel
@@ -72,9 +73,10 @@ class RaceTitle:
             Union[List[Enum], Enum, None]: The found Enum value or None.
 
         """
+        checklist = self._words + ["_".join(pair) for pair in pairwise(self._words)]
         found_values = [
             found_value
-            for word in self._words
+            for word in checklist
             if (found_value := getattr(enum, word, None)) is not None
         ]
         return (
