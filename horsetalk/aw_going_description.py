@@ -20,11 +20,3 @@ class AWGoingDescription(GoingDescription):
     STD = STANDARD
     STF = STANDARD_TO_FAST
     FST = FAST
-
-    @property
-    def surface(self):
-        """
-        The surface implied by the going description.
-
-        """
-        return Surface.ALL_WEATHER
