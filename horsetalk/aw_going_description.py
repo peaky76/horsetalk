@@ -1,4 +1,5 @@
 from .going_description import GoingDescription
+from .surface import Surface
 
 
 class AWGoingDescription(GoingDescription):
@@ -19,3 +20,11 @@ class AWGoingDescription(GoingDescription):
     STD = STANDARD
     STF = STANDARD_TO_FAST
     FST = FAST
+
+    @property
+    def surface(self):
+        """
+        The surface implied by the going description.
+
+        """
+        return Surface.ALL_WEATHER

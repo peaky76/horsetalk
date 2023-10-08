@@ -1,4 +1,4 @@
-from horsetalk import TurfGoingDescription
+from horsetalk import Surface, TurfGoingDescription
 
 
 def test_turf_going_description_can_be_created_from_enum():
@@ -23,3 +23,7 @@ def test_turf_going_description_can_be_created_from_non_hyphenated_name():
 
 def test_turf_going_description_can_be_created_from_abbreviation():
     assert TurfGoingDescription.GOOD == TurfGoingDescription["gd"]
+
+
+def test_turf_going_description_surface():
+    assert TurfGoingDescription.GOOD.surface == Surface.TURF
