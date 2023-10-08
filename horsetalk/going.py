@@ -1,6 +1,7 @@
 from .aw_going_description import AWGoingDescription
 from .dirt_going_description import DirtGoingDescription
 from .going_description import GoingDescription
+from .surface import Surface
 from .turf_going_description import TurfGoingDescription
 
 
@@ -69,6 +70,16 @@ class Going:
         """
         key = self._description_parts[1]
         return Going._lookup(key) if key else None
+
+    @property
+    def surface(self) -> Surface:
+        """
+        The surface implied by the going description.
+
+        Returns:
+            The Surface enum member implied by the going description.
+        """
+        return self.primary.surface
 
     @property
     def value(self) -> float:

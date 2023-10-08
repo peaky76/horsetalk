@@ -1,5 +1,5 @@
 import pytest
-from horsetalk import AWGoingDescription, Going, TurfGoingDescription
+from horsetalk import AWGoingDescription, Going, Surface, TurfGoingDescription
 
 
 def test_going_can_be_initialized_with_string():
@@ -97,6 +97,14 @@ def test_going_str():
         Going("GOOD, GOOD TO SOFT IN PLACES").__str__()
         == "Good, Good to Soft in places"
     )
+
+
+def test_going_surface_returns_turf_for_turf_going_description():
+    assert Surface.TURF == Going("Good").surface
+
+
+def test_going_surface_returns_all_weather_for_all_weather_going_description():
+    assert Surface.ALL_WEATHER == Going("Standard").surface
 
 
 def test_going_value_returns_primary_value_when_only_primary_given():
