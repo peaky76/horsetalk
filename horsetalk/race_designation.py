@@ -26,3 +26,4 @@ class RaceDesignation(ParsingEnum):
     # Alternatives
     CLAIMING = CLAIMER
     SELLING = SELLER
+    NURSERY = HANDICAP
