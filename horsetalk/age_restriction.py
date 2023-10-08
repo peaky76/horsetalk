@@ -17,10 +17,10 @@ class AgeRestriction:
             An AgeRestriction instance.
         """
         groups = re.search(self.REGEX, string).groups()
-        self.minimum = int(groups[0])
-        self.maximum = (
-            int(groups[1]) if groups[1] else None if groups[2] else self.minimum
-        )
+        mini, maxi, plus = list(groups) + [None] * (3 - len(groups))
+
+        self.minimum = int(mini)
+        self.maximum = None if plus else int(maxi or mini)
 
     def __repr__(self):
         """
