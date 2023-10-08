@@ -14,7 +14,7 @@ def test_age_restriction_minimum_when_open_ended_restriction():
 
 
 def test_age_restriction_maximum_when_open_ended_restriction():
-    assert AgeRestriction("3yo+").maximum == None
+    assert AgeRestriction("3yo+").maximum is None
 
 
 def test_age_restriction_minimum_when_upper_bounded_restriction():
