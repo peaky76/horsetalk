@@ -14,11 +14,3 @@ class DirtGoingDescription(GoingDescription):
     WET_FAST = 8.5
     SEALED = 9
     FAST = 10
-
-    @property
-    def surface(self):
-        """
-        The surface implied by the going description.
-
-        """
-        return Surface.DIRT

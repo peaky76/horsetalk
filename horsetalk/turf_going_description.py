@@ -41,11 +41,3 @@ class TurfGoingDescription(GoingDescription):
     FRM = FIRM
     HD = HARD
     HRD = HARD
-
-    @property
-    def surface(self):
-        """
-        The surface implied by the going description.
-
-        """
-        return Surface.TURF
