@@ -69,21 +69,26 @@ class Gender(ParsingEnum):
             Gender: The gender of the horse based on the input arguments.
 
         """
-        if official_age == 0:
-            return Gender.FOAL
-        if official_age == 1:
-            return Gender.YEARLING
-        if kwargs.get("is_gelded"):
-            if sex and sex is sex.FEMALE:
-                raise ValueError("Female horse cannot be gelded")
-            return Gender.GELDING
-        if kwargs.get("is_rig"):
-            if sex and sex is sex.FEMALE:
-                raise ValueError("Female horse cannot be rig")
-            return Gender.RIG
+        if official_age <= 1:
+            return {0: Gender.FOAL, 1: Gender.YEARLING}[official_age]
+
+        testacle_status = (
+            "gelding"
+            if kwargs.get("is_gelded")
+            else "rig"
+            if kwargs.get("is_rig")
+            else None
+        )
+
+        if testacle_status:
+            if sex is Sex.FEMALE:
+                raise ValueError(f"Female horse cannot be {testacle_status}")
+            return Gender[testacle_status]
+
         if sex is None:
             raise ValueError("Not enough information to determine gender")
-        if official_age <= 3:
-            return Gender.COLT if sex is sex.MALE else Gender.FILLY
-        else:
-            return Gender.STALLION if sex is sex.MALE else Gender.MARE
+
+        return {
+            True: {Sex.MALE: Gender.COLT, Sex.FEMALE: Gender.FILLY},
+            False: {Sex.MALE: Gender.STALLION, Sex.FEMALE: Gender.MARE},
+        }[official_age <= 3][sex]
