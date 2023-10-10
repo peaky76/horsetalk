@@ -20,6 +20,20 @@ class Horse:
         self.name = match.group("name")
         self.country = match.group("country") or country
 
+        if country and country != self.country:
+            raise ValueError(
+                f"Conflicting countries in name and country arguments: {country}"
+            )
+
+        if (
+            age_or_yob
+            and match.group("age_or_yob")
+            and int(match.group("age_or_yob")) != age_or_yob
+        ):
+            raise ValueError(
+                f"Conflicting age_or_yob in name and age_or_yob arguments: {age_or_yob}"
+            )
+
         age_or_yob = int(match.group("age_or_yob") or age_or_yob or -1)
 
         if age_or_yob > 999:

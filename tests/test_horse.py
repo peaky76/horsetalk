@@ -1,4 +1,5 @@
 import pendulum  # type: ignore
+from pytest import raises
 from horsetalk import Horse
 
 
@@ -81,3 +82,13 @@ def test_horse_created_from_string_with_name_country_and_age_will_deduce_correct
 ):
     mocker.patch("pendulum.now", return_value=pendulum.datetime(2023, 1, 1))
     assert Horse("Dobbin (GB) 2017").age.official.years == 6
+
+
+def test_horse_created_from_string_with_country_will_raise_error_if_conflict_with_provided_country():
+    with raises(ValueError):
+        Horse("Dobbin (GB)", "US")
+
+
+def test_horse_created_from_string_with_age_will_raise_error_if_conflict_with_provided_age():
+    with raises(ValueError):
+        Horse("Dobbin (GB) 7", "GB", 3)
