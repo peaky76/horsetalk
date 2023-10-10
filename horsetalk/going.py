@@ -202,7 +202,9 @@ class Going:
             )
             identifier = next(x for x in opposites.keys() if x in description.lower())
 
-            def reconstructed_going_description(identifier, clauses):
+            def reconstructed_going_description(
+                identifier: str, clauses: list[str]
+            ) -> str:
                 containing_clause = next((x for x in clauses if identifier in x), "")
                 return (
                     f"{clauses[0]}, {clause_stripper(containing_clause, identifier)} in places"
