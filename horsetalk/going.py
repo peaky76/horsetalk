@@ -25,6 +25,15 @@ class Going:
 
         assert (self.primary and self.secondary) or self.primary
 
+    def __hash__(self):
+        """
+        The hash of the going.
+
+        Returns:
+            The hash of the going.
+        """
+        return hash(self.primary, self.secondary, self.reading)
+
     def __repr__(self):
         """
         The repr of the going.
