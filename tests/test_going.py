@@ -139,3 +139,14 @@ def test_going_value_returns_primary_value_when_only_primary_given():
 
 def test_going_value_returns_mean_of_primary_and_secondary_values_when_both_given():
     assert Going("Good, Good to Soft in places").value == 7.5
+
+
+def test_going_multiparse_with_single_going():
+    assert Going.multiparse("Good") == {"default": Going("Good")}
+
+
+def test_going_multiparse_with_colon_identified_goings():
+    assert Going.multiparse("Chase: Good, Hurdle: Good to soft") == {
+        "chase": Going("Good"),
+        "hurdle": Going("Good to soft"),
+    }

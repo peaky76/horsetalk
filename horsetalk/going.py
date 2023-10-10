@@ -158,3 +158,42 @@ class Going:
                 pass
 
         raise ValueError(f"Unknown going description: {key}")
+
+    @staticmethod
+    def multiparse(description: str) -> dict[str, "Going"]:
+        """
+        Sometimes goings are given for multiple courses, e.g. turf and all weather, chase and hurdle in the same string.
+        This will parse these into a dict of Going objects, keyed by an identifier for each course
+
+        Args:
+            going: The going string to parse.
+
+        Returns:
+            A dict of Going objects.
+        """
+        opposites = {
+            "hurdle": "chase",
+            "chase": "hurdle",
+            "inner": "outer",
+            "outer": "inner",
+            "old": "new",
+            "new": "old",
+            "straight": "round",
+            "round": "straight",
+            "flat": "aw",
+            "aw": "flat",
+        }
+
+        if not any(x in description.lower() for x in (":", *opposites.keys())):
+            return {"default": Going(description)}
+
+        goings = description.split(",")
+        going_dict = {}
+        for g in goings:
+            if ":" in g:
+                key, value = g.split(":")
+                going_dict[key.lower().strip()] = Going(value)
+            else:
+                going_dict["default"] = Going(g)
+
+        return going_dict
