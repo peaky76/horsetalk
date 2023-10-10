@@ -187,13 +187,8 @@ class Going:
         if not any(x in description.lower() for x in (":", *opposites.keys())):
             return {"default": Going(description)}
 
-        goings = description.split(",")
-        going_dict = {}
-        for g in goings:
-            if ":" in g:
-                key, value = g.split(":")
-                going_dict[key.lower().strip()] = Going(value)
-            else:
-                going_dict["default"] = Going(g)
-
-        return going_dict
+        if ":" in description:
+            return {
+                (x := going.split(":"))[0].lower().strip(): Going(x[1])
+                for going in description.split(",")
+            }
