@@ -150,3 +150,19 @@ def test_going_multiparse_with_colon_identified_goings():
         "chase": Going("Good"),
         "hurdle": Going("Good to soft"),
     }
+
+
+def test_going_multiparse_with_parenthesis_identified_goings():
+    assert Going.multiparse("Good (Good to soft on hurdle)") == {
+        "chase": Going("Good"),
+        "hurdle": Going("Good to soft"),
+    }
+
+
+def test_going_multiparse_with_parenthesis_identified_secondary_goings():
+    assert Going.multiparse(
+        "Good (Good to soft in places on hurdle, Good to firm in places on chase)"
+    ) == {
+        "chase": Going("Good, Good to firm in places"),
+        "hurdle": Going("Good, Good to soft in places"),
+    }

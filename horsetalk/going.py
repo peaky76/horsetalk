@@ -192,3 +192,22 @@ class Going:
                 (x := going.split(":"))[0].lower().strip(): Going(x[1])
                 for going in description.split(",")
             }
+        else:
+            output = {}
+            clauses = description.lower().replace("(", ",").split(",")
+            identifier = next(x for x in opposites.keys() if x in description.lower())
+            other_identifier = opposites[identifier]
+            for clause in clauses:
+                for i in [identifier, other_identifier]:
+                    if i in clause:
+                        if "in places" in clause:
+                            output_str = clause.replace("on", "").replace(i, "").strip()
+                            output[i] = Going(f"{clauses[0]}, {output_str} in places")
+                        else:
+                            output_str = clause.replace("on", "").replace(i, "").strip()
+                            output[i] = Going(output_str)
+
+            for i in [identifier, other_identifier]:
+                if i not in output:
+                    output[i] = Going(clauses[0])
+            return output
