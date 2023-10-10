@@ -58,6 +58,22 @@ class Going:
         )
         return f"{primary_str}{', ' + secondary_str + ' in places' if secondary_str else ''}"
 
+    def __eq__(self, other: "Going") -> bool:
+        """
+        Determine if two goings are equal.
+
+        Args:
+            other: The other going.
+
+        Returns:
+            True if the goings are equal, False otherwise.
+        """
+        return (
+            self.primary == other.primary
+            and self.secondary == other.secondary
+            and self.reading == other.reading
+        )
+
     @property
     def primary(self) -> GoingDescription:
         """

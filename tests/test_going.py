@@ -99,6 +99,32 @@ def test_going_str():
     )
 
 
+def test_going_equality_when_primary_different():
+    assert Going("Good") != Going("Soft")
+
+
+def test_going_equality_when_secondary_different():
+    assert Going("Good, Good to Soft in places") != Going(
+        "Good, Good to Firm in places"
+    )
+
+
+def test_going_equality_when_reading_different():
+    assert Going("Good", 7.0) != Going("Good", 7.5)
+
+
+def test_going_equality_when_all_different():
+    assert Going("Good", 7.0) != Going("Soft", 7.5)
+
+
+def test_going_equality_when_all_same():
+    assert Going("Good", 7.0) == Going("Good", 7.0)
+
+
+def test_going_equality_when_going_same_and_reading_unspecified():
+    assert Going("Good") == Going("Good")
+
+
 def test_going_surface_returns_turf_for_turf_going_description():
     assert Going("Good").surface == Surface.TURF
 
