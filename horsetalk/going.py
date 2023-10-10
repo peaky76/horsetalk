@@ -193,31 +193,26 @@ class Going:
                 for going in description.split(",")
             }
         else:
-            output = {}
             clauses = description.lower().replace("(", ",").split(",")
+            clause_stripper = (
+                lambda x, y: x.replace("on", "")
+                .replace("course", "")
+                .replace(y, "")
+                .strip()
+            )
             identifier = next(x for x in opposites.keys() if x in description.lower())
-            other_identifier = opposites[identifier]
-            for clause in clauses:
-                for i in [identifier, other_identifier]:
-                    if i in clause:
-                        if "in places" in clause:
-                            output_str = (
-                                clause.replace("on", "")
-                                .replace("course", "")
-                                .replace(i, "")
-                                .strip()
-                            )
-                            output[i] = Going(f"{clauses[0]}, {output_str} in places")
-                        else:
-                            output_str = (
-                                clause.replace("on", "")
-                                .replace("course", "")
-                                .replace(i, "")
-                                .strip()
-                            )
-                            output[i] = Going(output_str)
 
-            for i in [identifier, other_identifier]:
-                if i not in output:
-                    output[i] = Going(clauses[0])
-            return output
+            def reconstructed_going_description(identifier, clauses):
+                containing_clause = next((x for x in clauses if identifier in x), "")
+                return (
+                    f"{clauses[0]}, {clause_stripper(containing_clause, identifier)} in places"
+                    if "in places" in containing_clause
+                    else clause_stripper(containing_clause, identifier)
+                    if containing_clause
+                    else clauses[0]
+                )
+
+            return {
+                i: Going(reconstructed_going_description(i, clauses))
+                for i in [identifier, opposites[identifier]]
+            }
