@@ -169,7 +169,7 @@ def test_going_multiparse_with_parenthesis_identified_secondary_goings():
 
 
 def test_going_multiparse_with_single_parenthesis_identified_secondary_goings():
-    assert Going.multiparse("Good (Good to soft in places on round)") == {
+    assert Going.multiparse("Good (Good to soft in places on round course)") == {
         "straight": Going("Good"),
         "round": Going("Good, Good to soft in places"),
     }

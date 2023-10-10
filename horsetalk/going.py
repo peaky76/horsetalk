@@ -201,10 +201,20 @@ class Going:
                 for i in [identifier, other_identifier]:
                     if i in clause:
                         if "in places" in clause:
-                            output_str = clause.replace("on", "").replace(i, "").strip()
+                            output_str = (
+                                clause.replace("on", "")
+                                .replace("course", "")
+                                .replace(i, "")
+                                .strip()
+                            )
                             output[i] = Going(f"{clauses[0]}, {output_str} in places")
                         else:
-                            output_str = clause.replace("on", "").replace(i, "").strip()
+                            output_str = (
+                                clause.replace("on", "")
+                                .replace("course", "")
+                                .replace(i, "")
+                                .strip()
+                            )
                             output[i] = Going(output_str)
 
             for i in [identifier, other_identifier]:
