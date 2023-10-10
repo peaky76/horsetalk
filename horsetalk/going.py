@@ -58,7 +58,7 @@ class Going:
         )
         return f"{primary_str}{', ' + secondary_str + ' in places' if secondary_str else ''}"
 
-    def __eq__(self, other: "Going") -> bool:
+    def __eq__(self, other: object) -> bool:
         """
         Determine if two goings are equal.
 
@@ -68,7 +68,8 @@ class Going:
         Returns:
             True if the goings are equal, False otherwise.
         """
-        return (
+
+        return isinstance(other, Going) and (
             self.primary == other.primary
             and self.secondary == other.secondary
             and self.reading == other.reading
