@@ -30,4 +30,4 @@ def test_age_category_to_age_restriction_returns_correct_minumum_when_veterans()
 
 
 def test_age_category_to_age_restriction_returns_correct_maximum_when_veterans():
-    assert None == AgeCategory.VETERAN.to_age_restriction().maximum
+    assert AgeCategory.VETERAN.to_age_restriction().maximum is None
