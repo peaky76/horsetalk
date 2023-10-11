@@ -1,4 +1,5 @@
-from pendulum import DateTime
+from dataclasses import dataclass
+from pendulum import DateTime  # type: ignore
 from .going import Going
 from .race_designation import RaceDesignation
 from .race_distance import RaceDistance
@@ -7,43 +8,29 @@ from .racecourse import Racecourse
 from .stalls_position import StallsPosition
 
 
+@dataclass(kw_only=True)
 class RaceConditions:
     """
     A class for grouping together race conditions into a single object.
 
+    Properties:
+        datetime: The datetime of the race
+        racecourse: The racecourse on which the race is run
+        distance: The race distance
+        going: The going of the race
+        race_designation: The designation of the race, i.e. whether it is a handicap, maiden, etc.
+        race_level: The level of the race, i.e. Group 1, Group 2, etc.
+        stalls_position: The position of the stalls on the track
+
     """
 
-    def __init__(
-        self,
-        *,
-        datetime: DateTime,
-        racecourse: Racecourse,
-        distance: RaceDistance,
-        going: Going,
-        race_designation: RaceDesignation,
-        race_level: RaceLevel,
-        stalls_position: StallsPosition | None = None,
-    ):
-        """
-        Initialize a RaceConditions instance.
-
-        Args:
-            datetime: The datetime of the race
-            racecourse: The racecourse on which the race is run
-            distance: The race distance
-            going: The going of the race
-            race_designation: The designation of the race, i.e. whether it is a handicap, maiden, etc.
-            race_level: The level of the race, i.e. Group 1, Group 2, etc.
-            stalls_position: The position of the stalls on the track
-
-        """
-        self.datetime = datetime
-        self.racecourse = racecourse
-        self.distance = distance
-        self.going = going
-        self.race_designation = race_designation
-        self.race_level = race_level
-        self.stalls_position = stalls_position
+    datetime: DateTime
+    racecourse: Racecourse
+    distance: RaceDistance
+    going: Going
+    race_designation: RaceDesignation
+    race_level: RaceLevel
+    stalls_position: StallsPosition | None = None
 
     def __repr__(self):
         return (
