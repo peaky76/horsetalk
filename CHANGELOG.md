@@ -1,5 +1,23 @@
 # Changelog
 
+## 0.21.0 (2023-10-11)
+
+#### New Features
+
+- `Horse` class
+- `Going.multiparse` method
+
+#### Refactorings
+
+- make `RaceConditions` a dataclass
+- `Going.**eq**`
+- `Going.**hash**`
+
+#### Tests
+
+- flip expected and actual in `Going` tests
+- is None for == None in `Age Category` test
+
 ## 0.20.0 (2023-10-06)
 
 #### New Features
