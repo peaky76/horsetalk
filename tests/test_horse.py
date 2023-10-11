@@ -39,6 +39,16 @@ def test_horse_created_with_name_country_and_age_had_correct_age():
     assert Horse("Dobbin", "GB", 3).age.official.years == 3
 
 
+def test_horse_created_with_name_country_age_and_context_date_had_correct_age(mocker):
+    mocker.patch("pendulum.now", return_value=pendulum.datetime(2023, 1, 1))
+    assert (
+        Horse("Dobbin", "GB", 3, context_date=pendulum.datetime(2021, 1, 1))
+        .age.at(pendulum.now())
+        .official.years
+        == 5
+    )
+
+
 def test_horse_created_from_string_with_country_will_deduce_correct_name():
     assert Horse("Dobbin (GB)").name == "Dobbin"
 
@@ -63,21 +73,33 @@ def test_horse_created_from_string_with_name_country_and_age_will_deduce_correct
     assert Horse("Dobbin (GB) 3").age.official.years == 3
 
 
-def test_horse_created_from_string_with_name_country_and_age_will_deduce_correct_name(
+def test_horse_created_from_string_with_name_country_and_age_with_context_date_will_deduce_correct_age(
+    mocker,
+):
+    mocker.patch("pendulum.now", return_value=pendulum.datetime(2023, 1, 1))
+    assert (
+        Horse("Dobbin (GB) 3", context_date=pendulum.datetime(2021, 1, 1))
+        .age.at(pendulum.now())
+        .official.years
+        == 5
+    )
+
+
+def test_horse_created_from_string_with_name_country_and_year_will_deduce_correct_name(
     mocker,
 ):
     mocker.patch("pendulum.now", return_value=pendulum.datetime(2023, 1, 1))
     assert Horse("Dobbin (GB) 2017").name == "Dobbin"
 
 
-def test_horse_created_from_string_with_name_country_and_age_will_deduce_correct_country(
+def test_horse_created_from_string_with_name_country_and_year_will_deduce_correct_country(
     mocker,
 ):
     mocker.patch("pendulum.now", return_value=pendulum.datetime(2023, 1, 1))
     assert Horse("Dobbin (GB) 2017").country == "GB"
 
 
-def test_horse_created_from_string_with_name_country_and_age_will_deduce_correct_age(
+def test_horse_created_from_string_with_name_country_and_year_will_deduce_correct_age(
     mocker,
 ):
     mocker.patch("pendulum.now", return_value=pendulum.datetime(2023, 1, 1))

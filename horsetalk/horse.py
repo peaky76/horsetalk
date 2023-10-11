@@ -1,3 +1,4 @@
+import pendulum  # type: ignore
 import re
 from .horse_age import HorseAge
 
@@ -14,7 +15,9 @@ class Horse:
         re.VERBOSE,
     )
 
-    def __init__(self, name, country=None, age_or_yob=None):
+    def __init__(
+        self, name, country=None, age_or_yob=None, context_date=pendulum.now()
+    ):
         match = re.match(Horse.REGEX, name)
 
         self.name = match.group("name")
@@ -37,8 +40,8 @@ class Horse:
         age_or_yob = int(match.group("age_or_yob") or age_or_yob or -1)
 
         if age_or_yob > 999:
-            self.age = HorseAge(birth_year=age_or_yob)
+            self.age = HorseAge(birth_year=age_or_yob, context_date=context_date)
         elif age_or_yob > 0:
-            self.age = HorseAge(age_or_yob)
+            self.age = HorseAge(age_or_yob, context_date=context_date)
         else:
             self.age = None
