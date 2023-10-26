@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.21.1 (2023-10-26)
+
+#### Refactorings
+
+- swap `lambda` for `def` in `Going`
+
+#### Others
+
+- suspend type checking from ci
+- remove type ignores from `pendulum` imports
+- upgrade to `pendulum v3.0.0b` and apply necessary fixes
+
 ## 0.21.0 (2023-10-11)
 
 #### New Features

@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "horsetalk"
-version = "0.21.0"
+version = "0.21.1"
 description = "A library of enums and parsers for common horseracing terminology"
 authors = ["peaky76 <robertjamespeacock@gmail.com>"]
 license = "GPL-3.0-only"
@@ -10,7 +10,7 @@ readme = "README.md"
 python = "^3.11"
 measurement = "^3.2.2"
 peak-utility = "~0"
-pendulum = {git = "https://github.com/sdispater/pendulum.git", rev = "3.0.0b1"}
+pendulum = { git = "https://github.com/sdispater/pendulum.git", rev = "3.0.0b1" }
 
 [tool.poetry.group.dev.dependencies]
 auto-changelog = "^0.6.0"
