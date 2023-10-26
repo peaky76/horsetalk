@@ -9,7 +9,14 @@ class RacePerformance:
     outcome: Incomplete
     official_position: Incomplete
     beaten_distance: Incomplete
-    def __init__(self, outcome: str | int | Disaster | FinishingPosition | Outcome, *, official_position: str | int | FinishingPosition | None = ..., beaten_distance: str | int | Horselength | None = ..., comments: str | None = ...) -> None: ...
+    def __init__(
+        self,
+        outcome: str | int | Disaster | FinishingPosition | Outcome,
+        *,
+        official_position: str | int | FinishingPosition | None = ...,
+        beaten_distance: str | int | Horselength | None = ...,
+        comments: str | None = ...
+    ) -> None: ...
     @property
     def is_completion(self) -> bool: ...
     @property
