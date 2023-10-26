@@ -1,6 +1,6 @@
 from typing import Self
 import pendulum
-from pendulum import DateTime, Period
+from pendulum import DateTime, Interval
 
 
 class HorseAge:
@@ -83,7 +83,7 @@ class HorseAge:
         return str(self.official.years)
 
     @property
-    def official(self) -> Period:
+    def official(self) -> Interval:
         """
         Calculate the official age of the horse based on its birth year or foaling date.
 
@@ -91,12 +91,12 @@ class HorseAge:
             ValueError: if the official date of birth is unknown
 
         Returns:
-            A Period object representing the horse's official age in years, months, and days.
+            A Interval object representing the horse's official age in years, months, and days.
         """
         return self._calc_age(self._official_dob)
 
     @property
-    def actual(self) -> Period:
+    def actual(self) -> Interval:
         """
         Calculate the actual age of the horse based on its actual date of birth.
 
@@ -104,7 +104,7 @@ class HorseAge:
             ValueError: if the actual date of birth is unknown
 
         Returns:
-            A Period object representing the horse's actual age in years, months, and days.
+            A Interval object representing the horse's actual age in years, months, and days.
         """
         if not self._actual_dob:
             raise ValueError("Cannot calculate actual age as actual dob is unknown")
@@ -144,7 +144,7 @@ class HorseAge:
         self._context_date = date
         return self
 
-    def _calc_age(self, dob: DateTime) -> Period:
+    def _calc_age(self, dob: DateTime) -> Interval:
         """
         Calculate the age of the horse based on its date of birth.
 
@@ -152,7 +152,7 @@ class HorseAge:
             dob: A DateTime object representing the date of birth of the horse.
 
         Returns:
-            A Period object representing the age of the horse in years, months, and days.
+            A Interval object representing the age of the horse in years, months, and days.
         """
         return (
             self._base_date - dob
