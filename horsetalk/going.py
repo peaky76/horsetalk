@@ -195,12 +195,10 @@ class Going:
             }
         else:
             clauses = description.lower().replace("(", ",").split(",")
-            clause_stripper = (
-                lambda x, y: x.replace("on", "")
-                .replace("course", "")
-                .replace(y, "")
-                .strip()
-            )
+
+            def strip_clause(x, y):
+                return x.replace("on", "").replace("course", "").replace(y, "").strip()
+
             identifier = next(x for x in opposites.keys() if x in description.lower())
 
             def reconstructed_going_description(
@@ -208,9 +206,9 @@ class Going:
             ) -> str:
                 containing_clause = next((x for x in clauses if identifier in x), "")
                 return (
-                    f"{clauses[0]}, {clause_stripper(containing_clause, identifier)} in places"
+                    f"{clauses[0]}, {strip_clause(containing_clause, identifier)} in places"
                     if "in places" in containing_clause
-                    else clause_stripper(containing_clause, identifier)
+                    else strip_clause(containing_clause, identifier)
                     if containing_clause
                     else clauses[0]
                 )
