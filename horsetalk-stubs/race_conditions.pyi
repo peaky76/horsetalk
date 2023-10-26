@@ -15,4 +15,14 @@ class RaceConditions:
     race_designation: Incomplete
     race_level: Incomplete
     stalls_position: Incomplete
-    def __init__(self, *, datetime: DateTime, racecourse: Racecourse, distance: RaceDistance, going: Going, race_designation: RaceDesignation, race_level: RaceLevel, stalls_position: StallsPosition | None = ...) -> None: ...
+    def __init__(
+        self,
+        *,
+        datetime: DateTime,
+        racecourse: Racecourse,
+        distance: RaceDistance,
+        going: Going,
+        race_designation: RaceDesignation,
+        race_level: RaceLevel,
+        stalls_position: StallsPosition | None = ...
+    ) -> None: ...
