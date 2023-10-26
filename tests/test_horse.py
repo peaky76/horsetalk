@@ -1,4 +1,4 @@
-import pendulum  # type: ignore
+import pendulum
 from pytest import raises
 from horsetalk import Horse
 

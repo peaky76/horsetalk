@@ -1,4 +1,4 @@
-import pendulum  # type: ignore
+import pendulum
 import re
 from .horse_age import HorseAge
 
