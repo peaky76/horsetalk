@@ -40,7 +40,8 @@ class AgeRestriction:
         """
         if self.minimum == self.maximum:
             return f"{self.minimum}yo"
-        elif self.maximum:
+
+        if self.maximum:
             return f"{self.minimum}-{self.maximum}yo"
-        else:
-            return f"{self.minimum}yo+"
+
+        return f"{self.minimum}yo+"
