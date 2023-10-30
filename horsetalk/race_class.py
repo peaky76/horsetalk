@@ -39,6 +39,14 @@ class RaceClass(RepresentationalInt):
 
         return False
 
+    def __ne__(self, other):
+        if isinstance(other, RaceClass) or (
+            isinstance(other, int) and not isinstance(other, RepresentationalInt)
+        ):
+            return super().__ne__(other)
+
+        return True
+
     def __lt__(self, other):
         return super().__gt__(other)
 
