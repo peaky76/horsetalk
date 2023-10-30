@@ -2,16 +2,16 @@ from horsetalk.coat_colour import CoatColour
 
 
 def test_coat_colour_can_be_created_from_enum():
-    assert CoatColour.BAY == CoatColour(1)
+    assert CoatColour(1) == CoatColour.BAY
 
 
 def test_coat_colour_can_be_created_from_name():
-    assert CoatColour.BAY == CoatColour["BAY"]
+    assert CoatColour["BAY"] == CoatColour.BAY
 
 
 def test_coat_colour_can_be_created_from_lowercase_name():
-    assert CoatColour.BAY == CoatColour["bay"]
+    assert CoatColour["bay"] == CoatColour.BAY
 
 
 def test_coat_colour_can_be_created_from_abbreviation():
-    assert CoatColour.BAY == CoatColour["B"]
+    assert CoatColour["B"] == CoatColour.BAY

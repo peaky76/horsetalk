@@ -2,16 +2,16 @@ from horsetalk import Handedness
 
 
 def test_handedness_can_be_created_from_enum():
-    assert Handedness.RIGHT == Handedness(2)
+    assert Handedness(2) == Handedness.RIGHT
 
 
 def test_handedness_can_be_created_from_name():
-    assert Handedness.RIGHT == Handedness["RIGHT"]
+    assert Handedness["RIGHT"] == Handedness.RIGHT
 
 
 def test_handedness_can_be_created_from_lowercase_name():
-    assert Handedness.RIGHT == Handedness["right"]
+    assert Handedness["right"] == Handedness.RIGHT
 
 
 def test_handedness_can_be_created_from_abbreviation():
-    assert Handedness.RIGHT == Handedness["RH"]
+    assert Handedness["RH"] == Handedness.RIGHT

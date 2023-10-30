@@ -4,27 +4,27 @@ from horsetalk import Gender, Sex
 
 
 def test_gender_can_be_created_from_enum():
-    assert Gender.COLT == Gender(2)
+    assert Gender(2) == Gender.COLT
 
 
 def test_gender_can_be_created_from_name():
-    assert Gender.COLT == Gender["COLT"]
+    assert Gender["COLT"] == Gender.COLT
 
 
 def test_gender_can_be_created_from_lowercase_name():
-    assert Gender.COLT == Gender["colt"]
+    assert Gender["colt"] == Gender.COLT
 
 
 def test_gender_can_be_created_from_abbreviation():
-    assert Gender.COLT == Gender["C"]
+    assert Gender["C"] == Gender.COLT
 
 
 def test_gender_sex_returns_male_for_male_genders():
-    assert Sex.MALE == Gender["COLT"].sex
+    assert Gender["COLT"].sex == Sex.MALE
 
 
 def test_gender_sex_returns_female_for_female_genders():
-    assert Sex.FEMALE == Gender["FILLY"].sex
+    assert Gender["FILLY"].sex == Sex.FEMALE
 
 
 def test_gender_sex_raises_error_if_yearling():
@@ -38,39 +38,39 @@ def test_gender_sex_raises_error_if_foal():
 
 
 def test_gender_determine_returns_correct_value_when_horse_before_first_birthday():
-    assert Gender.FOAL == Gender.determine(0)
+    assert Gender.determine(0) == Gender.FOAL
 
 
 def test_gender_determine_returns_correct_value_when_horse_one_year_old():
-    assert Gender.YEARLING == Gender.determine(1)
+    assert Gender.determine(1) == Gender.YEARLING
 
 
 def test_gender_determine_returns_correct_value_when_two_and_male():
-    assert Gender.COLT == Gender.determine(2, Sex.MALE)
+    assert Gender.determine(2, Sex.MALE) == Gender.COLT
 
 
 def test_gender_determine_returns_correct_value_when_two_and_female():
-    assert Gender.FILLY == Gender.determine(2, Sex.FEMALE)
+    assert Gender.determine(2, Sex.FEMALE) == Gender.FILLY
 
 
 def test_gender_determine_returns_correct_value_when_older_and_male():
-    assert Gender.STALLION == Gender.determine(6, Sex.MALE)
+    assert Gender.determine(6, Sex.MALE) == Gender.STALLION
 
 
 def test_gender_determine_returns_correct_value_when_older_and_female():
-    assert Gender.MARE == Gender.determine(6, Sex.FEMALE)
+    assert Gender.determine(6, Sex.FEMALE) == Gender.MARE
 
 
 def test_gender_determine_returns_correct_value_when_gelded():
-    assert Gender.GELDING == Gender.determine(2, Sex.MALE, is_gelded=True)
+    assert Gender.determine(2, Sex.MALE, is_gelded=True) == Gender.GELDING
 
 
 def test_gender_determine_returns_correct_value_when_rig():
-    assert Gender.RIG == Gender.determine(2, Sex.MALE, is_rig=True)
+    assert Gender.determine(2, Sex.MALE, is_rig=True) == Gender.RIG
 
 
 def test_gender_determine_returns_correct_value_when_sex_implied():
-    assert Gender.RIG == Gender.determine(5, is_rig=True)
+    assert Gender.determine(5, is_rig=True) == Gender.RIG
 
 
 def test_gender_determine_raises_value_error_for_gelded_female():

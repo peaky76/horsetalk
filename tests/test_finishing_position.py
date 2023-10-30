@@ -118,7 +118,7 @@ def test_finishing_position_eq_with_int():
 
 
 def test_finishing_position_eq_with_int_reverse():
-    assert 1 == FinishingPosition(1)
+    assert FinishingPosition(1) == 1
 
 
 def test_finishing_position_less_than():
