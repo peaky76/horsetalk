@@ -71,13 +71,27 @@ class RaceGrade(RepresentationalInt):
         )
 
     def __bool__(self):
-        return self != 5
+        return super().__ne__(5)
 
     def __eq__(self, other):
-        if isinstance(other, RaceGrade) or (isinstance(other, int) and other < 4):
+        if isinstance(other, RaceGrade) or (
+            isinstance(other, int)
+            and other < 4
+            and not isinstance(other, RepresentationalInt)
+        ):
             return super().__eq__(other)
 
         return False
+
+    def __ne__(self, other):
+        if isinstance(other, RaceGrade) or (
+            isinstance(other, int)
+            and other < 4
+            and not isinstance(other, RepresentationalInt)
+        ):
+            return super().__ne__(other)
+
+        return True
 
     def __lt__(self, other):
         return super().__gt__(other)
