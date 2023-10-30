@@ -2,23 +2,23 @@ from horsetalk import Disaster
 
 
 def test_disaster_can_be_created_from_enum():
-    assert Disaster.FELL == Disaster(1)
+    assert Disaster(1) == Disaster.FELL
 
 
 def test_disaster_can_be_created_from_name():
-    assert Disaster.FELL == Disaster["FELL"]
+    assert Disaster["FELL"] == Disaster.FELL
 
 
 def test_disaster_can_be_created_from_lowercase_name():
-    assert Disaster.FELL == Disaster["fell"]
+    assert Disaster["fell"] == Disaster.FELL
 
 
 def test_disaster_can_be_created_from_spaced_name():
-    assert Disaster.BROUGHT_DOWN == Disaster["Brought down"]
+    assert Disaster["Brought down"] == Disaster.BROUGHT_DOWN
 
 
 def test_disaster_can_be_created_from_abbreviation():
-    assert Disaster.FELL == Disaster["f"]
+    assert Disaster["f"] == Disaster.FELL
 
 
 def test_disaster_is_jumping_error():

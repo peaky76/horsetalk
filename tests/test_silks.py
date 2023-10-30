@@ -5,15 +5,15 @@ from tests.fixtures.silks import SILKS_INPUT, SILKS_OUTPUT
 
 
 def test_silks_colour_can_be_created_from_name():
-    assert Silks.Colour.BEIGE == Silks.Colour["BEIGE"]
+    assert Silks.Colour["BEIGE"] == Silks.Colour.BEIGE
 
 
 def test_silks_colour_can_be_created_from_lowercase_name():
-    assert Silks.Colour.BEIGE == Silks.Colour["beige"]
+    assert Silks.Colour["beige"] == Silks.Colour.BEIGE
 
 
 def test_silks_colour_can_be_created_from_spaced_name():
-    assert Silks.Colour.DARK_BLUE == Silks.Colour["dark blue"]
+    assert Silks.Colour["dark blue"] == Silks.Colour.DARK_BLUE
 
 
 def test_silks_colour_phrases():
@@ -21,15 +21,15 @@ def test_silks_colour_phrases():
 
 
 def test_silks_pattern_can_be_created_from_name():
-    assert Silks.Pattern.STAR == Silks.Pattern["STAR"]
+    assert Silks.Pattern["STAR"] == Silks.Pattern.STAR
 
 
 def test_silks_pattern_can_be_created_from_lowercase_name():
-    assert Silks.Pattern.STAR == Silks.Pattern["star"]
+    assert Silks.Pattern["star"] == Silks.Pattern.STAR
 
 
 def test_silks_pattern_can_be_created_from_spaced_name():
-    assert Silks.Pattern.INVERTED_TRIANGLE == Silks.Pattern["Inverted triangle"]
+    assert Silks.Pattern["Inverted triangle"] == Silks.Pattern.INVERTED_TRIANGLE
 
 
 def test_silks_pattern_phrases():

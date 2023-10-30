@@ -2,16 +2,16 @@ from horsetalk import RaceDesignation
 
 
 def test_race_designation_can_be_created_from_enum():
-    assert RaceDesignation.HANDICAP == RaceDesignation(1)
+    assert RaceDesignation(1) == RaceDesignation.HANDICAP
 
 
 def test_race_designation_can_be_created_from_name():
-    assert RaceDesignation.HANDICAP == RaceDesignation["HANDICAP"]
+    assert RaceDesignation["HANDICAP"] == RaceDesignation.HANDICAP
 
 
 def test_race_designation_can_be_created_from_lowercase_name():
-    assert RaceDesignation.HANDICAP == RaceDesignation["handicap"]
+    assert RaceDesignation["handicap"] == RaceDesignation.HANDICAP
 
 
 def test_race_designation_can_be_created_from_apostrophised_name():
-    assert RaceDesignation.HANDICAP == RaceDesignation["H'CAP"]
+    assert RaceDesignation["H'CAP"] == RaceDesignation.HANDICAP

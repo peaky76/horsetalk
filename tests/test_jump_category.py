@@ -2,24 +2,24 @@ from horsetalk import JumpCategory
 
 
 def test_jump_category_can_be_created_from_enum():
-    assert JumpCategory.HURDLE == JumpCategory(1)
+    assert JumpCategory(1) == JumpCategory.HURDLE
 
 
 def test_jump_category_can_be_created_from_name():
-    assert JumpCategory.HURDLE == JumpCategory["HURDLE"]
+    assert JumpCategory["HURDLE"] == JumpCategory.HURDLE
 
 
 def test_jump_category_can_be_created_from_lowercase_name():
-    assert JumpCategory.HURDLE == JumpCategory["hurdle"]
+    assert JumpCategory["hurdle"] == JumpCategory.HURDLE
 
 
 def test_jump_category_can_be_created_from_hyphenated_name():
-    assert JumpCategory.CROSS_COUNTRY == JumpCategory["CROSS-COUNTRY"]
+    assert JumpCategory["CROSS-COUNTRY"] == JumpCategory.CROSS_COUNTRY
 
 
 def test_jump_category_can_be_created_from_unhyphenated_name():
-    assert JumpCategory.CROSS_COUNTRY == JumpCategory["CROSS COUNTRY"]
+    assert JumpCategory["CROSS COUNTRY"] == JumpCategory.CROSS_COUNTRY
 
 
 def test_jump_category_can_be_created_from_abbreviation():
-    assert JumpCategory.HURDLE == JumpCategory["h"]
+    assert JumpCategory["h"] == JumpCategory.HURDLE

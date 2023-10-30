@@ -56,7 +56,6 @@ ignore = [
     "RUF",
     "PYI",
     "SIM201",
-    "SIM300"
 ]
 
 [build-system]
