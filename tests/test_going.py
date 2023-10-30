@@ -1,4 +1,5 @@
 from pytest import raises  # type: ignore
+
 from horsetalk import AWGoingDescription, Going, Surface, TurfGoingDescription
 
 

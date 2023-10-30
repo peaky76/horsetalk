@@ -1,4 +1,6 @@
 import re
+from typing import Optional
+
 from measurement.measures import Weight  # type: ignore
 
 
@@ -10,7 +12,7 @@ class RaceWeight(Weight):
 
     REGEX = r"(?:(\d+)(?:st|\-))?(?:(\d+)(?:lb)*)?"
 
-    def __init__(self, weight: str = None, **kwargs):
+    def __init__(self, weight: Optional[str] = None, **kwargs):
         """
         Initialize a RaceWeight object from a string.
         """
@@ -25,7 +27,7 @@ class RaceWeight(Weight):
         """
         Returns the weight as a repr.
         """
-        return f"<RaceWeight: {str(self)}>"
+        return f"<RaceWeight: {self!s}>"
 
     def __str__(self) -> str:
         """

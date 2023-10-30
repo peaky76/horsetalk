@@ -1,4 +1,5 @@
 from peak_utility.enumeration.parsing_enum import ParsingEnum  # type: ignore
+
 from .age_restriction import AgeRestriction
 
 

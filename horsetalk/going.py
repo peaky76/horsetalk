@@ -136,7 +136,7 @@ class Going:
                 raise ValueError("Primary and secondary going description cannot match")
             return texts
 
-        return texts + [""]
+        return [*texts, ""]
 
     @classmethod
     def _lookup(cls, key: str) -> GoingDescription:
@@ -199,7 +199,7 @@ class Going:
             def strip_clause(x, y):
                 return x.replace("on", "").replace("course", "").replace(y, "").strip()
 
-            identifier = next(x for x in opposites.keys() if x in description.lower())
+            identifier = next(x for x in opposites if x in description.lower())
 
             def reconstructed_going_description(
                 identifier: str, clauses: list[str]

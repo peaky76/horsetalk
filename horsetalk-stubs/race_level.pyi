@@ -1,6 +1,7 @@
+from _typeshed import Incomplete
+
 from .race_class import RaceClass as RaceClass
 from .race_grade import RaceGrade as RaceGrade
-from _typeshed import Incomplete
 
 class RaceLevel:
     grade: Incomplete

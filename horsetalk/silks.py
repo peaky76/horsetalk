@@ -1,4 +1,5 @@
 from typing import Callable, Optional
+
 from peak_utility.enumeration.parsing_enum import ParsingEnum  # type: ignore
 
 
@@ -32,7 +33,7 @@ class Silks:
         def phrases():
             return [
                 colour.replace("_", " ").lower()
-                for colour in Silks.Colour.__members__.keys()
+                for colour in Silks.Colour.__members__
             ]
 
     class Pattern(ParsingEnum):
@@ -78,7 +79,7 @@ class Silks:
         def phrases():
             return [
                 pattern.replace("_", " ").lower()
-                for pattern in Silks.Pattern.__members__.keys()
+                for pattern in Silks.Pattern.__members__
             ]
 
         @classmethod
@@ -213,7 +214,7 @@ class Silks:
                 # pattern and element
                 # element and element
                 else:
-                    new_clause = clause[: index - 1] + clause[index + 1 :]
+                    new_clause = clause[: index - 1] + clause[index + 1:]
                     while (
                         sum(word in Silks.Pattern.phrases() for word in new_clause) > 1
                     ):
@@ -260,7 +261,7 @@ class Silks:
             if (
                 element.pattern
                 or self.body.pattern
-                not in Silks.Pattern.body_only() + [Silks.Pattern.PLAIN]
+                not in [*Silks.Pattern.body_only(), Silks.Pattern.PLAIN]
             )
             else self.body.primary
         )
@@ -341,12 +342,12 @@ class Silks:
             index = words.index(next(word for word in words if word in FIRST_WORDS))
             if words[index] == "large":
                 spots_index = words.index("spots")
-                words = words[:index] + words[index + 1 : spots_index] + ["large spots"]
+                words = words[:index] + words[index + 1: spots_index] + ["large spots"]
             else:
                 words = (
                     words[:index]
                     + [" ".join([words[index], words[index + 1]])]
-                    + words[index + 2 :]
+                    + words[index + 2:]
                 )
 
         return words

@@ -29,7 +29,7 @@ class AgeRestriction:
         Returns:
             The age restriction as a repr.
         """
-        return f"<AgeRestriction: {str(self)}>"
+        return f"<AgeRestriction: {self!s}>"
 
     def __str__(self):
         """

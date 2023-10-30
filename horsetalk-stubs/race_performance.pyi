@@ -1,8 +1,9 @@
+from _typeshed import Incomplete
+
 from .disaster import Disaster as Disaster
 from .finishing_position import FinishingPosition as FinishingPosition
 from .horselength import Horselength as Horselength
 from .outcome import Outcome as Outcome
-from _typeshed import Incomplete
 
 class RacePerformance:
     comments: Incomplete
