@@ -193,27 +193,25 @@ class Going:
                 (x := going.split(":"))[0].lower().strip(): Going(x[1])
                 for going in description.split(",")
             }
-        else:
-            clauses = description.lower().replace("(", ",").split(",")
 
-            def strip_clause(x, y):
-                return x.replace("on", "").replace("course", "").replace(y, "").strip()
+        clauses = description.lower().replace("(", ",").split(",")
 
-            identifier = next(x for x in opposites if x in description.lower())
+        def strip_clause(x, y):
+            return x.replace("on", "").replace("course", "").replace(y, "").strip()
 
-            def reconstructed_going_description(
-                identifier: str, clauses: list[str]
-            ) -> str:
-                containing_clause = next((x for x in clauses if identifier in x), "")
-                return (
-                    f"{clauses[0]}, {strip_clause(containing_clause, identifier)} in places"
-                    if "in places" in containing_clause
-                    else strip_clause(containing_clause, identifier)
-                    if containing_clause
-                    else clauses[0]
-                )
+        identifier = next(x for x in opposites if x in description.lower())
 
-            return {
-                i: Going(reconstructed_going_description(i, clauses))
-                for i in [identifier, opposites[identifier]]
-            }
+        def reconstructed_going_description(identifier: str, clauses: list[str]) -> str:
+            containing_clause = next((x for x in clauses if identifier in x), "")
+            return (
+                f"{clauses[0]}, {strip_clause(containing_clause, identifier)} in places"
+                if "in places" in containing_clause
+                else strip_clause(containing_clause, identifier)
+                if containing_clause
+                else clauses[0]
+            )
+
+        return {
+            i: Going(reconstructed_going_description(i, clauses))
+            for i in [identifier, opposites[identifier]]
+        }

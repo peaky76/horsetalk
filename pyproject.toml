@@ -52,7 +52,6 @@ ignore = [
     # Temporary overrides
     "FBT",
     "RUF",
-    "RET",
     "N",
     "PT",
     "PERF",

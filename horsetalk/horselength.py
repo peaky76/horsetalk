@@ -75,14 +75,14 @@ class Horselength(Decimal):
         """
         if self % 1 == 0:
             return super().__str__()
-        else:
-            for e in Horselength.Description:
-                if self == Decimal(str(e.value)):
-                    return e.name.lower()
 
-            whole = self // 1
-            fraction = Fraction(str(self % 1))
-            return f"{whole} {fraction}" if whole else str(fraction)
+        for e in Horselength.Description:
+            if self == Decimal(str(e.value)):
+                return e.name.lower()
+
+        whole = self // 1
+        fraction = Fraction(str(self % 1))
+        return f"{whole} {fraction}" if whole else str(fraction)
 
     def __add__(self, other: Decimal | int) -> "Horselength":
         """
