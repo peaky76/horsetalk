@@ -1,11 +1,12 @@
+from _typeshed import Incomplete
+from pendulum import DateTime as DateTime
+
 from .going import Going as Going
 from .race_designation import RaceDesignation as RaceDesignation
 from .race_distance import RaceDistance as RaceDistance
 from .race_level import RaceLevel as RaceLevel
 from .racecourse import Racecourse as Racecourse
 from .stalls_position import StallsPosition as StallsPosition
-from _typeshed import Incomplete
-from pendulum import DateTime as DateTime
 
 class RaceConditions:
     datetime: Incomplete

@@ -26,7 +26,42 @@ ruff = ">=0.0.261,<0.1.4"
 radon = "^6.0.1"
 
 [tool.ruff]
-ignore = ["E501", "E741", "F821"]
+select = [
+    "E", # pycodestyle Error
+    "F", # pyflakes
+    "C90", # mccabe
+    "I", # isort
+    "N", # pep8-naming
+    "UP", # pyupgrade
+    "FBT", # flake8-boolean-trap
+    "C4", # flake8-comprehensions
+    "PYI", # flake8-pyi
+    "PT", # flake8-pytest-style
+    "RSE", # flake8-raise
+    "RET", # flake8-return
+    "SIM", # flake8-simplify
+    "PTH", # flake8-use-pathlib
+    "PERF", # perflint
+    "FURB", # refurb
+    "RUF", # ruff specific
+
+]
+ignore = [
+    "E501",
+    "E741",
+    "F821",
+    # Temporary overrides
+    "FBT",
+    "RUF",
+    "RET",
+    "N",
+    "PT",
+    "PERF",
+    "PYI",
+    "PT011",
+    "SIM201",
+    "SIM300"
+]
 
 [build-system]
 requires = ["poetry-core"]

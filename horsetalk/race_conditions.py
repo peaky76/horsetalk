@@ -1,5 +1,7 @@
 from dataclasses import dataclass
+
 from pendulum import DateTime  # type: ignore
+
 from .going import Going
 from .race_designation import RaceDesignation
 from .race_distance import RaceDistance

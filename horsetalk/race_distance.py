@@ -1,5 +1,7 @@
 import re
 from decimal import Decimal
+from typing import Optional
+
 from measurement.measures import Distance  # type: ignore
 
 
@@ -11,7 +13,7 @@ class RaceDistance(Distance):
 
     REGEX = r"(?:(\d+)(?:m)\s*)?(?:(\d+)(?:f)\s*)?(?:(\d+)(?:y)\s*)?"
 
-    def __init__(self, distance: str = None, **kwargs) -> None:
+    def __init__(self, distance: Optional[str] = None, **kwargs) -> None:
         """
         Initialize a RaceDistance object from a string.
 
@@ -39,7 +41,7 @@ class RaceDistance(Distance):
         """
         Returns the distance as a repr.
         """
-        return f"<RaceDistance: {str(self)}>"
+        return f"<RaceDistance: {self!s}>"
 
     def __str__(self) -> str:
         """

@@ -1,9 +1,10 @@
 from enum import Enum
 from itertools import pairwise
 from typing import List, Type
+
 from .age_category import AgeCategory
-from .horse_experience_level import HorseExperienceLevel
 from .gender import Gender
+from .horse_experience_level import HorseExperienceLevel
 from .jump_category import JumpCategory
 from .race_designation import RaceDesignation
 

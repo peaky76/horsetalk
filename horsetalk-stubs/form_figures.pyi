@@ -1,10 +1,14 @@
+
 from horsetalk import (
     Disaster as Disaster,
+)
+from horsetalk import (
     FinishingPosition as FinishingPosition,
+)
+from horsetalk import (
     FormBreak as FormBreak,
 )
-from typing import List
 
 class FormFigures:
     @staticmethod
-    def parse(form_figures: str) -> List[FinishingPosition | FormBreak | Disaster]: ...
+    def parse(form_figures: str) -> list[FinishingPosition | FormBreak | Disaster]: ...

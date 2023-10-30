@@ -1,5 +1,7 @@
-from pendulum import DateTime as DateTime, Interval as Interval
 from typing import Self
+
+from pendulum import DateTime as DateTime
+from pendulum import Interval as Interval
 
 class HorseAge:
     def __init__(

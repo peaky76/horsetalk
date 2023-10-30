@@ -1,6 +1,6 @@
+
 from _typeshed import Incomplete
 from peak_utility.enumeration.parsing_enum import ParsingEnum
-from typing import Optional
 
 class Silks:
     description: str
@@ -76,8 +76,8 @@ class Silks:
         def __init__(
             self,
             primary: Silks.Colour,
-            secondary: Optional["Silks.Colour"] = ...,
-            pattern: Optional["Silks.Pattern"] = ...,
+            secondary: Silks.Colour | None = ...,
+            pattern: Silks.Pattern | None = ...,
         ) -> None: ...
         def __eq__(self, other): ...
 
