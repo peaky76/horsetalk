@@ -121,7 +121,7 @@ def test_race_grade_eq_when_both_same_group():
 
 
 def test_race_grade_eq_when_both_different_group():
-    assert not RaceGrade("1") == RaceGrade("2")
+    assert RaceGrade("1") != RaceGrade("2")
 
 
 def test_race_grade_eq_when_both_listed():
@@ -129,11 +129,11 @@ def test_race_grade_eq_when_both_listed():
 
 
 def test_race_grade_eq_when_self_listed_other_group():
-    assert not RaceGrade("Listed") == RaceGrade("1")
+    assert RaceGrade("Listed") != RaceGrade("1")
 
 
 def test_race_grade_eq_when_self_group_other_listed():
-    assert not RaceGrade("1") == RaceGrade("Listed")
+    assert RaceGrade("1") != RaceGrade("Listed")
 
 
 def test_race_grade_eq_when_both_none():
@@ -141,11 +141,11 @@ def test_race_grade_eq_when_both_none():
 
 
 def test_race_grade_eq_when_self_none_other_listed():
-    assert not RaceGrade(None) == RaceGrade("Listed")
+    assert RaceGrade(None) != RaceGrade("Listed")
 
 
 def test_race_grade_eq_when_self_none_other_group():
-    assert not RaceGrade(None) == RaceGrade("1")
+    assert RaceGrade(None) != RaceGrade("1")
 
 
 def test_race_grade_eq_with_int():
@@ -153,11 +153,11 @@ def test_race_grade_eq_with_int():
 
 
 def test_race_grade_eq_with_int_when_listed():
-    assert not RaceGrade("Listed") == 1
+    assert RaceGrade("Listed") != 1
 
 
 def test_race_grade_eq_with_other_object():
-    assert not RaceGrade(1) == RaceClass(1)
+    assert RaceGrade(1) != RaceClass(1)
 
 
 def test_race_grade_lt_when_both_same_group():

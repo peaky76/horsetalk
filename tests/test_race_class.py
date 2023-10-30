@@ -37,7 +37,7 @@ def test_race_class_eq_with_int():
 
 
 def test_race_class_eq_with_other_object():
-    assert not RaceClass(2) == RaceGrade(2)
+    assert RaceClass(2) != RaceGrade(2)
 
 
 def test_race_class_gt():

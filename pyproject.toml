@@ -55,7 +55,6 @@ ignore = [
     "FBT",
     "RUF",
     "PYI",
-    "SIM201",
 ]
 
 [build-system]
