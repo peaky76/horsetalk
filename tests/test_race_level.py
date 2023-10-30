@@ -77,7 +77,7 @@ def test_race_level_eq_when_same_class_below_one():
 
 
 def test_race_level_not_eq_when_different_grade_or_class():
-    assert not RaceLevel(RaceGrade("1")) == RaceLevel(RaceClass("2"))
+    assert RaceLevel(RaceGrade("1")) != RaceLevel(RaceClass("2"))
 
 
 def test_race_level_gt_when_different_grade_or_class():
