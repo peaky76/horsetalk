@@ -58,11 +58,11 @@ def test_outcome_eq_between_disasters():
 
 
 def test_outcome_eq_between_disaster_and_finishing_position():
-    assert not Outcome(Disaster.FELL) == Outcome(FinishingPosition(0))
+    assert Outcome(Disaster.FELL) != Outcome(FinishingPosition(0))
 
 
 def test_outcome_eq_between_disaster_and_int():
-    assert not Outcome(Disaster.FELL) == 4
+    assert Outcome(Disaster.FELL) != 4
 
 
 def test_outcome_eq_between_finishing_position_and_int():
