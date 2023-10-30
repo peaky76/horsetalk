@@ -325,7 +325,7 @@ class Silks:
 
     @staticmethod
     def _conjoin_words(words: list[str]) -> list[str]:
-        FIRST_WORDS = [
+        first_words = [
             "dark",
             "light",
             "royal",
@@ -337,8 +337,8 @@ class Silks:
             "triple",
         ]
 
-        while any(word in words for word in FIRST_WORDS):
-            index = words.index(next(word for word in words if word in FIRST_WORDS))
+        while any(word in words for word in first_words):
+            index = words.index(next(word for word in words if word in first_words))
             if words[index] == "large":
                 spots_index = words.index("spots")
                 words = words[:index] + words[index + 1: spots_index] + ["large spots"]
