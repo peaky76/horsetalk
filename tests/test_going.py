@@ -1,4 +1,4 @@
-from pytest import raises  # type: ignore
+import pytest
 
 from horsetalk import AWGoingDescription, Going, Surface, TurfGoingDescription
 
@@ -24,17 +24,17 @@ def test_going_init_sets_reading_when_given():
 
 
 def test_going_init_throws_error_when_description_is_invalid():
-    with raises(ValueError):
+    with pytest.raises(ValueError):
         Going("Moist to tricky")
 
 
 def test_going_init_throws_error_when_description_is_part_valid():
-    with raises(ValueError):
+    with pytest.raises(ValueError):
         Going("Good, Moist to tricky in places")
 
 
 def test_going_init_throws_error_when_primary_matches_secondary():
-    with raises(ValueError):
+    with pytest.raises(ValueError):
         Going("Good, Good in places")
 
 

@@ -1,5 +1,5 @@
 import pendulum
-from pytest import raises
+import pytest
 
 from horsetalk import Horse
 
@@ -108,10 +108,10 @@ def test_horse_created_from_string_with_name_country_and_year_will_deduce_correc
 
 
 def test_horse_created_from_string_with_country_will_raise_error_if_conflict_with_provided_country():
-    with raises(ValueError):
+    with pytest.raises(ValueError):
         Horse("Dobbin (GB)", "US")
 
 
 def test_horse_created_from_string_with_age_will_raise_error_if_conflict_with_provided_age():
-    with raises(ValueError):
+    with pytest.raises(ValueError):
         Horse("Dobbin (GB) 7", "GB", 3)
