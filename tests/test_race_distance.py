@@ -1,6 +1,6 @@
 import re
 
-from pytest import approx, raises
+import pytest
 
 from horsetalk import RaceDistance
 
@@ -30,23 +30,23 @@ def test_race_distance_regex_with_metres_string():
 
 
 def test_race_distance_can_be_initialised_with_furlong_string():
-    assert RaceDistance("5f").yd == approx(1100)
+    assert RaceDistance("5f").yd == pytest.approx(1100)
 
 
 def test_race_distance_can_be_initialised_with_mile_string():
-    assert RaceDistance("1m").yd == approx(1760)
+    assert RaceDistance("1m").yd == pytest.approx(1760)
 
 
 def test_race_distance_can_be_initialised_with_mile_and_furlong_string():
-    assert RaceDistance("1m5f").yd == approx(2860)
+    assert RaceDistance("1m5f").yd == pytest.approx(2860)
 
 
 def test_race_distance_can_be_initialised_with_mile_furlong_and_yard_string():
-    assert RaceDistance("1m5f110y").yd == approx(2970)
+    assert RaceDistance("1m5f110y").yd == pytest.approx(2970)
 
 
 def test_race_distance_can_be_initialised_with_mile_furlong_and_yard_spaced_string():
-    assert RaceDistance("1m 5f 110y").yd == approx(2970)
+    assert RaceDistance("1m 5f 110y").yd == pytest.approx(2970)
 
 
 def test_race_distance_can_be_initialised_with_metres_string():
@@ -62,7 +62,7 @@ def test_race_distance_can_be_initialised_with_standard_input():
 
 
 def test_race_distance_init_errors_if_invalid_string():
-    with raises(AttributeError):
+    with pytest.raises(AttributeError):
         RaceDistance("1m 5f Ny")
 
 

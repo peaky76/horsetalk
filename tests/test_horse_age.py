@@ -5,7 +5,7 @@ from horsetalk import HorseAge
 
 
 @pytest.fixture(autouse=True)
-def now(mocker):
+def _now(mocker):
     mocker.patch("pendulum.now", return_value=pendulum.datetime(2023, 6, 1))
 
 
