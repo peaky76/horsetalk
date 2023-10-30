@@ -66,7 +66,9 @@ class RaceGrade(RepresentationalInt):
         if super().__eq__(4):
             return "Listed"
 
-        return f"{RaceGrade.PHRASES.get(self.racing_code, 'group').title()} {int(self)!s}"
+        return (
+            f"{RaceGrade.PHRASES.get(self.racing_code, 'group').title()} {int(self)!s}"
+        )
 
     def __bool__(self):
         return self != 5

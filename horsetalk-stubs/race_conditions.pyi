@@ -25,5 +25,5 @@ class RaceConditions:
         going: Going,
         race_designation: RaceDesignation,
         race_level: RaceLevel,
-        stalls_position: StallsPosition | None = ...
+        stalls_position: StallsPosition | None = ...,
     ) -> None: ...

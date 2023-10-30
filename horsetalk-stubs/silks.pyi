@@ -1,4 +1,3 @@
-
 from _typeshed import Incomplete
 from peak_utility.enumeration.parsing_enum import ParsingEnum
 
