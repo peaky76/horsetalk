@@ -1,4 +1,5 @@
 import pytest  # type: ignore
+
 from horsetalk import RaceClass, RaceGrade
 
 

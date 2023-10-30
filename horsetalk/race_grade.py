@@ -1,5 +1,7 @@
 import re
+
 from peak_utility.number import RepresentationalInt  # type: ignore
+
 from .racing_code import RacingCode
 
 
@@ -64,7 +66,7 @@ class RaceGrade(RepresentationalInt):
         if super().__eq__(4):
             return "Listed"
 
-        return f"{RaceGrade.PHRASES.get(self.racing_code, 'group').title()} {str(int(self))}"
+        return f"{RaceGrade.PHRASES.get(self.racing_code, 'group').title()} {int(self)!s}"
 
     def __bool__(self):
         return self != 5

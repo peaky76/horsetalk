@@ -1,6 +1,7 @@
-from .racing_code import RacingCode as RacingCode
 from _typeshed import Incomplete
 from peak_utility.number import RepresentationalInt
+
+from .racing_code import RacingCode as RacingCode
 
 class RaceGrade(RepresentationalInt):
     REGEX: str

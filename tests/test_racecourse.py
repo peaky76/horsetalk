@@ -1,4 +1,5 @@
 import pytest
+
 from horsetalk import (
     Handedness,
     Racecourse,

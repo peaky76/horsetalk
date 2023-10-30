@@ -1,9 +1,10 @@
 import pendulum
+
 from horsetalk import (
     Going,
-    Racecourse,
     RaceClass,
     RaceConditions,
+    Racecourse,
     RaceDesignation,
     RaceDistance,
     RaceLevel,

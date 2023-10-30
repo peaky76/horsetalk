@@ -1,5 +1,7 @@
 import re
+
 from pytest import approx, raises
+
 from horsetalk import RaceDistance
 
 

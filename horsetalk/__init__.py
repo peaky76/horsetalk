@@ -15,9 +15,9 @@ from .handedness import Handedness
 from .headgear import Headgear
 from .horse import Horse
 from .horse_age import HorseAge
+from .horse_experience_level import HorseExperienceLevel
 from .horse_height import HorseHeight
 from .horselength import Horselength
-from .horse_experience_level import HorseExperienceLevel
 from .jockey_experience_level import JockeyExperienceLevel
 from .jump_category import JumpCategory
 from .obstacle_style import ObstacleStyle

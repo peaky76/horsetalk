@@ -1,4 +1,5 @@
 import re
+
 from peak_utility.number import Ordinal  # type: ignore
 
 
@@ -22,7 +23,7 @@ class FinishingPosition(Ordinal):
         return int(self) >= 0
 
     def __repr__(self):
-        return f"<FinishingPosition: {str(self)}>"
+        return f"<FinishingPosition: {self!s}>"
 
     def __str__(self):
         if int(self) == 0:

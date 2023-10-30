@@ -1,4 +1,5 @@
 from typing import Self
+
 from .disaster import Disaster
 from .finishing_position import FinishingPosition
 

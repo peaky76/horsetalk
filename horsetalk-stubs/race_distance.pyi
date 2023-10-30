@@ -1,4 +1,5 @@
 from decimal import Decimal
+
 from measurement.measures import Distance
 
 class RaceDistance(Distance):

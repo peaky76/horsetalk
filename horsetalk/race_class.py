@@ -26,10 +26,10 @@ class RaceClass(RepresentationalInt):
         return super().__new__(cls, int(class_value))
 
     def __repr__(self) -> str:
-        return f"<RaceClass: {str(int(self))}>"
+        return f"<RaceClass: {int(self)!s}>"
 
     def __str__(self) -> str:
-        return f"Class {str(int(self))}"
+        return f"Class {int(self)!s}"
 
     def __eq__(self, other):
         if isinstance(other, RaceClass) or (isinstance(other, int) and other < 4):

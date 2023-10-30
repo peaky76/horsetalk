@@ -1,4 +1,5 @@
 from typing import Self
+
 import pendulum
 from pendulum import DateTime, Interval
 

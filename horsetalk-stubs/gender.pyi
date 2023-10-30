@@ -1,5 +1,6 @@
-from .sex import Sex as Sex
 from peak_utility.enumeration.parsing_enum import ParsingEnum
+
+from .sex import Sex as Sex
 
 class Gender(ParsingEnum):
     FOAL: int
