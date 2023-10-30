@@ -32,7 +32,9 @@ class RaceClass(RepresentationalInt):
         return f"Class {int(self)!s}"
 
     def __eq__(self, other):
-        if isinstance(other, RaceClass) or (isinstance(other, int) and other < 4):
+        if isinstance(other, RaceClass) or (
+            isinstance(other, int) and not isinstance(other, RepresentationalInt)
+        ):
             return super().__eq__(other)
 
         return False
