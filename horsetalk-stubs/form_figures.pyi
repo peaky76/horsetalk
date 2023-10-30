@@ -1,4 +1,3 @@
-
 from horsetalk import (
     Disaster as Disaster,
 )
