@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 
-from pendulum import DateTime  # type: ignore
+from pendulum import DateTime
 
 from .going import Going
 from .race_designation import RaceDesignation
