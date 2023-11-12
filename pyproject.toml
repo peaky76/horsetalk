@@ -7,7 +7,7 @@ license = "GPL-3.0-only"
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.9.0"
+python = "^3.11.0"
 measurement = "^3.2.2"
 peak-utility = "~0"
 pendulum = { git = "https://github.com/sdispater/pendulum.git", rev = "3.0.0b1" }
