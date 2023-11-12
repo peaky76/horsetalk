@@ -13,6 +13,7 @@ jobs:
     runs-on: ubuntu-latest
 
     strategy:
+      fail-fast: false
       matrix:
         python-version: ["3.9", "3.10", "3.11"]
 
@@ -24,6 +25,9 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: ${{ matrix.python-version }}
+
+      - name: Install maturin # Temporary workaround because otherwise installation of sphinx fails
+        run: pip install maturin
 
       - name: Install poetry
         run: pip install poetry
