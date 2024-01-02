@@ -18,9 +18,12 @@ class Horse:
     )
 
     def __init__(
-        self, name, country=None, age_or_yob=None, context_date=pendulum.now()
+        self, name, country=None, age_or_yob=None, context_date=None
     ):
         match = re.match(Horse.REGEX, name)
+
+        if not context_date:
+            context_date = pendulum.now()
 
         self.name = match.group("name")
         self.country = match.group("country") or country

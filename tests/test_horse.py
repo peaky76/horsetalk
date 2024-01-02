@@ -98,7 +98,8 @@ def test_horse_created_from_string_with_name_country_and_year_will_deduce_correc
     mocker,
 ):
     mocker.patch("pendulum.now", return_value=pendulum.datetime(2023, 1, 1))
-    assert Horse("Dobbin (GB) 2017").age.official.years == 6
+    horse = Horse("Dobbin (GB) 2017")
+    assert horse.age.official.years == 6
 
 
 def test_horse_created_from_string_with_country_will_raise_error_if_conflict_with_provided_country():
