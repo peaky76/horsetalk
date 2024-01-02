@@ -1,5 +1,43 @@
 # Changelog
 
+## 0.21.1 (2024-01-02)
+
+#### Fixes
+
+- `RaceGrade.__ne__` implementation
+- `RaceClass.__ne__` implementation
+- `RaceClass.__eq__` should compare >4 and not compare `RaceGrade` as int
+- replace default context_date with conditional in `Horse` to facilitate mocking of `pendulum.now`
+
+#### Refactorings
+
+- apply fixes for `SIM201`
+- flip yoda comparison in most tests
+- apply fixes for `PT004` and `PT013`
+- apply fixes for `N806`
+- apply fixes for `RET505`
+- swap lambda for def
+- `ruff` formatting
+
+#### Docs
+
+- github last commit badge
+- remove black badge
+
+#### Tests
+
+- add additional `HorseAge` tests
+- remove unneeded mocks in `Horse` tests
+
+#### Build
+
+- add preview to `ruff` lint run
+- add `maturin` to ci
+- allow more python versions and matrix test them
+- lock python version
+- remove type ignores from `pytest` and `pendulum`
+- remove `black`
+
 ## 0.21.0 (2023-10-11)
 
 #### New Features
