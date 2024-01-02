@@ -86,17 +86,11 @@ def test_horse_created_from_string_with_name_country_and_age_with_context_date_w
     )
 
 
-def test_horse_created_from_string_with_name_country_and_year_will_deduce_correct_name(
-    mocker,
-):
-    mocker.patch("pendulum.now", return_value=pendulum.datetime(2023, 1, 1))
+def test_horse_created_from_string_with_name_country_and_year_will_deduce_correct_name():
     assert Horse("Dobbin (GB) 2017").name == "Dobbin"
 
 
-def test_horse_created_from_string_with_name_country_and_year_will_deduce_correct_country(
-    mocker,
-):
-    mocker.patch("pendulum.now", return_value=pendulum.datetime(2023, 1, 1))
+def test_horse_created_from_string_with_name_country_and_year_will_deduce_correct_country():
     assert Horse("Dobbin (GB) 2017").country == "GB"
 
 
