@@ -53,6 +53,14 @@ def test_horse_age_init_with_foaling_date_sets_actual_dob():
     assert pendulum.datetime(2021, 3, 3) == horse_age._actual_dob
 
 
+def test_horse_age_init_with_birth_year_sets_official_years():
+    assert HorseAge(birth_year=2017).official.years == 6
+
+
+def test_horse_age_init_with_birth_year_and_context_date_sets_official_years():
+    assert HorseAge(birth_year=2017, context_date=pendulum.datetime(2024, 1, 1)).official.years == 7
+
+
 def test_horse_age_init_with_year_sets_official_dob():
     assert pendulum.datetime(2019, 1, 1) == HorseAge(birth_year=2019)._official_dob
 
