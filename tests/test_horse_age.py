@@ -58,7 +58,12 @@ def test_horse_age_init_with_birth_year_sets_official_years():
 
 
 def test_horse_age_init_with_birth_year_and_context_date_sets_official_years():
-    assert HorseAge(birth_year=2017, context_date=pendulum.datetime(2024, 1, 1)).official.years == 7
+    assert (
+        HorseAge(
+            birth_year=2017, context_date=pendulum.datetime(2024, 1, 1)
+        ).official.years
+        == 7
+    )
 
 
 def test_horse_age_init_with_year_sets_official_dob():
@@ -79,12 +84,15 @@ def test_horse_age_repr_when_dob_not_known():
 
 
 def test_horse_age_repr_when_dob_known():
-    assert repr(
-        HorseAge(
-            foaling_date=pendulum.datetime(2019, 3, 3),
-            context_date=pendulum.datetime(2021, 6, 1),
+    assert (
+        repr(
+            HorseAge(
+                foaling_date=pendulum.datetime(2019, 3, 3),
+                context_date=pendulum.datetime(2021, 6, 1),
+            )
         )
-    ) == "<HorseAge: 2 (3/3/2019)>"
+        == "<HorseAge: 2 (3/3/2019)>"
+    )
 
 
 def test_horse_age_str():
