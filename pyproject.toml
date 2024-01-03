@@ -53,7 +53,6 @@ ignore = [
     "PT011",
     # Temporary overrides
     "RUF",
-    "PYI",
 ]
 
 [build-system]
