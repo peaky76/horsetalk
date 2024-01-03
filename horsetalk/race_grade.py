@@ -1,4 +1,5 @@
 import re
+from types import MappingProxyType
 
 from peak_utility.number import RepresentationalInt  # type: ignore
 
@@ -12,10 +13,10 @@ class RaceGrade(RepresentationalInt):
     """
 
     REGEX = r"G(?:roup|rade|)\s*"
-    PHRASES = {
+    PHRASES = MappingProxyType({
         RacingCode.FLAT: "group",
         RacingCode.NATIONAL_HUNT: "grade",
-    }
+    })
 
     def __new__(cls, grade: str | int | None, racing_code: RacingCode | None = None):
         """

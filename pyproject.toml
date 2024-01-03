@@ -45,15 +45,7 @@ select = [
     "RUF", # ruff specific
 
 ]
-ignore = [
-    "E501",
-    "E741",
-    "F821",
-    "PERF203",
-    "PT011",
-    # Temporary overrides
-    "RUF",
-]
+ignore = ["E501", "E741", "F821", "PERF203", "PT011"]
 
 [build-system]
 requires = ["poetry-core"]
