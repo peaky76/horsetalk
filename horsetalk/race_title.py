@@ -62,7 +62,7 @@ class RaceTitle:
         }
 
     def _lookup(
-        self, enum: Type[Enum], allow_multiple: bool = False
+        self, enum: Type[Enum], *, allow_multiple: bool = False
     ) -> List[Enum] | Enum | None:
         """Private method to lookup an enum value from a list of words.
 

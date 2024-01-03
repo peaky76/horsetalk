@@ -52,7 +52,6 @@ ignore = [
     "PERF203",
     "PT011",
     # Temporary overrides
-    "FBT",
     "RUF",
     "PYI",
 ]
