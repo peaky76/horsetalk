@@ -38,11 +38,11 @@ class Horselength(Decimal):
         DIST = DISTANCE
         DST = DISTANCE
 
-    def __new__(cls, value: Optional[int | float | Decimal | str] = None) -> Self:
+    def __new__(cls, value: Optional[float | Decimal | str] = None) -> Self:
         """Create a new horselength instance
 
         :param value: Either a description or a number, representing the horselength, defaults to None
-        :type value: Optional[int  |  float  |  Decimal  |  str], optional
+        :type value: Optional[float | Decimal |  str], optional
         :raises ValueError: For invalid inputs
         :return: A new horselength instance
         :rtype: Self
