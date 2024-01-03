@@ -32,7 +32,7 @@ def test_race_grade_init_possible_with_none():
 
 
 def test_race_grade_init_possible_with_false():
-    assert isinstance(RaceGrade(False), RaceGrade)
+    assert isinstance(RaceGrade(False), RaceGrade)  # noqa: FBT003
 
 
 def test_race_grade_init_possible_with_zero():
