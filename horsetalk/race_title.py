@@ -13,17 +13,12 @@ class RaceTitle:
     """
     A class for parsing a race title into its component parts.
 
-    Attributes:
-        _words (List[str]): A list of words in the race title.
-
     Methods:
         parse(title: str) -> dict: Parses a race title into component parts and returns a dictionary.
         _lookup(enum: Type[Enum], allow_multiple: bool = False) -> List[Enum] | Enum | None:
             Private method to lookup an Enum value from a list of words.
 
     """
-
-    _words: List[str] = []
 
     @classmethod
     def parse(cls, title: str) -> dict:
@@ -35,8 +30,7 @@ class RaceTitle:
         Returns:
             dict: A dictionary of component parts.
         """
-        self = cls()
-        self._words = title.split()
+        words = title.split()
 
         enums = [
             AgeCategory,
@@ -46,23 +40,24 @@ class RaceTitle:
             RaceDesignation,
         ]
         end_index = -1
-        for i, word in enumerate(self._words):
+        for i, word in enumerate(words):
             if any(getattr(enum, word, None) is not None for enum in enums):
                 end_index = i
                 break
-        name = " ".join(self._words[:end_index])
+        name = " ".join(words[:end_index])
 
         return {
-            "age_category": self._lookup(AgeCategory),
-            "horse_experience_level": self._lookup(HorseExperienceLevel),
-            "gender": self._lookup(Gender, allow_multiple=True),
-            "jump_category": self._lookup(JumpCategory),
-            "race_designation": self._lookup(RaceDesignation),
+            "age_category": cls._lookup(AgeCategory, words),
+            "horse_experience_level": cls._lookup(HorseExperienceLevel, words),
+            "gender": cls._lookup(Gender, words, allow_multiple=True),
+            "jump_category": cls._lookup(JumpCategory, words),
+            "race_designation": cls._lookup(RaceDesignation, words),
             "name": name,
         }
 
+    @classmethod
     def _lookup(
-        self, enum: Type[Enum], *, allow_multiple: bool = False
+        cls, enum: Type[Enum], words: List[str], *, allow_multiple: bool = False
     ) -> List[Enum] | Enum | None:
         """Private method to lookup an enum value from a list of words.
 
@@ -74,7 +69,7 @@ class RaceTitle:
             Union[List[Enum], Enum, None]: The found Enum value or None.
 
         """
-        checklist = self._words + ["_".join(pair) for pair in pairwise(self._words)]
+        checklist = words + ["_".join(pair) for pair in pairwise(words)]
         found_values = [
             found_value
             for word in checklist
