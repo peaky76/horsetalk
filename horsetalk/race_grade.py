@@ -13,10 +13,12 @@ class RaceGrade(RepresentationalInt):
     """
 
     REGEX = r"G(?:roup|rade|)\s*"
-    PHRASES = MappingProxyType({
-        RacingCode.FLAT: "group",
-        RacingCode.NATIONAL_HUNT: "grade",
-    })
+    PHRASES = MappingProxyType(
+        {
+            RacingCode.FLAT: "group",
+            RacingCode.NATIONAL_HUNT: "grade",
+        }
+    )
 
     def __new__(cls, grade: str | int | None, racing_code: RacingCode | None = None):
         """
