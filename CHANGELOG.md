@@ -1,5 +1,20 @@
 # Changelog
 
+## 0.21.2 (2024-01-11)
+
+#### Refactorings
+
+- apply fix for RUF012 in race_title
+- apply fix for RUF012 in race_grade
+- apply fix for PYI041
+- apply fixes for FBT
+- `ruff` formatting
+
+#### Build
+
+- add `dobby`
+- add `version-forget-me-not workflow`
+
 ## 0.21.1 (2024-01-02)
 
 #### Fixes
