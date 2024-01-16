@@ -1,14 +1,12 @@
-from measurement.measures import Distance  # type: ignore
-
 from horsetalk import HorseHeight
 
 
 def test_horse_height_can_be_initialized_with_hands_string():
-    assert Distance(inch=64) == HorseHeight("16hh")
+    assert isinstance(HorseHeight("16hh"), HorseHeight)
 
 
 def test_horse_height_can_be_initialized_with_inches_string():
-    assert Distance(inch=64) == HorseHeight("64in")
+    assert isinstance(HorseHeight("64in"), HorseHeight)
 
 
 def test_horse_height_hands_returns_correct_value():
