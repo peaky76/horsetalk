@@ -14,8 +14,8 @@ def test_horse_height_hands_returns_correct_value():
 
 
 def test_horse_height_repr_returns_correct_value():
-    assert repr(HorseHeight("64in")) == "<HorseHeight: 16hh>"
+    assert repr(HorseHeight("64in")) == "<HorseHeight: 16.0hh>"
 
 
 def test_horse_height_str_returns_correct_value():
-    assert str(HorseHeight("64in")) == "16hh"
+    assert str(HorseHeight("64in")) == "16.0hh"
