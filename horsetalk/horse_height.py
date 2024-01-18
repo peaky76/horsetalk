@@ -20,11 +20,11 @@ class HorseHeight(Q_):
         Returns:
             A HorseHeight object.
         """
-        
+
         instance = Q_.__new__(Q_, *args, **kwargs)
         instance.__class__ = cls
         return instance
-        
+
     def __repr__(self) -> str:
         """
         Returns:

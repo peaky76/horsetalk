@@ -6,7 +6,7 @@ from horsetalk._pint import Q_
 
 class RaceWeight(Q_):
     """
-    A class for representing the weight carried by a horse in a race. 
+    A class for representing the weight carried by a horse in a race.
 
     """
 
@@ -48,10 +48,13 @@ class RaceWeight(Q_):
         return f"{st}st {lb}lb"
 
     @property
-    def kg(self) -> Decimal: return self.to("kg").magnitude
+    def kg(self) -> Decimal:
+        return self.to("kg").magnitude
 
     @property
-    def lb(self) -> Decimal: return self.to("lb").magnitude
+    def lb(self) -> Decimal:
+        return self.to("lb").magnitude
 
     @property
-    def st(self) -> Decimal: return self.to("st").magnitude
+    def st(self) -> Decimal:
+        return self.to("st").magnitude
