@@ -1,3 +1,5 @@
+import pytest
+
 from horsetalk.quantity import HorsetalkQuantity
 
 
@@ -20,6 +22,11 @@ def test_horsetalk_quantity_representation():
     q = HorsetalkQuantity("3km")
     assert repr(q) == "<HorsetalkQuantity: 3 kilometres>"
 
-def test_horsetalk_quantity_attribute_access():
+def test_horsetalk_quantity_attribute_accesswith_legitimate_unit():
     q = HorsetalkQuantity("5kg")
     assert q.kg == 5
+
+def test_horsetalk_quantity_attribute_access_with_illegitimate_unit():
+    q = HorsetalkQuantity("5kg")
+    with pytest.raises(AttributeError):
+        q.smidgen
