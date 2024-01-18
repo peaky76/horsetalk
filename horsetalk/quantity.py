@@ -10,7 +10,7 @@ Q_ = ureg.Quantity
 
 class HorsetalkQuantity(Q_):
 
-    REGEX = r"\d+\D+"
+    REGEX = r"(\d+\D+)"
 
     def __new__(cls, *args, **kwargs):
         """
@@ -24,9 +24,12 @@ class HorsetalkQuantity(Q_):
             A HorsetalkQuantity object.
         """
         if args and isinstance(args[0], str):
-            if not re.fullmatch(cls.REGEX, args[0].replace(",", "")):
+            arg = args[0].replace(",", "")
+            if not re.fullmatch(cls.REGEX, arg):
                 raise AttributeError(f"Invalid {cls.__name__.lower()} string: {args[0]}")
-            args = cls._string_arg_handler(args[0])
+            
+            parts = re.match(cls.REGEX, arg).groups()
+            args = cls._string_arg_handler(parts)
 
         if not args:
             args = next(iter(kwargs.items()), None)[::-1]
@@ -46,5 +49,5 @@ class HorsetalkQuantity(Q_):
         return self.to(attr).magnitude
 
     @classmethod
-    def _string_arg_handler(cls, arg):
-        return [arg]
+    def _string_arg_handler(cls, parts):
+        return parts
