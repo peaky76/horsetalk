@@ -38,7 +38,7 @@ class RaceConditions:
         return (
             f"<RaceConditions: datetime={self.datetime}, "
             f"racecourse={self.racecourse!r}, "
-            f"distance={self.distance}, "
+            f"distance={self.distance!s}, "
             f"going={self.going}, "
             f"race_designation={self.race_designation.name.title()}, "
             f"race_level={self.race_level.grade or self.race_level.class_}, "
@@ -49,7 +49,7 @@ class RaceConditions:
         return (
             f"{self.datetime.format('D MMM YYYY, HH:mm')}, "
             f"{self.racecourse.name}, "
-            f"{self.distance.furlong}f ({self.going}), "
+            f"{self.distance!s} ({self.going}), "
             f"{self.race_designation.name.title()} "
             f"{self.race_level}"
             f"{', Stalls: ' + str(self.stalls_position.name.title()) if self.stalls_position else ''}"
