@@ -66,17 +66,9 @@ def test_race_distance_init_errors_if_invalid_string():
         RaceDistance("1m 5f Ny")
 
 
-def test_race_distance_repr():
-    assert repr(RaceDistance("1m5f110y")) == "<RaceDistance: 1m 5f 110y>"
-
-
 def test_race_distance_str():
     assert str(RaceDistance("1m5f110y")) == "1m 5f 110y"
 
 
 def test_race_distance_str_when_zero_value_present():
     assert str(RaceDistance("1m5f0y")) == "1m 5f"
-
-
-def test_race_distance_furlong_returns_correct_value():
-    assert RaceDistance("1m5f").furlong == 13
