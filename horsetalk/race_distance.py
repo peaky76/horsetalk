@@ -1,41 +1,51 @@
 import re
 from decimal import Decimal
-from typing import Optional
 
-from measurement.measures import Distance  # type: ignore
+from horsetalk._pint import Q_
 
 
-class RaceDistance(Distance):
+class RaceDistance(Q_):
     """
-    A thin wrapper around the measurement library Distance class to allow for the creation of Distance objects
-    from strings and to provide a way to initialize with furlongs.
+    A convenience class for representing the distance over which a race is run. 
+
     """
 
     REGEX = r"(?:(\d+)(?:m)\s*)?(?:(\d+)(?:f)\s*)?(?:(\d+)(?:y)\s*)?"
 
-    def __init__(self, distance: Optional[str] = None, **kwargs) -> None:
+    def __new__(cls, *args, **kwargs):
         """
-        Initialize a RaceDistance object from a string.
+        Initializes a RaceDistance object.
 
+        Args:
+            *args: Variable length argument list.
+            **kwargs: Arbitrary keyword arguments.
+
+        Returns:
+            A RaceDistance object.
         """
-        if distance:
-            if not re.fullmatch(r"(?:\d+[m|f|y]\s*)*", distance.replace(",", "")):
-                raise AttributeError(f"Invalid distance string: {distance}")
+        if args and isinstance(args[0], str):
+            if not re.fullmatch(r"(?:\d+[m|f|y]\s*)*", args[0].replace(",", "")):
+                raise AttributeError(f"Invalid distance string: {args[0]}")
 
-            miles_or_metres, furlongs, yards = re.match(
-                RaceDistance.REGEX, distance.replace(",", "")
-            ).groups()
+            m, f, y = re.match(RaceDistance.REGEX, args[0].replace(",", "")).groups()
 
-            if int(miles_or_metres or 0) > 10:
-                kwargs["m"] = int(miles_or_metres or 0)
+            if int(m or 0) > 10:
+                args = (int(m or 0), "metre")
             else:
-                kwargs["yd"] = (
-                    int(miles_or_metres or 0) * 1760
-                    + int(furlongs or 0) * 220
-                    + int(yards or 0)
+                yards = (
+                    int(m or 0) * 1760
+                    + int(f or 0) * 220
+                    + int(y or 0)
                 )
+                print(yards)
+                print(yards.__class__)
+                args = (yards, "yard")
+        elif not args:
+            args = next(iter(kwargs.items()), None)[::-1]
 
-        super().__init__(self, **kwargs)
+        instance = Q_.__new__(Q_, *args)
+        instance.__class__ = cls
+        return instance
 
     def __repr__(self) -> str:
         """
@@ -49,18 +59,30 @@ class RaceDistance(Distance):
         """
         mile = self.furlong // 8
         furlong = (self.furlong % 8) // 1
-        yard = int((self.furlong % 1) * 220)
+        yard = (self.furlong % 1) * 220
         return " ".join(
             [
-                f"{mile}m" if mile else "",
-                f"{furlong}f" if furlong else "",
-                f"{yard}y" if yard else "",
+                f"{int(mile)}m" if mile else "",
+                f"{int(furlong)}f" if furlong else "",
+                f"{int(yard)}y" if yard else "",
             ]
         ).strip()
 
     @property
-    def furlong(self) -> Decimal:
-        """
-        Returns the distance in furlongs.
-        """
-        return Decimal(self.chain / 10)
+    def furlong(self) -> Decimal: return self.to("furlong").magnitude 
+
+    @property
+    def km(self) -> Decimal: return self.to("km").magnitude
+
+    @property 
+    def metre(self) -> Decimal: return self.to("metre").magnitude
+
+    @property
+    def mile(self) -> Decimal: return self.to("mile").magnitude
+
+    @property
+    def yard(self) -> Decimal: return self.to("yard").magnitude
+
+    @property
+    def yd(self) -> Decimal: return self.to("yd").magnitude
+
