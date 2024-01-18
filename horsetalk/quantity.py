@@ -19,8 +19,10 @@ class HorsetalkQuantity(Q_):
         Returns:
             A HorsetalkQuantity object.
         """
+        if not args:
+            args = next(iter(kwargs.items()), None)[::-1]
 
-        instance = Q_.__new__(Q_, *args, **kwargs)
+        instance = Q_.__new__(Q_, *args)
         instance.__class__ = cls
         return instance
 
