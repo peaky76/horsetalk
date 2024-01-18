@@ -36,10 +36,8 @@ class RaceDistance(HorsetalkQuantity):
                 print(yards)
                 print(yards.__class__)
                 args = (yards, "yard")
-        elif not args:
-            args = next(iter(kwargs.items()), None)[::-1]
 
-        return super().__new__(cls, *args)
+        return super().__new__(cls, *args, **kwargs)
 
     def __str__(self) -> str:
         """

@@ -26,10 +26,8 @@ class RaceWeight(HorsetalkQuantity):
         if args and isinstance(args[0], str):
             st, lbs = re.match(RaceWeight.REGEX, args[0]).groups()
             args = (int(st or 0) * 14 + int(lbs or 0), "lb")
-        elif not args:
-            args = next(iter(kwargs.items()), None)[::-1]
 
-        return super().__new__(cls, *args)
+        return super().__new__(cls, *args, **kwargs)
 
     def __str__(self) -> str:
         """
