@@ -36,15 +36,3 @@ class RaceWeight(HorsetalkQuantity):
         num = self.to("lb").magnitude
         st, lb = divmod(num, 14)
         return f"{st}st {lb}lb"
-
-    @property
-    def kg(self) -> Decimal:
-        return self.to("kg").magnitude
-
-    @property
-    def lb(self) -> Decimal:
-        return self.to("lb").magnitude
-
-    @property
-    def st(self) -> Decimal:
-        return self.to("st").magnitude
