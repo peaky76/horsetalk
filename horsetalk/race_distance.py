@@ -1,5 +1,3 @@
-import re
-
 from horsetalk.quantity import HorsetalkQuantity
 
 
