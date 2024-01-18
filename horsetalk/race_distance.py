@@ -27,8 +27,8 @@ class RaceDistance(HorsetalkQuantity):
         ).strip()
 
     @classmethod
-    def _string_arg_handler(cls, arg):
-        m, f, y = re.match(cls.REGEX, arg.replace(",", "")).groups()
+    def _string_arg_handler(cls, parts):
+        m, f, y = parts
 
         if int(m or 0) > 10:
             args = (int(m or 0), "metre")

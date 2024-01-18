@@ -20,6 +20,6 @@ class RaceWeight(HorsetalkQuantity):
         return f"{st}st {lb}lb"
 
     @classmethod
-    def _string_arg_handler(cls, arg):
-        st, lbs = re.match(cls.REGEX, arg).groups()
+    def _string_arg_handler(cls, parts):
+        st, lbs = parts
         return (int(st or 0) * 14 + int(lbs or 0), "lb")
