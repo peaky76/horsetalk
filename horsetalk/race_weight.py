@@ -1,10 +1,10 @@
 import re
 from decimal import Decimal
 
-from horsetalk.quantity import Q_
+from horsetalk.quantity import HorsetalkQuantity
 
 
-class RaceWeight(Q_):
+class RaceWeight(HorsetalkQuantity):
     """
     A class for representing the weight carried by a horse in a race.
 
@@ -29,15 +29,7 @@ class RaceWeight(Q_):
         elif not args:
             args = next(iter(kwargs.items()), None)[::-1]
 
-        instance = Q_.__new__(Q_, *args)
-        instance.__class__ = cls
-        return instance
-
-    def __repr__(self) -> str:
-        """
-        Returns the weight as a repr.
-        """
-        return f"<RaceWeight: {self!s}>"
+        return super().__new__(cls, *args)
 
     def __str__(self) -> str:
         """
