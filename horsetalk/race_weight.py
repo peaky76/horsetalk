@@ -1,27 +1,37 @@
 import re
-from typing import Optional
+from decimal import Decimal
 
-from measurement.measures import Weight  # type: ignore
+from horsetalk._pint import Q_
 
 
-class RaceWeight(Weight):
+class RaceWeight(Q_):
     """
-    A thin wrapper around the measurement library Weight class to allow for the creation of Weight objects
-    from strings.
+    A class for representing the weight carried by a horse in a race. 
+
     """
 
     REGEX = r"(?:(\d+)(?:st|\-))?(?:(\d+)(?:lb)*)?"
 
-    def __init__(self, weight: Optional[str] = None, **kwargs):
+    def __new__(cls, *args, **kwargs):
         """
-        Initialize a RaceWeight object from a string.
-        """
+        Initializes a RaceWeight object.
 
-        if weight:
-            st, lbs = re.match(RaceWeight.REGEX, weight).groups()
-            super().__init__(self, lb=(int(st or 0) * 14 + int(lbs or 0)))  # type: ignore
-        else:
-            super().__init__(self, **kwargs)
+        Args:
+            *args: Variable length argument list.
+            **kwargs: Arbitrary keyword arguments.
+
+        Returns:
+            A RaceWeight object.
+        """
+        if args and isinstance(args[0], str):
+            st, lbs = re.match(RaceWeight.REGEX, args[0]).groups()
+            args = (int(st or 0) * 14 + int(lbs or 0), "lb")
+        elif not args:
+            args = next(iter(kwargs.items()), None)[::-1]
+
+        instance = Q_.__new__(Q_, *args)
+        instance.__class__ = cls
+        return instance
 
     def __repr__(self) -> str:
         """
@@ -33,6 +43,15 @@ class RaceWeight(Weight):
         """
         Returns the weight as a string.
         """
-        st = int(self.lb // 14)
-        lb = int(self.lb % 14)
+        num = self.to("lb").magnitude
+        st, lb = divmod(num, 14)
         return f"{st}st {lb}lb"
+
+    @property
+    def kg(self) -> Decimal: return self.to("kg").magnitude
+
+    @property
+    def lb(self) -> Decimal: return self.to("lb").magnitude
+
+    @property
+    def st(self) -> Decimal: return self.to("st").magnitude
