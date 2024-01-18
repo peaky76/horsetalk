@@ -15,14 +15,11 @@ class RaceDistance(HorsetalkQuantity):
         """
         Returns the distance as a string.
         """
-        mile = self.furlong // 8
-        furlong = (self.furlong % 8) // 1
-        yard = (self.furlong % 1) * 220
         return " ".join(
             [
-                f"{int(mile)}m" if mile else "",
-                f"{int(furlong)}f" if furlong else "",
-                f"{int(yard)}y" if yard else "",
+                f"{int(x)}m" if (x := self.to("mile").magnitude // 1) else "",
+                f"{int(x)}f" if (x := self.to("f").magnitude % 8) else "",
+                f"{int(x)}y" if (x := self.to("y").magnitude % 220) else "",
             ]
         ).strip()
 
