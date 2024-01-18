@@ -11,24 +11,6 @@ class RaceDistance(HorsetalkQuantity):
 
     REGEX = r"(?:(\d+)(?:m)\s*)?(?:(\d+)(?:f)\s*)?(?:(\d+)(?:y)\s*)?"
 
-    def __new__(cls, *args, **kwargs):
-        """
-        Initializes a RaceDistance object.
-
-        Args:
-            *args: Variable length argument list.
-            **kwargs: Arbitrary keyword arguments.
-
-        Returns:
-            A RaceDistance object.
-        """
-        if args and isinstance(args[0], str):
-            if not re.fullmatch(r"(?:\d+[m|f|y]\s*)*", args[0].replace(",", "")):
-                raise AttributeError(f"Invalid distance string: {args[0]}")
-            args = cls._string_arg_handler(args[0]) 
-           
-        return super().__new__(cls, *args, **kwargs)
-
     def __str__(self) -> str:
         """
         Returns the distance as a string.
