@@ -32,3 +32,6 @@ class HorsetalkQuantity(Q_):
             A representation of a HorsetalkQuantity object.
         """
         return f"<{self.__class__.__name__}: {self!s}>"
+
+    def __getattr__(self, attr):
+        return self.to(attr).magnitude

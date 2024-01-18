@@ -51,27 +51,3 @@ class RaceDistance(HorsetalkQuantity):
                 f"{int(yard)}y" if yard else "",
             ]
         ).strip()
-
-    @property
-    def furlong(self) -> Decimal:
-        return self.to("furlong").magnitude
-
-    @property
-    def km(self) -> Decimal:
-        return self.to("km").magnitude
-
-    @property
-    def metre(self) -> Decimal:
-        return self.to("metre").magnitude
-
-    @property
-    def mile(self) -> Decimal:
-        return self.to("mile").magnitude
-
-    @property
-    def yard(self) -> Decimal:
-        return self.to("yard").magnitude
-
-    @property
-    def yd(self) -> Decimal:
-        return self.to("yd").magnitude
