@@ -8,14 +8,7 @@ class HorseHeight(HorsetalkQuantity):
     A class for measuring a horse's height.
 
     """
-
-    def __repr__(self) -> str:
-        """
-        Returns:
-            A representation of the HorseHeight object.
-        """
-        return f"<HorseHeight: {self!s}>"
-
+    
     def __str__(self) -> str:
         """
         Returns:
