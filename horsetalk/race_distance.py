@@ -6,7 +6,7 @@ from horsetalk._pint import Q_
 
 class RaceDistance(Q_):
     """
-    A convenience class for representing the distance over which a race is run. 
+    A convenience class for representing the distance over which a race is run.
 
     """
 
@@ -32,11 +32,7 @@ class RaceDistance(Q_):
             if int(m or 0) > 10:
                 args = (int(m or 0), "metre")
             else:
-                yards = (
-                    int(m or 0) * 1760
-                    + int(f or 0) * 220
-                    + int(y or 0)
-                )
+                yards = int(m or 0) * 1760 + int(f or 0) * 220 + int(y or 0)
                 print(yards)
                 print(yards.__class__)
                 args = (yards, "yard")
@@ -69,20 +65,25 @@ class RaceDistance(Q_):
         ).strip()
 
     @property
-    def furlong(self) -> Decimal: return self.to("furlong").magnitude 
+    def furlong(self) -> Decimal:
+        return self.to("furlong").magnitude
 
     @property
-    def km(self) -> Decimal: return self.to("km").magnitude
-
-    @property 
-    def metre(self) -> Decimal: return self.to("metre").magnitude
+    def km(self) -> Decimal:
+        return self.to("km").magnitude
 
     @property
-    def mile(self) -> Decimal: return self.to("mile").magnitude
+    def metre(self) -> Decimal:
+        return self.to("metre").magnitude
 
     @property
-    def yard(self) -> Decimal: return self.to("yard").magnitude
+    def mile(self) -> Decimal:
+        return self.to("mile").magnitude
 
     @property
-    def yd(self) -> Decimal: return self.to("yd").magnitude
+    def yard(self) -> Decimal:
+        return self.to("yard").magnitude
 
+    @property
+    def yd(self) -> Decimal:
+        return self.to("yd").magnitude
