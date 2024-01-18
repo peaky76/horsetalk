@@ -18,7 +18,7 @@ def test_horsetalk_quantity_creation_from_kwargs():
 
 def test_horsetalk_quantity_representation():
     q = HorsetalkQuantity("3km")
-    assert repr(q) == "<HorsetalkQuantity: 3 kilometer>"
+    assert repr(q) == "<HorsetalkQuantity: 3 kilometres>"
 
 def test_horsetalk_quantity_attribute_access():
     q = HorsetalkQuantity("5kg")
