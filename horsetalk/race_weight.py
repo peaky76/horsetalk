@@ -23,8 +23,7 @@ class RaceWeight(HorsetalkQuantity):
             A RaceWeight object.
         """
         if args and isinstance(args[0], str):
-            st, lbs = re.match(RaceWeight.REGEX, args[0]).groups()
-            args = (int(st or 0) * 14 + int(lbs or 0), "lb")
+            args = cls._string_arg_handler(args[0])
 
         return super().__new__(cls, *args, **kwargs)
 
@@ -35,3 +34,8 @@ class RaceWeight(HorsetalkQuantity):
         num = self.to("lb").magnitude
         st, lb = divmod(num, 14)
         return f"{st}st {lb}lb"
+
+    @classmethod
+    def _string_arg_handler(cls, arg):
+        st, lbs = re.match(cls.REGEX, arg).groups()
+        return (int(st or 0) * 14 + int(lbs or 0), "lb")
