@@ -25,15 +25,8 @@ class RaceDistance(HorsetalkQuantity):
         if args and isinstance(args[0], str):
             if not re.fullmatch(r"(?:\d+[m|f|y]\s*)*", args[0].replace(",", "")):
                 raise AttributeError(f"Invalid distance string: {args[0]}")
-
-            m, f, y = re.match(RaceDistance.REGEX, args[0].replace(",", "")).groups()
-
-            if int(m or 0) > 10:
-                args = (int(m or 0), "metre")
-            else:
-                yards = int(m or 0) * 1760 + int(f or 0) * 220 + int(y or 0)
-                args = (yards, "yard")
-
+            args = cls._string_arg_handler(args[0]) 
+           
         return super().__new__(cls, *args, **kwargs)
 
     def __str__(self) -> str:
@@ -50,3 +43,15 @@ class RaceDistance(HorsetalkQuantity):
                 f"{int(yard)}y" if yard else "",
             ]
         ).strip()
+
+    @classmethod
+    def _string_arg_handler(cls, arg):
+        m, f, y = re.match(cls.REGEX, arg.replace(",", "")).groups()
+
+        if int(m or 0) > 10:
+            args = (int(m or 0), "metre")
+        else:
+            yards = int(m or 0) * 1760 + int(f or 0) * 220 + int(y or 0)
+            args = (yards, "yard")
+
+        return args
