@@ -33,8 +33,6 @@ class RaceDistance(HorsetalkQuantity):
                 args = (int(m or 0), "metre")
             else:
                 yards = int(m or 0) * 1760 + int(f or 0) * 220 + int(y or 0)
-                print(yards)
-                print(yards.__class__)
                 args = (yards, "yard")
 
         return super().__new__(cls, *args, **kwargs)
