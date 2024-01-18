@@ -23,3 +23,10 @@ class HorsetalkQuantity(Q_):
         instance = Q_.__new__(Q_, *args, **kwargs)
         instance.__class__ = cls
         return instance
+
+    def __repr__(self) -> str:
+        """
+        Returns:
+            A representation of a HorsetalkQuantity object.
+        """
+        return f"<{self.__class__.__name__}: {self!s}>"
