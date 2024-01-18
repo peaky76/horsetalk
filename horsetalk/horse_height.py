@@ -1,29 +1,13 @@
 from decimal import Decimal
 
-from horsetalk._pint import Q_
+from horsetalk.quantity import HorsetalkQuantity
 
 
-class HorseHeight(Q_):
+class HorseHeight(HorsetalkQuantity):
     """
     A class for measuring a horse's height.
 
     """
-
-    def __new__(cls, *args, **kwargs):
-        """
-        Initializes a HorseHeight object.
-
-        Args:
-            *args: Variable length argument list.
-            **kwargs: Arbitrary keyword arguments.
-
-        Returns:
-            A HorseHeight object.
-        """
-
-        instance = Q_.__new__(Q_, *args, **kwargs)
-        instance.__class__ = cls
-        return instance
 
     def __repr__(self) -> str:
         """
