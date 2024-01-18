@@ -1,5 +1,27 @@
 # Changelog
 
+## 0.22.0 (2024-01-18)
+
+#### New Features
+
+- `HorsetalkQuantity` parent class
+
+#### Refactorings
+
+- use `pint` library in place of `measurement`
+- `HorseHeight` adapted to use `pint` and `HorsetalkQuantity`
+- `RaceDistance` adapted to use `pint` and `HorsetalkQuantity`
+- `RaceWeight` adapted to use `pint` and `HorsetalkQuantity`
+
+#### Docs
+
+- add Github repo size badge
+
+#### Build
+
+- add `pint`
+- remove `measurement`
+
 ## 0.21.2 (2024-01-11)
 
 #### Refactorings
