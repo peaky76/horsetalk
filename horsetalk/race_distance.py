@@ -1,10 +1,10 @@
 import re
 from decimal import Decimal
 
-from horsetalk.quantity import Q_
+from horsetalk.quantity import HorsetalkQuantity
 
 
-class RaceDistance(Q_):
+class RaceDistance(HorsetalkQuantity):
     """
     A convenience class for representing the distance over which a race is run.
 
@@ -39,15 +39,7 @@ class RaceDistance(Q_):
         elif not args:
             args = next(iter(kwargs.items()), None)[::-1]
 
-        instance = Q_.__new__(Q_, *args)
-        instance.__class__ = cls
-        return instance
-
-    def __repr__(self) -> str:
-        """
-        Returns the distance as a repr.
-        """
-        return f"<RaceDistance: {self!s}>"
+        return super().__new__(cls, *args)
 
     def __str__(self) -> str:
         """
