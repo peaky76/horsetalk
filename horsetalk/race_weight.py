@@ -1,7 +1,7 @@
 import re
 from decimal import Decimal
 
-from horsetalk._pint import Q_
+from horsetalk.quantity import Q_
 
 
 class RaceWeight(Q_):
