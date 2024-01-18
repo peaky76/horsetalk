@@ -1,5 +1,4 @@
 import re
-from decimal import Decimal
 
 from horsetalk.quantity import HorsetalkQuantity
 
