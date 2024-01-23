@@ -43,9 +43,9 @@ from .surface import Surface
 from .turf_going_description import TurfGoingDescription
 
 __all__ = [
+    "AWGoingDescription",
     "AgeCategory",
     "AgeRestriction",
-    "AWGoingDescription",
     "Breed",
     "CoatColour",
     "DirtGoingDescription",
@@ -60,9 +60,9 @@ __all__ = [
     "Headgear",
     "Horse",
     "HorseAge",
+    "HorseExperienceLevel",
     "HorseHeight",
     "Horselength",
-    "HorseExperienceLevel",
     "JockeyExperienceLevel",
     "JumpCategory",
     "ObstacleStyle",
