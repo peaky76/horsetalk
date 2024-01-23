@@ -98,32 +98,32 @@ def test_horse_age_repr_when_dob_known():
 def test_horse_age_str():
     assert str(HorseAge(2)) == "2"
 
-
+@pytest.mark.benchmark()
 def test_horse_age_returns_correct_official_age_in_years():
     assert HorseAge(2).official.years == 2
 
-
+@pytest.mark.benchmark()
 def test_horse_age_returns_correct_actual_age_in_years_if_actual_dob_known():
     assert HorseAge(foaling_date=pendulum.datetime(2019, 3, 3)).actual.years == 4
 
-
+@pytest.mark.benchmark()
 def test_horse_age_returns_correct_year_of_birth():
     assert HorseAge(foaling_date=pendulum.datetime(2019, 3, 3)).year_of_birth == 2019
 
-
+@pytest.mark.benchmark()
 def test_horse_age_raises_error_for_actual_age_in_years_if_actual_dob_not_known():
     with pytest.raises(ValueError):
         HorseAge(2).actual.years
 
-
+@pytest.mark.benchmark()
 def test_horse_age_returns_correct_official_age_in_days_considering_leap_years():
     assert HorseAge(4).official.days == 1612
 
-
+@pytest.mark.benchmark()
 def test_horse_age_returns_correct_actual_age_in_days_considering_leap_years():
     assert HorseAge(foaling_date=pendulum.datetime(2019, 2, 1)).actual.days == 1581
 
-
+@pytest.mark.benchmark()
 def test_horse_age_returns_correct_official_age_when_context_date_is_set():
     horse_age = HorseAge(
         2,
@@ -131,7 +131,7 @@ def test_horse_age_returns_correct_official_age_when_context_date_is_set():
     )
     assert horse_age.official.years == 2
 
-
+@pytest.mark.benchmark()
 def test_horse_age_returns_correct_actual_age_when_context_date_is_set():
     horse_age = HorseAge(
         foaling_date=pendulum.datetime(2019, 3, 3),
@@ -139,22 +139,23 @@ def test_horse_age_returns_correct_actual_age_when_context_date_is_set():
     )
     assert horse_age.actual.years == 3
 
-
+@pytest.mark.benchmark()
 def test_horse_age_at_changes_context_date():
     new_date = pendulum.datetime(2022, 6, 1)
     assert new_date == HorseAge(2).at(new_date)._context_date
 
 
+@pytest.mark.benchmark()
 def test_horse_age_change_of_context_date_changes_official_age():
     horse_age = HorseAge(2, context_date=pendulum.datetime(2020, 6, 1))
     assert horse_age.at(pendulum.datetime(2022, 3, 1)).official.years == 4
 
-
+@pytest.mark.benchmark()
 def test_horse_age_returns_correct_official_age_when_context_date_is_before_birth():
     horse_age = HorseAge(foaling_date=pendulum.datetime(2019, 3, 3))
     assert horse_age.at(pendulum.datetime(1976, 11, 29)).official.years == 0
 
-
+@pytest.mark.benchmark()
 def test_horse_age_returns_correct_actual_age_when_context_date_is_before_birth():
     horse_age = HorseAge(foaling_date=pendulum.datetime(2019, 3, 3))
     assert horse_age.at(pendulum.datetime(1976, 11, 29)).actual.years == 0
