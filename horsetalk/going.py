@@ -188,10 +188,10 @@ class Going:
         if not any(x in description.lower() for x in opposites):
             return {"default": Going(description)}
 
-        clauses = description.lower().replace(")","").replace("(",",").replace("hurdles", "hurdle").split(",")
+        clauses = description.lower().replace(")", "").replace("(", ",").replace("hurdles", "hurdle").split(",")
         for i, clause in enumerate(clauses):
             if not any(x in clause for x in opposites) and "in places" in clause:
-                clauses[i-1] = clauses[i-1].strip() + ", " + clause
+                clauses[i - 1] = clauses[i - 1].strip() + ", " + clause
                 clauses[i] = ""
         clauses = [x for x in clauses if x] 
         
