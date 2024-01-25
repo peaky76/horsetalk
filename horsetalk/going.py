@@ -185,27 +185,26 @@ class Going:
             "aw": "flat",
         }
 
-        if not any(x in description.lower() for x in (":", *opposites.keys())):
+        if not any(x in description.lower() for x in opposites):
             return {"default": Going(description)}
 
-        if ":" in description:
-            return {
-                (x := going.split(":"))[0].lower().strip(): Going(x[1])
-                for going in description.split(",")
-            }
-
-        clauses = description.lower().replace("(", ",").split(",")
-
-        def strip_clause(x, y):
-            return x.replace("on", "").replace("course", "").replace(y, "").strip()
-
+        clauses = description.lower().replace(")","").replace("(",",").replace("hurdles", "hurdle").split(",")
+        for i, clause in enumerate(clauses):
+            if not any(x in clause for x in opposites) and "in places" in clause:
+                clauses[i-1] = clauses[i-1].strip() + ", " + clause
+                clauses[i] = ""
+        clauses = [x for x in clauses if x] 
+        
         identifier = next(x for x in opposites if x in description.lower())
-
+        
+        def strip_clause(x, y):
+            return x.replace("on", "").replace("course", "").replace(":", "").replace(y, "").strip()
+            
         def reconstructed_going_description(identifier: str, clauses: list[str]) -> str:
             containing_clause = next((x for x in clauses if identifier in x), "")
             return (
                 f"{clauses[0]}, {strip_clause(containing_clause, identifier)} in places"
-                if "in places" in containing_clause
+                if "in places" in containing_clause and "," not in containing_clause
                 else strip_clause(containing_clause, identifier)
                 if containing_clause
                 else clauses[0]
