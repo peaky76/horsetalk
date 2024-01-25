@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.22.1 (2024-01-25)
+
+#### Fixes
+
+- handle additional format of `Going.multiparse`
+
+#### Build
+
+- add `codspeed`
+- relabel and format `dobby`, `vfmn`
+
 ## 0.22.0 (2024-01-18)
 
 #### New Features
