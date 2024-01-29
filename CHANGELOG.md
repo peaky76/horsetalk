@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.22.2 (2024-01-29)
+
+#### Fixes
+
+- make `RaceClass` hashable
+- make `RaceConditions` hashable
+- make `RaceGrade` hashable
+- make `RaceLevel` hashable
+- correct args on `Going` hash
+
 ## 0.22.1 (2024-01-25)
 
 #### Fixes
