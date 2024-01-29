@@ -28,6 +28,10 @@ def test_race_class_str():
     assert str(RaceClass(1)) == "Class 1"
 
 
+def test_race_class_hash():
+    assert hash(RaceClass(1)) == hash(RaceClass(1))
+
+
 def test_race_class_eq():
     assert RaceClass(1) == RaceClass(1)
 
