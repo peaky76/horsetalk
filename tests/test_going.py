@@ -100,6 +100,12 @@ def test_going_str():
     )
 
 
+def test_going_hash():
+    assert hash(Going("Good, Good to Soft in places")) == hash(
+        Going("Good, Good to Soft in places")
+    )
+
+
 def test_going_equality_when_primary_different():
     assert Going("Good") != Going("Soft")
 

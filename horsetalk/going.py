@@ -32,7 +32,7 @@ class Going:
         Returns:
             The hash of the going.
         """
-        return hash(self.primary, self.secondary, self.reading)
+        return hash((self.primary, self.secondary, self.reading))
 
     def __repr__(self):
         """
