@@ -83,3 +83,17 @@ def test_race_conditions_str_with_stalls_position():
         )
         == "1 Jun 2023, 14:00, Portman Park, 5f (Good), Maiden (5), Stalls: Inside"
     )
+
+
+def test_race_conditions_is_hashable():
+    assert hash(
+        RaceConditions(
+            datetime=pendulum.parse("2023-06-01 14:00"),
+            racecourse=Racecourse("Portman Park", Surface.TURF),
+            distance=RaceDistance("5f"),
+            going=Going("Good"),
+            race_designation=RaceDesignation["Maiden"],
+            race_level=RaceLevel(RaceClass(5)),
+            stalls_position=StallsPosition.INSIDE,
+        )
+    )

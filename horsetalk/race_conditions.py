@@ -10,7 +10,7 @@ from .racecourse import Racecourse
 from .stalls_position import StallsPosition
 
 
-@dataclass(kw_only=True)
+@dataclass(kw_only=True, frozen=True)
 class RaceConditions:
     """
     A class for grouping together race conditions into a single object.
