@@ -68,6 +68,10 @@ def test_race_level_initialised_with_race_grade_has_class_one():
     assert RaceLevel(RaceGrade("1")).class_ == RaceClass(1)
 
 
+def test_race_level_hash():
+    assert hash(RaceLevel(RaceGrade("1"))) == hash(RaceLevel(RaceGrade("1")))
+
+
 def test_race_level_eq_when_same_grade():
     assert RaceLevel(RaceGrade("1")) == RaceLevel(RaceGrade("1"))
 
