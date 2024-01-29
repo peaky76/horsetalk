@@ -76,6 +76,9 @@ class RaceGrade(RepresentationalInt):
     def __bool__(self):
         return super().__ne__(5)
 
+    def __hash__(self):
+        return hash(str(self))
+
     def __eq__(self, other):
         if isinstance(other, RaceGrade) or (
             isinstance(other, int)

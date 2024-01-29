@@ -116,6 +116,10 @@ def test_race_grade_bool_when_listed():
     assert RaceGrade("Listed")
 
 
+def test_race_grade_hash():
+    assert hash(RaceGrade(1)) == hash(RaceGrade(1))
+
+
 def test_race_grade_eq_when_both_same_group():
     assert RaceGrade("1") == RaceGrade("1")
 

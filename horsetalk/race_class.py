@@ -31,6 +31,9 @@ class RaceClass(RepresentationalInt):
     def __str__(self) -> str:
         return f"Class {int(self)!s}"
 
+    def __hash__(self):
+        return hash(str(self))
+
     def __eq__(self, other):
         if isinstance(other, RaceClass) or (
             isinstance(other, int) and not isinstance(other, RepresentationalInt)
