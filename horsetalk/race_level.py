@@ -41,6 +41,9 @@ class RaceLevel:
     def __str__(self):
         return f"({int(self.class_)}) {self.grade}".strip()
 
+    def __hash__(self):
+        return hash((self.grade, self.class_))
+
     def __eq__(self, other):
         return self.grade == other.grade and self.class_ == other.class_
 
