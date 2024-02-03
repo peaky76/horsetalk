@@ -17,7 +17,7 @@ class Horse:
         re.VERBOSE,
     )
 
-    def __init__(self, name, country=None, age_or_yob=None, context_date=None):
+    def __init__(self, name, country=None, age_or_yob=None, *, context_date=None):
         match = re.match(Horse.REGEX, name)
 
         if not context_date:
