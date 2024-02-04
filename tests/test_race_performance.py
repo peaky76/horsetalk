@@ -1,6 +1,6 @@
 import pytest
 
-from horsetalk import Disaster, FinishingPosition, RacePerformance
+from horsetalk import Disaster, FinishingPosition, Horselength, RacePerformance
 
 
 def test_race_performance_init_with_int_sets_outcome():
@@ -66,6 +66,16 @@ def test_race_performace_raises_error_if_position_and_disaster_given():
 def test_race_performace_raises_error_if_beaten_distance_and_disaster_given():
     with pytest.raises(ValueError):
         RacePerformance("F", beaten_distance=3)
+
+
+def test_race_performance_does_not_set_beaten_distance_to_none_if_zero_beaten_distance():
+    performance = RacePerformance("1", beaten_distance=0)
+    assert performance.beaten_distance == 0
+
+
+def test_race_performance_does_not_set_beaten_distance_to_none_if_zero_horselength_beaten_distance():
+    performance = RacePerformance("1", beaten_distance=Horselength('0'))
+    assert performance.beaten_distance == 0
 
 
 def test_race_performance_repr_with_disaster():
