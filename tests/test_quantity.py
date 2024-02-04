@@ -30,3 +30,23 @@ def test_horsetalk_quantity_attribute_access_with_illegitimate_unit():
     q = HorsetalkQuantity("5kg")
     with pytest.raises(AttributeError):
         q.smidgen
+
+
+def test_horsetalk_quantity_subclass_can_have_extra_attributes():
+
+    class MyQuantity(HorsetalkQuantity):
+        
+        _extra_attr = None
+
+        @property
+        def extra_property(self):
+            return 42
+
+        def extra_method(self):
+            return str(self)
+
+    q = MyQuantity("5kg")
+
+    assert q._extra_attr is None
+    assert q.extra_property == 42
+    assert q.extra_method() == "5 kilograms"
