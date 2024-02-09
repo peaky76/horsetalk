@@ -1,0 +1,15 @@
+repos:
+  - repo: local
+    hooks:
+      - id: ruff-format
+        name: ruff format
+        stages: [commit]
+        language: system
+        entry: poetry run ruff format . --preview
+        pass_filenames: false
+      - id: stubgen
+        name: stubgen
+        stages: [commit]
+        language: system
+        entry: poetry run stubgen -p horsetalk -o out
+        pass_filenames: false
