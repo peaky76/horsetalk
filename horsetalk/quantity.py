@@ -8,8 +8,8 @@ ureg.define("furlong = 0.125 * mile = f")
 ureg.define("@alias yard = y")
 Q_ = ureg.Quantity
 
-class HorsetalkQuantity(Q_):
 
+class HorsetalkQuantity(Q_):
     REGEX = r"(\d+\D+)"
 
     def __new__(cls, *args, **kwargs):
@@ -26,8 +26,10 @@ class HorsetalkQuantity(Q_):
         if args and isinstance(args[0], str):
             arg = args[0].replace(",", "")
             if not re.fullmatch(cls.REGEX, arg):
-                raise AttributeError(f"Invalid {cls.__name__.lower()} string: {args[0]}")
-            
+                raise AttributeError(
+                    f"Invalid {cls.__name__.lower()} string: {args[0]}"
+                )
+
             parts = re.match(cls.REGEX, arg).groups()
             args = cls._string_arg_handler(parts)
 

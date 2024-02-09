@@ -43,7 +43,9 @@ class RacePerformance:
             if self.outcome.is_completion
             else None
         )
-        self.beaten_distance = None if beaten_distance is None else Horselength(beaten_distance)
+        self.beaten_distance = (
+            None if beaten_distance is None else Horselength(beaten_distance)
+        )
         self.time = time
 
         if not self.is_completion:

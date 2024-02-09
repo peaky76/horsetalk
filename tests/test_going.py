@@ -181,8 +181,11 @@ def test_going_multiparse_with_single_parenthesis_identified_secondary_goings():
         "round": Going("Good, Good to soft in places"),
     }
 
+
 def test_going_multiparse_with_initial_identifier():
-    assert Going.multiparse("Chase course Soft (Good to Soft in places), Hurdles course Soft (Heavy in places)") == {
+    assert Going.multiparse(
+        "Chase course Soft (Good to Soft in places), Hurdles course Soft (Heavy in places)"
+    ) == {
         "chase": Going("Soft, Good to Soft in places"),
         "hurdle": Going("Soft, Heavy in places"),
     }

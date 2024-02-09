@@ -13,13 +13,11 @@ class RaceDistance(HorsetalkQuantity):
         """
         Returns the distance as a string.
         """
-        return " ".join(
-            [
-                f"{int(x)}m" if (x := self.to("mile").magnitude // 1) else "",
-                f"{int(x)}f" if (x := self.to("f").magnitude % 8) else "",
-                f"{int(x)}y" if (x := self.to("y").magnitude % 220) else "",
-            ]
-        ).strip()
+        return " ".join([
+            f"{int(x)}m" if (x := self.to("mile").magnitude // 1) else "",
+            f"{int(x)}f" if (x := self.to("f").magnitude % 8) else "",
+            f"{int(x)}y" if (x := self.to("y").magnitude % 220) else "",
+        ]).strip()
 
     @classmethod
     def _string_arg_handler(cls, parts):
