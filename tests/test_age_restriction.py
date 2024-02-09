@@ -13,6 +13,14 @@ def test_age_restriction_minimum_when_open_ended_restriction():
     assert AgeRestriction("3yo+").minimum == 3
 
 
+def test_age_restriction_minimum_when_no_restriction():
+    assert AgeRestriction("Open age").minimum is None
+
+
+def test_age_restriction_minmum_when_restriction_is_none():
+    assert AgeRestriction(None).minimum is None
+
+
 def test_age_restriction_maximum_when_open_ended_restriction():
     assert AgeRestriction("3yo+").maximum is None
 
@@ -23,6 +31,14 @@ def test_age_restriction_minimum_when_upper_bounded_restriction():
 
 def test_age_restrictions_maximum_when_upper_bounded_restriction():
     assert AgeRestriction("2-4yo").maximum == 4
+
+
+def test_age_restriction_maximum_when_no_restriction():
+    assert AgeRestriction("Open age").maximum is None
+
+
+def test_age_restriction_maximum_when_restriction_is_none():
+    assert AgeRestriction(None).maximum is None
 
 
 def test_age_restriction_minimum_when_longhand():

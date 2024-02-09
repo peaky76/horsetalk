@@ -6,7 +6,7 @@ class AgeRestriction:
         r"(\d{1,2})[-]?(\d{1,2})?\s?y(?:ear)?(?:\s|-)?o(?:ld(?:s)?)?(?:\sonly)?(\+)?"
     )
 
-    def __init__(self, string: str):
+    def __init__(self, string: str | None):
         """
         Initialize an AgeRestriction instance.
 
@@ -15,12 +15,16 @@ class AgeRestriction:
 
         Returns:
             An AgeRestriction instance.
-        """
-        groups = re.search(self.REGEX, string).groups()
-        mini, maxi, plus = list(groups) + [None] * (3 - len(groups))
+        """        
+        if not string or not (matches := re.search(self.REGEX, string)):
+            self.minimum = None
+            self.maximum = None
+        else:
+            groups = matches.groups()
+            mini, maxi, plus = list(groups) + [None] * (3 - len(groups))
 
-        self.minimum = int(mini)
-        self.maximum = None if plus else int(maxi or mini)
+            self.minimum = int(mini)
+            self.maximum = None if plus else int(maxi or mini)
 
     def __repr__(self):
         """
