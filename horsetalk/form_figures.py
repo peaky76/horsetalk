@@ -37,6 +37,6 @@ class FormFigures:
             if figure.isdigit()
             else FormBreak(figure)
             if figure in [member.value for member in FormBreak]
-            else Disaster[figure]
+            else Disaster[figure] # type: ignore
             for figure in form_figures
         ]

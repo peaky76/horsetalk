@@ -11,7 +11,7 @@ class Outcome:
                 value = FinishingPosition(value)
             else:
                 try:
-                    value = Disaster[str(value)]
+                    value = Disaster[str(value)] # type: ignore
                 except KeyError:
                     raise ValueError(f"Invalid outcome: {value}")
 

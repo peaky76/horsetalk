@@ -302,9 +302,9 @@ class Silks:
     def _convert_to_element(self, words: list[str]) -> "Silks.Element":
         details = [
             (
-                Silks.Colour[word]
+                Silks.Colour[word] # type: ignore
                 if word in Silks.Colour.phrases()
-                else Silks.Pattern[word]
+                else Silks.Pattern[word] # type: ignore
                 if word in Silks.Pattern.phrases()
                 else None
             )
