@@ -74,6 +74,18 @@ def test_horse_created_from_string_with_name_country_and_age_will_deduce_correct
     assert Horse("Dobbin (GB) 3").age.official.years == 3
 
 
+def test_horse_created_from_multi_word_string_with_name_country_and_age_will_deduce_correct_name():
+    assert Horse("Dobbin's Delight (GB) 3").name == "Dobbin's Delight"
+
+
+def test_horse_created_from_multi_word_string_with_name_country_and_age_will_deduce_correct_country():
+    assert Horse("Dobbin's Delight (GB) 3").country == "GB"
+
+
+def test_horse_created_from_multi_word_string_with_name_country_and_age_will_deduce_correct_age():
+    assert Horse("Dobbin's Delight (GB) 3").age.official.years == 3
+
+
 def test_horse_created_from_string_with_name_country_and_age_with_context_date_will_deduce_correct_age(
     mocker,
 ):
