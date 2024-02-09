@@ -150,7 +150,7 @@ class Silks:
             self._parts_for_element(lambda parts: parts[0])
         )
         element.secondary = element.secondary or element.primary
-        element.pattern = element.pattern or Silks.Pattern.PLAIN
+        element.pattern = element.pattern or Silks.Pattern.PLAIN # type: ignore
         return element
 
     @property
@@ -278,7 +278,7 @@ class Silks:
         )
 
         element.secondary = element.secondary or element.primary or default_secondary
-        element.pattern = element.pattern or default_pattern
+        element.pattern = element.pattern or default_pattern # type: ignore
 
         uses_solid_pattern = element.pattern not in [
             Silks.Pattern.ARMLETS,
