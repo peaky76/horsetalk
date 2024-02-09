@@ -154,7 +154,7 @@ class Going:
         """
         for scale in Going.Scales:
             try:
-                return scale[key]
+                return scale[key] # type: ignore
             except KeyError:
                 pass
 

@@ -30,15 +30,15 @@ class Racecourse:
         style = kwargs.get("style", "unknown")
 
         self.name = name
-        self.surface = Surface[surface] if isinstance(surface, str) else surface
+        self.surface = Surface[surface] if isinstance(surface, str) else surface # type: ignore
         self.handedness = (
-            Handedness[handedness] if isinstance(handedness, str) else handedness
+            Handedness[handedness] if isinstance(handedness, str) else handedness # type: ignore
         )
         self.contour = (
-            RacecourseContour[contour] if isinstance(contour, str) else contour
+            RacecourseContour[contour] if isinstance(contour, str) else contour # type: ignore
         )
-        self.shape = RacecourseShape[shape] if isinstance(shape, str) else shape
-        self.style = RacecourseStyle[style] if isinstance(style, str) else style
+        self.shape = RacecourseShape[shape] if isinstance(shape, str) else shape # type: ignore
+        self.style = RacecourseStyle[style] if isinstance(style, str) else style # type: ignore
 
     def __repr__(self):
         return f"<Racecourse: {self.name}, {self.surface}>"
