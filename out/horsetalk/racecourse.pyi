@@ -1,10 +1,9 @@
-from _typeshed import Incomplete
-
 from .handedness import Handedness as Handedness
 from .racecourse_contour import RacecourseContour as RacecourseContour
 from .racecourse_shape import RacecourseShape as RacecourseShape
 from .racecourse_style import RacecourseStyle as RacecourseStyle
 from .surface import Surface as Surface
+from _typeshed import Incomplete
 
 class Racecourse:
     name: Incomplete

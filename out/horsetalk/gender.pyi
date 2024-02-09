@@ -1,6 +1,5 @@
-from peak_utility.enumeration.parsing_enum import ParsingEnum
-
 from .sex import Sex as Sex
+from peak_utility.enumeration.parsing_enum import ParsingEnum
 
 class Gender(ParsingEnum):
     FOAL: int
@@ -28,4 +27,4 @@ class Gender(ParsingEnum):
     @property
     def sex(self): ...
     @staticmethod
-    def determine(official_age: int, sex: Sex | None = ..., **kwargs): ...
+    def determine(official_age: int, sex: Sex | None = None, **kwargs): ...

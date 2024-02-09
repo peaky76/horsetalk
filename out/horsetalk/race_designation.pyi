@@ -16,3 +16,4 @@ class RaceDesignation(ParsingEnum):
     STKS = STAKES
     CLAIMING = CLAIMER
     SELLING = SELLER
+    NURSERY = HANDICAP

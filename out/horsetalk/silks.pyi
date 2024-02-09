@@ -1,9 +1,9 @@
 from _typeshed import Incomplete
 from peak_utility.enumeration.parsing_enum import ParsingEnum
+from typing import Optional
 
 class Silks:
     description: str
-
     class Colour(ParsingEnum):
         BEIGE: int
         BLACK: int
@@ -26,7 +26,6 @@ class Silks:
         YELLOW: int
         @staticmethod
         def phrases(): ...
-
     class Pattern(ParsingEnum):
         ARMLETS: int
         ARMLET = ARMLETS
@@ -67,19 +66,12 @@ class Silks:
         def phrases(): ...
         @classmethod
         def body_only(cls): ...
-
     class Element:
         primary: Incomplete
         secondary: Incomplete
         pattern: Incomplete
-        def __init__(
-            self,
-            primary: Silks.Colour,
-            secondary: Silks.Colour | None = ...,
-            pattern: Silks.Pattern | None = ...,
-        ) -> None: ...
+        def __init__(self, primary: Silks.Colour, secondary: Optional['Silks.Colour'] = None, pattern: Optional['Silks.Pattern'] = None) -> None: ...
         def __eq__(self, other): ...
-
     @classmethod
     def parse(cls, description: str) -> Silks: ...
     @property
