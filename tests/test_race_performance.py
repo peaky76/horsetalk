@@ -80,7 +80,7 @@ def test_race_performance_does_not_set_beaten_distance_to_none_if_zero_beaten_di
 
 
 def test_race_performance_does_not_set_beaten_distance_to_none_if_zero_horselength_beaten_distance():
-    performance = RacePerformance("1", beaten_distance=Horselength('0'))
+    performance = RacePerformance("1", beaten_distance=Horselength("0"))
     assert performance.beaten_distance == 0
 
 
