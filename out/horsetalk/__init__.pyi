@@ -1,4 +1,5 @@
 from .age_category import AgeCategory as AgeCategory
+from .age_restriction import AgeRestriction as AgeRestriction
 from .aw_going_description import AWGoingDescription as AWGoingDescription
 from .breed import Breed as Breed
 from .coat_colour import CoatColour as CoatColour
@@ -12,6 +13,7 @@ from .gender import Gender as Gender
 from .going import Going as Going
 from .handedness import Handedness as Handedness
 from .headgear import Headgear as Headgear
+from .horse import Horse as Horse
 from .horse_age import HorseAge as HorseAge
 from .horse_experience_level import HorseExperienceLevel as HorseExperienceLevel
 from .horse_height import HorseHeight as HorseHeight
@@ -28,6 +30,7 @@ from .race_grade import RaceGrade as RaceGrade
 from .race_level import RaceLevel as RaceLevel
 from .race_performance import RacePerformance as RacePerformance
 from .race_title import RaceTitle as RaceTitle
+from .race_weight import RaceWeight as RaceWeight
 from .racecourse import Racecourse as Racecourse
 from .racecourse_contour import RacecourseContour as RacecourseContour
 from .racecourse_shape import RacecourseShape as RacecourseShape
@@ -38,3 +41,5 @@ from .silks import Silks as Silks
 from .stalls_position import StallsPosition as StallsPosition
 from .surface import Surface as Surface
 from .turf_going_description import TurfGoingDescription as TurfGoingDescription
+
+__all__ = ['AWGoingDescription', 'AgeCategory', 'AgeRestriction', 'Breed', 'CoatColour', 'DirtGoingDescription', 'Disaster', 'Draw', 'FinishingPosition', 'FormBreak', 'FormFigures', 'Gender', 'Going', 'Handedness', 'Headgear', 'Horse', 'HorseAge', 'HorseExperienceLevel', 'HorseHeight', 'Horselength', 'JockeyExperienceLevel', 'JumpCategory', 'ObstacleStyle', 'Outcome', 'RaceClass', 'RaceConditions', 'RaceDesignation', 'RaceDistance', 'RaceGrade', 'RaceLevel', 'RacePerformance', 'RaceTitle', 'RaceWeight', 'Racecourse', 'RacecourseContour', 'RacecourseShape', 'RacecourseStyle', 'RacingCode', 'Sex', 'Silks', 'StallsPosition', 'Surface', 'TurfGoingDescription']

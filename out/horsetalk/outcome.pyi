@@ -1,7 +1,6 @@
-from typing import Self
-
 from .disaster import Disaster as Disaster
 from .finishing_position import FinishingPosition as FinishingPosition
+from typing import Self
 
 class Outcome:
     def __init__(self, value: int | str | Disaster | FinishingPosition) -> None: ...
