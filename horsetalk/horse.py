@@ -8,11 +8,11 @@ from .horse_age import HorseAge
 class Horse:
     REGEX = re.compile(
         r"""
-        (?P<name>\w{3,18})                  # Horse's name
-        \s*                                 # Optional whitespace
-        (?:\((?P<country>\w+)\))?           # Country of origin
-        \s*                                 # Optional whitespace
-        (?P<age_or_yob>\d{1,4})?            # Age or year of birth
+        (?P<name>[A-Za-z]{1}[A-Za-z ']{1,16}[A-Za-z]{1})            # Horse's name
+        \s*                                                         # Optional whitespace
+        (?:\((?P<country>\w+)\))?                                   # Country of origin
+        \s*                                                         # Optional whitespace
+        (?P<age_or_yob>\d{1,4})?                                    # Age or year of birth
     """,
         re.VERBOSE,
     )
