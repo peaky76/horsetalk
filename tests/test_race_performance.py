@@ -1,3 +1,4 @@
+import pendulum
 import pytest
 
 from horsetalk import Disaster, FinishingPosition, Horselength, RacePerformance
@@ -51,6 +52,11 @@ def test_race_performance_init_with_official_position_sets_outcome():
 def test_race_performance_init_with_official_position_sets_official_position():
     performance = RacePerformance("2", official_position=1)
     assert performance.official_position == FinishingPosition(1)
+
+
+def test_race_performance_init_with_time_sets_time():
+    performance = RacePerformance("2", time=pendulum.duration(minutes=2, seconds=30))
+    assert performance.time == pendulum.duration(minutes=2, seconds=30)
 
 
 def test_race_performance_raises_error_if_str_not_valid():

@@ -1,3 +1,5 @@
+import pendulum
+
 from .disaster import Disaster
 from .finishing_position import FinishingPosition
 from .horselength import Horselength
@@ -16,6 +18,7 @@ class RacePerformance:
         *,
         official_position: str | int | FinishingPosition | None = None,
         beaten_distance: str | int | Horselength | None = None,
+        time: pendulum.Duration | None = None,
         comments: str | None = None,
     ):
         """
@@ -41,6 +44,7 @@ class RacePerformance:
             else None
         )
         self.beaten_distance = None if beaten_distance is None else Horselength(beaten_distance)
+        self.time = time
 
         if not self.is_completion:
             if self.official_position:
