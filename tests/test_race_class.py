@@ -1,4 +1,5 @@
 import pytest
+from peak_utility.number import RepresentationalInt
 
 from horsetalk import RaceClass, RaceGrade
 
@@ -33,15 +34,23 @@ def test_race_class_hash():
 
 
 def test_race_class_eq():
-    assert RaceClass(1) == RaceClass(1)
+    assert (RaceClass(1) == RaceClass(1)) is True
 
 
 def test_race_class_eq_with_int():
-    assert RaceClass(2) == 2
+    assert (RaceClass(2) == 2) is True
+
+
+def test_race_class_eq_with_other_object():
+    assert (RaceClass(2) == RepresentationalInt(2)) is False
+
+
+def test_race_class_ne():
+    assert (RaceClass(2) != RaceClass(2)) is False
 
 
 def test_race_class_ne_with_other_object():
-    assert RaceClass(2) != RaceGrade(2)
+    assert (RaceClass(2) != RaceGrade(2)) is True
 
 
 def test_race_class_gt():
