@@ -9,7 +9,7 @@ ureg.define("@alias yard = y")
 Q_ = ureg.Quantity
 
 
-class HorsetalkQuantity(Q_): # type: ignore
+class HorsetalkQuantity(Q_):  # type: ignore
     REGEX = r"(\d+\D+)"
 
     def __new__(cls, *args, **kwargs):

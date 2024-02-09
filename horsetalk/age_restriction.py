@@ -15,7 +15,7 @@ class AgeRestriction:
 
         Returns:
             An AgeRestriction instance.
-        """        
+        """
         if not string or not (matches := re.search(self.REGEX, string)):
             self.minimum = None
             self.maximum = None
