@@ -138,7 +138,7 @@ def test_race_grade_eq_when_both_none():
 
 def test_race_grade_eq_with_other_object():
     assert (RaceGrade(1) == RaceClass(1)) is False
-    
+
 
 def test_race_grade_ne_when_both_different_group():
     assert (RaceGrade("1") != RaceGrade("2")) is True

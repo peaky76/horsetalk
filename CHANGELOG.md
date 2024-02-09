@@ -1,5 +1,32 @@
 # Changelog
 
+## 0.22.3 (2024-02-09)
+
+#### Fixes
+
+- `AgeRestriction` handles non-matching input
+- `Horse` init correctly parses multi-word horse names
+- `RacePerformance.beaten_distance` handles zero
+- type ignores for complex subclasses
+
+#### Refactorings
+
+- `Horse.context_date` as kwarg
+- `RacePerformance.time` kwarg
+- extra_attributes on `Quantity` subclass
+
+#### Tests
+
+- complete coverage for RaceGrade
+- complete coverage for RaceClass
+
+#### Others
+
+- add and configure `pre-commit`
+- add `babel` dev dependency
+- move and regen type hints, include in build
+- ruff lint namespacing in config
+
 ## 0.22.2 (2024-01-29)
 
 #### Fixes

@@ -84,7 +84,7 @@ class Gender(ParsingEnum):
         if testacle_status:
             if sex is Sex.FEMALE:
                 raise ValueError(f"Female horse cannot be {testacle_status}")
-            return Gender[testacle_status] # type: ignore
+            return Gender[testacle_status]  # type: ignore
 
         if sex is None:
             raise ValueError("Not enough information to determine gender")
