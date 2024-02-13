@@ -61,8 +61,14 @@ def test_race_title_parse_can_correctly_identify_horse_experience_level_when_not
 
 
 def test_race_title_parse_can_correctly_identify_race_designation_when_present():
-    expected = RaceDesignation.HANDICAP
+    expected = [RaceDesignation.HANDICAP]
     actual = RaceTitle.parse("HAPPY NEW YEAR HANDICAP (4)")["race_designation"]
+    assert expected == actual
+
+
+def test_race_title_parse_can_correctly_identify_multiple_race_designations_when_present():
+    expected = [RaceDesignation.AUCTION, RaceDesignation.MAIDEN]
+    actual = RaceTitle.parse("HAPPY NEW YEAR AUCTION MAIDEN (4)")["race_designation"]
     assert expected == actual
 
 
