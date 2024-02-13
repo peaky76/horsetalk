@@ -51,7 +51,9 @@ class RaceTitle:
             "horse_experience_level": cls._lookup(HorseExperienceLevel, words),
             "gender": cls._lookup(Gender, words, allow_multiple=True),
             "jump_category": cls._lookup(JumpCategory, words),
-            "race_designation": cls._lookup(RaceDesignation, words),
+            "race_designation": cls._lookup(
+                RaceDesignation, words, allow_multiple=True
+            ),
             "name": name,
         }
 
