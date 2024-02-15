@@ -110,6 +110,19 @@ def test_horse_age_returns_correct_actual_age_in_years_if_actual_dob_known():
 
 
 @pytest.mark.benchmark()
+def test_horse_age_returns_correct_date_of_birth_when_known():
+    assert HorseAge(
+        foaling_date=pendulum.datetime(2019, 3, 3)
+    ).date_of_birth == pendulum.datetime(2019, 3, 3)
+
+
+@pytest.mark.benchmark()
+def test_horse_age_returns_correct_date_of_birth_when_not_known():
+    with pytest.raises(ValueError):
+        HorseAge(2).date_of_birth
+
+
+@pytest.mark.benchmark()
 def test_horse_age_returns_correct_year_of_birth():
     assert HorseAge(foaling_date=pendulum.datetime(2019, 3, 3)).year_of_birth == 2019
 
