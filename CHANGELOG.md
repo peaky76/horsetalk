@@ -1,5 +1,20 @@
 # Changelog
 
+## 0.22.4 (2024-02-15)
+
+#### Refactorings
+
+- allow multiple `RaceDesignation`s in `RaceTitle`
+- make `HorseAge.date_of_birth` public
+
+#### Docs
+
+- index and api pages
+
+#### Others
+
+- add docs gen as pre-commit hook
+
 ## 0.22.3 (2024-02-09)
 
 #### Fixes
