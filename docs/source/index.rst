@@ -11,7 +11,6 @@ Most of the classes are parsers which automatically take a string and create an 
 
 For example, with the current year being 2024...
 
-```python
 >>> from horsetalk import Horse
 >>> h = Horse("Dobbin (GB) 3")
 >>> h.name
@@ -22,7 +21,6 @@ For example, with the current year being 2024...
 3
 >>> h.year_of_birth
 2021
-```
 
 For more information, see :doc:`api`
 
