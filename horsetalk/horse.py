@@ -2,13 +2,14 @@ import re
 
 import pendulum
 
+from .breed import Breed
 from .horse_age import HorseAge
 
 
 class Horse:
     REGEX = re.compile(
         r"""
-        (?P<name>[A-Za-z]{1}[A-Za-z ']{1,16}[A-Za-z]{1})            # Horse's name
+        (?P<name>[A-Za-z]{1}[A-Za-z ']{1,19}[A-Za-z]{1})            # Horse's name
         \s*                                                         # Optional whitespace
         (?:\((?P<country>\w+)\))?                                   # Country of origin
         \s*                                                         # Optional whitespace
@@ -24,6 +25,7 @@ class Horse:
             context_date = pendulum.now()
 
         self.name = match.group("name")
+        self.breed = None if len(self.name) <= 18 else Breed.AQPS
         self.country = match.group("country") or country
 
         if country and country != self.country:
