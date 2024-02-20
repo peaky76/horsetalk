@@ -1,5 +1,6 @@
 extensions = [
     "sphinx.ext.autodoc",
+    "sphinx.ext.napoleon",
     "sphinx_rtd_theme",
 ]  # Configuration file for the Sphinx documentation builder.
 #
