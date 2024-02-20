@@ -7,6 +7,21 @@ from .horse_age import HorseAge
 
 
 class Horse:
+    """A class used to represent a Horse.
+
+    Attributes:
+        name (str): The name of the horse.
+        breed (Breed): The breed of the horse.
+        country (str): The country of origin of the horse.
+        age (HorseAge): The age of the horse.
+
+    Args:
+        name (str): The name of the horse.
+        country (str, optional): The country of origin of the horse. Defaults to None.
+        age_or_yob (int, optional): The age or year of birth of the horse. Defaults to None.
+        context_date (datetime, optional): The context date used to calculate the age of the horse. Defaults to current date.
+    """
+
     REGEX = re.compile(
         r"""
         (?P<name>[A-Za-z]{1}[A-Za-z ']{1,19}[A-Za-z]{1})            # Horse's name
@@ -19,6 +34,14 @@ class Horse:
     )
 
     def __init__(self, name, country=None, age_or_yob=None, *, context_date=None):
+        """Initializes the Horse object with name, country, age_or_yob, and context_date.
+
+        Args:
+            name (str): The name of the horse.
+            country (str, optional): The country of origin of the horse. Defaults to None.
+            age_or_yob (int, optional): The age or year of birth of the horse. Defaults to None.
+            context_date (datetime, optional): The context date used to calculate the age of the horse. Defaults to current date.
+        """
         match = re.match(Horse.REGEX, name)
 
         if not context_date:
