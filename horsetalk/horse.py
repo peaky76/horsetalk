@@ -12,12 +12,12 @@ class Horse:
     Attributes:
         name (str): The name of the horse.
         breed (Breed): The breed of the horse.
-        country (str): The country of origin of the horse.
+        country (str): The country where the horse was bred.
         age (HorseAge): The age of the horse.
 
     Args:
         name (str): The name of the horse.
-        country (str, optional): The country of origin of the horse. Defaults to None.
+        country (str, optional): The country where the horse was bred. Defaults to None.
         age_or_yob (int, optional): The age or year of birth of the horse. Defaults to None.
         context_date (datetime, optional): The context date used to calculate the age of the horse. Defaults to current date.
     """
@@ -38,7 +38,7 @@ class Horse:
 
         Args:
             name (str): The name of the horse.
-            country (str, optional): The country of origin of the horse. Defaults to None.
+            country (str, optional): The country where the horse was bred. Defaults to None.
             age_or_yob (int, optional): The age or year of birth of the horse. Defaults to None.
             context_date (datetime, optional): The context date used to calculate the age of the horse. Defaults to current date.
         """
