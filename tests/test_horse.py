@@ -1,7 +1,7 @@
 import pendulum
 import pytest
 
-from horsetalk import Horse
+from horsetalk import Breed, Horse
 
 
 def test_horse_created_with_just_name_has_correct_name():
@@ -14,6 +14,14 @@ def test_horse_created_with_just_name_has_correct_country():
 
 def test_horse_created_with_just_name_has_correct_age():
     assert Horse("Dobbin").age is None
+
+
+def test_horse_created_with_just_name_has_correct_breed_if_beyond_thoroughbred_limit():
+    assert Horse("Dobbin De Dobbinville").breed is Breed.AQPS
+
+
+def test_horse_created_with_just_name_has_no_breed_set_if_within_thoroughbred_limit():
+    assert Horse("Dobbin").breed is None
 
 
 def test_horse_created_with_name_and_country_has_correct_name():
