@@ -1,5 +1,25 @@
 # Changelog
 
+## 0.23.0 (2024-02-24)
+
+#### New Features
+
+- `Horse.breed` attribute
+
+#### Fixes
+
+- `RaceLevel` handles `Listed`
+
+#### Docs
+
+- `Horse` docstrings
+- doctest block formatting
+
+#### Others
+
+- run `pre-commit` docs step on any .py file change
+- add `sphinx napoleon` extension
+
 ## 0.22.4 (2024-02-15)
 
 #### Refactorings
