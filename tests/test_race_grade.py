@@ -15,6 +15,10 @@ def test_race_grade_init_possible_with_valid_word_only():
     assert RaceGrade("Listed")
 
 
+def test_race_grade_init_possible_with_valid_word_case_insentively():
+    assert RaceGrade("listed")
+
+
 def test_race_grade_init_possible_with_valid_grade_str_only():
     assert RaceGrade("Grade 1")
 
