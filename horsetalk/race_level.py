@@ -25,7 +25,9 @@ class RaceLevel:
         self.grade = (
             value
             if isinstance(value, RaceGrade)
-            else RaceGrade(value if "G" in str(value) else None)
+            else RaceGrade(
+                value if "G" in str(value) or str(value).lower() == "listed" else None
+            )
         )
         self.class_ = (
             value

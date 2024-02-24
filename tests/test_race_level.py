@@ -19,6 +19,10 @@ def test_race_level_can_be_initialised_with_g_string():
     assert RaceLevel("G1")
 
 
+def test_race_level_can_be_initialised_with_listed():
+    assert RaceLevel("Listed")
+
+
 def test_race_level_can_be_initialised_with_race_class_string():
     assert RaceLevel("Class 2")
 
