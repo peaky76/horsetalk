@@ -7,7 +7,7 @@ class RaceDistance(HorsetalkQuantity):
 
     """
 
-    REGEX = r"(?:(\d+)(?:m)\s*)?(?:(\d+)(?:f)\s*)?(?:(\d+)(?:y)\s*)?"
+    REGEX = r"(?:(\d+)\s?(?:m(?:iles*)?)\s*)?(?:(\d+)\s?(?:f(?:urlongs*)?)\s*)?(?:(\d+)\s?(?:y(?:ards*)?)\s*)?"
 
     def __str__(self) -> str:
         """
