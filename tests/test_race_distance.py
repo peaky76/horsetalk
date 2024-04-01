@@ -13,6 +13,14 @@ def test_race_distance_regex_with_mile_furlong_and_yard_spaced_string():
     assert re.fullmatch(RaceDistance.REGEX, "1m 5f 110y")
 
 
+def test_race_distance_regex_with_mile_furlong_and_yard_full_string():
+    assert re.fullmatch(RaceDistance.REGEX, "1 mile 5 furlongs 110 yards")
+
+
+def test_race_distance_regex_with_yards_only_full_string():
+    assert re.fullmatch(RaceDistance.REGEX, "250 yards")
+
+
 def test_race_distance_regex_with_mile_and_furlong_string():
     assert re.fullmatch(RaceDistance.REGEX, "1m5f")
 
@@ -43,6 +51,14 @@ def test_race_distance_can_be_initialised_with_mile_and_furlong_string():
 
 def test_race_distance_can_be_initialised_with_mile_furlong_and_yard_string():
     assert RaceDistance("1m5f110y").yd == pytest.approx(2970)
+
+
+def test_race_distance_can_be_initialised_with_mile_furlong_and_yard_full_string():
+    assert RaceDistance("1 mile 5 furlongs 110 yards").yd == pytest.approx(2970)
+
+
+def test_race_distance_can_be_initialised_with_yards_only_full_string():
+    assert RaceDistance("250 yards").yd == pytest.approx(250)
 
 
 def test_race_distance_can_be_initialised_with_mile_furlong_and_yard_spaced_string():
