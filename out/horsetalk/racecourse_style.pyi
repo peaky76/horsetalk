@@ -5,3 +5,4 @@ class RacecourseStyle(ParsingEnum):
     GALLOPING: int
     STIFF: int
     TIGHT: int
+    SHARP = TIGHT
