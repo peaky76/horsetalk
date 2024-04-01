@@ -11,3 +11,4 @@ class RacecourseStyle(ParsingEnum):
     GALLOPING = 1
     STIFF = 2
     TIGHT = 3
+    SHARP = TIGHT

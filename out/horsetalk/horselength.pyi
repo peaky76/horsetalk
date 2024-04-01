@@ -1,6 +1,6 @@
 from decimal import Decimal
 from enum import Enum
-from typing import Optional, Self
+from typing import Self
 
 class Horselength(Decimal):
     class Description(Enum):
@@ -20,7 +20,7 @@ class Horselength(Decimal):
         NK = NECK
         DIST = DISTANCE
         DST = DISTANCE
-    def __new__(cls, value: Optional[float | Decimal | str] = None) -> Self: ...
+    def __new__(cls, value: float | Decimal | str | None = None) -> Self: ...
     def __add__(self, other: Decimal | int) -> Horselength: ...
     def __radd__(self, other: Decimal | int) -> Horselength: ...
     def __sub__(self, other: Decimal | int) -> Horselength: ...
