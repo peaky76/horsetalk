@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.23.1 (2024-04-01)
+
+#### Fixes
+
+- allow full unit names in `RaceDistance`
+- add sharp as alias for tight in `RacecourseStyle`
+
+#### Docs
+
+- doc status badge
+- fix repo size badge
+
 ## 0.23.0 (2024-02-24)
 
 #### New Features
