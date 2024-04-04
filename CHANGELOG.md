@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.23.2 (2024-04-04)
+
+#### Fixes
+
+- make RacePerformance sortable by Outcome
+
 ## 0.23.1 (2024-04-01)
 
 #### Fixes
