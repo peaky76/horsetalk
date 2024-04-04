@@ -74,6 +74,11 @@ class RacePerformance:
         )
         return f"{self.outcome}{official_position_str}"
 
+    def __lt__(self, other):
+        if not isinstance(other, RacePerformance):
+            return NotImplemented
+        return self.outcome < other.outcome
+
     @property
     def is_completion(self) -> bool:
         return self.outcome.is_completion

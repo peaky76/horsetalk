@@ -114,6 +114,31 @@ def test_race_performance_str_with_different_official_position():
     assert str(performance) == "2nd, placed 1st"
 
 
+def test_race_performance_sort():
+    performance_1 = RacePerformance("3", beaten_distance=Horselength("1"))
+    performance_2 = RacePerformance("4", beaten_distance=Horselength("2"))
+    performance_3 = RacePerformance("F")
+    performance_4 = RacePerformance("1", beaten_distance=None)
+    performance_5 = RacePerformance("2", beaten_distance=Horselength("1/2"))
+    performances = [
+        performance_1,
+        performance_2,
+        performance_3,
+        performance_4,
+        performance_5,
+    ]
+
+    performances.sort(reverse=True)
+
+    assert performances == [
+        performance_4,
+        performance_5,
+        performance_1,
+        performance_2,
+        performance_3,
+    ]
+
+
 def test_race_performance_is_completion_with_disaster():
     assert RacePerformance("F").is_completion is False
 
