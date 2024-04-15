@@ -1,3 +1,4 @@
+import operator
 from typing import Callable, Optional
 
 from peak_utility.enumeration.parsing_enum import ParsingEnum  # type: ignore
@@ -147,7 +148,7 @@ class Silks:
             A Silks.Element object.
         """
         element = self._convert_to_element(
-            self._parts_for_element(lambda parts: parts[0])
+            self._parts_for_element(operator.itemgetter(0))
         )
         element.secondary = element.secondary or element.primary
         element.pattern = element.pattern or Silks.Pattern.PLAIN  # type: ignore
