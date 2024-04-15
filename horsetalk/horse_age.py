@@ -142,7 +142,7 @@ class HorseAge:
             A DateTime object representing the current date if the context date is not set,
             otherwise the context date.
         """
-        return self._context_date if self._context_date else pendulum.now()
+        return self._context_date or pendulum.now()
 
     def at(self, date: DateTime) -> Self:
         """
