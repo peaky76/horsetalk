@@ -11,7 +11,7 @@ include = ["**/*.pyi"]
 python = "^3.11.0"
 peak-utility = "~0"
 pendulum = "^3.0.0"
-pint = "^0.23"
+pint = ">=0.23,<0.25"
 
 [tool.poetry.group.dev.dependencies]
 auto-changelog = "^0.6.0"
