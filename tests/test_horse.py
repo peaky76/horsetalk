@@ -130,3 +130,8 @@ def test_horse_created_from_string_with_country_will_raise_error_if_conflict_wit
 def test_horse_created_from_string_with_age_will_raise_error_if_conflict_with_provided_age():
     with pytest.raises(ValueError):
         Horse("Dobbin (GB) 7", "GB", 3)
+
+
+def test_horse_created_from_invalid_string_will_raise_error():
+    with pytest.raises(ValueError):
+        Horse("!")
