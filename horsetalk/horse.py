@@ -13,7 +13,7 @@ class Horse:
         name (str): The name of the horse.
         breed (Breed): The breed of the horse.
         country (str): The country where the horse was bred.
-        age (HorseAge): The age of the horse.
+        age (HorseAge | None): The age of the horse.
 
     Args:
         name (str): The name of the horse.
@@ -33,7 +33,14 @@ class Horse:
         re.VERBOSE,
     )
 
-    def __init__(self, name, country=None, age_or_yob=None, *, context_date=None):
+    def __init__(
+        self,
+        name: str,
+        country: str | None = None,
+        age_or_yob: int | None = None,
+        *,
+        context_date: pendulum.DateTime | None = None,
+    ):
         """Initializes the Horse object with name, country, age_or_yob, and context_date.
 
         Args:
@@ -44,12 +51,16 @@ class Horse:
         """
         match = re.match(Horse.REGEX, name)
 
+        if not match:
+            raise ValueError(f"Invalid horse name: {name}")
+
         if not context_date:
             context_date = pendulum.now()
 
         self.name = match.group("name")
         self.breed = None if len(self.name) <= 18 else Breed.AQPS
         self.country = match.group("country") or country
+        self.age: HorseAge | None = None
 
         if country and country != self.country:
             raise ValueError(
@@ -71,5 +82,3 @@ class Horse:
             self.age = HorseAge(birth_year=age_or_yob, context_date=context_date)
         elif age_or_yob > 0:
             self.age = HorseAge(age_or_yob, context_date=context_date)
-        else:
-            self.age = None
