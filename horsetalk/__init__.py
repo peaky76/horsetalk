@@ -13,6 +13,7 @@ from .gender import Gender
 from .going import Going
 from .handedness import Handedness
 from .headgear import Headgear
+from .hemisphere import Hemisphere
 from .horse import Horse
 from .horse_age import HorseAge
 from .horse_experience_level import HorseExperienceLevel
@@ -58,6 +59,7 @@ __all__ = [
     "Going",
     "Handedness",
     "Headgear",
+    "Hemisphere",
     "Horse",
     "HorseAge",
     "HorseExperienceLevel",
