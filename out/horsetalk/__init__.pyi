@@ -13,6 +13,7 @@ from .gender import Gender as Gender
 from .going import Going as Going
 from .handedness import Handedness as Handedness
 from .headgear import Headgear as Headgear
+from .hemisphere import Hemisphere as Hemisphere
 from .horse import Horse as Horse
 from .horse_age import HorseAge as HorseAge
 from .horse_experience_level import HorseExperienceLevel as HorseExperienceLevel
@@ -42,4 +43,4 @@ from .stalls_position import StallsPosition as StallsPosition
 from .surface import Surface as Surface
 from .turf_going_description import TurfGoingDescription as TurfGoingDescription
 
-__all__ = ['AWGoingDescription', 'AgeCategory', 'AgeRestriction', 'Breed', 'CoatColour', 'DirtGoingDescription', 'Disaster', 'Draw', 'FinishingPosition', 'FormBreak', 'FormFigures', 'Gender', 'Going', 'Handedness', 'Headgear', 'Horse', 'HorseAge', 'HorseExperienceLevel', 'HorseHeight', 'Horselength', 'JockeyExperienceLevel', 'JumpCategory', 'ObstacleStyle', 'Outcome', 'RaceClass', 'RaceConditions', 'RaceDesignation', 'RaceDistance', 'RaceGrade', 'RaceLevel', 'RacePerformance', 'RaceTitle', 'RaceWeight', 'Racecourse', 'RacecourseContour', 'RacecourseShape', 'RacecourseStyle', 'RacingCode', 'Sex', 'Silks', 'StallsPosition', 'Surface', 'TurfGoingDescription']
+__all__ = ['AWGoingDescription', 'AgeCategory', 'AgeRestriction', 'Breed', 'CoatColour', 'DirtGoingDescription', 'Disaster', 'Draw', 'FinishingPosition', 'FormBreak', 'FormFigures', 'Gender', 'Going', 'Handedness', 'Headgear', 'Hemisphere', 'Horse', 'HorseAge', 'HorseExperienceLevel', 'HorseHeight', 'Horselength', 'JockeyExperienceLevel', 'JumpCategory', 'ObstacleStyle', 'Outcome', 'RaceClass', 'RaceConditions', 'RaceDesignation', 'RaceDistance', 'RaceGrade', 'RaceLevel', 'RacePerformance', 'RaceTitle', 'RaceWeight', 'Racecourse', 'RacecourseContour', 'RacecourseShape', 'RacecourseStyle', 'RacingCode', 'Sex', 'Silks', 'StallsPosition', 'Surface', 'TurfGoingDescription']
