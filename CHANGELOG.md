@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.23.3 (2024-09-10)
+
+#### Build
+
+* set locale in ci workflow
+
 ## 0.23.2 (2024-04-04)
 
 #### Fixes
