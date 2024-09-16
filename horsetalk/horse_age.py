@@ -3,6 +3,8 @@ from typing import Self
 import pendulum
 from pendulum import DateTime, Interval
 
+from .hemisphere import Hemisphere
+
 
 class HorseAge:
     """
@@ -22,6 +24,7 @@ class HorseAge:
         foaling_date: DateTime | None = None,
         birth_year: int | None = None,
         context_date: DateTime | None = None,
+        hemisphere: Hemisphere = Hemisphere.NORTHERN,
     ):
         """
         Initializes a new instance of the HorseAge class with the specified parameters.
@@ -33,6 +36,9 @@ class HorseAge:
             foaling_date (DateTime | None): The actual date of birth of the horse.
             birth_year (int | None): The birth year of the horse.
             context_date (DateTime | None): The context date for calculating the age of the horse.
+            hemisphere (Hemisphere): The hemisphere where the horse was born. This is used to
+                determine the horse's age based on the hemisphere-specific
+                standard. The default is Hemisphere.NORTHERN.
 
         Returns:
             None
@@ -64,7 +70,8 @@ class HorseAge:
 
         assert year
 
-        self._official_dob = pendulum.datetime(year, 1, 1)
+        month = 1 if hemisphere == Hemisphere.NORTHERN else 7
+        self._official_dob = pendulum.datetime(year, month, 1)
 
     def __repr__(self) -> str:
         """
