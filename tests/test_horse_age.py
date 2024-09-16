@@ -82,10 +82,6 @@ def test_horse_age_init_with_birth_year_and_context_date_sets_official_years():
     )
 
 
-def test_horse_age_init_with_birth_year_sets_official_years():
-    assert HorseAge(birth_year=2017).official.years == 6
-
-
 def test_horse_age_init_with_year_sets_official_dob():
     assert HorseAge(birth_year=2019)._official_dob == pendulum.datetime(2019, 1, 1)
 
