@@ -1,7 +1,7 @@
 import pendulum
 import pytest
 
-from horsetalk import HorseAge
+from horsetalk import Hemisphere, HorseAge
 
 
 @pytest.fixture(autouse=True)
@@ -30,6 +30,10 @@ def test_horse_age_can_be_initialized_with_year():
     assert HorseAge(birth_year=2019)
 
 
+def test_horse_age_can_be_initialized_with_hemisphere():
+    assert HorseAge(2, hemisphere=Hemisphere.SOUTHERN)
+
+
 def test_horse_age_raises_error_when_initialized_with_both_int_and_foaling_date():
     with pytest.raises(ValueError):
         HorseAge(2, foaling_date=pendulum.datetime(2019, 1, 1))
@@ -37,6 +41,18 @@ def test_horse_age_raises_error_when_initialized_with_both_int_and_foaling_date(
 
 def test_horse_age_init_with_age_sets_official_dob():
     assert HorseAge(2)._official_dob == pendulum.datetime(2021, 1, 1)
+
+
+def test_horse_age_init_with_age_and_northern_hemisphere_sets_hemisphere_specific_official_dob():
+    assert HorseAge(
+        2, hemisphere=Hemisphere.NORTHERN
+    )._official_dob == pendulum.datetime(2021, 1, 1)
+
+
+def test_horse_age_init_with_age_and_southern_hemisphere_sets_hemisphere_specific_official_dob():
+    assert HorseAge(
+        2, hemisphere=Hemisphere.SOUTHERN
+    )._official_dob == pendulum.datetime(2021, 7, 1)
 
 
 def test_horse_age_init_with_age_does_not_set_actual_dob():
@@ -64,6 +80,10 @@ def test_horse_age_init_with_birth_year_and_context_date_sets_official_years():
         ).official.years
         == 7
     )
+
+
+def test_horse_age_init_with_birth_year_sets_official_years():
+    assert HorseAge(birth_year=2017).official.years == 6
 
 
 def test_horse_age_init_with_year_sets_official_dob():
