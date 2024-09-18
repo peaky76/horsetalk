@@ -31,7 +31,7 @@ def test_horse_age_can_be_initialized_with_year():
 
 
 def test_horse_age_can_be_initialized_with_hemisphere():
-    assert HorseAge(2, hemisphere=Hemisphere.SOUTHERN)
+    assert HorseAge(2, hemisphere=Hemisphere.NORTHERN)
 
 
 def test_horse_age_raises_error_when_initialized_with_both_int_and_foaling_date():
@@ -49,19 +49,45 @@ def test_horse_age_init_with_age_and_northern_hemisphere_sets_hemisphere_specifi
     )._official_dob == pendulum.datetime(2021, 1, 1)
 
 
-def test_horse_age_init_with_age_and_southern_hemisphere_sets_hemisphere_specific_official_dob():
+def test_horse_age_init_with_age_and_southern_hemisphere_sets_hemisphere_specific_official_dob_when_in_early_year(
+    mocker,
+):
+    mocker.patch("pendulum.now", return_value=pendulum.datetime(2023, 6, 1))
     assert HorseAge(
         2, hemisphere=Hemisphere.SOUTHERN
-    )._official_dob == pendulum.datetime(2021, 7, 1)
+    )._official_dob == pendulum.datetime(2020, 8, 1)
+
+
+def test_horse_age_init_with_age_and_southern_hemisphere_sets_hemisphere_specific_official_dob_when_in_late_year(
+    mocker,
+):
+    mocker.patch("pendulum.now", return_value=pendulum.datetime(2023, 9, 1))
+    assert HorseAge(
+        2, hemisphere=Hemisphere.SOUTHERN
+    )._official_dob == pendulum.datetime(2021, 8, 1)
 
 
 def test_horse_age_init_with_age_does_not_set_actual_dob():
     assert HorseAge(2)._actual_dob is None
 
 
-def test_horse_age_init_with_foaling_date_sets_official_dob():
+def test_horse_age_init_with_foaling_date_sets_official_dob_for_northern_hemisphere_horses():
     horse_age = HorseAge(foaling_date=pendulum.datetime(2021, 3, 3))
     assert horse_age._official_dob == pendulum.datetime(2021, 1, 1)
+
+
+def test_horse_age_init_with_foaling_date_sets_official_dob_for_southern_hemisphere_horses_born_early_in_year():
+    horse_age = HorseAge(
+        foaling_date=pendulum.datetime(2021, 1, 3), hemisphere=Hemisphere.SOUTHERN
+    )
+    assert horse_age._official_dob == pendulum.datetime(2020, 8, 1)
+
+
+def test_horse_age_init_with_foaling_date_sets_official_dob_for_southern_hemisphere_horses_born_late_in_year():
+    horse_age = HorseAge(
+        foaling_date=pendulum.datetime(2020, 9, 1), hemisphere=Hemisphere.SOUTHERN
+    )
+    assert horse_age._official_dob == pendulum.datetime(2020, 8, 1)
 
 
 def test_horse_age_init_with_foaling_date_sets_actual_dob():
