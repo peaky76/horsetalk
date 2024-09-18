@@ -70,8 +70,23 @@ class HorseAge:
 
         assert year
 
-        month = 1 if hemisphere == Hemisphere.NORTHERN else 7
-        self._official_dob = pendulum.datetime(year, month, 1)
+        official_birth_month = 1 if hemisphere == Hemisphere.NORTHERN else 8
+
+        known_born_before_august = foaling_date and foaling_date.month < 8
+        current_date_before_august = self._base_date.month < 8
+        year_adjustment = int(
+            bool(
+                hemisphere == Hemisphere.SOUTHERN
+                and (
+                    known_born_before_august
+                    or (not foaling_date and current_date_before_august)
+                )
+            )
+        )
+
+        self._official_dob = pendulum.datetime(
+            year - year_adjustment, official_birth_month, 1
+        )
 
     def __repr__(self) -> str:
         """
