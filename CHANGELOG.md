@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.24.0 (2024-09-19)
+
+#### New Features
+
+* `Hemisphere` enum
+* `HorseAge` handles different hemispheres
+
+#### Fixes
+
+* typing in `Horse`
+
 ## 0.23.3 (2024-09-10)
 
 #### Build
