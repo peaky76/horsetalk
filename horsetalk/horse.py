@@ -3,6 +3,7 @@ import re
 import pendulum
 
 from .breed import Breed
+from .country import Country
 from .horse_age import HorseAge
 
 
@@ -36,7 +37,7 @@ class Horse:
     def __init__(
         self,
         name: str,
-        country: str | None = None,
+        country: Country | str | None = None,
         age_or_yob: int | None = None,
         *,
         context_date: pendulum.DateTime | None = None,
@@ -59,10 +60,12 @@ class Horse:
 
         self.name = match.group("name")
         self.breed = None if len(self.name) <= 18 else Breed.AQPS
-        self.country = match.group("country") or country
+        self.country = (
+            Country[key] if (key := match.group("country") or country) else None
+        )
         self.age: HorseAge | None = None
 
-        if country and country != self.country:
+        if country and Country[country] != self.country:
             raise ValueError(
                 f"Conflicting countries in name and country arguments: {country}"
             )
