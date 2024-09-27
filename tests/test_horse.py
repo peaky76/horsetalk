@@ -29,7 +29,7 @@ def test_horse_created_with_name_and_country_has_correct_name():
 
 
 def test_horse_created_with_name_and_country_has_correct_country():
-    assert Horse("Dobbin", "GB").country == "GB"
+    assert Horse("Dobbin", "GB").country.name == "GB"
 
 
 def test_horse_created_with_name_and_country_has_correct_age():
@@ -41,7 +41,7 @@ def test_horse_created_with_name_country_and_age_had_correct_name():
 
 
 def test_horse_created_with_name_country_and_age_had_correct_country():
-    assert Horse("Dobbin", "GB", 3).country == "GB"
+    assert Horse("Dobbin", "GB", 3).country.name == "GB"
 
 
 def test_horse_created_with_name_country_and_age_had_correct_age():
@@ -63,7 +63,7 @@ def test_horse_created_from_string_with_country_will_deduce_correct_name():
 
 
 def test_horse_created_from_string_with_country_will_deduce_correct_country():
-    assert Horse("Dobbin (GB)").country == "GB"
+    assert Horse("Dobbin (GB)").country.name == "GB"
 
 
 def test_horse_created_from_string_with_country_will_deduce_correct_age():
@@ -75,7 +75,7 @@ def test_horse_created_from_string_with_name_country_and_age_will_deduce_correct
 
 
 def test_horse_created_from_string_with_name_country_and_age_will_deduce_correct_country():
-    assert Horse("Dobbin (GB) 3").country == "GB"
+    assert Horse("Dobbin (GB) 3").country.name == "GB"
 
 
 def test_horse_created_from_string_with_name_country_and_age_will_deduce_correct_age():
@@ -87,7 +87,7 @@ def test_horse_created_from_multi_word_string_with_name_country_and_age_will_ded
 
 
 def test_horse_created_from_multi_word_string_with_name_country_and_age_will_deduce_correct_country():
-    assert Horse("Dobbin's Delight (GB) 3").country == "GB"
+    assert Horse("Dobbin's Delight (GB) 3").country.name == "GB"
 
 
 def test_horse_created_from_multi_word_string_with_name_country_and_age_will_deduce_correct_age():
@@ -111,7 +111,7 @@ def test_horse_created_from_string_with_name_country_and_year_will_deduce_correc
 
 
 def test_horse_created_from_string_with_name_country_and_year_will_deduce_correct_country():
-    assert Horse("Dobbin (GB) 2017").country == "GB"
+    assert Horse("Dobbin (GB) 2017").country.name == "GB"
 
 
 def test_horse_created_from_string_with_name_country_and_year_will_deduce_correct_age(
@@ -124,7 +124,7 @@ def test_horse_created_from_string_with_name_country_and_year_will_deduce_correc
 
 def test_horse_created_from_string_with_country_will_raise_error_if_conflict_with_provided_country():
     with pytest.raises(ValueError):
-        Horse("Dobbin (GB)", "US")
+        Horse("Dobbin (GB)", "USA")
 
 
 def test_horse_created_from_string_with_age_will_raise_error_if_conflict_with_provided_age():
