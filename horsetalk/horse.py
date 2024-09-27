@@ -81,7 +81,11 @@ class Horse:
 
         age_or_yob = int(match.group("age_or_yob") or age_or_yob or -1)
 
+        kwargs = {"context_date": context_date}
+        if country:
+            kwargs["hemisphere"] = self.country.hemisphere
+
         if age_or_yob > 999:
-            self.age = HorseAge(birth_year=age_or_yob, context_date=context_date)
+            self.age = HorseAge(birth_year=age_or_yob, **kwargs)
         elif age_or_yob > 0:
-            self.age = HorseAge(age_or_yob, context_date=context_date)
+            self.age = HorseAge(age_or_yob, **kwargs)
