@@ -3,6 +3,7 @@ from .age_restriction import AgeRestriction
 from .aw_going_description import AWGoingDescription
 from .breed import Breed
 from .coat_colour import CoatColour
+from .country import Country
 from .dirt_going_description import DirtGoingDescription
 from .disaster import Disaster
 from .draw import Draw
@@ -49,6 +50,7 @@ __all__ = [
     "AgeRestriction",
     "Breed",
     "CoatColour",
+    "Country",
     "DirtGoingDescription",
     "Disaster",
     "Draw",
