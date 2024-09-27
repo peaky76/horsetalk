@@ -1,4 +1,4 @@
-from horsetalk.country import Country
+from horsetalk import Country, Hemisphere
 
 
 def test_country_enum_values():
@@ -15,3 +15,11 @@ def test_country_enum_str():
 
 def test_country_enum_contains():
     assert "ARG" in Country.__members__
+
+
+def test_country_hemisphere_for_northern_country():
+    assert Country.AUT.hemisphere == Hemisphere.NORTH
+
+
+def test_country_hemisphere_for_southern_country():
+    assert Country.AUS.hemisphere == Hemisphere.SOUTH
