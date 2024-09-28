@@ -48,10 +48,24 @@ def test_horse_created_with_name_country_and_age_had_correct_age():
     assert Horse("Dobbin", "GB", 3).age.official.years == 3
 
 
-def test_horse_created_with_name_country_age_and_context_date_had_correct_age(mocker):
+def test_horse_created_with_name_country_age_and_context_date_had_correct_age_for_northern_hemisphere(
+    mocker,
+):
     mocker.patch("pendulum.now", return_value=pendulum.datetime(2023, 1, 1))
     assert (
         Horse("Dobbin", "GB", 3, context_date=pendulum.datetime(2021, 1, 1))
+        .age.at(pendulum.now())
+        .official.years
+        == 5
+    )
+
+
+def test_horse_created_with_name_country_age_and_context_date_had_correct_age_for_southern_hemisphere(
+    mocker,
+):
+    mocker.patch("pendulum.now", return_value=pendulum.datetime(2024, 7, 1))
+    assert (
+        Horse("Dobbin", "NZ", 3, context_date=pendulum.datetime(2021, 10, 1))
         .age.at(pendulum.now())
         .official.years
         == 5
