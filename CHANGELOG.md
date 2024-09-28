@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.25.0 (2024-09-28)
+
+#### New Features
+
+* `Country` enum
+* `Hemisphere` on `Country` enum
+
+#### Refactorings
+
+* use `Country` in `Horse` init
+* set `HorseAge` by `Country` hemisphere
+
 ## 0.24.0 (2024-09-19)
 
 #### New Features
