@@ -51,12 +51,10 @@ class Going:
             The string representation of the going.
         """
         primary_str = self.primary.name.title()
-        secondary_str = (
-            self.secondary.name.title().replace("_", " ").replace(" To", " to")
-            if self.secondary
-            else ""
-        )
-        return f"{primary_str}{', ' + secondary_str + ' in places' if secondary_str else ''}"
+        secondary_str = self.secondary.name.title() if self.secondary else ""
+        return f"{primary_str}{', ' + secondary_str + ' in places' if secondary_str else ''}".replace(
+            "_", " "
+        ).replace(" To", " to")
 
     def __eq__(self, other: object) -> bool:
         """
