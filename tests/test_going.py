@@ -93,7 +93,18 @@ def test_going_repr():
     )
 
 
-def test_going_str():
+def test_going_str_when_single_going():
+    assert Going("GOOD TO SOFT").__str__() == "Good to Soft"
+
+
+def test_going_str_when_primary_is_multi_word():
+    assert (
+        Going("GOOD TO SOFT, SOFT IN PLACES").__str__()
+        == "Good to Soft, Soft in places"
+    )
+
+
+def test_going_str_when_secondary_is_multi_word():
     assert (
         Going("GOOD, GOOD TO SOFT IN PLACES").__str__()
         == "Good, Good to Soft in places"
