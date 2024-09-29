@@ -18,9 +18,9 @@ For example, with the current year being 2024...
 >>> h.country
 'GB'
 >>> h.age
+<HorseAge: 3 (unknown dob)>
+>>> str(h.age)
 3
->>> h.year_of_birth
-2021
 
 For more information, see :doc:`api`
 
