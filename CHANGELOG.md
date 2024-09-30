@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.25.1 (2024-09-30)
+
+#### Fixes
+
+* str display of multi-word `Going`
+
+#### Docs
+
+* fix read-the-docs pipeline
+* fix example console output
+
 ## 0.25.0 (2024-09-28)
 
 #### New Features
