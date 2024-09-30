@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.25.2 (2024-09-30)
+
+#### Fixes
+
+* allow floats in HorsetalkQuantity strings
+
 ## 0.25.1 (2024-09-30)
 
 #### Fixes
