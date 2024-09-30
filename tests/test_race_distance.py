@@ -49,6 +49,10 @@ def test_race_distance_can_be_initialised_with_mile_and_furlong_string():
     assert RaceDistance("1m5f").yd == pytest.approx(2860)
 
 
+def test_race_distance_can_be_initialised_with_decimal_furlong_string():
+    assert RaceDistance("13.0f").yd == pytest.approx(2860)
+
+
 def test_race_distance_can_be_initialised_with_mile_furlong_and_yard_string():
     assert RaceDistance("1m5f110y").yd == pytest.approx(2970)
 
