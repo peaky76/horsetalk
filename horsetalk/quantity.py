@@ -10,7 +10,7 @@ Q_ = ureg.Quantity
 
 
 class HorsetalkQuantity(Q_):  # type: ignore
-    REGEX = r"(\d+\D+)"
+    REGEX = r"(\d+(?:\.\d+)?\D+)"
 
     def __new__(cls, *args, **kwargs):
         """
