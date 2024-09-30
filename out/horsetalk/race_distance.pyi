@@ -1,4 +1,6 @@
+from _typeshed import Incomplete
 from horsetalk.quantity import HorsetalkQuantity as HorsetalkQuantity
 
 class RaceDistance(HorsetalkQuantity):
-    REGEX: str
+    POSSIBLE_DECIMAL: str
+    REGEX: Incomplete
