@@ -9,6 +9,12 @@ def test_horsetalk_quantity_creation_from_string():
     assert str(q.units) == "kilometer"
 
 
+def test_horsetalk_quantity_creation_from_decimal_string():
+    q = HorsetalkQuantity("10.0km")
+    assert q.magnitude == 10
+    assert str(q.units) == "kilometer"
+
+
 def test_horsetalk_quantity_creation_from_tuple():
     q = HorsetalkQuantity(5, "kg")
     assert q.magnitude == 5
