@@ -7,7 +7,7 @@ class RaceDistance(HorsetalkQuantity):
 
     """
 
-    REGEX = r"(?:(\d+)\s?(?:m(?:iles*)?)\s*)?(?:(\d+)\s?(?:f(?:urlongs*)?)\s*)?(?:(\d+)\s?(?:y(?:ards*)?)\s*)?"
+    REGEX = r"(?:(\d+(?:\.\d+)?)\s?(?:m(?:iles*)?)\s*)?(?:(\d+(?:\.\d+)?)\s?(?:f(?:urlongs*)?)\s*)?(?:(\d+(?:\.\d+)?)\s?(?:y(?:ards*)?)\s*)?"
 
     def __str__(self) -> str:
         """
@@ -23,10 +23,10 @@ class RaceDistance(HorsetalkQuantity):
     def _string_arg_handler(cls, parts):
         m, f, y = parts
 
-        if int(m or 0) > 10:
-            args = (int(m or 0), "metre")
+        if float(m or 0) > 10:
+            args = (float(m or 0), "metre")
         else:
-            yards = int(m or 0) * 1760 + int(f or 0) * 220 + int(y or 0)
+            yards = float(m or 0) * 1760 + float(f or 0) * 220 + float(y or 0)
             args = (yards, "yard")
 
         return args
