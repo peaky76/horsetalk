@@ -1,10 +1,20 @@
 # Changelog
 
+## 0.25.3 (2024-10-01)
+
+#### Fixes
+
+* handle floats in `RaceDistance`
+
+#### Refactorings
+
+* intermediate regex in `RaceDistance`
+
 ## 0.25.2 (2024-09-30)
 
 #### Fixes
 
-* allow floats in HorsetalkQuantity strings
+* allow floats in `HorsetalkQuantity` strings
 
 ## 0.25.1 (2024-09-30)
 
