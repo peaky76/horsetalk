@@ -583,6 +583,30 @@ six = "*"
 restructuredtext = ["rst2ansi"]
 
 [[package]]
+name = "markdown-it-py"
+version = "3.0.0"
+description = "Python port of markdown-it. Markdown parsing, done right!"
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "markdown-it-py-3.0.0.tar.gz", hash = "sha256:e3f60a94fa066dc52ec76661e37c851cb232d92f9886b15cb560aaada2df8feb"},
+    {file = "markdown_it_py-3.0.0-py3-none-any.whl", hash = "sha256:355216845c60bd96232cd8d8c40e8f9765cc86f46880e43a8fd22dc1a1a8cab1"},
+]
+
+[package.dependencies]
+mdurl = ">=0.1,<1.0"
+
+[package.extras]
+benchmarking = ["psutil", "pytest", "pytest-benchmark"]
+code-style = ["pre-commit (>=3.0,<4.0)"]
+compare = ["commonmark (>=0.9,<1.0)", "markdown (>=3.4,<4.0)", "mistletoe (>=1.0,<2.0)", "mistune (>=2.0,<3.0)", "panflute (>=2.3,<3.0)"]
+linkify = ["linkify-it-py (>=1,<3)"]
+plugins = ["mdit-py-plugins"]
+profiling = ["gprof2dot"]
+rtd = ["jupyter_sphinx", "mdit-py-plugins", "myst-parser", "pyyaml", "sphinx", "sphinx-copybutton", "sphinx-design", "sphinx_book_theme"]
+testing = ["coverage", "pytest", "pytest-cov", "pytest-regressions"]
+
+[[package]]
 name = "markupsafe"
 version = "2.1.5"
 description = "Safely add untrusted strings to HTML/XML markup."
@@ -649,6 +673,17 @@ files = [
     {file = "MarkupSafe-2.1.5-cp39-cp39-win32.whl", hash = "sha256:00e046b6dd71aa03a41079792f8473dc494d564611a8f89bbbd7cb93295ebdcf"},
     {file = "MarkupSafe-2.1.5-cp39-cp39-win_amd64.whl", hash = "sha256:fa173ec60341d6bb97a89f5ea19c85c5643c1e7dedebc22f5181eb73573142c5"},
     {file = "MarkupSafe-2.1.5.tar.gz", hash = "sha256:d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b"},
+]
+
+[[package]]
+name = "mdurl"
+version = "0.1.2"
+description = "Markdown URL utilities"
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "mdurl-0.1.2-py3-none-any.whl", hash = "sha256:84008a41e51615a49fc9966191ff91509e3c40b939176e643fd50a5c2196b8f8"},
+    {file = "mdurl-0.1.2.tar.gz", hash = "sha256:bb413d29f5eea38f31dd4754dd7377d4465116fb207585f97bf925588687c1ba"},
 ]
 
 [[package]]
@@ -969,24 +1004,32 @@ dev = ["argcomplete", "attrs (>=19.2)", "hypothesis (>=3.56)", "mock", "pygments
 
 [[package]]
 name = "pytest-codspeed"
-version = "2.2.1"
+version = "3.1.0"
 description = "Pytest plugin to create CodSpeed benchmarks"
 optional = false
-python-versions = ">=3.7"
+python-versions = ">=3.9"
 files = [
-    {file = "pytest_codspeed-2.2.1-py3-none-any.whl", hash = "sha256:aad08033015f3e6c8c14c8bf0eca475921a9b088e92c98b626bf8af8f516471e"},
-    {file = "pytest_codspeed-2.2.1.tar.gz", hash = "sha256:0adc24baf01c64a6ca0a0b83b3cd704351708997e09ec086b7776c32227d4e0a"},
+    {file = "pytest_codspeed-3.1.0-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:1cb7c16e5a64cb30bad30f5204c7690f3cbc9ae5b9839ce187ef1727aa5d2d9c"},
+    {file = "pytest_codspeed-3.1.0-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:4d23910893c22ceef6efbdf85d80e803b7fb4a231c9e7676ab08f5ddfc228438"},
+    {file = "pytest_codspeed-3.1.0-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:fb1495a633a33e15268a1f97d91a4809c868de06319db50cf97b4e9fa426372c"},
+    {file = "pytest_codspeed-3.1.0-cp311-cp311-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:dbd8a54b99207bd25a4c3f64d9a83ac0f3def91cdd87204ca70a49f822ba919c"},
+    {file = "pytest_codspeed-3.1.0-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:c4d1ac896ebaea5b365e69b41319b4d09b57dab85ec6234f6ff26116b3795f03"},
+    {file = "pytest_codspeed-3.1.0-cp312-cp312-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:5f0c1857a0a6cce6a23c49f98c588c2eef66db353c76ecbb2fb65c1a2b33a8d5"},
+    {file = "pytest_codspeed-3.1.0-cp313-cp313-manylinux_2_17_aarch64.manylinux2014_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:a4731a7cf1d8d38f58140d51faa69b7c1401234c59d9759a2507df570c805b11"},
+    {file = "pytest_codspeed-3.1.0-cp313-cp313-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:c5f2e4b63260f65493b8d42c8167f831b8ed90788f81eb4eb95a103ee6aa4294"},
+    {file = "pytest_codspeed-3.1.0-cp39-cp39-manylinux_2_17_aarch64.manylinux2014_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:db44099b3f1ec1c9c41f0267c4d57d94e31667f4cb3fb4b71901561e8ab8bc98"},
+    {file = "pytest_codspeed-3.1.0-cp39-cp39-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:a533c1ad3cc60f07be432864c83d1769ce2877753ac778e1bfc5a9821f5c6ddf"},
+    {file = "pytest_codspeed-3.1.0.tar.gz", hash = "sha256:f29641d27b4ded133b1058a4c859e510a2612ad4217ef9a839ba61750abd2f8a"},
 ]
 
 [package.dependencies]
-cffi = ">=1.15.1"
-filelock = ">=3.12.2"
+cffi = ">=1.17.1"
 pytest = ">=3.8"
-setuptools = {version = "*", markers = "python_full_version >= \"3.12.0\""}
+rich = ">=13.8.1"
 
 [package.extras]
-compat = ["pytest-benchmark (>=4.0.0,<4.1.0)", "pytest-xdist (>=2.0.0,<2.1.0)"]
-lint = ["mypy (>=1.3.0,<1.4.0)", "ruff (>=0.3.3,<0.4.0)"]
+compat = ["pytest-benchmark (>=5.0.0,<5.1.0)", "pytest-xdist (>=3.6.1,<3.7.0)"]
+lint = ["mypy (>=1.11.2,<1.12.0)", "ruff (>=0.6.5,<0.7.0)"]
 test = ["pytest (>=7.0,<8.0)", "pytest-cov (>=4.0.0,<4.1.0)"]
 
 [[package]]
@@ -1140,6 +1183,24 @@ socks = ["PySocks (>=1.5.6,!=1.5.7)"]
 use-chardet-on-py3 = ["chardet (>=3.0.2,<6)"]
 
 [[package]]
+name = "rich"
+version = "13.9.4"
+description = "Render rich text, tables, progress bars, syntax highlighting, markdown and more to the terminal"
+optional = false
+python-versions = ">=3.8.0"
+files = [
+    {file = "rich-13.9.4-py3-none-any.whl", hash = "sha256:6049d5e6ec054bf2779ab3358186963bac2ea89175919d699e378b99738c2a90"},
+    {file = "rich-13.9.4.tar.gz", hash = "sha256:439594978a49a09530cff7ebc4b5c7103ef57baf48d5ea3184f21d9a2befa098"},
+]
+
+[package.dependencies]
+markdown-it-py = ">=2.2.0"
+pygments = ">=2.13.0,<3.0.0"
+
+[package.extras]
+jupyter = ["ipywidgets (>=7.5.1,<9)"]
+
+[[package]]
 name = "ruff"
 version = "0.6.9"
 description = "An extremely fast Python linter and code formatter, written in Rust."
@@ -1165,26 +1226,6 @@ files = [
     {file = "ruff-0.6.9-py3-none-win_arm64.whl", hash = "sha256:a9641e31476d601f83cd602608739a0840e348bda93fec9f1ee816f8b6798b93"},
     {file = "ruff-0.6.9.tar.gz", hash = "sha256:b076ef717a8e5bc819514ee1d602bbdca5b4420ae13a9cf61a0c0a4f53a2baa2"},
 ]
-
-[[package]]
-name = "setuptools"
-version = "74.1.2"
-description = "Easily download, build, install, upgrade, and uninstall Python packages"
-optional = false
-python-versions = ">=3.8"
-files = [
-    {file = "setuptools-74.1.2-py3-none-any.whl", hash = "sha256:5f4c08aa4d3ebcb57a50c33b1b07e94315d7fc7230f7115e47fc99776c8ce308"},
-    {file = "setuptools-74.1.2.tar.gz", hash = "sha256:95b40ed940a1c67eb70fc099094bd6e99c6ee7c23aa2306f4d2697ba7916f9c6"},
-]
-
-[package.extras]
-check = ["pytest-checkdocs (>=2.4)", "pytest-ruff (>=0.2.1)", "ruff (>=0.5.2)"]
-core = ["importlib-metadata (>=6)", "importlib-resources (>=5.10.2)", "jaraco.text (>=3.7)", "more-itertools (>=8.8)", "packaging (>=24)", "platformdirs (>=2.6.2)", "tomli (>=2.0.1)", "wheel (>=0.43.0)"]
-cover = ["pytest-cov"]
-doc = ["furo", "jaraco.packaging (>=9.3)", "jaraco.tidelift (>=1.4)", "pygments-github-lexers (==0.0.5)", "pyproject-hooks (!=1.1)", "rst.linker (>=1.9)", "sphinx (>=3.5)", "sphinx-favicon", "sphinx-inline-tabs", "sphinx-lint", "sphinx-notfound-page (>=1,<2)", "sphinx-reredirects", "sphinxcontrib-towncrier", "towncrier (<24.7)"]
-enabler = ["pytest-enabler (>=2.2)"]
-test = ["build[virtualenv] (>=1.0.3)", "filelock (>=3.4.0)", "ini2toml[lite] (>=0.14)", "jaraco.develop (>=7.21)", "jaraco.envs (>=2.2)", "jaraco.path (>=3.2.0)", "jaraco.test", "packaging (>=23.2)", "pip (>=19.1)", "pyproject-hooks (!=1.1)", "pytest (>=6,!=8.1.*)", "pytest-home (>=0.5)", "pytest-perf", "pytest-subprocess", "pytest-timeout", "pytest-xdist (>=3)", "tomli-w (>=1.0.0)", "virtualenv (>=13.0.0)", "wheel (>=0.44.0)"]
-type = ["importlib-metadata (>=7.0.2)", "jaraco.develop (>=7.21)", "mypy (==1.11.*)", "pytest-mypy"]
 
 [[package]]
 name = "six"
@@ -1442,4 +1483,4 @@ test = ["covdefaults (>=2.3)", "coverage (>=7.2.7)", "coverage-enable-subprocess
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11.0"
-content-hash = "2bb4f46cf5f1903ad2ca211b7a0cda66396838831264cbf359e43e8c2c621457"
+content-hash = "cf54d336cea1eee0b559856feb279f56b95e2b5e6b77b20aa05c970fe0ab04ae"
