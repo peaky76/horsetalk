@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.25.4 (2025-01-25)
+
+#### Refactorings
+
+* fix ruff UP006/UP035 - deprecated typing
+
+#### Others
+
+* add python 3.13 support
+* fix pre-commit deprecations
+* fix version-forget-me-not with update
+* hold codspeed runner at ubuntu 22.04
+
 ## 0.25.3 (2024-10-01)
 
 #### Fixes
