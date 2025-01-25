@@ -1,5 +1,3 @@
-from typing import List
-
 from horsetalk import Disaster, FinishingPosition, FormBreak
 
 
@@ -14,7 +12,7 @@ class FormFigures:
     """
 
     @staticmethod
-    def parse(form_figures: str) -> List[FinishingPosition | FormBreak | Disaster]:
+    def parse(form_figures: str) -> list[FinishingPosition | FormBreak | Disaster]:
         """
         Parses the given string of form figures and returns a list of corresponding objects.
         Each form figure is converted to a corresponding object based on its value, where:
