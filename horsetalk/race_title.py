@@ -1,6 +1,5 @@
 from enum import Enum
 from itertools import pairwise
-from typing import List, Type
 
 from .age_category import AgeCategory
 from .gender import Gender
@@ -15,7 +14,7 @@ class RaceTitle:
 
     Methods:
         parse(title: str) -> dict: Parses a race title into component parts and returns a dictionary.
-        _lookup(enum: Type[Enum], allow_multiple: bool = False) -> List[Enum] | Enum | None:
+        _lookup(enum: type[Enum], allow_multiple: bool = False) -> list[Enum] | Enum | None:
             Private method to lookup an Enum value from a list of words.
 
     """
@@ -59,16 +58,16 @@ class RaceTitle:
 
     @classmethod
     def _lookup(
-        cls, enum: Type[Enum], words: List[str], *, allow_multiple: bool = False
-    ) -> List[Enum] | Enum | None:
+        cls, enum: type[Enum], words: list[str], *, allow_multiple: bool = False
+    ) -> list[Enum] | Enum | None:
         """Private method to lookup an enum value from a list of words.
 
         Args:
-            enum (Type[Enum]): The Enum to search through.
+            enum (type[Enum]): The Enum to search through.
             allow_multiple (bool, optional): Whether or not to allow multiple Enum values to be returned. Defaults to False.
 
         Returns:
-            Union[List[Enum], Enum, None]: The found Enum value or None.
+            Union[list[Enum], Enum, None]: The found Enum value or None.
 
         """
         checklist = words + ["_".join(pair) for pair in pairwise(words)]
