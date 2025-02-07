@@ -9,5 +9,5 @@ class Horse:
     name: Incomplete
     breed: Incomplete
     country: Incomplete
-    age: Incomplete
+    age: HorseAge | None
     def __init__(self, name: str, country: Country | str | None = None, age_or_yob: int | None = None, *, context_date: pendulum.DateTime | None = None) -> None: ...
