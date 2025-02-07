@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.25.5 (2025-02-07)
+
+#### Others
+
+* remove `babel` as dev dependency
+
 ## 0.25.4 (2025-01-25)
 
 #### Refactorings
