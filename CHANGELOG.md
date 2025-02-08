@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.25.6 (2025-02-08)
+
+#### Others
+
+* add `babel` as regular dependency
+
 ## 0.25.5 (2025-02-07)
 
 #### Others
