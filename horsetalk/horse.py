@@ -1,10 +1,17 @@
 import re
+from typing import NotRequired, TypedDict
 
 import pendulum
 
 from .breed import Breed
 from .country import Country
+from .hemisphere import Hemisphere
 from .horse_age import HorseAge
+
+
+class HorseAgeKwargs(TypedDict):
+    context_date: pendulum.DateTime
+    hemisphere: NotRequired[Hemisphere]
 
 
 class Horse:
@@ -81,9 +88,9 @@ class Horse:
 
         age_or_yob = int(match.group("age_or_yob") or age_or_yob or -1)
 
-        kwargs = {"context_date": context_date}
-        if country:
-            kwargs["hemisphere"] = self.country.hemisphere
+        kwargs: HorseAgeKwargs = {"context_date": context_date}
+        if self.country:
+            kwargs["hemisphere"] = self.country.hemisphere  # type: ignore
 
         if age_or_yob > 999:
             self.age = HorseAge(birth_year=age_or_yob, **kwargs)
