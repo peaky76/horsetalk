@@ -61,11 +61,11 @@ class Horse:
         self.name = match.group("name")
         self.breed = None if len(self.name) <= 18 else Breed.AQPS
         self.country = (
-            Country[key] if (key := match.group("country") or country) else None
+            Country[str(key)] if (key := match.group("country") or country) else None
         )
         self.age: HorseAge | None = None
 
-        if country and Country[country] != self.country:
+        if country and Country[str(country)] != self.country:
             raise ValueError(
                 f"Conflicting countries in name and country arguments: {country}"
             )
