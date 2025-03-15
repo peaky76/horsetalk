@@ -1,8 +1,14 @@
 import pendulum
 from .breed import Breed as Breed
 from .country import Country as Country
+from .hemisphere import Hemisphere as Hemisphere
 from .horse_age import HorseAge as HorseAge
 from _typeshed import Incomplete
+from typing import NotRequired, TypedDict
+
+class HorseAgeKwargs(TypedDict):
+    context_date: pendulum.DateTime
+    hemisphere: NotRequired[Hemisphere]
 
 class Horse:
     REGEX: Incomplete
