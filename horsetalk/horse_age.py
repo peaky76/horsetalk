@@ -24,7 +24,7 @@ class HorseAge:
         foaling_date: DateTime | None = None,
         birth_year: int | None = None,
         context_date: DateTime | None = None,
-        hemisphere: Hemisphere = Hemisphere.NORTHERN,
+        hemisphere: Hemisphere = Hemisphere(1),
     ):
         """
         Initializes a new instance of the HorseAge class with the specified parameters.
