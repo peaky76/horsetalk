@@ -344,10 +344,10 @@ class Silks:
                 spots_index = words.index("spots")
                 words = words[:index] + words[index + 1 : spots_index] + ["large spots"]
             else:
-                words = (
-                    words[:index]
-                    + [" ".join([words[index], words[index + 1]])]
-                    + words[index + 2 :]
-                )
+                words = [
+                    *words[:index],
+                    " ".join([words[index], words[index + 1]]),
+                    *words[index + 2 :],
+                ]
 
         return words
