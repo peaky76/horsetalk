@@ -102,3 +102,15 @@ def test_race_title_parse_can_correctly_identify_name():
         "name"
     ]
     assert expected == actual
+
+
+def test_race_title_parse_can_correctly_identify_horse_experience_level_when_abbreviated_input():
+    expected = HorseExperienceLevel.NOVICE
+    actual = RaceTitle.parse("NOV HCAP")["horse_experience_level"]
+    assert expected == actual
+
+
+def test_race_title_parse_can_correctly_identify_race_designation_when_abbreviated_input():
+    expected = [RaceDesignation.HANDICAP]
+    actual = RaceTitle.parse("NOV HCAP")["race_designation"]
+    assert expected == actual
