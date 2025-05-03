@@ -12,5 +12,6 @@ class HorseExperienceLevel(ParsingEnum):
     BEGINNER = 3
 
     # Alternatives
+    NOV = NOVICE
     NOVICES = NOVICE
     BEGINNERS = BEGINNER
