@@ -1,5 +1,24 @@
 # Changelog
 
+## 0.25.7 (2025-05-04)
+
+#### Refactorings
+
+* make all fields optional in `RaceConditions`
+* accept nov as abbreviation of novice in `RaceDesignation`
+* fix ruff RUF005 - iterable unpacking
+
+#### Fixes
+
+* type amends in `Hemisphere` and `HorseAge`
+
+#### Others
+
+* update pipeline ubuntu to 22.04
+* restore type checking in ci
+* group dev-deps in dependabot
+* extra tests for RaceTitle.parse
+
 ## 0.25.6 (2025-02-08)
 
 #### Others
