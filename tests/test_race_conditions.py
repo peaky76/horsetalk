@@ -13,6 +13,10 @@ from horsetalk import (
 )
 
 
+def test_race_conditions_can_be_initialized_without_any_data():
+    assert RaceConditions()
+
+
 def test_race_conditions_can_be_initialized_with_date_racecourse_distance_going():
     assert RaceConditions(
         datetime=pendulum.parse("2023-06-01 14:00"),
