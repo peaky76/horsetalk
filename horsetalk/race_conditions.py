@@ -26,12 +26,12 @@ class RaceConditions:
 
     """
 
-    datetime: DateTime
-    racecourse: Racecourse
-    distance: RaceDistance
-    going: Going
-    race_designation: RaceDesignation
-    race_level: RaceLevel
+    datetime: DateTime | None = None
+    racecourse: Racecourse | None = None
+    distance: RaceDistance | None = None
+    going: Going | None = None
+    race_designation: RaceDesignation | None = None
+    race_level: RaceLevel | None = None
     stalls_position: StallsPosition | None = None
 
     def __repr__(self):
