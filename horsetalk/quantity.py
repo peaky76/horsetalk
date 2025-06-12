@@ -35,7 +35,7 @@ class HorsetalkQuantity(Q_):  # type: ignore
             args = cls._string_arg_handler(parts)
 
         if not args:
-            args = next(iter(kwargs.items()), None)[::-1]
+            args = next(iter(kwargs.items()), ())[::-1]
 
         instance = Q_.__new__(Q_, *args)
         instance.__class__ = cls
