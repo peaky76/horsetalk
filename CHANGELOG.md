@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.25.8 (2025-06-12)
+
+#### Fixes
+
+* typing and init errors in `HorsetalkQuantity`
+
 ## 0.25.7 (2025-05-04)
 
 #### Refactorings
