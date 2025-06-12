@@ -26,12 +26,12 @@ class HorsetalkQuantity(Q_):  # type: ignore
         """
         if args and isinstance(args[0], str):
             arg = args[0].replace(",", "")
-            if not re.fullmatch(cls.REGEX, arg):
+            if not (match := re.fullmatch(cls.REGEX, arg)):
                 raise AttributeError(
                     f"Invalid {cls.__name__.lower()} string: {args[0]}"
                 )
 
-            parts = re.match(cls.REGEX, arg).groups()
+            parts = match.groups()
             args = cls._string_arg_handler(parts)
 
         if not args:
