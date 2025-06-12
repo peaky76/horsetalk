@@ -1,4 +1,5 @@
 import re
+from typing import Self, cast
 
 from pint import UnitRegistry
 
@@ -12,7 +13,7 @@ Q_ = ureg.Quantity
 class HorsetalkQuantity(Q_):  # type: ignore
     REGEX = r"(\d+(?:\.\d+)?\D+)"
 
-    def __new__(cls, *args, **kwargs):
+    def __new__(cls, *args, **kwargs) -> Self:
         """
         Initializes a HorsetalkQuantity object.
 
@@ -38,7 +39,7 @@ class HorsetalkQuantity(Q_):  # type: ignore
 
         instance = Q_.__new__(Q_, *args)
         instance.__class__ = cls
-        return instance
+        return cast(Self, instance)
 
     def __repr__(self) -> str:
         """
