@@ -4,6 +4,11 @@ import pytest
 from horsetalk import Breed, Horse
 
 
+@pytest.fixture
+def today():
+    return pendulum.date(2023, 1, 1)
+
+
 def test_horse_created_with_just_name_has_correct_name():
     assert Horse("Dobbin").name == "Dobbin"
 
@@ -29,7 +34,9 @@ def test_horse_created_with_name_and_country_has_correct_name():
 
 
 def test_horse_created_with_name_and_country_has_correct_country():
-    assert Horse("Dobbin", "GB").country.name == "GB"
+    country = Horse("Dobbin", "GB").country
+    assert country
+    assert country.name == "GB"
 
 
 def test_horse_created_with_name_and_country_has_correct_age():
@@ -41,35 +48,30 @@ def test_horse_created_with_name_country_and_age_had_correct_name():
 
 
 def test_horse_created_with_name_country_and_age_had_correct_country():
-    assert Horse("Dobbin", "GB", 3).country.name == "GB"
+    country = Horse("Dobbin", "GB", 3).country
+    assert country
+    assert country.name == "GB"
 
 
 def test_horse_created_with_name_country_and_age_had_correct_age():
-    assert Horse("Dobbin", "GB", 3).age.official.years == 3
+    age = Horse("Dobbin", "GB", 3).age
+    assert age
+    assert age.official.years == 3
 
 
 def test_horse_created_with_name_country_age_and_context_date_had_correct_age_for_northern_hemisphere(
-    mocker,
+    today,
 ):
-    mocker.patch("pendulum.today", return_value=pendulum.datetime(2023, 1, 1, 0, 0, 0))
-    assert (
-        Horse("Dobbin", "GB", 3, context_date=pendulum.date(2021, 1, 1))
-        .age.at(pendulum.today().date())
-        .official.years
-        == 5
-    )
+    age = Horse("Dobbin", "GB", 3, context_date=pendulum.date(2021, 1, 1)).age
+    assert age
+    assert age.at(today).official.years == 5
 
 
-def test_horse_created_with_name_country_age_and_context_date_had_correct_age_for_southern_hemisphere(
-    mocker,
-):
-    mocker.patch("pendulum.today", return_value=pendulum.datetime(2024, 7, 1, 0, 0, 0))
-    assert (
-        Horse("Dobbin", "NZ", 3, context_date=pendulum.date(2021, 10, 1))
-        .age.at(pendulum.today().date())
-        .official.years
-        == 5
-    )
+def test_horse_created_with_name_country_age_and_context_date_had_correct_age_for_southern_hemisphere():
+    today = pendulum.date(2024, 7, 1)
+    age = Horse("Dobbin", "NZ", 3, context_date=pendulum.date(2021, 10, 1)).age
+    assert age
+    assert age.at(today).official.years == 5
 
 
 def test_horse_created_from_string_with_country_will_deduce_correct_name():
@@ -77,7 +79,9 @@ def test_horse_created_from_string_with_country_will_deduce_correct_name():
 
 
 def test_horse_created_from_string_with_country_will_deduce_correct_country():
-    assert Horse("Dobbin (GB)").country.name == "GB"
+    country = Horse("Dobbin (GB)").country
+    assert country
+    assert country.name == "GB"
 
 
 def test_horse_created_from_string_with_country_will_deduce_correct_age():
@@ -89,11 +93,15 @@ def test_horse_created_from_string_with_name_country_and_age_will_deduce_correct
 
 
 def test_horse_created_from_string_with_name_country_and_age_will_deduce_correct_country():
-    assert Horse("Dobbin (GB) 3").country.name == "GB"
+    country = Horse("Dobbin (GB) 3").country
+    assert country
+    assert country.name == "GB"
 
 
 def test_horse_created_from_string_with_name_country_and_age_will_deduce_correct_age():
-    assert Horse("Dobbin (GB) 3").age.official.years == 3
+    age = Horse("Dobbin (GB) 3").age
+    assert age
+    assert age.official.years == 3
 
 
 def test_horse_created_from_multi_word_string_with_name_country_and_age_will_deduce_correct_name():
@@ -101,23 +109,23 @@ def test_horse_created_from_multi_word_string_with_name_country_and_age_will_ded
 
 
 def test_horse_created_from_multi_word_string_with_name_country_and_age_will_deduce_correct_country():
-    assert Horse("Dobbin's Delight (GB) 3").country.name == "GB"
+    country = Horse("Dobbin's Delight (GB) 3").country
+    assert country
+    assert country.name == "GB"
 
 
 def test_horse_created_from_multi_word_string_with_name_country_and_age_will_deduce_correct_age():
-    assert Horse("Dobbin's Delight (GB) 3").age.official.years == 3
+    age = Horse("Dobbin's Delight (GB) 3").age
+    assert age
+    assert age.official.years == 3
 
 
 def test_horse_created_from_string_with_name_country_and_age_with_context_date_will_deduce_correct_age(
-    mocker,
+    today,
 ):
-    mocker.patch("pendulum.today", return_value=pendulum.datetime(2023, 1, 1, 0, 0, 0))
-    assert (
-        Horse("Dobbin (GB) 3", context_date=pendulum.date(2021, 1, 1))
-        .age.at(pendulum.today().date())
-        .official.years
-        == 5
-    )
+    age = Horse("Dobbin (GB) 3", context_date=pendulum.date(2021, 1, 1)).age
+    assert age
+    assert age.at(today).official.years == 5
 
 
 def test_horse_created_from_string_with_name_country_and_year_will_deduce_correct_name():
@@ -125,15 +133,18 @@ def test_horse_created_from_string_with_name_country_and_year_will_deduce_correc
 
 
 def test_horse_created_from_string_with_name_country_and_year_will_deduce_correct_country():
-    assert Horse("Dobbin (GB) 2017").country.name == "GB"
+    country = Horse("Dobbin (GB) 2017").country
+    assert country
+    assert country.name == "GB"
 
 
 def test_horse_created_from_string_with_name_country_and_year_will_deduce_correct_age(
     mocker,
 ):
     mocker.patch("pendulum.today", return_value=pendulum.datetime(2023, 1, 1, 0, 0, 0))
-    horse = Horse("Dobbin (GB) 2017")
-    assert horse.age.official.years == 6
+    age = Horse("Dobbin (GB) 2017").age
+    assert age
+    assert age.official.years == 6
 
 
 def test_horse_created_from_string_with_country_will_raise_error_if_conflict_with_provided_country():
