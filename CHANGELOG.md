@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.26.0 (2025-06-14)
+
+#### Refactorings
+
+* use dates not datetimes in `Horse`
+
+#### Others
+
+* handle potential missing age or country in `Horse` tests
+
 ## 0.25.8 (2025-06-12)
 
 #### Fixes
