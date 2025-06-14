@@ -7,7 +7,7 @@ from _typeshed import Incomplete
 from typing import NotRequired, TypedDict
 
 class HorseAgeKwargs(TypedDict):
-    context_date: pendulum.DateTime
+    context_date: pendulum.Date
     hemisphere: NotRequired[Hemisphere]
 
 class Horse:
@@ -16,4 +16,4 @@ class Horse:
     breed: Incomplete
     country: Incomplete
     age: HorseAge | None
-    def __init__(self, name: str, country: Country | str | None = None, age_or_yob: int | None = None, *, context_date: pendulum.DateTime | None = None) -> None: ...
+    def __init__(self, name: str, country: Country | str | None = None, age_or_yob: int | None = None, *, context_date: pendulum.Date | None = None) -> None: ...

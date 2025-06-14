@@ -10,7 +10,7 @@ from .horse_age import HorseAge
 
 
 class HorseAgeKwargs(TypedDict):
-    context_date: pendulum.DateTime
+    context_date: pendulum.Date
     hemisphere: NotRequired[Hemisphere]
 
 
@@ -27,7 +27,7 @@ class Horse:
         name (str): The name of the horse.
         country (str, optional): The country where the horse was bred. Defaults to None.
         age_or_yob (int, optional): The age or year of birth of the horse. Defaults to None.
-        context_date (datetime, optional): The context date used to calculate the age of the horse. Defaults to current date.
+        context_date (date, optional): The context date used to calculate the age of the horse. Defaults to current date.
     """
 
     REGEX = re.compile(
@@ -47,7 +47,7 @@ class Horse:
         country: Country | str | None = None,
         age_or_yob: int | None = None,
         *,
-        context_date: pendulum.DateTime | None = None,
+        context_date: pendulum.Date | None = None,
     ):
         """Initializes the Horse object with name, country, age_or_yob, and context_date.
 
@@ -55,7 +55,7 @@ class Horse:
             name (str): The name of the horse.
             country (str, optional): The country where the horse was bred. Defaults to None.
             age_or_yob (int, optional): The age or year of birth of the horse. Defaults to None.
-            context_date (datetime, optional): The context date used to calculate the age of the horse. Defaults to current date.
+            context_date (date, optional): The context date used to calculate the age of the horse. Defaults to current date.
         """
         match = re.match(Horse.REGEX, name)
 
@@ -63,7 +63,7 @@ class Horse:
             raise ValueError(f"Invalid horse name: {name}")
 
         if not context_date:
-            context_date = pendulum.now()
+            context_date = pendulum.today().date()
 
         self.name = match.group("name")
         self.breed = None if len(self.name) <= 18 else Breed.AQPS

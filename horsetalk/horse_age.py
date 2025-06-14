@@ -1,7 +1,7 @@
 from typing import Self
 
 import pendulum
-from pendulum import DateTime, Interval
+from pendulum import Date, Interval
 
 from .hemisphere import Hemisphere
 
@@ -11,9 +11,9 @@ class HorseAge:
     A class representing the age of a horse.
 
     Attributes:
-        _official_dob (DateTime): The official date of birth of the horse.
-        _actual_dob (DateTime): The actual date of birth of the horse.
-        _context_date (DateTime): The context date for calculating the age of the horse.
+        _official_dob (Date): The official date of birth of the horse.
+        _actual_dob (Date): The actual date of birth of the horse.
+        _context_date (Date): The context date for calculating the age of the horse.
 
     """
 
@@ -21,9 +21,9 @@ class HorseAge:
         self,
         official_age: int | None = None,
         *,
-        foaling_date: DateTime | None = None,
+        foaling_date: Date | None = None,
         birth_year: int | None = None,
-        context_date: DateTime | None = None,
+        context_date: Date | None = None,
         hemisphere: Hemisphere = Hemisphere(1),
     ):
         """
@@ -33,9 +33,9 @@ class HorseAge:
 
         Args:
             official_age (int | None): The official age of the horse.
-            foaling_date (DateTime | None): The actual date of birth of the horse.
+            foaling_date (Date | None): The actual date of birth of the horse.
             birth_year (int | None): The birth year of the horse.
-            context_date (DateTime | None): The context date for calculating the age of the horse.
+            context_date (Date | None): The context date for calculating the age of the horse.
             hemisphere (Hemisphere): The hemisphere where the horse was born. This is used to
                 determine the horse's age based on the hemisphere-specific
                 standard. The default is Hemisphere.NORTHERN.
@@ -84,7 +84,7 @@ class HorseAge:
             )
         )
 
-        self._official_dob = pendulum.datetime(
+        self._official_dob = pendulum.date(
             year - year_adjustment, official_birth_month, 1
         )
 
@@ -134,12 +134,12 @@ class HorseAge:
         return self._calc_age(self._actual_dob)
 
     @property
-    def date_of_birth(self) -> DateTime:
+    def date_of_birth(self) -> Date:
         """
         Get the date of birth of the horse.
 
         Returns:
-            A DateTime object representing the date of birth of the horse.
+            A Date object representing the date of birth of the horse.
         """
         if not self._actual_dob:
             raise ValueError("Actual dob is unknown")
@@ -156,22 +156,22 @@ class HorseAge:
         return self._official_dob.year
 
     @property
-    def _base_date(self) -> DateTime:
+    def _base_date(self) -> Date:
         """
         Get the base date for calculating the age of the horse.
 
         Returns:
-            A DateTime object representing the current date if the context date is not set,
+            A Date object representing the current date if the context date is not set,
             otherwise the context date.
         """
-        return self._context_date or pendulum.now()
+        return self._context_date or pendulum.today().date()
 
-    def at(self, date: DateTime) -> Self:
+    def at(self, date: Date) -> Self:
         """
         Set the context date for calculating the age of the horse.
 
         Args:
-            date: A DateTime object representing the date to set the context to.
+            date: A Date object representing the date to set the context to.
 
         Returns:
             A HorseAge object with the context date set.
@@ -179,18 +179,14 @@ class HorseAge:
         self._context_date = date
         return self
 
-    def _calc_age(self, dob: DateTime) -> Interval:
+    def _calc_age(self, dob: Date) -> Interval:
         """
         Calculate the age of the horse based on its date of birth.
 
         Args:
-            dob: A DateTime object representing the date of birth of the horse.
+            dob: A Date object representing the date of birth of the horse.
 
         Returns:
             A Interval object representing the age of the horse in years, months, and days.
         """
-        return (
-            self._base_date - dob
-            if dob < self._base_date
-            else self._base_date - self._base_date
-        )
+        return max(self._base_date - dob, self._base_date - self._base_date)
