@@ -51,10 +51,10 @@ def test_horse_created_with_name_country_and_age_had_correct_age():
 def test_horse_created_with_name_country_age_and_context_date_had_correct_age_for_northern_hemisphere(
     mocker,
 ):
-    mocker.patch("pendulum.now", return_value=pendulum.datetime(2023, 1, 1))
+    mocker.patch("pendulum.today", return_value=pendulum.datetime(2023, 1, 1, 0, 0, 0))
     assert (
-        Horse("Dobbin", "GB", 3, context_date=pendulum.datetime(2021, 1, 1))
-        .age.at(pendulum.now())
+        Horse("Dobbin", "GB", 3, context_date=pendulum.date(2021, 1, 1))
+        .age.at(pendulum.today().date())
         .official.years
         == 5
     )
@@ -63,10 +63,10 @@ def test_horse_created_with_name_country_age_and_context_date_had_correct_age_fo
 def test_horse_created_with_name_country_age_and_context_date_had_correct_age_for_southern_hemisphere(
     mocker,
 ):
-    mocker.patch("pendulum.now", return_value=pendulum.datetime(2024, 7, 1))
+    mocker.patch("pendulum.today", return_value=pendulum.datetime(2024, 7, 1, 0, 0, 0))
     assert (
-        Horse("Dobbin", "NZ", 3, context_date=pendulum.datetime(2021, 10, 1))
-        .age.at(pendulum.now())
+        Horse("Dobbin", "NZ", 3, context_date=pendulum.date(2021, 10, 1))
+        .age.at(pendulum.today().date())
         .official.years
         == 5
     )
@@ -111,10 +111,10 @@ def test_horse_created_from_multi_word_string_with_name_country_and_age_will_ded
 def test_horse_created_from_string_with_name_country_and_age_with_context_date_will_deduce_correct_age(
     mocker,
 ):
-    mocker.patch("pendulum.now", return_value=pendulum.datetime(2023, 1, 1))
+    mocker.patch("pendulum.today", return_value=pendulum.datetime(2023, 1, 1, 0, 0, 0))
     assert (
-        Horse("Dobbin (GB) 3", context_date=pendulum.datetime(2021, 1, 1))
-        .age.at(pendulum.now())
+        Horse("Dobbin (GB) 3", context_date=pendulum.date(2021, 1, 1))
+        .age.at(pendulum.today().date())
         .official.years
         == 5
     )
@@ -131,7 +131,7 @@ def test_horse_created_from_string_with_name_country_and_year_will_deduce_correc
 def test_horse_created_from_string_with_name_country_and_year_will_deduce_correct_age(
     mocker,
 ):
-    mocker.patch("pendulum.now", return_value=pendulum.datetime(2023, 1, 1))
+    mocker.patch("pendulum.today", return_value=pendulum.datetime(2023, 1, 1, 0, 0, 0))
     horse = Horse("Dobbin (GB) 2017")
     assert horse.age.official.years == 6
 
