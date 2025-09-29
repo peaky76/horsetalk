@@ -41,6 +41,18 @@ def test_gender_sex_raises_error_if_foal():
         Gender["FOAL"].sex
 
 
+def test_gender_has_tests_returns_true_for_entire():
+    assert Gender["ENTIRE"].has_testes
+
+
+def test_gender_has_testes_returns_false_for_female():
+    assert not Gender["MARE"].has_testes
+
+
+def test_gender_has_testes_returns_false_for_gelding():
+    assert not Gender["GELDING"].has_testes
+
+
 def test_gender_determine_returns_correct_value_when_horse_before_first_birthday():
     assert Gender.determine(0) == Gender.FOAL
 
