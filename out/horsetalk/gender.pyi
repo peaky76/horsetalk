@@ -10,12 +10,16 @@ class Gender(ParsingEnum):
     MARE: int
     GELDING: int
     RIG: int
+    ENTIRE: int
+    HORSE: int
     C = COLT
     F = FILLY
     S = STALLION
     M = MARE
     G = GELDING
     R = RIG
+    E = ENTIRE
+    H = HORSE
     FOALS = FOAL
     YEARLINGS = YEARLING
     COLTS = COLT
@@ -24,6 +28,8 @@ class Gender(ParsingEnum):
     MARES = MARE
     GELDINGS = GELDING
     RIGS = RIG
+    ENTIRES = ENTIRE
+    HORSES = HORSE
     @property
     def sex(self): ...
     @staticmethod
