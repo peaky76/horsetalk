@@ -59,6 +59,20 @@ class Gender(ParsingEnum):
 
         return Sex.FEMALE if self in [Gender.FILLY, Gender.MARE] else Sex.MALE
 
+    @property
+    def has_testes(self):
+        """
+        Determine if the horse has testes
+
+        Returns:
+            bool: True if the horse has testes, False otherwise.
+
+        """
+        if self in [Gender.FOAL, Gender.YEARLING]:
+            raise ValueError("Not enough information to determine if horse has testes")
+
+        return self.sex == Sex.MALE and self != Gender.GELDING
+
     @staticmethod
     def determine(official_age: int, sex: Sex | None = None, **kwargs):
         """
