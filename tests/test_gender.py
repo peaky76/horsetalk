@@ -27,6 +27,10 @@ def test_gender_sex_returns_female_for_female_genders():
     assert Gender["FILLY"].sex == Sex.FEMALE
 
 
+def test_gender_sex_returns_male_for_horse():
+    assert Gender["HORSE"].sex == Sex.MALE
+
+
 def test_gender_sex_raises_error_if_yearling():
     with pytest.raises(ValueError):
         Gender["YEARLING"].sex

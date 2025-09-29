@@ -17,6 +17,8 @@ class Gender(ParsingEnum):
     MARE = 5
     GELDING = 6
     RIG = 7
+    ENTIRE = 8
+    HORSE = 9
 
     # Abbreviations
     C = COLT
@@ -25,6 +27,8 @@ class Gender(ParsingEnum):
     M = MARE
     G = GELDING
     R = RIG
+    E = ENTIRE
+    H = HORSE
 
     # Plural
     FOALS = FOAL
@@ -35,6 +39,8 @@ class Gender(ParsingEnum):
     MARES = MARE
     GELDINGS = GELDING
     RIGS = RIG
+    ENTIRES = ENTIRE
+    HORSES = HORSE
 
     @property
     def sex(self):
