@@ -8,7 +8,7 @@ readme = "README.md"
 include = ["**/*.pyi"]
 
 [tool.poetry.dependencies]
-python = "^3.11.0"
+python = ">=3.11,<3.14"
 babel = "^2.17.0"
 peak-utility = "~0"
 pendulum = "^3.0.0"
