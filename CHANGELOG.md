@@ -1,5 +1,22 @@
 # Changelog
 
+# Changelog
+
+## 0.27.0 (2025-09-29)
+
+#### New Features
+
+* `has_testes` property on `Gender`
+
+#### Fixes
+
+* handle `Gender.sex` for horse and entire
+
+#### Others
+
+* bump to python3.13
+* add `skylos`
+
 ## 0.26.0 (2025-06-14)
 
 #### Refactorings
