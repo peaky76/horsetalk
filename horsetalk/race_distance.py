@@ -1,4 +1,5 @@
 from horsetalk.quantity import HorsetalkQuantity
+from horsetalk.race_distance_category import RaceDistanceCategory
 
 
 class RaceDistance(HorsetalkQuantity):
@@ -31,3 +32,17 @@ class RaceDistance(HorsetalkQuantity):
             args = (yards, "yard")
 
         return args
+
+    @property
+    def category(self):
+        f = self.furlongs
+        if f <= 7:
+            return RaceDistanceCategory.SPRINT
+
+        if f <= 9:
+            return RaceDistanceCategory.MILE
+
+        if f <= 13:
+            return RaceDistanceCategory.MIDDLE_DISTANCE
+
+        return RaceDistanceCategory.STAYING

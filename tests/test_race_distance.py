@@ -2,7 +2,7 @@ import re
 
 import pytest
 
-from horsetalk import RaceDistance
+from horsetalk import RaceDistance, RaceDistanceCategory
 
 
 def test_race_distance_regex_with_mile_furlong_and_yard_string():
@@ -92,3 +92,19 @@ def test_race_distance_str():
 
 def test_race_distance_str_when_zero_value_present():
     assert str(RaceDistance("1m5f0y")) == "1m 5f"
+
+
+def test_race_distance_category_when_sprint():
+    assert RaceDistance("6f").category == RaceDistanceCategory.SPRINT
+
+
+def test_race_distance_category_when_mile():
+    assert RaceDistance("1m").category == RaceDistanceCategory.MILE
+
+
+def test_race_distance_category_when_middle_distance():
+    assert RaceDistance("1m 2f").category == RaceDistanceCategory.MIDDLE_DISTANCE
+
+
+def test_race_distance_category_when_staying():
+    assert RaceDistance("1m 6f").category == RaceDistanceCategory.STAYING
