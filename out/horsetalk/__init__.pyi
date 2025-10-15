@@ -28,6 +28,7 @@ from .race_class import RaceClass as RaceClass
 from .race_conditions import RaceConditions as RaceConditions
 from .race_designation import RaceDesignation as RaceDesignation
 from .race_distance import RaceDistance as RaceDistance
+from .race_distance_category import RaceDistanceCategory as RaceDistanceCategory
 from .race_grade import RaceGrade as RaceGrade
 from .race_level import RaceLevel as RaceLevel
 from .race_performance import RacePerformance as RacePerformance
@@ -44,4 +45,4 @@ from .stalls_position import StallsPosition as StallsPosition
 from .surface import Surface as Surface
 from .turf_going_description import TurfGoingDescription as TurfGoingDescription
 
-__all__ = ['AWGoingDescription', 'AgeCategory', 'AgeRestriction', 'Breed', 'CoatColour', 'Country', 'DirtGoingDescription', 'Disaster', 'Draw', 'FinishingPosition', 'FormBreak', 'FormFigures', 'Gender', 'Going', 'Handedness', 'Headgear', 'Hemisphere', 'Horse', 'HorseAge', 'HorseExperienceLevel', 'HorseHeight', 'Horselength', 'JockeyExperienceLevel', 'JumpCategory', 'ObstacleStyle', 'Outcome', 'RaceClass', 'RaceConditions', 'RaceDesignation', 'RaceDistance', 'RaceGrade', 'RaceLevel', 'RacePerformance', 'RaceTitle', 'RaceWeight', 'Racecourse', 'RacecourseContour', 'RacecourseShape', 'RacecourseStyle', 'RacingCode', 'Sex', 'Silks', 'StallsPosition', 'Surface', 'TurfGoingDescription']
+__all__ = ['AWGoingDescription', 'AgeCategory', 'AgeRestriction', 'Breed', 'CoatColour', 'Country', 'DirtGoingDescription', 'Disaster', 'Draw', 'FinishingPosition', 'FormBreak', 'FormFigures', 'Gender', 'Going', 'Handedness', 'Headgear', 'Hemisphere', 'Horse', 'HorseAge', 'HorseExperienceLevel', 'HorseHeight', 'Horselength', 'JockeyExperienceLevel', 'JumpCategory', 'ObstacleStyle', 'Outcome', 'RaceClass', 'RaceConditions', 'RaceDesignation', 'RaceDistance', 'RaceDistanceCategory', 'RaceGrade', 'RaceLevel', 'RacePerformance', 'RaceTitle', 'RaceWeight', 'Racecourse', 'RacecourseContour', 'RacecourseShape', 'RacecourseStyle', 'RacingCode', 'Sex', 'Silks', 'StallsPosition', 'Surface', 'TurfGoingDescription']

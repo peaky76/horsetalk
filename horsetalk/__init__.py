@@ -28,6 +28,7 @@ from .race_class import RaceClass
 from .race_conditions import RaceConditions
 from .race_designation import RaceDesignation
 from .race_distance import RaceDistance
+from .race_distance_category import RaceDistanceCategory
 from .race_grade import RaceGrade
 from .race_level import RaceLevel
 from .race_performance import RacePerformance
@@ -75,6 +76,7 @@ __all__ = [
     "RaceConditions",
     "RaceDesignation",
     "RaceDistance",
+    "RaceDistanceCategory",
     "RaceGrade",
     "RaceLevel",
     "RacePerformance",
