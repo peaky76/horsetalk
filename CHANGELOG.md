@@ -1,6 +1,10 @@
 # Changelog
 
-# Changelog
+## 0.28.0 (2025-10-15)
+
+#### New Features
+
+* `category` property on `RaceDistance`
 
 ## 0.27.0 (2025-09-29)
 
