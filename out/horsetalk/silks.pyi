@@ -1,4 +1,5 @@
 from _typeshed import Incomplete
+from collections.abc import Callable as Callable
 from peak_utility.enumeration.parsing_enum import ParsingEnum
 
 class Silks:
