@@ -2,6 +2,7 @@ from .going_description import GoingDescription as GoingDescription
 
 class TurfGoingDescription(GoingDescription):
     HEAVY: int
+    SOFT_TO_HEAVY: float
     SOFT: int
     YIELDING_TO_SOFT: float
     GOOD_TO_SOFT: int
@@ -10,6 +11,7 @@ class TurfGoingDescription(GoingDescription):
     GOOD: int
     GOOD_TO_FIRM: int
     FIRM: int
+    FIRM_TO_HARD: float
     HARD: int
     V = HEAVY
     HV = HEAVY

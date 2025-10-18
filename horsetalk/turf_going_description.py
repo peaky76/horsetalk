@@ -9,6 +9,7 @@ class TurfGoingDescription(GoingDescription):
     """
 
     HEAVY = 5
+    SOFT_TO_HEAVY = 5.5
     SOFT = 6
     YIELDING_TO_SOFT = 6.5
     GOOD_TO_SOFT = 7
@@ -17,6 +18,7 @@ class TurfGoingDescription(GoingDescription):
     GOOD = 8
     GOOD_TO_FIRM = 9
     FIRM = 10
+    FIRM_TO_HARD = 10.5
     HARD = 11
 
     # Abbreviations
