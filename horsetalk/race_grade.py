@@ -45,8 +45,7 @@ class RaceGrade(RepresentationalInt):
             next(
                 (x for x in ["grade", "group"] if x in str(grade).lower()),
                 "default",
-            ),
-            None,
+            )
         )
 
         if code_from_grade and racing_code and code_from_grade != racing_code:
