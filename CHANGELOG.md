@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.28.1 (2025-10-18)
+
+#### Fixes
+
+* add Soft to Heavy, Firm to Hard goings
+
+#### Refactorings
+
+* update imports and typing
+
 ## 0.28.0 (2025-10-15)
 
 #### New Features
