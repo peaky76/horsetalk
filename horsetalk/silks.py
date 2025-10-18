@@ -1,5 +1,6 @@
 import operator
-from typing import Callable, Optional
+from collections.abc import Callable
+from typing import Optional
 
 from peak_utility.enumeration.parsing_enum import ParsingEnum  # type: ignore
 
