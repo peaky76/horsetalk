@@ -1,7 +1,7 @@
 from decimal import Decimal, InvalidOperation
 from enum import Enum
 from fractions import Fraction
-from typing import Optional, Self
+from typing import Self
 
 
 class Horselength(Decimal):
@@ -38,11 +38,11 @@ class Horselength(Decimal):
         DIST = DISTANCE
         DST = DISTANCE
 
-    def __new__(cls, value: Optional[float | Decimal | str] = None) -> Self:
+    def __new__(cls, value: float | Decimal | str | None = None) -> Self:
         """Create a new horselength instance
 
         :param value: Either a description or a number, representing the horselength, defaults to None
-        :type value: Optional[float | Decimal |  str], optional
+        :type value: float | Decimal |  str, optional
         :raises ValueError: For invalid inputs
         :return: A new horselength instance
         :rtype: Self
