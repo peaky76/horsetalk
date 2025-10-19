@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.29.0 (2025-10-19)
+
+#### New Features
+
+* "on bends" as alternative secondary `Going` descriptor
+
 ## 0.28.2 (2025-10-19)
 
 #### Fixes
