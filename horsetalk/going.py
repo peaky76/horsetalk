@@ -181,6 +181,8 @@ class Going:
             "round": "straight",
             "turf": "aw",
             "aw": "turf",
+            "cross country": "regular",
+            "regular": "cross country",
         }
 
         if not any(x in description.lower() for x in opposites):
