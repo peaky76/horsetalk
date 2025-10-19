@@ -183,6 +183,10 @@ class Going:
             "aw": "turf",
             "cross country": "regular",
             "regular": "cross country",
+            "nh": "flat",
+            "flat": "nh",
+            "mildmay": "national",
+            "national": "mildmay",
         }
 
         if not any(x in description.lower() for x in opposites):
