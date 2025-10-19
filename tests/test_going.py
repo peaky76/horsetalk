@@ -111,6 +111,12 @@ def test_going_str_when_secondary_is_multi_word():
     )
 
 
+def test_going_str_when_secondary_is_on_bends():
+    assert (
+        Going("GOOD, GOOD TO SOFT ON BENDS").__str__() == "Good, Good to Soft on bends"
+    )
+
+
 def test_going_hash():
     assert hash(Going("Good, Good to Soft in places")) == hash(
         Going("Good, Good to Soft in places")
