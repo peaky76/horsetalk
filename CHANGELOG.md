@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.28.2 (2025-10-19)
+
+#### Fixes
+
+* handle cross country in `Going.multiparse`
+* handle turf as opposite of aw in `Going.multiparse`
+
 ## 0.28.1 (2025-10-18)
 
 #### Fixes
