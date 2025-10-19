@@ -207,3 +207,10 @@ def test_going_multiparse_when_split_is_turf_vs_all_weather():
         "turf": Going("Good to Firm"),
         "aw": Going("Standard to Slow"),
     }
+
+
+def test_going_multiparse_when_split_is_cross_country():
+    assert Going.multiparse("Soft (Heavy in places Cross Country course)") == {
+        "regular": Going("Soft"),
+        "cross country": Going("Soft, Heavy in places"),
+    }
