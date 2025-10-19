@@ -200,3 +200,10 @@ def test_going_multiparse_with_initial_identifier():
         "chase": Going("Soft, Good to Soft in places"),
         "hurdle": Going("Soft, Heavy in places"),
     }
+
+
+def test_going_multiparse_when_split_is_turf_vs_all_weather():
+    assert Going.multiparse("Turf course Good to Firm, AW course Standard to Slow") == {
+        "turf": Going("Good to Firm"),
+        "aw": Going("Standard to Slow"),
+    }

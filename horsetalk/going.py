@@ -179,8 +179,8 @@ class Going:
             "new": "old",
             "straight": "round",
             "round": "straight",
-            "flat": "aw",
-            "aw": "flat",
+            "turf": "aw",
+            "aw": "turf",
         }
 
         if not any(x in description.lower() for x in opposites):
