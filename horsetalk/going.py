@@ -52,7 +52,7 @@ class Going:
         """
         primary_str = self.primary.name.title()
         secondary_str = self.secondary.name.title() if self.secondary else ""
-        return f"{primary_str}{', ' + secondary_str + ' in places' if secondary_str else ''}".replace(
+        return f"{primary_str}{', ' + secondary_str + ' ' + self._secondary_descriptor if secondary_str else ''}".replace(
             "_", " "
         ).replace(" To", " to")
 
@@ -127,7 +127,12 @@ class Going:
         Returns:
             The parts of the description.
         """
-        texts = self.description.upper().replace(" IN PLACES", "").split(", ")
+        texts = (
+            self.description.upper()
+            .replace(" IN PLACES", "")
+            .replace(" ON BENDS", "")
+            .split(", ")
+        )
 
         if len(texts) == 2:
             if texts[0] == texts[1]:
@@ -135,6 +140,16 @@ class Going:
             return texts
 
         return [*texts, ""]
+
+    @property
+    def _secondary_descriptor(self) -> str:
+        if "IN PLACES" in self.description:
+            return "in places"
+
+        if "ON BENDS" in self.description:
+            return "on bends"
+
+        return ""
 
     @classmethod
     def _lookup(cls, key: str) -> GoingDescription:
