@@ -215,15 +215,19 @@ def test_going_multiparse_when_split_is_turf_vs_all_weather():
     }
 
 
-def test_going_multiparse_when_split_is_cross_country():
-    assert Going.multiparse("Soft (Heavy in places Cross Country course)") == {
-        "regular": Going("Soft"),
+def test_going_multiparse_when_split_is_cross_country_with_hyphen():
+    assert Going.multiparse("Soft (Heavy in places Cross-Country course)") == {
+        "chase": Going("Soft"),
+        "hurdle": Going("Soft"),
         "cross country": Going("Soft, Heavy in places"),
     }
 
 
-def test_going_multiparse_when_split_is_cross_country_with_hyphen():
-    assert Going.multiparse("Soft (Heavy in places Cross-Country course)") == {
-        "regular": Going("Soft"),
-        "cross country": Going("Soft, Heavy in places"),
+def test_going_multiparse_when_triple_courses_specified():
+    assert Going.multiparse(
+        "Chase course Heavy, Hurdles and Cross-Country course Soft to Heavy"
+    ) == {
+        "chase": Going("Heavy"),
+        "hurdle": Going("Soft to Heavy"),
+        "cross country": Going("Soft to Heavy"),
     }
