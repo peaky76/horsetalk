@@ -6,6 +6,10 @@
 
 * "on bends" as alternative secondary `Going` descriptor
 
+#### Fixes
+
+* nh/flat and mildmay/national opposites in `Going.multiparse`
+
 ## 0.28.2 (2025-10-19)
 
 #### Fixes
