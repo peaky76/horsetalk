@@ -220,3 +220,10 @@ def test_going_multiparse_when_split_is_cross_country():
         "regular": Going("Soft"),
         "cross country": Going("Soft, Heavy in places"),
     }
+
+
+def test_going_multiparse_when_split_is_cross_country_with_hyphen():
+    assert Going.multiparse("Soft (Heavy in places Cross-Country course)") == {
+        "regular": Going("Soft"),
+        "cross country": Going("Soft, Heavy in places"),
+    }
