@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.29.1 (2025-10-23)
+
+#### Fixes
+
+* handle hyphened cross-country in `Going`
+
 ## 0.29.0 (2025-10-19)
 
 #### New Features
