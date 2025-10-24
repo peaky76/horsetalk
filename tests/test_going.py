@@ -215,6 +215,13 @@ def test_going_multiparse_when_split_is_turf_vs_all_weather():
     }
 
 
+def test_going_multiparse_when_split_is_national_vs_mildmay():
+    assert Going.multiparse("Good to Firm, National course Good to Soft") == {
+        "mildmay": Going("Good to Firm"),
+        "national": Going("Good to Soft"),
+    }
+
+
 def test_going_multiparse_when_split_is_cross_country_with_hyphen():
     assert Going.multiparse("Soft (Heavy in places Cross-Country course)") == {
         "chase": Going("Soft"),
