@@ -226,8 +226,8 @@ class Going:
 
         def strip_clause(x, y):
             return (
-                x.replace("on", "")
-                .replace("course", "")
+                x.replace(" on", "")
+                .replace(" course", "")
                 .replace(":", "")
                 .replace(y, "")
                 .strip()
