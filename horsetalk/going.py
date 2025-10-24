@@ -185,24 +185,16 @@ class Going:
         Returns:
             A dict of Going objects.
         """
-        opposites = {
-            "hurdle": "chase",
-            "chase": "hurdle",
-            "inner": "outer",
-            "outer": "inner",
-            "old": "new",
-            "new": "old",
-            "straight": "round",
-            "round": "straight",
-            "turf": "aw",
-            "aw": "turf",
-            "cross country": "regular",
-            "regular": "cross country",
-            "nh": "flat",
-            "flat": "nh",
-            "mildmay": "national",
-            "national": "mildmay",
-        }
+        combos = (
+            ("hurdle", "chase"),
+            ("inner", "outer"),
+            ("old", "new"),
+            ("straight", "round"),
+            ("turf", "aw"),
+            ("flat", "nh"),
+            ("mildmay", "national"),
+            ("regular", "cross country"),
+        )
 
         normalised_description = (
             description.lower()
@@ -212,17 +204,33 @@ class Going:
             .replace("-", " ")
         )
 
-        if not any(x in normalised_description for x in opposites):
+        if not any(
+            item in normalised_description for combo in combos for item in combo
+        ):
             return {"default": Going(description)}
 
         clauses = normalised_description.split(",")
         for i, clause in enumerate(clauses):
-            if not any(x in clause for x in opposites) and "in places" in clause:
+            if (
+                not any(item in clause for combo in combos for item in combo)
+                and "in places" in clause
+            ):
                 clauses[i - 1] = clauses[i - 1].strip() + ", " + clause
                 clauses[i] = ""
         clauses = [x for x in clauses if x]
 
-        identifier = next(x for x in opposites if x in normalised_description)
+        identifier = next(
+            item for combo in combos for item in combo if item in normalised_description
+        )
+        coidentifier = next(
+            item
+            for combo in combos
+            if identifier in combo
+            for item in combo
+            if item != identifier
+        )
+
+        print(identifier, coidentifier)
 
         def strip_clause(x, y):
             return (
@@ -245,5 +253,5 @@ class Going:
 
         return {
             i: Going(reconstructed_going_description(i, clauses))
-            for i in [identifier, opposites[identifier]]
+            for i in [identifier, coidentifier]
         }
