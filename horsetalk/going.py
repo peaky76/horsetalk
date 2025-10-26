@@ -174,7 +174,9 @@ class Going:
         raise ValueError(f"Unknown going description: {key}")
 
     @staticmethod
-    def multiparse(description: str) -> dict[str, "Going"]:
+    def multiparse(
+        description: str, *, courses: tuple[str] | None = None
+    ) -> dict[str, "Going"]:
         """
         Sometimes goings are given for multiple courses, e.g. turf and all weather, chase and hurdle in the same string.
         This will parse these into a dict of Going objects, keyed by an identifier for each course
@@ -186,14 +188,16 @@ class Going:
             A dict of Going objects.
         """
         combos = (
-            ("hurdle", "chase"),
-            ("inner", "outer"),
-            ("old", "new"),
-            ("straight", "round"),
-            ("turf", "aw"),
-            ("flat", "nh"),
-            ("mildmay", "national"),
-            ("regular", "cross country"),
+            (courses,)
+            if courses
+            else (
+                ("hurdle", "chase"),
+                ("inner", "outer"),
+                ("old", "new"),
+                ("straight", "round"),
+                ("turf", "aw"),
+                ("flat", "nh"),
+            )
         )
 
         normalised_description = (
@@ -219,39 +223,33 @@ class Going:
                 clauses[i] = ""
         clauses = [x for x in clauses if x]
 
-        identifier = next(
-            item for combo in combos for item in combo if item in normalised_description
-        )
-        coidentifier = next(
-            item
+        identifiers = next(
+            combo
             for combo in combos
-            if identifier in combo
-            for item in combo
-            if item != identifier
+            if any(item in normalised_description for item in combo)
         )
 
-        print(identifier, coidentifier)
-
-        def strip_clause(x, y):
+        def strip_clause(x):
+            for i in identifiers:
+                x = x.replace(f"{i}", "").replace("  ", " ")
             return (
                 x.replace(" on", "")
                 .replace(" course", "")
+                .replace(" and", "")
                 .replace(":", "")
-                .replace(y, "")
                 .strip()
             )
 
         def reconstructed_going_description(identifier: str, clauses: list[str]) -> str:
             containing_clause = next((x for x in clauses if identifier in x), "")
             return (
-                f"{clauses[0]}, {strip_clause(containing_clause, identifier)} in places"
+                f"{clauses[0]}, {strip_clause(containing_clause)} in places"
                 if "in places" in containing_clause and "," not in containing_clause
-                else strip_clause(containing_clause, identifier)
+                else strip_clause(containing_clause)
                 if containing_clause
                 else clauses[0]
             )
 
         return {
-            i: Going(reconstructed_going_description(i, clauses))
-            for i in [identifier, coidentifier]
+            i: Going(reconstructed_going_description(i, clauses)) for i in identifiers
         }
