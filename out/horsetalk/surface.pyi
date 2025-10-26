@@ -7,6 +7,7 @@ class Surface(ParsingEnum):
     POLYTRACK: int
     TAPETA: int
     FIBRESAND: int
+    SAND: int
     T = TURF
     D = DIRT
     AW = ALL_WEATHER
