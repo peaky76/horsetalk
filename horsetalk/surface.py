@@ -13,6 +13,7 @@ class Surface(ParsingEnum):
     POLYTRACK = 4
     TAPETA = 5
     FIBRESAND = 6
+    SAND = 7
 
     # Abbreviations
     T = TURF
