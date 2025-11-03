@@ -1184,14 +1184,14 @@ test = ["time-machine (>=2.6.0) ; implementation_name != \"pypy\""]
 
 [[package]]
 name = "pint"
-version = "0.25"
+version = "0.25.1"
 description = "Physical quantities module"
 optional = false
 python-versions = ">=3.11"
 groups = ["main"]
 files = [
-    {file = "pint-0.25-py3-none-any.whl", hash = "sha256:cc20ae3dff010b9bbea41fb80c2de008f683cc83512cea73633d55aead80aa1e"},
-    {file = "pint-0.25.tar.gz", hash = "sha256:22911a30d682ee0540d656571c19a7b1806ce00b2be88a16f67218108b7b8cc2"},
+    {file = "pint-0.25.1-py3-none-any.whl", hash = "sha256:b13dc42d0effa2d98b621b06eb0f2990d262c655c8893f6d40a74c334f9aa6b4"},
+    {file = "pint-0.25.1.tar.gz", hash = "sha256:34e6f89bfbfca94f29bde65c9ea42c1c56e05426692c655a3ee6f3ca2a92d252"},
 ]
 
 [package.dependencies]
@@ -1205,7 +1205,7 @@ all = ["babel (<=2.8)", "dask (<2025.3.0)", "matplotlib", "mip (>=1.13) ; python
 babel = ["babel (<=2.8)"]
 codspeed = ["pytest", "pytest-benchmark", "pytest-codspeed", "pytest-cov", "pytest-mpl", "pytest-subtests"]
 dask = ["dask (<2025.3.0)"]
-docs = ["babel", "commonmark (==0.8.1)", "docutils", "graphviz", "ipykernel", "ipython (<=8.12)", "jupyter-client", "nbsphinx", "pooch", "pygments (>=2.4)", "recommonmark (==0.5.0)", "sciform", "scipy", "serialize", "sparse", "sphinx (>=6,<8.2)", "sphinx-book-theme (>=1.1.0)", "sphinx-copybutton", "sphinx-design"]
+docs = ["babel", "commonmark (==0.8.1)", "currencyconverter", "docutils", "graphviz", "ipykernel", "ipython (<=8.12)", "jupyter-client", "nbsphinx", "pooch", "pygments (>=2.4)", "recommonmark (==0.5.0)", "sciform", "scipy", "serialize", "sparse", "sphinx (>=6,<8.2)", "sphinx-book-theme (>=1.1.0)", "sphinx-copybutton", "sphinx-design"]
 matplotlib = ["matplotlib"]
 mip = ["mip (>=1.13) ; python_version < \"3.13\""]
 numpy = ["numpy (>=1.23)"]
