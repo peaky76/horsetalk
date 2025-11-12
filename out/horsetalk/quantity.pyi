@@ -1,7 +1,8 @@
 from _typeshed import Incomplete
+from pint import UnitRegistry
 from typing import Self
 
-ureg: Incomplete
+ureg: UnitRegistry
 Q_: Incomplete
 
 class HorsetalkQuantity(Q_):
