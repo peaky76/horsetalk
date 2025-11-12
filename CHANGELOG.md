@@ -1,5 +1,24 @@
 # Changelog
 
+## 0.30.0 (2025-11-12)
+
+#### New Features
+
+* add `Sand` as `Surface` option
+
+#### Refactors
+
+* replace track opposites with combos in `Going`
+
+#### Fixes
+
+* triple courses in `Going.multiparse`
+* only replace 'on' when it is a word in `Going`
+
+#### Others
+
+* configure CodSpeed for new version
+
 ## 0.29.1 (2025-10-23)
 
 #### Fixes
